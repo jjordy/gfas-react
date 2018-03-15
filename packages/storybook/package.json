@@ -1,0 +1,18 @@
+{
+  "name": "storybook",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "start-storybook -p 9001 -c .storybook"
+  },
+  "dependencies": {
+    "@storybook/react": "^3.3.15",
+    "gfas-react-datagrid": "^1.0.14",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-virtualized": "^9.18.5",
+    "semantic-ui-react": "^0.78.3",
+    "uuid": "^3.2.1"
+  }
+}
