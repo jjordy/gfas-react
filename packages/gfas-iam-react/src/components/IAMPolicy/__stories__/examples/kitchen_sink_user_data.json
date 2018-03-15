@@ -1,0 +1,13 @@
+{
+  "token": {
+    "email": "jordanrileyaddison@gmail.com",
+    "userTypes": ["user", "administrator"],
+    "groups": ["myApp"]
+  },
+  "claims": [
+    {
+      "claimType": "customClaimType",
+      "claimValue": "parent"
+    }
+  ]
+}

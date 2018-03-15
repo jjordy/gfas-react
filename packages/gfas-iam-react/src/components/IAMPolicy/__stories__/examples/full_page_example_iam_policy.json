@@ -1,0 +1,16 @@
+{
+  "version": "2012-10-17",
+  "id": "1",
+  "statement": [
+    {
+      "action": "MemberDetailPage",
+      "effect": "Allow",
+      "resource": "*",
+      "conditions": [
+        {
+          "rules": { "includes": { "$token.userTypes": "datacheck_administrator" } }
+        }
+      ]
+    }
+  ]
+}
