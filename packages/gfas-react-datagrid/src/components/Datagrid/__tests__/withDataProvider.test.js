@@ -2,7 +2,7 @@ import React from 'react'
 import withDataProvider from '../withDataProvider'
 import { testData } from '../../../../test/testData'
 import { shallow } from 'enzyme'
-import moment from 'moment'
+import { format } from 'date-fns'
 
 const TestCol = () => <div />
 
@@ -41,7 +41,7 @@ describe('withDataProvider', () => {
     it('Should format any date columns to UTC timestamp in data prop', () => {
       const dg = _wrapper.find('TC')
       expect(dg.prop('data')[0].date).toEqual(
-        Date.parse(moment(testData[0].date, 'YYYY-MM-DD').format('MM/DD/YYYY'))
+        Date.parse(format(testData[0].date, 'MM/DD/YYYY'))
       )
     })
 

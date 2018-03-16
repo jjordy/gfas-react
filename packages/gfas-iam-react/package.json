@@ -2,13 +2,14 @@
   "name": "gfas-iam-react",
   "version": "0.0.1",
   "description": "React Utilities for Dealing with IAM Policies",
-  "main": "./lib/components",
-  "module": "./lib/components",
+  "main": "./lib/components/IAMPolicy",
+  "module": "./lib/components/IAMPolicy",
   "scripts": {
     "build": "better-npm-run build",
     "dev": "npm run storybook",
     "lint": "eslint src test",
     "lint:fix": "eslint src test --fix",
+    "prepublish": "npm run build",
     "start": "better-npm-run dev",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "better-npm-run test",
@@ -16,7 +17,7 @@
   },
   "betterScripts": {
     "build": {
-      "command": "rimraf lib && mkdirp lib && babel ./src/ -d . --ignore __tests__, __stories__ --out-dir lib",
+      "command": "rimraf lib && mkdirp lib && babel ./src/ -d . --ignore __tests__ --out-dir lib",
       "env": {
         "NODE_ENV": "production"
       }

@@ -2,15 +2,14 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { AutoSizer, Grid, ScrollSync } from 'react-virtualized'
 import cn from 'classnames'
-import isDateValid from 'date-fns/is_valid'
-import formatDate from 'date-fns/format'
+import { format as formatDate, isValid as isDateValid } from 'date-fns'
 import parse from 'date-fns/parse'
 import scrollbarSize from 'dom-helpers/util/scrollbarSize'
 import withDataProvider from './withDataProvider'
 import withSearchProvider from './withSearchProvider'
 import { compose } from './util'
 
-class GridExample extends Component {
+class DataGrid extends Component {
   constructor (props) {
     super(props)
 
@@ -159,7 +158,7 @@ class GridExample extends Component {
   }
 }
 
-GridExample.propTypes = {
+DataGrid.propTypes = {
   activeSort: PropTypes.string,
   asc: PropTypes.bool.isRequired,
   toggleSort: PropTypes.func.isRequired,
@@ -172,4 +171,4 @@ GridExample.propTypes = {
   rowHighlightKey: PropTypes.string
 }
 
-export default compose(withDataProvider, withSearchProvider)(GridExample)
+export default compose(withDataProvider, withSearchProvider)(DataGrid)

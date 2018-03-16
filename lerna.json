@@ -3,5 +3,7 @@
   "packages": [
     "packages/*"
   ],
+  "hoist": true,
+  "npmClient": "yarn",
   "version": "independent"
 }

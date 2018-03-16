@@ -1,6 +1,6 @@
 import React from 'react'
 import { Header, Form, Container } from 'semantic-ui-react'
-import { iamDisabled, IAMPolicy, IAMVisible } from '../'
+import { iamDisabled, IAMPolicy, IAMVisible } from 'gfas-iam-react'
 
 const MyTestComponent = ({ policy, userData }) => (
   <div>

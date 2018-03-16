@@ -1,14 +1,26 @@
 import React from 'react'
 import { Grid, Header, Message, Dimmer } from 'semantic-ui-react'
-import { IAMPolicy } from '../'
+import { IAMPolicy } from 'gfas-iam-react/lib/components/IAMPolicy'
 import { action } from '@storybook/addon-actions'
-
 import JSONEditor from './JSONEditor'
 
 export default class LiveEditor extends React.Component {
-  state = { livePolicy: null, invalid: false, userData: null, deny: false }
+  state = {
+    livePolicy: null,
+    invalid: false,
+    userData: null,
+    deny: false,
+    error: null
+  };
+  componentDidCatch (err) {
+    console.log(err)
+    this.setState({ error: err })
+  }
   componentWillMount () {
-    this.setState({ livePolicy: this.props.policy, userData: this.props.userData })
+    this.setState({
+      livePolicy: this.props.policy,
+      userData: this.props.userData
+    })
   }
   onEditorUpdate = ({ iam, user }) => {
     try {
@@ -18,14 +30,14 @@ export default class LiveEditor extends React.Component {
     } catch (err) {
       this.setState({ invalid: true, userData: null, livePolicy: null })
     }
-  }
+  };
 
   onDeny = errors => {
     if (errors) {
       action('DENIED')(errors)
       this.setState({ deny: true })
     }
-  }
+  };
 
   handleUpdateUserTypes = userTypes => {
     const keys = Object.keys(userTypes)
@@ -35,7 +47,7 @@ export default class LiveEditor extends React.Component {
     this.setState({
       userData: Object.assign({}, this.state.userData, { token: newToken })
     })
-  }
+  };
 
   handleUpdateGroups = groups => {
     const keys = Object.keys(groups)
@@ -45,12 +57,12 @@ export default class LiveEditor extends React.Component {
     this.setState({
       userData: Object.assign({}, this.state.userData, { token: newToken })
     })
-  }
+  };
 
   onAllow = () => {
     action('ALLOWED')()
     this.setState({ deny: false })
-  }
+  };
 
   render () {
     const { livePolicy, invalid, userData } = this.state
@@ -58,6 +70,7 @@ export default class LiveEditor extends React.Component {
     return (
       <Grid.Row>
         <Grid.Column>
+          {this.state.error && <div>{this.state.error}</div>}
           {this.state.deny && deny}
           {userData &&
             livePolicy && (

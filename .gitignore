@@ -11,6 +11,6 @@ coverage-server.txt
 /webpack-stats.json
 /webpack-assets.json
 lib
-
+.vscode
 batches.json
 batchDetail.json
