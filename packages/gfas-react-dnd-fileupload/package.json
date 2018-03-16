@@ -1,9 +1,9 @@
 {
-  "name": "gfas-react-datagrid",
-  "version": "1.0.14",
-  "description": "Composable Datagrid for react",
-  "main": "./lib",
-  "module": "./lib",
+  "name": "gfas-react-dnd-fileupload",
+  "version": "0.0.3",
+  "description": "Composable Drag and drop file upload for react",
+  "main": "./lib/components",
+  "module": "./lib/components",
   "scripts": {
     "build": "better-npm-run build",
     "dev": "npm run storybook",
@@ -17,7 +17,7 @@
   },
   "betterScripts": {
     "build": {
-      "command": "rimraf lib && mkdirp lib && babel ./src/components -d . --ignore __tests__ --out-dir lib && cp src/components/Datagrid/grid.css lib/grid.css",
+      "command": "rimraf lib && mkdirp lib && babel ./src/ -d . --ignore __tests__ --out-dir lib",
       "env": {
         "NODE_ENV": "production"
       }
@@ -45,20 +45,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jjordy/gfas-react-components.git"
+    "url": "https://github.com/jjordy/gfas-react-dnd-fileupload.git"
   },
   "author": "Jordan Addison <jordanrileyaddison@gmail.com> (http://github.com/jjordy)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jjordy/Universal-React-Min/issues"
+    "url": "https://github.com/jjordy/gfas-react-dnd-fileupload/issues"
   },
-  "homepage": "https://github.com/jjordy/Universal-React-Min",
+  "homepage": "https://github.com/jjordy/gfas-react-dnd-fileupload",
   "peerDependencies": {
     "prop-types": "15 || 16",
     "react": "15 || 16",
     "react-dom": "15 || 16",
-    "semantic-ui-react": "*",
-    "react-virtualized": "*"
+    "semantic-ui-react": "*"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",
@@ -69,10 +68,6 @@
     "rimraf": "^2.5.4"
   },
   "dependencies": {
-    "classnames": "^2.2.5",
-    "date-fns": "^1.29.0",
-    "dom-helpers": "^3.2.1",
-    "fuse.js": "^3.2.0",
-    "uuid": "^3.1.0"
+    "react-dropzone": "^4.2.1"
   }
 }

@@ -46,7 +46,6 @@ export default function DataProvider (C) {
           dateColumns.map(column => {
             let newDate = 'N/A'
             if (!isNaN(Date.parse(item[column.id]))) {
-              console.log()
               newDate = Date.parse(formatDate(item[column.id], 'MM/DD/YYYY'))
             }
             newItem[column.id] = newDate
