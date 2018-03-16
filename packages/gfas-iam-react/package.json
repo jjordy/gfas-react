@@ -1,6 +1,6 @@
 {
   "name": "gfas-iam-react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React Utilities for Dealing with IAM Policies",
   "main": "./lib/components/IAMPolicy",
   "module": "./lib/components/IAMPolicy",

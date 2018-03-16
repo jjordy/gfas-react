@@ -1,6 +1,6 @@
 {
   "name": "gfas-react-datagrid",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Composable Datagrid for react",
   "main": "./lib",
   "module": "./lib",
@@ -57,8 +57,8 @@
     "prop-types": "15 || 16",
     "react": "15 || 16",
     "react-dom": "15 || 16",
-    "semantic-ui-react": "*",
-    "react-virtualized": "*"
+    "react-virtualized": "*",
+    "semantic-ui-react": "*"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",

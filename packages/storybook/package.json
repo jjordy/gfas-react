@@ -1,6 +1,6 @@
 {
   "name": "storybook",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -13,9 +13,9 @@
     "babel-core": "^6.26.0",
     "deep-equal": "^1.0.1",
     "eslint": "^4.9.0",
-    "gfas-iam-react": "^0.0.1",
-    "gfas-react-datagrid": "^1.0.14",
-    "gfas-react-dnd-fileupload": "^0.0.3",
+    "gfas-iam-react": "^0.0.2",
+    "gfas-react-datagrid": "^1.0.15",
+    "gfas-react-dnd-fileupload": "^0.0.4",
     "lodash": "^4.17.5",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
