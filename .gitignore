@@ -14,3 +14,5 @@ lib
 .vscode
 batches.json
 batchDetail.json
+lerna-debug.log
+yarn-error.log

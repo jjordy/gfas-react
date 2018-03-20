@@ -5,7 +5,8 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "start": "start-storybook -p 9001 -c .storybook"
+    "start": "start-storybook -p 9001 -c .storybook",
+    "build-docs": "build-storybook -c .storybook -o ../../www"
   },
   "dependencies": {
     "@storybook/addon-actions": "^3.3.15",
@@ -21,6 +22,7 @@
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-test-renderer": "^16.2.0",
     "react-virtualized": "^9.18.5",
     "semantic-ui-react": "^0.78.3",
     "uuid": "^3.2.1"

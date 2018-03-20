@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import Dropzone from 'react-dropzone'
-import { Button, Progress, Segment } from 'semantic-ui-react'
+import { Button, Progress, Segment, Sidebar, Menu } from 'semantic-ui-react'
 
 const styles = {
   width: '100%',
@@ -78,23 +78,29 @@ export default class FileDrop extends Component {
   }
 
   render () {
+    const { files } = this.state
     return (
       <div>
-        <Segment attached='top'>
-          {this.props.loading && <Progress attached='top' indicating percent={this.state.progress} autoSuccess />}
-          <Dropzone style={styles} ref='dropzone' multiple={this.props.multiple} onDrop={this.onDrop}>
-            {this.state.files.length > 0 ? (
-              <div style={{ textAlign: 'center', padding: '1em' }}>
-                {!this.props.completed && <strong>{this.state.files.length} files uploading...</strong>}
-                {this.props.completed && <strong>Upload Completed</strong>}
-              </div>
-            ) : (
-              <div style={{ textAlign: 'center', padding: '1em' }}>
-                <strong>Click anywhere in this box to select a file to upload <br />or drag and drop one here</strong>
-              </div>
-            )}
-          </Dropzone>
-        </Segment>
+        <Sidebar.Pushable as={Segment} attached='top'>
+          <Sidebar.Pusher>
+            {this.props.loading && <Progress attached='top' indicating percent={this.state.progress} autoSuccess />}
+            <Dropzone style={styles} ref='dropzone' multiple={this.props.multiple} onDrop={this.onDrop}>
+              {this.state.files.length > 0 ? (
+                <div style={{ textAlign: 'center', padding: '1em' }}>
+                  {!this.props.completed && <strong>{this.state.files.length} files uploading...</strong>}
+                  {this.props.completed && <strong>Upload Completed</strong>}
+                </div>
+              ) : (
+                <div style={{ textAlign: 'center', padding: '1em' }}>
+                  <strong>Click anywhere in this box to select a file to upload <br />or drag and drop one here</strong>
+                </div>
+              )}
+            </Dropzone>
+          </Sidebar.Pusher>
+          <Sidebar animation='push' width='wide' as={Menu} visible={files.length > 0}>
+            Test
+          </Sidebar>
+        </Sidebar.Pushable>
         <Button
           attached='bottom'
           type='button'

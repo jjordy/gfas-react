@@ -1,0 +1,19 @@
+{
+  "presets": ["env", "stage-0", "react"],
+  "env": {
+    "test": {
+      "plugins": [
+        "dynamic-import-node",
+        [
+          "module-resolver",
+          {
+            "root": ["./modules"]
+          }
+        ]
+      ]
+    },
+    "production": {
+      "presets": [["env", { "modules": false }], "stage-0", "react"]
+    }
+  }
+}

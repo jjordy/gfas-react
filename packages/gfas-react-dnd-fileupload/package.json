@@ -6,11 +6,7 @@
   "module": "./lib/components",
   "scripts": {
     "build": "better-npm-run build",
-    "dev": "npm run storybook",
-    "lint": "eslint src test",
-    "lint:fix": "eslint src test --fix",
-    "start": "better-npm-run dev",
-    "storybook": "start-storybook -p 9001 -c .storybook",
+    "lint": "eslint src test --fix",
     "test": "better-npm-run test",
     "test:dev": "npm run test -- --watch",
     "prepublish": "npm run build"
@@ -25,8 +21,7 @@
     "test": {
       "command": "jest",
       "env": {
-        "NODE_ENV": "test",
-        "DEBUG": "urm:*"
+        "NODE_ENV": "test"
       }
     }
   },

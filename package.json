@@ -1,4 +1,13 @@
 {
+  "private": true,
+  "scripts": {
+    "postinstall": "node ./scripts/postinstall.js",
+    "build": "node ./scripts/build.js",
+    "clean": "lerna run clean",
+    "precommit": "pretty-quick --staged",
+    "start": "cd packages/storybook && npm start",
+    "test": "lerna run test --stream"
+  },
 	"devDependencies": {
 		"babel-core": "^6.26.0",
 		"babel-eslint": "^8.2.2",
@@ -21,11 +30,11 @@
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-react": "^7.0.1",
     "eslint-plugin-standard": "^3.0.1",
-		"lerna": "^2.9.0"
-	},
-	"peerDependencies": {
-		"react": "^16.2.0",
+    "lerna": "^2.9.0",
+    "prettier": "^1.10.2",
+    "pretty-quick": "^1.2.2",
+    "react": "^16.2.0",
 		"react-dom": "^16.2.0"
-  },
+	},
   "workspaces": ["packages/*"]
 }
