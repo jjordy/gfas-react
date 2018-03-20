@@ -13,32 +13,12 @@ const styles = {
 }
 
 export default class FileDrop extends Component {
-  static propTypes = {
-    onClear: PropTypes.func.isRequired,
-    onSubmit: PropTypes.func.isRequired,
-    onDrop: PropTypes.func,
-    // error: PropTypes.object,
-    loading: PropTypes.bool,
-    completed: PropTypes.bool,
-    multiple: PropTypes.bool
-  }
-
-  static defaultProps = {
-    onClear: () => {}
-  }
-
-  static defaultProps = {
-    onDrop: () => {}
-  }
-  constructor (props) {
-    super(props)
-    this.state = {
-      files: [],
-      uploading: false,
-      completed: false,
-      error: null,
-      progress: 0
-    }
+  state = {
+    files: [],
+    uploading: false,
+    completed: false,
+    error: null,
+    progress: 0
   }
 
   onDrop = files => {
@@ -112,4 +92,18 @@ export default class FileDrop extends Component {
       </div>
     )
   }
+}
+
+FileDrop.defaultProps = {
+  onClear: () => { },
+  onDrop: () => { }
+}
+
+FileDrop.propTypes = {
+  onClear: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  onDrop: PropTypes.func,
+  loading: PropTypes.bool,
+  completed: PropTypes.bool,
+  multiple: PropTypes.bool
 }
