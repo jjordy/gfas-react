@@ -1,6 +1,6 @@
 {
   "name": "gfas-react-datagrid",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "Composable Datagrid for react",
   "main": "./lib",
   "module": "./lib",
