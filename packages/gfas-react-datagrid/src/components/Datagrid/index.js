@@ -41,9 +41,11 @@ class DataGrid extends Component {
   _getRowClassName = row => {
     const { rowHighlightKey, data } = this.props
     if (rowHighlightKey) {
-      const key = data[row][rowHighlightKey]
-      if (key) {
-        return 'highlightClass'
+      if (data[row]) {
+        const key = data[row][rowHighlightKey]
+        if (key) {
+          return 'highlightClass'
+        }
       }
     } else {
       return row % 2 === 0 ? 'evenRow' : 'oddRow'

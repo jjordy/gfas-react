@@ -1,4 +1,4 @@
-# Gfas React Datagrid
+# Gfas React Drag and drop file upload.
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
@@ -8,7 +8,7 @@
 $ npm install gfas-react-datagrid react-vitualized semantic-ui-react
 ```
 ## Requirements
-* node `v6 - v7`
+* node `v6 - v8`
 * npm `^3.0.0`
 
 # Contributing & Development Instructions
@@ -31,7 +31,5 @@ While developing, you will probably rely mostly on `npm run dev`; however, there
 ## Project Structure
 ```
 .
-├── .storybook               # Storybook config
 ├── src                      # Client entry point
-│   |   ├── components       # Component Source
 ```

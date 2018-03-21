@@ -50,7 +50,7 @@ export default function SearchProvider (C) {
           </Grid>
           <Transition visible={showHelp} animation='slide down' duration={500}>
             <div>
-              <Header content='Fuzzy Search Help' dividing attached='top' color='orange' />
+              <Header content='Fuzzy Search Help' dividing attached='top' />
               <Segment attached='bottom' style={{ marginBottom: 15 }}>
                 <Grid padded>
                   <Grid.Column width={10}>

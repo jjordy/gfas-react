@@ -63,7 +63,7 @@
     "rimraf": "^2.5.4"
   },
   "dependencies": {
-    "gfas-layout": "^0.0.1",
+    "gfas-layout": "^0.0.2",
     "react-dropzone": "^4.2.1"
   }
 }

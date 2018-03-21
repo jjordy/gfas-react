@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const base = 8
-
 const makeStyles = (props = {}) => {
   return {
     flex: props.grow ? '1 1 auto' : '',
@@ -10,12 +8,18 @@ const makeStyles = (props = {}) => {
     boxSizing: 'border-box',
     marginRight: 10,
     marginLeft: 10,
+    marginTop: props.width ? 5 : 0,
+    marginBottom: props.width ? 5 : 0,
     ...props.style
   }
 }
 
 export default function FlexItem (props) {
-  return <div style={makeStyles(props)}>{props.children}</div>
+  return (
+    <div style={makeStyles(props)} className='flex-item'>
+      {props.children}
+    </div>
+  )
 }
 
 FlexItem.propTypes = {

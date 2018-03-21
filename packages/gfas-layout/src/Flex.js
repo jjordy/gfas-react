@@ -7,6 +7,7 @@ const makeStyles = (props = {}) => {
   return {
     display: 'flex',
     flexFlow: 'column wrap',
+    flexWrap: 'wrap',
     justifyContent: props.justify || 'flex-start',
     alignItems: props.align || 'flex-start',
     boxSizing: 'border-box',
