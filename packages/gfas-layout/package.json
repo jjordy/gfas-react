@@ -1,9 +1,9 @@
 {
-  "name": "gfas-react-dnd-fileupload",
-  "version": "0.0.4",
-  "description": "Composable Drag and drop file upload for react",
-  "main": "./lib/components",
-  "module": "./lib/components",
+  "name": "gfas-layout",
+  "version": "0.0.1",
+  "description": "Composable layout components",
+  "main": "./lib",
+  "module": "./lib",
   "scripts": {
     "build": "better-npm-run build",
     "lint": "eslint src test --fix",
@@ -51,8 +51,7 @@
   "peerDependencies": {
     "prop-types": "15 || 16",
     "react": "15 || 16",
-    "react-dom": "15 || 16",
-    "semantic-ui-react": "*"
+    "react-dom": "15 || 16"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",
@@ -63,7 +62,6 @@
     "rimraf": "^2.5.4"
   },
   "dependencies": {
-    "gfas-layout": "^0.0.1",
     "react-dropzone": "^4.2.1"
   }
 }

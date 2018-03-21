@@ -3,7 +3,7 @@
   "scripts": {
     "postinstall": "node ./scripts/postinstall.js",
     "build": "node ./scripts/build.js",
-    "clean": "lerna run clean",
+    "clean": "lerna clean",
     "precommit": "pretty-quick --staged",
     "start": "cd packages/storybook && npm start",
     "test": "lerna run test --stream"
@@ -35,6 +35,5 @@
     "pretty-quick": "^1.2.2",
     "react": "^16.2.0",
 		"react-dom": "^16.2.0"
-	},
-  "workspaces": ["packages/*"]
+	}
 }

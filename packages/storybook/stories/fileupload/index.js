@@ -7,7 +7,7 @@ class FileUploadTester extends React.Component {
   state = {
     uploading: false,
     completed: false
-  }
+  };
 
   handleUploadTest = files => {
     this.setState({ uploading: true })
@@ -15,7 +15,7 @@ class FileUploadTester extends React.Component {
       action('Upload Completed')
       this.setState({ uploading: false, completed: true })
     }, 2000)
-  }
+  };
   render () {
     return (
       <FileUpload
@@ -49,6 +49,21 @@ storiesOf('File Upload', module)
         <Grid.Row>
           <Grid.Column>
             <FileUploadTester multiple={false} />
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+    </Container>
+  ))
+  .add('Limit File types', () => (
+    <Container style={{ paddingTop: 50 }}>
+      <Header dividing>Limit File Types</Header>
+      <Grid>
+        <Grid.Row>
+          <Grid.Column>
+            <FileUploadTester
+              multiple={false}
+              accept='image/png, image/gif, image/jpeg, image/jpg, application/pdf, image/tiff, image/tif'
+            />
           </Grid.Column>
         </Grid.Row>
       </Grid>

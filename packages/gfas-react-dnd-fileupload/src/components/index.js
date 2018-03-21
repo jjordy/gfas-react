@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import Dropzone from 'react-dropzone'
-import { Button, Progress, Segment, Sidebar, Menu } from 'semantic-ui-react'
+import { Flex, FlexItem } from 'gfas-layout'
+import Filesize from './Filesize'
 
 const styles = {
   width: '100%',
@@ -12,94 +13,155 @@ const styles = {
   borderRadius: 6
 }
 
+const defaultBtnStyles = {
+  width: '100%',
+  borderRadius: 6,
+  fontSize: '1rem',
+  padding: 15,
+  paddingLeft: 10,
+  paddingRight: 10,
+  paddingTop: 6,
+  paddingBottom: 6,
+  border: 'none',
+  backgroundColor: 'rgb(224, 225, 226)',
+  boxShadow: '0 0 0 1px transparent inset, 0 0 0 0 rgba(34,36,38,.15) inset',
+  fontWeight: 700,
+  color: 'rgba(0, 0, 0, 0.6)'
+}
+
+const removeBtn = {
+  borderRadius: 6,
+  backgroundColor: '#f30',
+  border: 0,
+  fontSize: '.8rem',
+  color: '#FFF'
+}
+
 export default class FileDrop extends Component {
   state = {
     files: [],
     uploading: false,
     completed: false,
-    error: null,
-    progress: 0
-  }
+    error: null
+  };
 
   onDrop = files => {
-    this.setState({
-      files: files,
-      progress: 20
-    })
-    this.simulateProgress()
+    this.setState({ files: files })
     this.props.onDrop(files)
     this.props.onSubmit(files)
-  }
+  };
 
   onOpenClick = () => {
     this.refs.dropzone.open()
-  }
-
-  simulateProgress = () => {
-    this.simulate = setInterval(() => {
-      const { progress } = this.state
-      this.setState({ progress: progress < 91 ? progress + 10 : 100 })
-    }, 200)
-  }
+  };
 
   handleClearStagedFiles = () => {
     this.setState({ files: [] })
     this.props.onClear()
-  }
-
-  componentWillReceiveProps (nextProps) {
-    if (!this.props.completed && nextProps.completed) {
-      clearInterval(this.simulate)
-    }
-  }
-
-  componentWillUnmount () {
-    clearInterval(this.simulate)
-  }
+  };
 
   render () {
     const { files } = this.state
     return (
-      <div>
-        <Sidebar.Pushable as={Segment} attached='top'>
-          <Sidebar.Pusher>
-            {this.props.loading && <Progress attached='top' indicating percent={this.state.progress} autoSuccess />}
-            <Dropzone style={styles} ref='dropzone' multiple={this.props.multiple} onDrop={this.onDrop}>
-              {this.state.files.length > 0 ? (
-                <div style={{ textAlign: 'center', padding: '1em' }}>
-                  {!this.props.completed && <strong>{this.state.files.length} files uploading...</strong>}
-                  {this.props.completed && <strong>Upload Completed</strong>}
-                </div>
-              ) : (
-                <div style={{ textAlign: 'center', padding: '1em' }}>
-                  <strong>Click anywhere in this box to select a file to upload <br />or drag and drop one here</strong>
-                </div>
-              )}
-            </Dropzone>
-          </Sidebar.Pusher>
-          <Sidebar animation='push' width='wide' as={Menu} visible={files.length > 0}>
-            Test
-          </Sidebar>
-        </Sidebar.Pushable>
-        <Button
-          attached='bottom'
-          type='button'
-          content='CLEAR'
-          icon='trash'
-          negative
-          onClick={this.handleClearStagedFiles}
-        />
-      </div>
+      <Flex>
+        <FlexItem width={8}>
+          <Dropzone
+            style={styles}
+            ref='dropzone'
+            accept={this.props.accept}
+            multiple={this.props.multiple}
+            onDrop={this.onDrop}
+          >
+            {this.state.files.length > 0 ? (
+              <div style={{ textAlign: 'center', padding: '1em' }}>
+                {!this.props.completed && (
+                  <strong>{this.state.files.length} files uploading...</strong>
+                )}
+                {this.props.completed && <strong>Upload Completed</strong>}
+              </div>
+            ) : (
+              <div style={{ textAlign: 'center', padding: '1em' }}>
+                <strong>
+                  Click anywhere in this box to select a file to upload <br />or
+                  drag and drop one here
+                </strong>
+              </div>
+            )}
+          </Dropzone>
+        </FlexItem>
+        <FlexItem
+          width={4}
+          style={{
+            maxHeight: 300,
+            overflowY: 'scroll',
+            border: '1px solid #e7e7e7',
+            padding: 10,
+            borderRadius: 6
+          }}
+        >
+          <strong>Uploaded Files</strong>
+          <div
+            style={{
+              borderBottom: '1px solid #e7e7e7',
+              marginTop: 10,
+              marginBottom: 10
+            }}
+          />
+          {files.length > 0 &&
+            files.map((file, key) => (
+              <Flex column key={key}>
+                <FlexItem
+                  grow
+                  style={{
+                    padding: 10,
+                    borderBottom:
+                      key < files.length - 1 ? '1px solid #e7e7e7' : null
+                  }}
+                >
+                  <Flex justify='space-between'>
+                    <strong style={{ color: 'grey' }}>
+                      <a href={file.preview} target='_blank'>
+                        {file.name}
+                      </a>
+                    </strong>
+                    <button style={removeBtn}>X</button>
+                  </Flex>
+                  <Flex>
+                    &#128193;
+                    <strong>
+                      <small>
+                        <Filesize fileSize={file.size} />
+                      </small>
+                    </strong>
+                  </Flex>
+                </FlexItem>
+              </Flex>
+            ))}
+          {files.length === 0 && (
+            <strong style={{ color: 'grey' }}>No Files</strong>
+          )}
+          <div style={{ marginTop: 5, marginBottom: 5 }} />
+          {files.length > 0 && (
+            <button
+              onClick={this.handleClearStagedFiles}
+              style={defaultBtnStyles}
+            >
+              Clear All
+            </button>
+          )}
+        </FlexItem>
+      </Flex>
     )
   }
 }
 
 FileDrop.defaultProps = {
-  onClear: () => { },
-  onDrop: () => { }
+  onClear: () => {},
+  onDrop: () => {}
 }
 
 FileDrop.propTypes = {
+  accept: PropTypes.string,
   onClear: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
   onDrop: PropTypes.func,

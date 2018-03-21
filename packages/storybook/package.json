@@ -16,6 +16,7 @@
     "deep-equal": "^1.0.1",
     "eslint": "^4.9.0",
     "gfas-iam-react": "^0.0.2",
+    "gfas-layout": "^0.0.1",
     "gfas-react-datagrid": "^1.0.15",
     "gfas-react-dnd-fileupload": "^0.0.4",
     "lodash": "^4.17.5",
