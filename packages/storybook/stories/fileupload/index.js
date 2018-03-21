@@ -8,7 +8,7 @@ class FileUploadTester extends React.Component {
   state = {
     uploading: false,
     completed: false
-  }
+  };
 
   handleUploadTest = files => {
     this.setState({ uploading: true })
@@ -16,7 +16,7 @@ class FileUploadTester extends React.Component {
       action('Upload Completed')
       this.setState({ uploading: false, completed: true })
     }, 2000)
-  }
+  };
   render () {
     return (
       <FileUpload
@@ -34,7 +34,8 @@ function CustomUploadStatusPanel ({ files, clearList }) {
   return (
     <div style={{ border: '2px solid orange' }}>
       <h1>Custom Upload panel</h1>
-      {files.length > 0 && files.map((file, id) => <span key={id}>{file.name}</span>)}
+      {files.length > 0 &&
+        files.map((file, id) => <span key={id}>{file.name}</span>)}
       <br />
       <br />
       <button onClick={clearList}>Clear List</button>
@@ -91,7 +92,9 @@ storiesOf('File Upload', module)
             <FileUploadTester
               multiple={false}
               accept='image/png, image/gif, image/jpeg, image/jpg, application/pdf, image/tiff, image/tif'
-              renderUploadStatusPanel={(files, clearList) => <CustomUploadStatusPanel files={files} clearList={clearList} />}
+              renderUploadStatusPanel={(files, clearList) => (
+                <CustomUploadStatusPanel files={files} clearList={clearList} />
+              )}
               uploadPanelStyles={{
                 border: '2px solid orange',
                 height: 150
