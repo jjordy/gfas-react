@@ -68,44 +68,46 @@ export default class LiveEditor extends React.Component {
     const { livePolicy, invalid, userData } = this.state
     const deny = <Dimmer active={this.state.deny} content='Access Denied' />
     return (
-      <Grid.Row>
-        <Grid.Column>
-          {this.state.error && <div>{this.state.error}</div>}
-          {this.state.deny && deny}
-          {userData &&
-            livePolicy && (
-              <IAMPolicy
-                policy={livePolicy}
-                userData={userData}
-                name={this.props.policyName}
-                onDeny={this.onDeny}
-                onAllow={this.onAllow}
-                render={({ display, policy }) => (
-                  <div>
-                    {display &&
-                      React.createElement(this.props.component, {
-                        policy: policy,
-                        userData: userData
-                      })}
-                  </div>
-                )}
-              />
-            )}
-        </Grid.Column>
-        <Grid.Column>
-          <Header dividing color='blue'>
-            Live Edit
-          </Header>
-          <JSONEditor
-            updateUserTypes={this.handleUpdateUserTypes}
-            updateGroups={this.handleUpdateGroups}
-            policy={this.props.policy}
-            onChange={this.onEditorUpdate}
-            userData={this.state.userData}
-          />
-          {invalid && <Message negative>Invalid JSON</Message>}
-        </Grid.Column>
-      </Grid.Row>
+      <Grid container columns={2}>
+        <Grid.Row>
+          <Grid.Column>
+            {this.state.error && <div>{this.state.error}</div>}
+            {this.state.deny && deny}
+            {userData &&
+              livePolicy && (
+                <IAMPolicy
+                  policy={livePolicy}
+                  userData={userData}
+                  name={this.props.policyName}
+                  onDeny={this.onDeny}
+                  onAllow={this.onAllow}
+                  render={({ display, policy }) => (
+                    <div>
+                      {display &&
+                        React.createElement(this.props.component, {
+                          policy: policy,
+                          userData: userData
+                        })}
+                    </div>
+                  )}
+                />
+              )}
+          </Grid.Column>
+          <Grid.Column>
+            <Header dividing color='blue'>
+              Live Edit
+            </Header>
+            <JSONEditor
+              updateUserTypes={this.handleUpdateUserTypes}
+              updateGroups={this.handleUpdateGroups}
+              policy={this.props.policy}
+              onChange={this.onEditorUpdate}
+              userData={this.state.userData}
+            />
+            {invalid && <Message negative>Invalid JSON</Message>}
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     )
   }
 }

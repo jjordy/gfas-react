@@ -45,64 +45,28 @@ function CustomUploadStatusPanel ({ files, clearList }) {
 
 storiesOf('File Upload', module)
   .add('Multiple File upload', () => (
-    <Container style={{ paddingTop: 50 }}>
-      <Header dividing>Upload A File</Header>
-      <Grid>
-        <Grid.Row>
-          <Grid.Column>
-            <FileUploadTester />
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </Container>
+    <FileUploadTester />
   ))
   .add('Single File upload', () => (
-    <Container style={{ paddingTop: 50 }}>
-      <Header dividing>Upload A File</Header>
-      <Grid>
-        <Grid.Row>
-          <Grid.Column>
-            <FileUploadTester multiple={false} />
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </Container>
+    <FileUploadTester multiple={false} />
   ))
   .add('Limit File types', () => (
-    <Container style={{ paddingTop: 50 }}>
-      <Header dividing>Limit File Types</Header>
-      <Grid>
-        <Grid.Row>
-          <Grid.Column>
-            <FileUploadTester
-              multiple={false}
-              accept='image/png, image/gif, image/jpeg, image/jpg, application/pdf, image/tiff, image/tif'
-            />
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </Container>
+    <FileUploadTester
+      multiple={false}
+      accept='image/png, image/gif, image/jpeg, image/jpg, application/pdf, image/tiff, image/tif'
+    />
   ))
   .add('Custom look and feel via render props.', () => (
-    <Container style={{ paddingTop: 50 }}>
-      <Header dividing>Limit File Types</Header>
-      <Grid>
-        <Grid.Row>
-          <Grid.Column>
-            <FileUploadTester
-              multiple={false}
-              accept='image/png, image/gif, image/jpeg, image/jpg, application/pdf, image/tiff, image/tif'
-              renderUploadStatusPanel={(files, clearList) => (
-                <CustomUploadStatusPanel files={files} clearList={clearList} />
-              )}
-              uploadPanelStyles={{
-                border: '2px solid orange',
-                height: 150
-              }}
-              children={<div>CLICK HERE TO UPLOAD</div>}
-            />
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </Container>
+    <FileUploadTester
+      multiple={false}
+      accept='image/png, image/gif, image/jpeg, image/jpg, application/pdf, image/tiff, image/tif'
+      renderUploadStatusPanel={(files, clearList) => (
+        <CustomUploadStatusPanel files={files} clearList={clearList} />
+      )}
+      uploadPanelStyles={{
+        border: '2px solid orange',
+        height: 150
+      }}
+      children={<div>CLICK HERE TO UPLOAD</div>}
+    />
   ))
