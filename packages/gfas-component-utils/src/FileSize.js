@@ -12,7 +12,7 @@ const calculateFileSize = fs => {
   } else if (kb > 1) {
     return `${kb} KB`
   } else {
-    return `${fs} bytes`
+    return `${fs} Bytes`
   }
 }
 

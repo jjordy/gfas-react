@@ -1,7 +1,8 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
-import { Header, Container, Grid } from 'semantic-ui-react'
+import { withInfo } from '@storybook/addon-info'
+
 import FileUpload from 'gfas-react-dnd-fileupload'
 
 class FileUploadTester extends React.Component {
@@ -44,29 +45,37 @@ function CustomUploadStatusPanel ({ files, clearList }) {
 }
 
 storiesOf('File Upload', module)
-  .add('Multiple File upload', () => (
-    <FileUploadTester />
-  ))
-  .add('Single File upload', () => (
-    <FileUploadTester multiple={false} />
-  ))
-  .add('Limit File types', () => (
-    <FileUploadTester
-      multiple={false}
-      accept='image/png, image/gif, image/jpeg, image/jpg, application/pdf, image/tiff, image/tif'
-    />
-  ))
-  .add('Custom look and feel via render props.', () => (
-    <FileUploadTester
-      multiple={false}
-      accept='image/png, image/gif, image/jpeg, image/jpg, application/pdf, image/tiff, image/tif'
-      renderUploadStatusPanel={(files, clearList) => (
-        <CustomUploadStatusPanel files={files} clearList={clearList} />
-      )}
-      uploadPanelStyles={{
-        border: '2px solid orange',
-        height: 150
-      }}
-      children={<div>CLICK HERE TO UPLOAD</div>}
-    />
-  ))
+  .add('Multiple File upload', withInfo({
+    propTables: [FileUpload],
+    propTablesExclude: [FileUploadTester]
+  })(() => <FileUploadTester />))
+  .add(
+    'Single File upload',
+    withInfo()(() => <FileUploadTester multiple={false} />)
+  )
+  .add(
+    'Limit File types',
+    withInfo()(() => (
+      <FileUploadTester
+        multiple={false}
+        accept='image/png, image/gif, image/jpeg, image/jpg, application/pdf, image/tiff, image/tif'
+      />
+    ))
+  )
+  .add(
+    'Custom look and feel via render props.',
+    withInfo()(() => (
+      <FileUploadTester
+        multiple={false}
+        accept='image/png, image/gif, image/jpeg, image/jpg, application/pdf, image/tiff, image/tif'
+        renderUploadStatusPanel={(files, clearList) => (
+          <CustomUploadStatusPanel files={files} clearList={clearList} />
+        )}
+        uploadPanelStyles={{
+          border: '2px solid orange',
+          height: 150
+        }}
+        children={<div>CLICK HERE TO UPLOAD</div>}
+      />
+    ))
+  )

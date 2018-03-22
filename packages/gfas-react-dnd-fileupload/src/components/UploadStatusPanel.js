@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Flex, FlexItem } from 'gfas-layout'
-import Filesize from './Filesize'
+import { FileSize } from 'gfas-component-utils'
 
 const defaultBtnStyles = {
   width: '100%',
@@ -45,7 +45,7 @@ export default function UploadStatusPanel ({ files, clearList, renderUploadStatu
                   &#128193;
                   <strong>
                     <small>
-                      <Filesize fileSize={file.size} />
+                      <FileSize fileSize={file.size} />
                     </small>
                   </strong>
                 </Flex>
