@@ -10,22 +10,22 @@ const calculateFileSize = fs => {
   } else if (mb > 1) {
     return `${mb.toFixed(0)} MB`
   } else if (kb > 1) {
-    return `${kb} KB`
+    return `${kb.toFixed(2)} KB`
   } else {
-    return `${fs} bytes`
+    return `${fs} Bytes`
   }
 }
 
-export default function Filesize (props) {
+/** FileSize component displays a file size converted from BYTES */
+export default function FileSize (props) {
   if (props.fileSize === null) {
     return null
   }
   const fileSize = calculateFileSize(props.fileSize)
-  return (
-    <div>{fileSize}</div>
-  )
+  return <React.Fragment>{fileSize}</React.Fragment>
 }
 
-Filesize.propTypes = {
+FileSize.propTypes = {
+  /** file size in bytes */
   fileSize: PropTypes.number.isRequired
 }

@@ -1,6 +1,6 @@
 {
   "name": "gfas-iam-react",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "React Utilities for Dealing with IAM Policies",
   "main": "./lib/components/IAMPolicy",
   "module": "./lib/components/IAMPolicy",
@@ -62,7 +62,6 @@
   },
   "homepage": "https://github.com/jjordy/gfas-IAM-react",
   "peerDependencies": {
-    "lodash": "@4",
     "prop-types": "15 || 16",
     "react": "15 || 16",
     "react-dom": "15 || 16"

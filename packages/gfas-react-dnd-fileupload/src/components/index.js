@@ -4,7 +4,7 @@ import { Flex } from 'gfas-layout'
 import UploadStatusPanel from './UploadStatusPanel'
 import UploadPanel from './UploadPanel'
 
-export default class FileDrop extends Component {
+export default class FileUpload extends Component {
   state = {
     files: [],
     uploading: false,
@@ -34,12 +34,14 @@ export default class FileDrop extends Component {
   }
 }
 
-FileDrop.defaultProps = {
+FileUpload.displayName = 'FileUpload'
+
+FileUpload.defaultProps = {
   onClear: () => {},
   onDrop: () => {}
 }
 
-FileDrop.propTypes = {
+FileUpload.propTypes = {
   accept: PropTypes.string,
   onClear: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
