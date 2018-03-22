@@ -1,0 +1,13 @@
+{
+  "token": {
+    "email": "jordanrileyaddison@gmail.com",
+    "userTypes": ["datacheck_administrator", "doccollect_administrator"],
+    "groups": ["datacheck", "doccollect"]
+  },
+  "claims": [
+    {
+      "claimType": "customClaimType",
+      "claimValue": "customClaimValue"
+    }
+  ]
+}
