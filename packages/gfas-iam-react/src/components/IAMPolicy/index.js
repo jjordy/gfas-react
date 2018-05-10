@@ -74,17 +74,36 @@ class IAMPolicy extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    if (
-      (!deepEqual(this.props.userData, nextProps.userData) && nextProps.userData !== null) ||
-      !deepEqual(this.props.policy, nextProps.policy) ||
-      this.props.name !== nextProps.name
-    ) {
+    if (!deepEqual(this.props.userData, nextProps.userData) && nextProps.userData !== null) {
+      this.createStatementEffects({
+        userData: nextProps.userData,
+        policy: nextProps.policy,
+        name: nextProps.name
+      })
+    } else if (!deepEqual(this.props.policy, nextProps.policy)) {
+      this.createStatementEffects({
+        userData: nextProps.userData,
+        policy: nextProps.policy,
+        name: nextProps.name
+      })
+    } else if (this.props.name !== nextProps.name) {
       this.createStatementEffects({
         userData: nextProps.userData,
         policy: nextProps.policy,
         name: nextProps.name
       })
     }
+    // if (
+    //   (!deepEqual(this.props.userData, nextProps.userData) && nextProps.userData !== null) ||
+    //   !deepEqual(this.props.policy, nextProps.policy) ||
+    //   this.props.name !== nextProps.name
+    // ) {
+    //   this.createStatementEffects({
+    //     userData: nextProps.userData,
+    //     policy: nextProps.policy,
+    //     name: nextProps.name
+    //   })
+    // }
   }
   render () {
     const { statement, display, error, policyErrors } = this.state

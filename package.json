@@ -6,7 +6,7 @@
     "clean": "lerna clean",
     "precommit": "pretty-quick --staged",
     "start": "cd packages/storybook && npm start",
-    "test": "lerna run test --stream"
+    "test": "lerna run test --stream -- --passWithNoTests"
   },
 	"devDependencies": {
 		"babel-core": "^6.26.0",

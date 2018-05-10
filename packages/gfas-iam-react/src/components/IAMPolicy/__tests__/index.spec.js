@@ -58,8 +58,8 @@ describe('IAM Policy Component', () => {
     })
 
     it('Should update to new userData state only if the next user data props are set.', () => {
-      const userData = { claims: { userTypes: [] } }
-      _wrapper.setProps({ userData })
+      const userData = { claims: [], token: { userTypes: [], groups: [] } }
+      _wrapper.setProps({ userData: userData })
       expect(_wrapper.state().userData).toEqual(userData)
       _wrapper.setProps({userData: null})
       expect(_wrapper.state().userData).toEqual(userData)
