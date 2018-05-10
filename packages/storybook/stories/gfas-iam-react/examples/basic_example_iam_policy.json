@@ -8,7 +8,7 @@
       "resource": "*",
       "conditions": [
         {
-          "rules": { "includes": { "$token.userTypes": "datacheck_administrator" } }
+          "rules": { "includes": { "$token.userTypes": "administrator", "$token.groups": ["group1", "group2"] } }
         }
       ]
     }

@@ -1,8 +1,8 @@
 {
   "token": {
     "email": "jordanrileyaddison@gmail.com",
-    "userTypes": ["datacheck_administrator", "doccollect_administrator"],
-    "groups": ["datacheck", "doccollect"]
+    "userTypes": ["administrator"],
+    "groups": ["group1", "group2"]
   },
   "claims": [
     {

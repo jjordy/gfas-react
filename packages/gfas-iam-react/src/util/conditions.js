@@ -15,7 +15,12 @@ export const parseDataToken = (token) => {
 export const validators = {
   includes: (val, arrOrStr) => {
     if (val && arrOrStr) {
-      return arrOrStr.includes(val)
+      if (Array.isArray(val)) {
+        const test = val.map(i => arrOrStr.includes(i))
+        return test.includes(true)
+      } else {
+        return arrOrStr.includes(val)
+      }
     } else {
       return false
     }

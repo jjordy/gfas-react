@@ -13,8 +13,8 @@ export default class JSONEditor extends React.Component {
       billing: true
     },
     groups: {
-      myApp: true,
-      someOtherApp: true
+      group1: true,
+      group2: true
     }
   }
 
@@ -112,12 +112,17 @@ export default class JSONEditor extends React.Component {
           <br />
           <br />
           <Header as='h5'>Groups</Header>
-          <Checkbox checked={this.state.groups.myApp} value='myApp' label='myApp' onClick={this.handleGroupsChange} />
+          <Checkbox
+            checked={this.state.groups.group1}
+            value='group1'
+            label='group1'
+            onClick={this.handleGroupsChange}
+          />
           <br />
           <Checkbox
-            checked={this.state.groups.someOtherApp}
-            value='someOtherApp'
-            label='someOtherApp'
+            checked={this.state.groups.group2}
+            value='group2'
+            label='group2'
             onClick={this.handleGroupsChange}
           />
           <br />
