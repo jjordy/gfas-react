@@ -41,7 +41,10 @@ class IAMPolicy extends Component {
       const s = statement.find(item => item.action === name)
       if (s) {
         const { visible, enabled, deny } = createEffectsFromPolicy(s, this.getUserData(userData))
-        if (deny) this.props.onDeny(deny)
+        if (deny) {
+          this.props.onDeny(deny)
+          return
+        }
         if (!deny) this.props.onAllow()
         this.setState({
           statement: { originalPolicy: policy, enabled, visible, originalStatement: s },
@@ -51,11 +54,9 @@ class IAMPolicy extends Component {
           policyErrors: null
         })
       } else {
-        // this.props.onDeny(validPolicy)
         this.setState({ statement: null, display: false, userData: userData })
       }
     } else {
-      // this.props.onDeny(validPolicy)
       this.setState({
         error: 'You must provide a valid policy',
         userData: userData,
