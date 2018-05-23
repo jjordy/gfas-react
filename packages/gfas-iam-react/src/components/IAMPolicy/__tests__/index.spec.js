@@ -57,14 +57,6 @@ describe('IAM Policy Component', () => {
       expect(_wrapper.find('.errors')).toHaveLength(1)
     })
 
-    it('Should update to new userData state only if the next user data props are set.', () => {
-      const userData = { claims: [], token: { userTypes: [], groups: [] } }
-      _wrapper.setProps({ userData: userData })
-      expect(_wrapper.state().userData).toEqual(userData)
-      _wrapper.setProps({userData: null})
-      expect(_wrapper.state().userData).toEqual(userData)
-    })
-
     describe('IAM Policy class Methods => getUserData', () => {
       it('Should get user data from state by key and subkey', () => {
         const user = { claims: [], token: { userTypes: ['administrator'], groups: [] } }

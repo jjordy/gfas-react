@@ -24,8 +24,8 @@ export default class UploadPanel extends React.Component {
           multiple={multiple}
           onDrop={onDrop}
         >
-          {!children && <div>
-            {files.length > 0 ? (
+          {!children && <div className='upload-container--message'>
+            {files && files.length > 0 ? (
               <div style={{ textAlign: 'center', padding: '1em' }}>
                 {!completed && <strong>{files.length} files uploading...</strong>}
                 {completed && <strong>Upload Completed</strong>}
