@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import invariant from 'invariant'
 
 // default for 1rem
 const BASE = 16
@@ -17,7 +18,17 @@ Display.propTypes = {
   py: PropTypes.number,
   m: PropTypes.number,
   mx: PropTypes.number,
-  my: PropTypes.number
+  my: PropTypes.number,
+  display: PropTypes.oneOf([
+    'inline',
+    'block',
+    'flex',
+    'grid',
+    'inline-block',
+    'inline-flex',
+    'inline-grid',
+    'table'
+  ])
 }
 
 const convertToRem = v => {
@@ -26,7 +37,20 @@ const convertToRem = v => {
 
 const createStyles = props => {
   const styles = {
-    display: 'block'
+  }
+
+  if (props.display) {
+    styles.display = props.display
+  }
+
+  if (props.justify) {
+    invariant(props.display === 'flex', 'The justify property requires the flex display property')
+    styles.justifyContent = props.justify
+  }
+
+  if (props.align) {
+    invariant(props.display === 'flex', 'The align property requires the flex display property')
+    styles.alignItems = props.align
   }
 
   if (props.p) {

@@ -89,9 +89,38 @@ storiesOf('Gfas Layout', module)
     withInfo()(() => (
       <div style={{ maxWidth: 1150, margin: 'auto', backgroundColor: '#f8f8f8', fontWeight: 700 }}>
         <React.Fragment>
+          <h2>Padding X</h2>
           {_.times(4, i => (
-            <Display px={i + 1} style={{color: getRandomColor()}}>padding x {i + 1}</Display>
+            <Display display='flex' px={i + 1} key={`px_${i}`} style={{ color: getRandomColor() }}>
+              padding x {i + 1}
+            </Display>
           ))}
+
+          <h2>Padding Y</h2>
+          {_.times(4, i => (
+            <Display py={i + 1} key={`py_${i}`} style={{ color: getRandomColor() }}>
+              padding y {i + 1}
+            </Display>
+          ))}
+
+          <h2>Margin X</h2>
+          {_.times(4, i => (
+            <Display mx={i + 1} key={`mx_${i}`} style={{ color: getRandomColor() }}>
+              margin x {i + 1}
+            </Display>
+          ))}
+
+          <h2>Margin Y</h2>
+          {_.times(4, i => (
+            <Display my={i + 1} key={`my_${i}`} style={{ color: getRandomColor() }}>
+              margin y {i + 1}
+            </Display>
+          ))}
+
+          <h2>Vertically Center using justify, align and display flex</h2>
+          <Display justify='center' display='flex' align='center' style={{height: 400, backgroundColor: '#f30'}}>
+            {_.times(12, i => <Display px={2} key={`flex_d_${i}`}style={{color: '#FFF'}}>{i + 1}</Display>)}
+          </Display>
         </React.Fragment>
       </div>
     ))
