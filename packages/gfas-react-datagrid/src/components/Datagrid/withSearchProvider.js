@@ -78,8 +78,8 @@ export default function SearchProvider (C) {
                     </List>
                   </Grid.Column>
                   <Grid.Column width={6}>
-                    <Message color='blue'>
-                      <strong>Search not returning what you want?</strong>
+                    <Message>
+                      <Message.Header>Search not returning what you want?</Message.Header>
                       <p>
                         NOTE: Remember if you are searching for a date always used the MM/DD/YYYY format.
                       </p>

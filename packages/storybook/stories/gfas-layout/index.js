@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, FlexItem } from 'gfas-layout'
+import { Flex, FlexItem, Display } from 'gfas-layout'
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
 import _ from 'lodash'
@@ -82,5 +82,17 @@ storiesOf('Gfas Layout', module)
           ))}
         </Flex>
       </React.Fragment>
+    ))
+  )
+  .add(
+    'Display Component',
+    withInfo()(() => (
+      <div style={{ maxWidth: 1150, margin: 'auto', backgroundColor: '#f8f8f8', fontWeight: 700 }}>
+        <React.Fragment>
+          {_.times(4, i => (
+            <Display px={i + 1} style={{color: getRandomColor()}}>padding x {i + 1}</Display>
+          ))}
+        </React.Fragment>
+      </div>
     ))
   )
