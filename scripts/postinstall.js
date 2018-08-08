@@ -8,10 +8,10 @@ const exec = (cmd, env) =>
 
 if (process.env.CI) {
   exec(
-    "lerna bootstrap --stream --ignore storybook"
+    "lerna bootstrap --ignore storybook"
   );
 } else {
   exec(
-    "lerna bootstrap --stream"
+    "lerna bootstrap"
   );
 }
