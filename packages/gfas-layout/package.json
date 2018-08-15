@@ -1,6 +1,6 @@
 {
   "name": "gfas-layout",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Composable layout components",
   "main": "./lib",
   "module": "./lib",
@@ -62,7 +62,10 @@
     "rimraf": "^2.5.4"
   },
   "dependencies": {
+    "color": "^3.0.0",
+    "gfas-component-utils": "^0.0.2",
     "invariant": "^2.2.4",
-    "react-dropzone": "^4.2.1"
+    "react-dropzone": "^4.2.1",
+    "styled-components": "^3.4.2"
   }
 }
