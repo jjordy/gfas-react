@@ -1,51 +1,86 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import ThemeContext from './Theme'
+import Color from 'color'
+import styled, { css } from 'styled-components'
 
-function Segment ({ attached, children, padded }) {
-  const makeSegmentStyles = () => {
-    const styles = {
-      border: '1px solid #e7e7e7',
-      marginLeft: '1rem',
-      marginRight: '1rem',
-      padding: '1rem'
-    }
-    if (attached) {
-      if (attached === 'top') {
-        styles.marginTop = '1rem'
-        styles.borderBottom = 0
-        styles.borderTopRightRadius = 6
-        styles.borderTopLeftRadius = 6
-      } else if (attached === 'bottom') {
-        styles.marginBottom = '1rem'
-        styles.borderBottomRightRadius = 6
-        styles.borderBottomLeftRadius = 6
-      } else {
-        styles.marginTop = 0
-        styles.borderBottom = 0
-        styles.marginBottom = 0
-      }
-    } else {
-      styles.borderRadius = 6
-      styles.margin = '1rem'
-    }
+const attachedTopMixin = css`
+  margin-top: 1rem;
+  border-bottom: 0;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+`
 
-    if (padded) {
-      if (padded === 'very') {
-        styles.padding = '2.5rem'
-      } else {
-        styles.padding = '2rem'
-      }
-    }
-    return styles
+const attachedMixin = css`
+  margin-top: 0;
+  border-bottom: 0;
+  margin-bottom: 0;
+`
+
+const attachedBottomMixin = css`
+  margin-bottom: 1rem;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+`
+
+const segmentMixin = css`
+  border-radius: 6px;
+  margin: 1rem;
+`
+
+const paddedMixin = css`
+  padding: 2rem;
+`
+
+const veryPaddedMixin = css`
+  padding: 2.5rem;
+`
+
+const colorMixin = css`
+  border-top: 2px solid ${props => props.color.hex()};
+`
+
+const clearingMixin = css`
+  overflow: auto;
+  &::after {
+    content: '.';
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
   }
+`
 
-  return <div style={makeSegmentStyles()}>{children}</div>
-}
+const Segment = styled.div`
+  border: 1px solid #e7e7e7;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding: 1rem;
+  clear: ${props => (props.clearing ? clearingMixin : null)};
+  ${props => props.attached && props.attached === 'top' && attachedTopMixin}
+  ${props => props.attached && props.attached === 'bottom' && attachedBottomMixin}
+  ${props => props.attached && typeof props.attached === 'boolean' && attachedMixin}
+  ${props => !props.attached && segmentMixin}
+  ${props => props.padded && props.padded === 'very' && veryPaddedMixin}
+  ${props => props.padded && typeof props.padded === 'boolean' && paddedMixin}
+  ${props => props.color && colorMixin}
+`
 
 Segment.propTypes = {
+  clearing: PropTypes.bool,
   children: PropTypes.node.isRequired,
   attached: PropTypes.oneOfType([PropTypes.bool, PropTypes.oneOf(['top', 'bottom'])]),
   padded: PropTypes.oneOfType([PropTypes.bool, PropTypes.oneOf(['very'])])
 }
 
-export default Segment
+const WithColor = ({ theme, color, ...rest }) => {
+  let hex = null
+  if (color) {
+    hex = Color(theme[color])
+  }
+  return <Segment {...rest} color={hex} />
+}
+
+export default function ThemedSegment (props) {
+  return <ThemeContext.Consumer>{theme => <WithColor {...props} theme={theme} />}</ThemeContext.Consumer>
+}

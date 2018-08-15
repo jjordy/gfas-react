@@ -1,19 +1,15 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
 const px = n => (typeof n === 'number' ? n + 'px' : n)
 
-const gridStyles = (width, gap, align, span) => ({
-  display: 'grid',
-  gridTemplateColumns: `repeat(auto-fit, minmax(${px(width)}, 1fr))`,
-  gridGap: px(gap),
-  alignItems: align || null,
-  gridColumn: span ? `span ${span}` : null
-})
-
-function Grid ({ children, width, gap, align, span }) {
-  return <div style={gridStyles(width, gap, align, span)}>{children}</div>
-}
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(${props => px(props.width)}, 1fr));
+  grid-gap: ${props => px(props.gap)};
+  align-items: ${props => props.align || null};
+  grid-column: ${props => (props.span ? `span ${props => props.span}` : null)};
+`
 
 Grid.propTypes = {
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),

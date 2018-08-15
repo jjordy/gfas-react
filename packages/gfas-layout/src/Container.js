@@ -1,17 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
-const makeContainerStyles = text => ({
-  margin: 'auto',
-  width: text ? 750 : 1150
-})
-function Container ({ text, children }) {
-  return <div style={makeContainerStyles(text)}>{children}</div>
-}
-
-Container.propTypes = {
-  text: PropTypes.bool,
-  children: PropTypes.node.isRequired
-}
-
-export default Container
+export default styled.div`
+  margin: auto;
+  width: ${props => (props.text ? '750px' : '1150px')};
+`
