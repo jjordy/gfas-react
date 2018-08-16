@@ -2,6 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import ThemeContext from './Theme'
 import Color from 'color'
+import Divider from './Divider'
 
 const floatMixin = css`
   float: ${props => (props.float ? props.float : null)};
@@ -20,13 +21,25 @@ const textAlignMixin = css`
     }
   `};
 `
+function handleSetColor (props) {
+  if (props.color) {
+    if (props.inverted) {
+      return props.color.rotate(180).hex()
+    }
+    return props.color.hex()
+  } else if (props.inverted) {
+    return '#FFF'
+  }
+
+  return 'rgba(0, 0, 0, 0.87)'
+}
 
 const headerMixin = css`
   padding: 0 0;
   font-weight: 700;
   line-height: 1.28em;
   text-transform: none;
-  color: ${props => (props.color ? props.color.hex() : 'rgba(0, 0, 0, 0.87)')};
+  color: ${props => handleSetColor(props)};
   ${floatMixin};
   ${textAlignMixin};
 `
@@ -89,6 +102,21 @@ function Header ({ as = 'div', color, theme, ...rest }) {
   }
 }
 
-export default function ThemedHeader (props) {
-  return <ThemeContext.Consumer>{theme => <Header {...props} theme={theme} />}</ThemeContext.Consumer>
+const DividedHeader = ({theme, ...rest}) => (
+  <div>
+    <Header {...rest} theme={theme} />
+    <Divider fitted />
+  </div>
+)
+
+export default function ThemedHeader ({ dividing, ...props }) {
+  return (
+    <ThemeContext.Consumer>
+      {theme => (
+        <React.Fragment>
+          {dividing ? <DividedHeader {...props} theme={theme} /> : <Header {...props} theme={theme} />}
+        </React.Fragment>
+      )}
+    </ThemeContext.Consumer>
+  )
 }

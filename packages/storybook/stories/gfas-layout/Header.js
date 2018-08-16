@@ -23,6 +23,12 @@ export default function HeaderExamples () {
         <Header as='h6'>H6 Header</Header>
     `}
       />
+      <Header as='h1' dividing>H1 Header</Header>
+      <Code
+        code={`
+        <Header as='h1' dividing>H1 Header</Header>
+    `}
+      />
       <Divider />
       <Header color='grey'>Colored Headers</Header>
       <Divider />

@@ -6,6 +6,9 @@ import ContainerExamples from './Container'
 import DividerExamples from './Divider'
 import GridExamples from './Grid'
 import ButtonExamples from './Button'
+import ImageExamples from './Image'
+import FormExamples from './Form'
+import InputExamples from './Input'
 
 storiesOf('Gfas Layout', module)
   .add('Header', () => <HeaderExamples />)
@@ -14,3 +17,6 @@ storiesOf('Gfas Layout', module)
   .add('Divider', () => <DividerExamples />)
   .add('Grid', () => <GridExamples />)
   .add('Button', () => <ButtonExamples />)
+  .add('Image', () => <ImageExamples />)
+  .add('Form', () => <FormExamples />)
+  .add('Input', () => <InputExamples />)

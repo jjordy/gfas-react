@@ -3,12 +3,23 @@ import PropTypes from 'prop-types'
 import ThemeContext from './Theme'
 import Color from 'color'
 import styled, { css } from 'styled-components'
+import { StyledButton } from './Button'
+import { StyledInput } from './Input'
+
+const borderTopRadiusMixin = css`
+  border-top-right-radius: .28rem;
+  border-top-left-radius: .28rem;
+`
+
+const borderBottomRadiusMixin = css`
+  border-bottom-right-radius: .28rem;
+  border-bottom-left-radius: .28rem;
+`
 
 const attachedTopMixin = css`
   margin-top: 1rem;
   border-bottom: 0;
-  border-top-right-radius: 6px;
-  border-top-left-radius: 6px;
+  ${props => props.rounded && borderTopRadiusMixin}
 `
 
 const attachedMixin = css`
@@ -19,13 +30,18 @@ const attachedMixin = css`
 
 const attachedBottomMixin = css`
   margin-bottom: 1rem;
-  border-bottom-right-radius: 6px;
-  border-bottom-left-radius: 6px;
+  ${props => props.rounded && borderBottomRadiusMixin}
 `
 
 const segmentMixin = css`
-  border-radius: 6px;
+  border-radius: ${props => props.rounded ? '.28rem' : '0px'};
   margin: 1rem;
+  ${StyledButton} {
+    border-radius: ${props => props.rounded ? '.28rem' : '0px'};
+  }
+  ${StyledInput} {
+    border-radius: ${props => props.rounded ? '.28rem' : '0px'};
+  }
 `
 
 const paddedMixin = css`
@@ -37,7 +53,7 @@ const veryPaddedMixin = css`
 `
 
 const colorMixin = css`
-  border-top: 2px solid ${props => props.color.hex()};
+  border-top: .15rem solid ${props => props.color.hex()};
 `
 
 const clearingMixin = css`

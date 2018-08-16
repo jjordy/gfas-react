@@ -5,7 +5,7 @@ import { Code } from 'gfas-component-utils'
 export default function ButtonExamples () {
   return (
     <Container>
-      <Header>Buttons</Header>
+      {/* <Header>Buttons</Header> */}
       <Divider />
       <Grid width='10%' gap={16} align='middle'>
         <Button>Button</Button>

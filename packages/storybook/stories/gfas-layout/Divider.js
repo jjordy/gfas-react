@@ -11,6 +11,9 @@ export default function HeaderExamples () {
       <Header color='grey'>Dividers can also be hidden</Header>
       <Divider hidden />
       <Code code='<Divider hidden />' />
+      <Header color='grey'>Dividers can also be fitted</Header>
+      <Divider fitted />
+      <Code code='<Divider hidden />' />
     </Container>
   )
 }

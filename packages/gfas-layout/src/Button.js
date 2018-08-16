@@ -4,7 +4,7 @@ import ThemeContext from './Theme'
 import Color from 'color'
 import styled from 'styled-components'
 
-const StyledButton = styled.button.attrs({
+export const StyledButton = styled.button.attrs({
   role: props => props.role || 'button'
 })`
   font-size: 1rem;
@@ -18,7 +18,7 @@ const StyledButton = styled.button.attrs({
   text-align: center;
   font-weight: 700;
   line-height: 1em;
-  border-radius: 0.28rem;
+  border-radius: ${props => props.rounded ? '0.28rem' : '0'};
   float: ${props => (props.float ? props.float : null)};
   background-color: ${props => (props.color ? props.color.hex() : 'inherit')};
   color: ${props => (props.color.isDark() ? '#FFF' : '#222')};
