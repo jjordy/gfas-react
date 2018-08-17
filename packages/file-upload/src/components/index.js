@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { Flex } from 'gfas-layout'
+import { Segment } from '@jjordy/layout'
 import UploadStatusPanel from './UploadStatusPanel'
 import UploadPanel from './UploadPanel'
 
@@ -26,10 +26,12 @@ export default class FileUpload extends Component {
   render () {
     const { files } = this.state
     return (
-      <Flex>
-        <UploadPanel {...this.props} {...this.state} onDrop={this.onDrop} />
-        <UploadStatusPanel {...this.props} files={files} clearList={this.handleClearStagedFiles} />
-      </Flex>
+      <Segment style={{ padding: 0 }}>
+        <div style={{ display: 'flex', flex: '2 2 auto' }}>
+          <UploadPanel {...this.props} {...this.state} onDrop={this.onDrop} />
+          <UploadStatusPanel {...this.props} files={files} clearList={this.handleClearStagedFiles} />
+        </div>
+      </Segment>
     )
   }
 }

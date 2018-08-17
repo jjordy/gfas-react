@@ -1,12 +1,13 @@
 import React from 'react'
-import { Divider, Container, Header, Segment, Button, Grid } from '@jjordy/layout'
+import { Container, Header, Segment, Button, Grid } from '@jjordy/layout'
 import { Code } from 'gfas-component-utils'
 
 export default function ButtonExamples () {
   return (
     <Container>
-      {/* <Header>Buttons</Header> */}
-      <Divider />
+      <Header color='grey' dividing>
+        Buttons
+      </Header>
       <Grid width='10%' gap={16} align='middle'>
         <Button>Button</Button>
         <Button color='blue'>Button</Button>
@@ -31,8 +32,7 @@ export default function ButtonExamples () {
     <Button color='black'>Button</Button>
   `}
       />
-      <Header>Floated Button</Header>
-      <Divider />
+      <Header dividing>Floated Button</Header>
       <Segment clearing>
         <Button float='right'>Floated Right</Button>
         <Button float='left'>Floated Left</Button>
@@ -43,6 +43,17 @@ export default function ButtonExamples () {
     <Button float='right'>Floated Right</Button>
     <Button float='left'>Floated Left</Button>
   </Segment>
+`}
+      />
+      <Header dividing>Fluid Button</Header>
+      <Segment>
+        <Button fluid>Fluid</Button>
+      </Segment>
+      <Code
+        code={`
+      <Segment>
+        <Button fluid>Fluid</Button>
+      </Segment>
 `}
       />
     </Container>

@@ -64,6 +64,7 @@
   "dependencies": {
     "color": "^3.0.0",
     "gfas-component-utils": "^0.0.3",
+    "react-icons": "^3.0.5",
     "styled-components": "^3.4.2",
     "styled-system": "^3.0.2"
   }

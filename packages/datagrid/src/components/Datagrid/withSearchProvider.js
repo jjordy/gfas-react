@@ -21,7 +21,9 @@ export default function SearchProvider (C) {
 
       let searchKeys = Array.isArray(search)
         ? search.map(key => key.key)
-        : search ? this.props.columns.map(column => column.id) : []
+        : search
+          ? this.props.columns.map(column => column.id)
+          : []
 
       let mySearchTerm = searchTerm
       if (searchTerm.includes('-') || searchTerm.includes('/')) {
@@ -45,7 +47,7 @@ export default function SearchProvider (C) {
               <strong>Total Results: {(filteredResults && filteredResults.length) || 0}</strong>
             </Grid.Column>
             <Grid.Column textAlign='right'>
-              {search && <Button circular basic icon='question' onClick={this.toggleHelp} />}
+              {search && <Button circular basic icon='question' onClick={this.toggleHelp} ariaLabel='Help' />}
             </Grid.Column>
           </Grid>
           <Transition visible={showHelp} animation='slide down' duration={500}>
@@ -80,9 +82,7 @@ export default function SearchProvider (C) {
                   <Grid.Column width={6}>
                     <Message>
                       <Message.Header>Search not returning what you want?</Message.Header>
-                      <p>
-                        NOTE: Remember if you are searching for a date always used the MM/DD/YYYY format.
-                      </p>
+                      <p>NOTE: Remember if you are searching for a date always used the MM/DD/YYYY format.</p>
                       <strong>Examples:</strong>
                       <p>
                         <strong>Date:</strong> 01/01/1999

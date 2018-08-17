@@ -7,50 +7,34 @@ import batches from './batches.json'
 import batchDetail from './batchDetail.json'
 import uuid from 'uuid'
 import '@jjordy/datagrid/lib/grid.css'
+import { Container, Header } from '@jjordy/layout'
 
 storiesOf('Datagrid', module)
-  .add(
-    'Basic',
-    withInfo()(() => (
+  .add('Basic', () => (
+    <Container>
+      <Header color='grey' dividing>
+        Datagrid
+      </Header>
       <DataGrid
         data={batches.Results}
         height={500}
         rowHighlightKey='IsTM'
-        search={[
-          { key: 'Id' },
-          { key: 'Status' },
-          { key: 'RevOn', date: true }
-        ]}
+        search={[{ key: 'Id' }, { key: 'Status' }, { key: 'RevOn', date: true }]}
       >
-        <DataColumn
-          name='Batch Id'
-          id='Id'
-          width={100}
-          render={({ row, value }) => <a href='#'>Batch {value} </a>}
-        />
+        <DataColumn name='Batch Id' id='Id' width={100} render={({ row, value }) => <a href='#'>Batch {value} </a>} />
         <DataColumn name='Status' id='Status' width={150} />
         <DataColumn name='Last Revised On' id='RevOn' width={150} date />
         <DataColumn name='Last Revised By' id='RevBy' width={250} />
-        <DataColumn
-          name='Submitted On'
-          id='SubmittedOn'
-          width={150}
-          date
-          nullDateMessage='Not Submitted'
-        />
-        <DataColumn
-          name='ReceivedOn'
-          id='ReceivedOn'
-          width={150}
-          date
-          nullDateMessage='Not Received'
-        />
+        <DataColumn name='Submitted On' id='SubmittedOn' width={150} date nullDateMessage='Not Submitted' />
+        <DataColumn name='ReceivedOn' id='ReceivedOn' width={150} date nullDateMessage='Not Received' />
       </DataGrid>
-    ))
-  )
-  .add(
-    'Advanced',
-    withInfo()(() => (
+    </Container>
+  ))
+  .add('Advanced', () => (
+    <Container>
+      <Header color='grey' dividing>
+        Advanced Datagrid with render props
+      </Header>
       <DataGrid
         rowHighlightKey='IsTM'
         data={batchDetail.Results}
@@ -98,18 +82,8 @@ storiesOf('Datagrid', module)
             </Label>
           )}
         />
-        <DataColumn
-          name='Status'
-          id='Status'
-          width={200}
-          render={({ value }) => <Label>{value}</Label>}
-        />
-        <DataColumn
-          name='Enroll Begin Date'
-          id='EnrollBeginDate'
-          width={150}
-          date
-        />
+        <DataColumn name='Status' id='Status' width={200} render={({ value }) => <Label>{value}</Label>} />
+        <DataColumn name='Enroll Begin Date' id='EnrollBeginDate' width={150} date />
         <DataColumn name='First name' id='FirstName' width={150} />
         <DataColumn name='Last name' id='LastName' width={150} />
         <DataColumn name='SSN' id='SSN' width={95} />
@@ -117,5 +91,5 @@ storiesOf('Datagrid', module)
         <DataColumn name='Recieved On' id='ReceivedOn' width={150} date />
         <DataColumn name='Submitted On' id='SubmittedOn' width={150} date />
       </DataGrid>
-    ))
-  )
+    </Container>
+  ))

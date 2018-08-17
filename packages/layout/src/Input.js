@@ -16,7 +16,7 @@ export const StyledInput = styled.input`
   font-weight: 700;
   background: #fff;
   border: 1px solid rgba(34, 36, 38, 0.15);
-  color: rgba(0, 0, 0, 0.87);
+  color: ${({ theme }) => [theme['darkGrey']]};
   border-radius: ${props => (props.rounded ? '.28571429rem' : 0)};
   box-shadow: 0 0 0 0 transparent inset;
   transition: color 0.1s ease, border-color 0.1s ease;
@@ -27,7 +27,12 @@ export const StyledInput = styled.input`
 const StyledLabel = styled.label`
   display: block;
   margin: 0 0 0.28571429rem 0;
-  color: ${props => props.theme ? Color(props.theme.darkGrey).darken(0.2).hex() : 'rgba(0, 0, 0, 0.87)'};
+  color: ${props =>
+    props.theme
+      ? Color(props.theme.darkGrey)
+        .darken(0.2)
+        .hex()
+      : 'rgba(0, 0, 0, 0.87)'};
   font-size: 0.92857143em;
   font-weight: 700;
   text-transform: none;
@@ -40,11 +45,8 @@ const inlineLabelMixin = css`
 const FormField = styled.div`
   clear: both;
   margin: 0 0 1em;
-  display: ${props => (props.inline ? 'flex' : 'inherit')}
-  justify-content: center;
-  align-items: center;
-  ${StyledLabel} {
-    ${props => props.inline && inlineLabelMixin}
+  display: ${props => (props.inline ? 'flex' : 'inherit')} ${StyledLabel} {
+    ${props => props.inline && inlineLabelMixin};
   }
 `
 

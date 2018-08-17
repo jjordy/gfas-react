@@ -2,7 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ThemeContext from './Theme'
 import Color from 'color'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+const widthMixin = css`
+  width: ${props => props.fluid && '100%'};
+`
 
 export const StyledButton = styled.button.attrs({
   role: props => props.role || 'button'
@@ -18,7 +22,8 @@ export const StyledButton = styled.button.attrs({
   text-align: center;
   font-weight: 700;
   line-height: 1em;
-  border-radius: ${props => props.rounded ? '0.28rem' : '0'};
+  ${widthMixin}
+  border-radius: ${props => (props.rounded ? '0.28rem' : '0')};
   float: ${props => (props.float ? props.float : null)};
   background-color: ${props => (props.color ? props.color.hex() : 'inherit')};
   color: ${props => (props.color.isDark() ? '#FFF' : '#222')};
