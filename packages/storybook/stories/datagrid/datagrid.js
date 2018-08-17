@@ -1,12 +1,12 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { withInfo } from '@storybook/addon-info'
-import DataGrid, { DataColumn } from 'gfas-react-datagrid'
+import DataGrid, { DataColumn } from '@jjordy/datagrid'
 import { Popup, Icon, Label } from 'semantic-ui-react'
 import batches from './batches.json'
 import batchDetail from './batchDetail.json'
 import uuid from 'uuid'
-import 'gfas-react-datagrid/lib/grid.css'
+import '@jjordy/datagrid/lib/grid.css'
 
 storiesOf('Datagrid', module)
   .add(

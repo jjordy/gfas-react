@@ -1,0 +1,80 @@
+{
+  "name": "@jjordy/iam",
+  "version": "1.0.6",
+  "description": "React Utilities for Dealing with IAM Policies",
+  "main": "./lib/components/IAMPolicy",
+  "module": "./lib/components/IAMPolicy",
+  "scripts": {
+    "build": "better-npm-run build",
+    "lint": "eslint src test",
+    "lint:fix": "eslint src test --fix",
+    "prepublish": "npm run build",
+    "start": "npm run build",
+    "test": "better-npm-run test",
+    "test:dev": "npm run test -- --watch --coverage"
+  },
+  "betterScripts": {
+    "build": {
+      "command": "rimraf lib && mkdirp lib && babel ./src/ -d . --ignore __tests__ --out-dir lib",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "test": {
+      "command": "jest",
+      "env": {
+        "NODE_ENV": "test",
+        "DEBUG": "urm:*"
+      }
+    }
+  },
+  "jest": {
+    "collectCoverage": true,
+    "setupFiles": [
+      "<rootDir>/test/shim.js",
+      "<rootDir>/test/testSetup.js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/test/"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "html"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/lib"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jjordy/gfas-IAM-react.git"
+  },
+  "author": "Jordan Addison <jordanrileyaddison@gmail.com> (http://github.com/jjordy)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jjordy/gfas-IAM-react.git"
+  },
+  "homepage": "https://github.com/jjordy/gfas-IAM-react",
+  "peerDependencies": {
+    "prop-types": "15 || 16",
+    "react": "15 || 16",
+    "react-dom": "15 || 16"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "better-npm-run": "^0.1.0",
+    "eslint": "^4.9.0",
+    "jest": "^22.4.2",
+    "jest-junit-reporter": "^1.1.0",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.5.4"
+  },
+  "dependencies": {
+    "deep-equal": "^1.0.1",
+    "validate.js": "^0.12.0"
+  }
+}
