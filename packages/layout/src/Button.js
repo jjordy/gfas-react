@@ -9,7 +9,8 @@ const widthMixin = css`
 `
 
 export const StyledButton = styled.button.attrs({
-  role: props => props.role || 'button'
+  role: props => props.role || 'button',
+  children: props => props.children || props.content || ''
 })`
   font-size: 1rem;
   display: inline-block;

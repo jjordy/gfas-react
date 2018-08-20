@@ -35,6 +35,7 @@ const attachedBottomMixin = css`
 `
 
 const segmentMixin = css`
+  background-color: #FFF;
   border-radius: ${props => props.rounded ? '.28rem' : '0px'};
   margin: 1rem;
   ${StyledButton} {
