@@ -9,6 +9,7 @@ import ButtonExamples from './Button'
 import ImageExamples from './Image'
 import FormExamples from './Form'
 import InputExamples from './Input'
+import TextExamples from './Text'
 
 storiesOf('Gfas Layout', module)
   .add('Header', () => <HeaderExamples />)
@@ -20,3 +21,4 @@ storiesOf('Gfas Layout', module)
   .add('Image', () => <ImageExamples />)
   .add('Form', () => <FormExamples />)
   .add('Input', () => <InputExamples />)
+  .add('Text', () => <TextExamples />)

@@ -45,7 +45,7 @@ const headerMixin = css`
 `
 
 const Default = styled.div`
-  ${headerMixin} font-size: 2rem;
+  ${headerMixin} font-size: 1.5rem;
   margin: calc(2rem - 0.14285714em) 0 1rem;
 `
 const H1 = styled.h1`
@@ -73,7 +73,7 @@ const H5 = styled.h5`
 `
 
 const H6 = styled.h6`
-  ${headerMixin} font-size: .5rem;
+  ${headerMixin} font-size: .7rem;
   margin: calc(0.5rem - 0.14285714em) 0 1rem;
 `
 

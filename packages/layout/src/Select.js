@@ -5,25 +5,29 @@ import ThemeContext from './Theme'
 import Color from 'color'
 
 const labelColorMixin = css`
-  color: ${props => props.theme ? Color(props.theme.darkGrey).darken(0.2).hex() : 'rgba(0, 0, 0, 0.87)'};
+  color: ${props =>
+    props.theme
+      ? Color(props.theme.darkGrey)
+        .darken(0.2)
+        .hex()
+      : 'rgba(0, 0, 0, 0.87)'};
 `
 
 const FormMessage = styled.small`
-  font-size: .8rem;
+  font-size: 0.8rem;
   font-weight: 400;
-  color: ${props => props.error ? props.theme.red : props.theme.darkGray};
+  color: ${props => (props.error ? props.theme.red : props.theme.darkGray)};
 `
 
-export const StyledInput = styled.input`
+export const StyledSelect = styled.select`
   font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
   margin: 0;
   outline: 0;
   -webkit-appearance: none;
   tap-highlight-color: rgba(255, 255, 255, 0);
   line-height: 1.6em;
-  padding: .2rem;
+  padding: 0.2rem;
   font-size: 1.1em;
-  font-family: inherit;
   background: #fff;
   border: ${props => (props.error ? `2px solid ${props.theme.red}` : '1px solid rgba(34, 36, 38, 0.15)')};
   color: ${({ theme }) => [theme['darkGrey']]};
@@ -52,6 +56,18 @@ const FormField = styled.div`
   display: ${props => (props.inline ? 'flex' : 'inherit')} ${StyledLabel} {
     ${props => props.inline && inlineLabelMixin};
   }
+  &::after {
+    content: '>';
+    font: 17px 'Consolas', monospace;
+    font-weight: 700;
+    color: ${props => props.theme[props.color] || props.theme.darkGray};
+    transform: rotate(90deg);
+    padding: 0 0 2px;
+    margin-top: .5rem;
+    margin-left: -2rem;
+    position: absolute;
+    pointer-events: none;
+  }
 `
 
 const Required = ({ required, theme }) => {
@@ -60,27 +76,37 @@ const Required = ({ required, theme }) => {
   }
   return null
 }
-
-const Input = ({ theme, label, id, name, inline, message, ...rest }) => {
+const SelectOption = ({ option }) => (
+  <option value={option.value}>{option.name || option.label || option.value}</option>
+)
+const Select = ({ theme, label, id, name, inline, message, options, children, ...rest }) => {
   return (
     <FormField inline={inline} theme={theme}>
       <StyledLabel htmlFor={id || `id_${name}`} theme={theme}>
         {label} <Required {...rest} theme={theme} />
       </StyledLabel>
-      <StyledInput id={id || `id_${name}`} name={name} {...rest} theme={theme} />
-      {message && <FormMessage {...rest} theme={theme}>{message}</FormMessage>}
+      <StyledSelect id={id || `id_${name}`} name={name} {...rest} theme={theme}>
+        {options
+          ? options.map((option, id) => <SelectOption option={option} key={`${name}_select_option_${id}`} />)
+          : children}
+      </StyledSelect>
+      {message && (
+        <FormMessage {...rest} theme={theme}>
+          {message}
+        </FormMessage>
+      )}
     </FormField>
   )
 }
 
-Input.propTypes = {
+Select.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string,
   label: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.node.isRequired])
 }
 
-const ThemedInput = props => {
-  return <ThemeContext.Consumer>{theme => <Input {...props} theme={theme} />}</ThemeContext.Consumer>
+const ThemedSelect = props => {
+  return <ThemeContext.Consumer>{theme => <Select {...props} theme={theme} />}</ThemeContext.Consumer>
 }
 
-export default ThemedInput
+export default ThemedSelect

@@ -17,9 +17,10 @@ export const StyledButton = styled.button.attrs({
   outline: 0;
   border: ${props => (props.color.isDark() ? 0 : '1px solid #e7e7e7')};
   margin: 0 0.25em 0 0;
-  box-shadow: ${props => (props.color.isDark() ? 'none' : '#222 #222 #222 2px')};
+  box-shadow: ${props => (props.color.isDark() ? 'none' : '1px 1px 1px #e7e7e7')};
   padding: 0.78em 1.5em 0.78em;
   text-align: center;
+  font-family: inherit;
   font-weight: 700;
   line-height: 1em;
   ${widthMixin}
