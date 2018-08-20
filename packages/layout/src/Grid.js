@@ -23,4 +23,8 @@ Grid.propTypes = {
   children: PropTypes.node.isRequired
 }
 
+Grid.defaultProps = {
+  gap: 8
+}
+
 export default Grid

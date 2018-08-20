@@ -1,8 +1,5 @@
 import React from 'react'
 
-const DEFAULT_UNIT = 1
-const UNIT = 'rem'
-
 const defaultTheme = {
   blue: '#004D71',
   green: '#94D500',
@@ -15,13 +12,7 @@ const defaultTheme = {
   black: '#222',
   grey: '#ccc',
   darkGrey: '#594A46',
-  space: {
-    xs: `${DEFAULT_UNIT / 4}${UNIT}`,
-    sm: `${DEFAULT_UNIT / 2}${UNIT}`,
-    md: `${DEFAULT_UNIT}${UNIT}`,
-    lg: `${DEFAULT_UNIT * 2}${UNIT}`,
-    xl: `${DEFAULT_UNIT * 4}${UNIT}`
-  }
+  lightGrey: '#e7e7e7'
 }
 
 const ThemeContext = React.createContext(defaultTheme)

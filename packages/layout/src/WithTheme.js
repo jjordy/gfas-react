@@ -1,11 +1,18 @@
 import React from 'react'
-import baseTheme from './baseTheme'
-import { ThemeProvider } from 'styled-components'
+import ThemeContext from './Theme'
+import Color from 'color'
 
-export default function withTheme ({ children }) {
+const withTheme = Component => props => {
   return (
-    <ThemeProvider theme={baseTheme()}>
-      {children}
-    </ThemeProvider>
+    <ThemeContext.Consumer>
+      {theme => <WithColor {...props} theme={theme} Component={Component} />}
+    </ThemeContext.Consumer>
   )
 }
+
+const WithColor = ({Component, color, theme, ...rest}) => {
+  const c = color ? Color(theme[color]) : null
+  return <Component {...rest} theme={theme} color={c} />
+}
+
+export default withTheme

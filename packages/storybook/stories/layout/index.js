@@ -10,6 +10,8 @@ import ImageExamples from './Image'
 import FormExamples from './Form'
 import InputExamples from './Input'
 import TextExamples from './Text'
+import FadeExamples from './Fade'
+import MessageExamples from './Message'
 
 storiesOf('Gfas Layout', module)
   .add('Header', () => <HeaderExamples />)
@@ -22,3 +24,5 @@ storiesOf('Gfas Layout', module)
   .add('Form', () => <FormExamples />)
   .add('Input', () => <InputExamples />)
   .add('Text', () => <TextExamples />)
+  .add('Fade', () => <FadeExamples />)
+  .add('Message', () => <MessageExamples />)

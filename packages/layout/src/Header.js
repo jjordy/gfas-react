@@ -44,7 +44,7 @@ const headerMixin = css`
   ${textAlignMixin};
 `
 
-const Default = styled.div`
+export const Default = styled.div`
   ${headerMixin} font-size: 1.5rem;
   margin: calc(2rem - 0.14285714em) 0 1rem;
 `

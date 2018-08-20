@@ -15,24 +15,25 @@ export const StyledButton = styled.button.attrs({
   display: inline-block;
   min-height: 1em;
   outline: 0;
-  border: ${props => (props.color.isDark() ? 0 : '1px solid #e7e7e7')};
+  border: ${props => (props.color && props.color.isDark() ? 0 : '1px solid #e7e7e7')};
   margin: 0 0.25em 0 0;
-  box-shadow: ${props => (props.color.isDark() ? 'none' : '1px 1px 1px #e7e7e7')};
+  box-shadow: ${props => (props.color && props.color.isDark() ? 'none' : '1px 1px 1px #e7e7e7')};
   padding: 0.78em 1.5em 0.78em;
   text-align: center;
   font-family: inherit;
   font-weight: 700;
+  vertical-align: middle;
   line-height: 1em;
   ${widthMixin}
   border-radius: ${props => (props.rounded ? '0.28rem' : '0')};
   float: ${props => (props.float ? props.float : null)};
   background-color: ${props => (props.color ? props.color.hex() : 'inherit')};
-  color: ${props => (props.color.isDark() ? '#FFF' : '#222')};
+  color: ${props => (props.color && props.color.isDark() ? '#FFF' : '#222')};
   &:hover {
-    background-color: ${props => props.color.darken(0.2).hex()};
+    background-color: ${props => props.color && props.color.darken(0.2).hex()};
   }
   &:focus {
-    background-color: ${props => props.color.darken(0.2).hex()};
+    background-color: ${props => props.color && props.color.darken(0.2).hex()};
   }
 `
 
