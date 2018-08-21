@@ -7,12 +7,13 @@ import { Header, Image } from '@jjordy/layout'
 const UploadContainer = styled.div`
   flex-grow: 2;
   max-width: 75%;
+  background-color: #FFF;
 `
 
 const StyledDropzone = styled(Dropzone)`
   width: 100%;
   min-height: 300px;
-  border-right: 1px dashed #e7e7e7;
+  border-right: 2px dashed #e7e7e7;
 `
 
 const UploadMessage = styled.div`

@@ -26,12 +26,10 @@ export default class FileUpload extends Component {
   render () {
     const { files } = this.state
     return (
-      <Segment style={{ padding: 0 }}>
-        <div style={{ display: 'flex', flex: '2 2 auto' }}>
-          <UploadPanel {...this.props} {...this.state} onDrop={this.onDrop} />
-          <UploadStatusPanel {...this.props} files={files} clearList={this.handleClearStagedFiles} />
-        </div>
-      </Segment>
+      <div style={{ display: 'flex', flex: '2 2 auto' }}>
+        <UploadPanel {...this.props} {...this.state} onDrop={this.onDrop} />
+        <UploadStatusPanel {...this.props} files={files} clearList={this.handleClearStagedFiles} />
+      </div>
     )
   }
 }

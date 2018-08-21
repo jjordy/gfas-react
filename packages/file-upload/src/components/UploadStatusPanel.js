@@ -1,13 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { FileSize, Header, Button } from '@jjordy/layout'
+import styled from 'styled-components'
+
+const StatusContainer = styled.div`
+  padding: 1rem;
+  flex-grow: 1;
+  max-width: 25%;
+  max-height: 300px;
+  overflow-y: scroll;
+  background-color: #FFF;
+`
 
 export default function UploadStatusPanel ({ files, clearList, renderUploadStatusPanel }) {
   if (renderUploadStatusPanel) {
     return <div>{renderUploadStatusPanel(files, clearList)}</div>
   } else {
     return (
-      <div style={{ padding: 10, flexGrow: 1, maxWidth: '25%', maxHeight: 300, overflowY: 'scroll' }}>
+      <StatusContainer>
         <Header as='h4' color='darkGrey' dividing>
           Uploaded Files
         </Header>
@@ -44,7 +54,7 @@ export default function UploadStatusPanel ({ files, clearList, renderUploadStatu
             Clear List
           </Button>
         )}
-      </div>
+      </StatusContainer>
     )
   }
 }
