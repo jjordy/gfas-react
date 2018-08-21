@@ -14,11 +14,8 @@ const Content = styled.span`
   flex: 1 1 auto;
 `
 
-export const StyledButton = styled.button.attrs({
-  role: props => props.role || 'button',
-  children: props => props.children || props.content || ''
-})`
-  font-size: 1rem;
+const buttonStyles = css`
+    font-size: 1rem;
   min-height: 1em;
   display: flex;
   align-self: center;
@@ -51,6 +48,13 @@ export const StyledButton = styled.button.attrs({
   }
 `
 
+export const StyledButton = styled.button.attrs({
+  role: props => props.role || 'button',
+  children: props => props.children || props.content || ''
+})`
+  ${buttonStyles}
+`
+
 const Button = withTheme(StyledButton)
 
 Button.Icon = Icon
@@ -72,8 +76,9 @@ Button.propTypes = {
   ]),
   content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   float: PropTypes.oneOf(['right', 'left']),
-  fluid: PropTypes.bool,
-  theme: PropTypes.object.isRequired
+  fluid: PropTypes.bool
 }
+
+Button.displayName = 'Button'
 
 export default Button
