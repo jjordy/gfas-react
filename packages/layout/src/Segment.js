@@ -35,7 +35,6 @@ const attachedBottomMixin = css`
 `
 
 const segmentMixin = css`
-  background-color: #FFF;
   border-radius: ${props => props.rounded ? '.28rem' : '0px'};
   margin: 1rem;
   ${StyledButton} {
@@ -89,12 +88,15 @@ const Segment = styled.div`
   padding: 1rem;
   clear: ${props => (props.clearing ? clearingMixin : null)};
   ${props => props.attached && props.attached === 'top' && attachedTopMixin}
-  ${props => props.attached && props.attached === 'bottom' && attachedBottomMixin}
-  ${props => props.attached && typeof props.attached === 'boolean' && attachedMixin}
+  ${props =>
+    props.attached && props.attached === 'bottom' && attachedBottomMixin}
+  ${props =>
+    props.attached && typeof props.attached === 'boolean' && attachedMixin}
   ${props => !props.attached && segmentMixin}
   ${props => props.padded && props.padded === 'very' && veryPaddedMixin}
   ${props => props.padded && typeof props.padded === 'boolean' && paddedMixin}
   ${props => props.color && colorMixin}
+  background-color: #fff;
 `
 
 Segment.propTypes = {

@@ -12,6 +12,13 @@ import InputExamples from './Input'
 import TextExamples from './Text'
 import FadeExamples from './Fade'
 import MessageExamples from './Message'
+import { injectGlobal } from 'styled-components'
+
+injectGlobal`
+  body {
+    background-color: #f6f9fc;
+  }
+`
 
 storiesOf('Gfas Layout', module)
   .add('Header', () => <HeaderExamples />)
