@@ -1,6 +1,6 @@
 {
   "name": "@jjordy/layout",
-  "version": "0.0.11",
+  "version": "0.0.14",
   "description": "Composable layout components",
   "main": "./lib",
   "module": "./lib",
@@ -9,8 +9,7 @@
     "lint": "eslint src test --fix",
     "test": "better-npm-run test",
     "test:dev": "npm run test -- --watch",
-    "prepublish": "npm run build",
-    "prepublishOnly": "npm run build"
+    "prepublish": "npm run build"
   },
   "betterScripts": {
     "build": {

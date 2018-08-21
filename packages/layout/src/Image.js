@@ -23,7 +23,7 @@ function handleNonFluidHeight (props) {
 }
 
 const widthMixin = css`
-  width: ${props => props.fluid ? '100%' : handleNonFluidWidth(props)}
+  width: ${props => (props.fluid ? '100%' : handleNonFluidWidth(props))};
 `
 const thumbnailMixin = css`
   padding: 2px;
@@ -33,8 +33,13 @@ const thumbnailMixin = css`
 
 const StyledImage = styled.img`
   height: ${props => props.height || 'auto'};
-  ${widthMixin}
-  ${props => props.thumbnail && thumbnailMixin}
+  display: block;
+  ${props =>
+    props.centered &&
+    `
+    margin: auto;
+  `}
+  ${widthMixin} ${props => props.thumbnail && thumbnailMixin};
 `
 
 const StyledBackgroundImage = styled.div.attrs({
@@ -48,32 +53,26 @@ const StyledBackgroundImage = styled.div.attrs({
   height: ${props => props.height || handleNonFluidHeight(props)};
   background: url(${props => props.src}) no-repeat center center;
   background-size: cover;
-  ${widthMixin}
-  ${props => props.thumbnail && thumbnailMixin}
+  ${widthMixin} ${props => props.thumbnail && thumbnailMixin};
 `
 
-const ImageText = styled.p`
-  text-shadow: 1px 1px 1px #000;
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-align: center;
-  color: #fff;
-`
+const AnchorImage = ({ href, target, ...rest }) => (
+  <a href={href} target={target}>
+    <StyledImage {...rest} />
+  </a>
+)
 
-const AnchorImage = ({ href, target, ...rest }) => <a href={href} target={target}><StyledImage {...rest} /></a>
-
-const Image = (props) => {
+const Image = props => {
   if (props.href) {
     return <AnchorImage {...props} />
   } else if (props.overlay) {
-    return <StyledBackgroundImage {...props}>
-      {props.overlay({ ...props })}
-    </StyledBackgroundImage>
+    return <StyledBackgroundImage {...props}>{props.overlay({ ...props })}</StyledBackgroundImage>
   }
   return <StyledImage {...props} />
 }
 
 Image.propTypes = {
+  centered: PropTypes.bool,
   src: PropTypes.string.isRequired,
   srcset: PropTypes.string,
   href: PropTypes.string,

@@ -70,7 +70,7 @@ Button.propTypes = {
     'white',
     'black'
   ]),
-  content: PropTypes.oneOf([PropTypes.string, PropTypes.node]),
+  content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   float: PropTypes.oneOf(['right', 'left']),
   fluid: PropTypes.bool,
   theme: PropTypes.object.isRequired
