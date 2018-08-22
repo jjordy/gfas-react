@@ -1,6 +1,6 @@
 {
   "name": "@jjordy/layout",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "description": "Composable layout components",
   "main": "./lib",
   "module": "./lib",
@@ -37,6 +37,9 @@
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less)$": "identity-obj-proxy"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "repository": {
     "type": "git",

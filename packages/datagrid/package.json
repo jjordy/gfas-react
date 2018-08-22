@@ -1,9 +1,12 @@
 {
   "name": "@jjordy/datagrid",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "description": "Composable Datagrid for react",
   "main": "./lib",
   "module": "./lib",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "better-npm-run build",
     "dev": "npm run build --watch",
