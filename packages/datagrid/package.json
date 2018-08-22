@@ -1,6 +1,6 @@
 {
   "name": "@jjordy/datagrid",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "description": "Composable Datagrid for react",
   "main": "./lib",
   "module": "./lib",
@@ -61,7 +61,8 @@
     "prop-types": "15 || 16",
     "react": "15 || 16",
     "react-dom": "15 || 16",
-    "react-virtualized": "*"
+    "react-virtualized": "*",
+    "styled-components": "3"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",
