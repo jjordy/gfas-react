@@ -1,6 +1,6 @@
 {
   "name": "@jjordy/datagrid",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "description": "Composable Datagrid for react",
   "main": "./lib",
   "module": "./lib",
@@ -16,7 +16,8 @@
     "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "better-npm-run test",
     "test:dev": "npm run test -- --watch",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "postversion": "npm run build"
   },
   "betterScripts": {
     "build": {
