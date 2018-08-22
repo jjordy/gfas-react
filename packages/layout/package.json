@@ -1,6 +1,6 @@
 {
   "name": "@jjordy/layout",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "description": "Composable layout components",
   "main": "./lib",
   "module": "./lib",
