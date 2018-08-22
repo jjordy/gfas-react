@@ -1,6 +1,6 @@
 {
   "name": "@jjordy/datagrid",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "Composable Datagrid for react",
   "main": "./lib",
   "module": "./lib",
