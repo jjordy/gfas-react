@@ -80,6 +80,7 @@ export default function SearchProvider (C) {
             <SearchInputContainer>
               {search && (
                 <SearchInput
+                  name='search'
                   onChange={this.searchUpdated}
                   mb={0}
                   style={{ height: 45, border: 0 }}

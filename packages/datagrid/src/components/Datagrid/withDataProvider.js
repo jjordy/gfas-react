@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import formatDate from 'date-fns/format'
-import _ from 'lodash'
+import sortBy from 'lodash.sortby'
 
 export default function DataProvider (C) {
   class DataProvider extends Component {
@@ -77,7 +77,7 @@ export default function DataProvider (C) {
     toggleSort = column => {
       console.log(column)
       const newSort = !this.state.asc
-      const sorted = _.sortBy(this.state.data, [item => item[column]])
+      const sorted = sortBy(this.state.data, [item => item[column]])
       this.setState({
         asc: newSort,
         activeSort: column,

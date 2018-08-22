@@ -1,12 +1,18 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import DataGrid, { DataColumn } from '@jjordy/datagrid'
-import { Popup, Icon, Label } from 'semantic-ui-react'
 import batches from './batches.json'
 import batchDetail from './batchDetail.json'
-
-import { Container, Header } from '@jjordy/layout'
+import { Container, Header, Text, Input } from '@jjordy/layout'
 import { FiCheckCircle, FiAlertTriangle, FiSlash } from 'react-icons/fi'
+import _ from 'lodash'
+
+const hugeList = _.times(10000, i => ({
+  Id: i + 1,
+  FirstName: 'John',
+  LastName: 'Doe',
+  EnrollBeginDate: new Date().toISOString()
+}))
 
 storiesOf('Datagrid', module)
   .add('Basic', () => (
@@ -22,7 +28,7 @@ storiesOf('Datagrid', module)
       >
         <DataColumn name='Batch Id' id='Id' width={100} render={({ row, value }) => <a href='#'>Batch {value} </a>} />
         <DataColumn name='Status' id='Status' width={200} />
-        <DataColumn name='Last Revised On' id='RevOn' width={150} date />
+        <DataColumn name='Last Revised On' id='RevOn' width={150} />
         <DataColumn name='Last Revised By' id='RevBy' width={250} />
         <DataColumn name='Submitted On' id='SubmittedOn' width={150} date nullDateMessage='Not Submitted' />
         <DataColumn name='ReceivedOn' id='ReceivedOn' width={150} date nullDateMessage='Not Received' />
@@ -35,7 +41,7 @@ storiesOf('Datagrid', module)
         Advanced Datagrid with render props
       </Header>
       <DataGrid
-        rowHighlightKey='IsResolved'
+        rowHighlightKey='IsTM'
         data={batchDetail.Results}
         search={[
           { key: 'Id' },
@@ -65,14 +71,40 @@ storiesOf('Datagrid', module)
           width={150}
           render={({ row, value }) => <span>{value ? <FiCheckCircle color='green' /> : <FiSlash color='red' />}</span>}
         />
-        <DataColumn name='Status' id='Status' width={200} render={({ value }) => <Label>{value}</Label>} />
+        <DataColumn
+          name='Status'
+          id='Status'
+          width={200}
+          render={({ value }) => (
+            <Input name='Status' value={value} mb={1} style={{border: 0}} />
+          )}
+        />
         <DataColumn name='Enroll Begin Date' id='EnrollBeginDate' width={150} date />
         <DataColumn name='First name' id='FirstName' width={150} />
         <DataColumn name='Last name' id='LastName' width={150} />
         <DataColumn name='SSN' id='SSN' width={95} />
-        <DataColumn name='Date Of Birth' id='DOB' width={150} date />
-        <DataColumn name='Recieved On' id='ReceivedOn' width={150} date />
-        <DataColumn name='Submitted On' id='SubmittedOn' width={150} date />
+        <DataColumn name='Date Of Birth' id='DOB' width={150} date dateInputFormat='YYYY-MM-DD' />
+        <DataColumn name='Recieved On' id='ReceivedOn' width={150} date dateInputFormat='YYYY-MM-DD' />
+        <DataColumn name='Submitted On' id='SubmittedOn' width={150} date dateInputFormat='YYYY-MM-DD' />
+      </DataGrid>
+    </Container>
+  ))
+  .add('Huge', () => (
+    <Container>
+      <Header color='grey' dividing>
+        Many Rows
+      </Header>
+      <Text color='red' strong>
+        This isnt really reccommended but its possible
+      </Text>
+      <DataGrid
+        data={hugeList}
+        search={[{ key: 'Id' }, { key: 'EnrollBeginDate', date: true }, { key: 'FirstName' }, { key: 'LastName' }]}
+      >
+        <DataColumn name='Identifier' id='Id' width={300} />
+        <DataColumn name='Enroll Begin Date' id='EnrollBeginDate' width={150} date />
+        <DataColumn name='First name' id='FirstName' width={150} />
+        <DataColumn name='Last name' id='LastName' width={150} />
       </DataGrid>
     </Container>
   ))

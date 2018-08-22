@@ -13,13 +13,9 @@ class Search extends Component {
     this.filter = this.filter.bind(this)
   }
 
-  componentWillReceiveProps (nextProps) {
-    if (typeof nextProps.value !== 'undefined' && nextProps.value !== this.props.value) {
-      const e = {
-        target: {
-          value: nextProps.value
-        }
-      }
+  componentDidUpdate (prevProps) {
+    if (typeof this.props.value !== 'undefined' && this.props.value !== prevProps.values) {
+      const e = { target: { value: this.props.value } }
       this.updateSearch(e)
     }
   }
@@ -43,7 +39,7 @@ class Search extends Component {
     inputProps.className = inputClassName
     inputProps.placeholder = inputProps.placeholder || 'Search'
     return (
-      <div className={className}>
+      <div>
         <Input {...inputProps} />
       </div>
     )
