@@ -14,7 +14,7 @@ export default function DataProvider (C) {
       activeSort: '',
       asc: false,
       settings: false
-    };
+    }
     componentDidMount () {
       if (this.props.data) {
         const d = [...this.props.data]
@@ -28,9 +28,7 @@ export default function DataProvider (C) {
         const dateColumns = React.Children.map(this.props.children, child => {
           if (child.props.date) {
             if (!child.props.dateInputFormat) {
-              throw new Error(
-                'You must include a dateInputFormat prop if you specify a column as a date.'
-              )
+              throw new Error('You must include a dateInputFormat prop if you specify a column as a date.')
             } else {
               return {
                 id: child.props.id,
@@ -57,7 +55,7 @@ export default function DataProvider (C) {
       } else {
         return []
       }
-    };
+    }
     _generateColumns = () => {
       if (this.props.children) {
         const columns = []
@@ -74,9 +72,10 @@ export default function DataProvider (C) {
           columnCount: columns.length
         })
       }
-    };
+    }
 
     toggleSort = column => {
+      console.log(column)
       const newSort = !this.state.asc
       const sorted = _.sortBy(this.state.data, [item => item[column]])
       this.setState({
@@ -85,15 +84,12 @@ export default function DataProvider (C) {
         data: newSort ? sorted : sorted.reverse(),
         rowHeight: this.state.rowHeight === 40 ? 40.5 : 40
       })
-    };
+    }
 
     render () {
       return (
         <div>
-          {this.state.data &&
-            this.state.columns && (
-              <C {...this.props} {...this.state} toggleSort={this.toggleSort} />
-            )}
+          {this.state.data && this.state.columns && <C {...this.props} {...this.state} toggleSort={this.toggleSort} />}
         </div>
       )
     }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { createFilter } from './util'
+import { Input } from '@jjordy/layout'
 
 class Search extends Component {
   constructor (props) {
@@ -43,7 +44,7 @@ class Search extends Component {
     inputProps.placeholder = inputProps.placeholder || 'Search'
     return (
       <div className={className}>
-        <input {...inputProps} />
+        <Input {...inputProps} />
       </div>
     )
   }

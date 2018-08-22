@@ -1,13 +1,22 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { FiChevronUp, FiChevronDown } from 'react-icons/fi'
+import styled from 'styled-components'
+
+const Column = styled.div`
+  cursor: pointer;
+  min-width: ${props => props.width}px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
 
 export default class DataColumn extends PureComponent {
-  state = { hovering: false };
+  state = { hovering: false }
 
-  hoverOn = () => this.setState({ hovering: true });
+  hoverOn = () => this.setState({ hovering: true })
 
-  hoverOff = () => this.setState({ hovering: false });
+  hoverOff = () => this.setState({ hovering: false })
 
   render () {
     const {
@@ -26,23 +35,15 @@ export default class DataColumn extends PureComponent {
       ...rest
     } = this.props
 
+    const displaySortIcon = asc ? <FiChevronUp color='red' /> : <FiChevronDown color='red' />
     return (
       <div {...rest} onClick={() => toggleSort(id)}>
-        <div
-          style={{ cursor: 'pointer', minWidth: width, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-          onMouseEnter={this.hoverOn}
-          onMouseLeave={this.hoverOff}
-        >
+        <Column width={width} onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}>
           <small>
             <strong>{name}</strong>
-          </small>
-          {' '}
-          {activeSort === id && asc ? (
-            <FiChevronUp color='red' />
-          ) : (
-            <FiChevronDown color='red' />
-          )}
-        </div>
+          </small>{' '}
+          {activeSort === id && displaySortIcon}
+        </Column>
       </div>
     )
   }

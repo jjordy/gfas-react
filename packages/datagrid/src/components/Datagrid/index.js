@@ -3,10 +3,100 @@ import PropTypes from 'prop-types'
 import { AutoSizer, Grid, ScrollSync } from 'react-virtualized'
 import cn from 'classnames'
 import { format as formatDate, isValid as isDateValid, parse } from 'date-fns'
-import scrollbarSize from 'dom-helpers/util/scrollbarSize'
+import { Text } from '@jjordy/layout'
 import withDataProvider from './withDataProvider'
 import withSearchProvider from './withSearchProvider'
 import { compose } from './util'
+import styled, { injectGlobal } from 'styled-components'
+
+injectGlobal`
+  .GridRow {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+  }
+  .GridColumn {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+  }
+  .HeaderGrid {
+    width: 100%;
+    overflow: hidden !important;
+    box-sizing: border-box;
+    background-color: #f8f8f8;
+    border-top: 1px solid #e7e7e7;
+    border-left: 1px solid #e7e7e7;
+    border-right: 1px solid #e7e7e7;
+    &:focus {
+      outline: thin;
+    }
+  }
+
+  .BodyGrid {
+    width: 100%;
+    background-color: #f8f8f8;
+    border: 1px solid #e7e7e7;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: thin;
+    }
+  }
+
+  .highlightClass {
+    background-color: rgba(172, 222, 242, 0.6) !important;
+  }
+
+  .evenRow,
+  .oddRow {
+    border-bottom: 1px solid #e0e0e0 !important;
+  }
+  .oddRow {
+    background-color: #fafafa !important;
+  }
+
+`
+
+const NoCells = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+  color: #bdbdbd;
+`
+const HeaderCell = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 0.5em;
+  font-weight: bold;
+  border-right: 1px solid #e0e0e0;
+  background-color: #f8f8f8;
+  align-items: center;
+  text-align: center;
+`
+
+const Cell = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+  align-items: center;
+  padding: 0 0.5em;
+  box-sizing: border-box;
+  border-right: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+`
 
 class DataGrid extends Component {
   constructor (props) {
@@ -53,22 +143,29 @@ class DataGrid extends Component {
   }
 
   _noContentRenderer = () => {
-    return <div className='noCells'>No cells</div>
+    return (
+      <NoCells>
+        <Text color='darkGrey' strong>
+          No Records Found
+        </Text>
+      </NoCells>
+    )
   }
 
   _renderHeaderCell = ({ columnIndex, key, rowIndex, style }) => {
     const rowClass = this._getRowClassName(rowIndex)
+    console.log(rowClass)
     const childColumnEl = React.Children.toArray(this.props.children)[columnIndex]
-    const classNames = cn(rowClass, 'headerCell', 'centeredCell')
+    // const classNames = cn(rowClass, 'headerCell', 'centeredCell')
     if (childColumnEl.props.active) {
       return (
-        <div className={classNames} key={key} style={style}>
+        <HeaderCell key={key} style={style}>
           {React.cloneElement(childColumnEl, {
             toggleSort: this.props.toggleSort,
             activeSort: this.props.activeSort,
             asc: this.props.asc
           })}
-        </div>
+        </HeaderCell>
       )
     }
   }
@@ -96,14 +193,14 @@ class DataGrid extends Component {
         const classNames = cn(rowClass, 'cell', 'centeredCell')
 
         return (
-          <div className={classNames} key={key} style={style}>
+          <Cell className={classNames} key={key} style={style}>
             {childColumnEl && childColumnEl.props.render
               ? childColumnEl.props.render({
                 row: datum,
                 value: datum[columnName]
               })
               : content}
-          </div>
+          </Cell>
         )
       } else {
         return null
@@ -128,7 +225,7 @@ class DataGrid extends Component {
                       rowHeight={rowHeight}
                       rowCount={1}
                       scrollLeft={scrollLeft}
-                      width={width - scrollbarSize()}
+                      width={width}
                     />
                     {/* Body Grid */}
                     <Grid
@@ -146,7 +243,7 @@ class DataGrid extends Component {
                       scrollToColumn={scrollToColumn}
                       scrollToRow={scrollToRow}
                       onScroll={onScroll}
-                      width={width - scrollbarSize()}
+                      width={width}
                     />
                   </div>
                 )}
@@ -172,4 +269,7 @@ DataGrid.propTypes = {
   rowHighlightKey: PropTypes.string
 }
 
-export default compose(withDataProvider, withSearchProvider)(DataGrid)
+export default compose(
+  withDataProvider,
+  withSearchProvider
+)(DataGrid)

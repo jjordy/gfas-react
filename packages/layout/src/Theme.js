@@ -10,9 +10,9 @@ const defaultTheme = {
   orange: '#f26B3B',
   white: '#FFF',
   black: '#222',
-  grey: '#ccc',
-  darkGrey: '#594A46',
-  lightGrey: '#e7e7e7',
+  grey: '#6c757d',
+  darkGrey: '#343a40',
+  lightGrey: '#f8f9fa',
   BASE_SIZE: 0.5,
   UNIT: 'rem'
 }

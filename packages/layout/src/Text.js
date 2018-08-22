@@ -5,25 +5,30 @@ import { colorMixin, spacing } from './mixins'
 
 const P = styled.p`
   font-size: 1rem;
-  margin-bottom: .5rem;
-  ${colorMixin}
-  ${spacing}
-
+  ${colorMixin} ${spacing};
 `
 
 const Strong = styled.strong`
-  margin-bottom: .5rem;
   display: inline-block;
-  ${colorMixin};
-  ${spacing}
+  margin-bottom: 1rem;
+  ${colorMixin} ${spacing};
 `
 
+Strong.defaultProps = {
+  mb: 1
+}
+
+P.defaultProps = {
+  mb: 1
+}
+
 const Small = styled.small`
-  display: .5rem;
-  margin-bottom: 1rem;
-  ${colorMixin};
-  ${spacing}
+  display: inline-block;
+  ${colorMixin} ${spacing};
 `
+Small.defaultProps = {
+  mb: 1
+}
 
 const ThemedP = withTheme(P, 'black')
 

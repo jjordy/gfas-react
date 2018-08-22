@@ -21,7 +21,7 @@
   },
   "betterScripts": {
     "build": {
-      "command": "rimraf lib && mkdirp lib && babel ./src/components -d . --ignore __tests__ --out-dir lib && cp src/components/Datagrid/grid.css lib/grid.css",
+      "command": "rimraf lib && mkdirp lib && babel ./src/components -d . --ignore __tests__ --out-dir lib",
       "env": {
         "NODE_ENV": "production"
       }
