@@ -1,6 +1,5 @@
 import React from 'react'
-import { Divider, Container, Header, Loader, Grid } from '@jjordy/layout'
-import { Code } from 'gfas-component-utils'
+import { Container, Header, Loader, Grid, Code } from '@jjordy/layout'
 
 export default function HeaderExamples () {
   return <Container>

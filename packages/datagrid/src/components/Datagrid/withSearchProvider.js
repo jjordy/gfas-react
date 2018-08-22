@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import SearchInput, { createFilter } from './Search'
-import { Transition, Segment, Button, Grid, Header, List, Message } from 'semantic-ui-react'
+import { Fade, Segment, Button, Grid, Header, Message } from '@jjordy/layout'
+import { FiHelpCircle } from 'react-icons/fi'
 
 export default function SearchProvider (C) {
   class SearchProvider extends Component {
@@ -36,35 +37,33 @@ export default function SearchProvider (C) {
       const filteredResults = data ? data.filter(createFilter(mySearchTerm, searchKeys, searchOptions)) : null
       return (
         <div>
-          <Grid style={{ marginBottom: 15 }} columns={3} verticalAlign='middle'>
-            <Grid.Column>
+          <Grid width='33%' gap={16}>
+            <React.Fragment>
               {search && (
                 <SearchInput className='ui input search' inputClassName='prompt' onChange={this.searchUpdated} />
               )}
               {!search && <div />}
-            </Grid.Column>
-            <Grid.Column textAlign='center'>
-              <strong>Total Results: {(filteredResults && filteredResults.length) || 0}</strong>
-            </Grid.Column>
-            <Grid.Column textAlign='right'>
-              {search && <Button circular basic icon='question' onClick={this.toggleHelp} ariaLabel='Help' />}
-            </Grid.Column>
+            </React.Fragment>
+            <strong>Total Results: {(filteredResults && filteredResults.length) || 0}</strong>
+            {search && <Button onClick={this.toggleHelp} ariaLabel='Help'>
+              <FiHelpCircle />
+            </Button>}
           </Grid>
-          <Transition visible={showHelp} animation='slide down' duration={500}>
+          <Fade visible={showHelp} duration={500}>
             <div>
               <Header content='Fuzzy Search Help' dividing attached='top' />
               <Segment attached='bottom' style={{ marginBottom: 15 }}>
-                <Grid padded>
-                  <Grid.Column width={10}>
+                <Grid width='50%' gap={16}>
+                  <div>
                     <Header as='h5' content='Advanced Search for this grid' />
-                    <List divided size='mini'>
+                    <ul>
                       {search &&
                         Array.isArray(search) &&
                         search.map((column, id) => {
                           const mc = this.props.columns.find(c => c.id === column.key)
                           return (
-                            <List.Item key={id}>
-                              <List.Content>
+                            <li key={id}>
+                              <p>
                                 <small>
                                   <pre>
                                     <code>
@@ -73,13 +72,13 @@ export default function SearchProvider (C) {
                                     </code>
                                   </pre>
                                 </small>
-                              </List.Content>
-                            </List.Item>
+                              </p>
+                            </li>
                           )
                         })}
-                    </List>
-                  </Grid.Column>
-                  <Grid.Column width={6}>
+                    </ul>
+                  </div>
+                  <div>
                     <Message>
                       <Message.Header>Search not returning what you want?</Message.Header>
                       <p>NOTE: Remember if you are searching for a date always used the MM/DD/YYYY format.</p>
@@ -88,11 +87,11 @@ export default function SearchProvider (C) {
                         <strong>Date:</strong> 01/01/1999
                       </p>
                     </Message>
-                  </Grid.Column>
+                  </div>
                 </Grid>
               </Segment>
             </div>
-          </Transition>
+          </Fade>
           <C {...this.props} data={filteredResults} />
         </div>
       )

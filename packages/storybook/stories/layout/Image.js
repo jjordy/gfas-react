@@ -1,6 +1,5 @@
 import React from 'react'
-import { Divider, Container, Header, Image } from '@jjordy/layout'
-import { Code } from 'gfas-component-utils'
+import { Divider, Container, Header, Image, Code } from '@jjordy/layout'
 
 const DefaultImage = props => (
   <Image

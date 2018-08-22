@@ -1,6 +1,5 @@
 import React from 'react'
-import { Container, Header, Segment, Button, Grid } from '@jjordy/layout'
-import { Code } from 'gfas-component-utils'
+import { Container, Header, Segment, Button, Grid, Code } from '@jjordy/layout'
 import {
   FiAlertTriangle,
   FiCheckCircle,

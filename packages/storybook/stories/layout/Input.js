@@ -1,6 +1,5 @@
 import React from 'react'
-import { Divider, Container, Header, Form, Input, Segment, Button } from '@jjordy/layout'
-import { Code } from 'gfas-component-utils'
+import { Divider, Container, Header, Form, Input, Segment, Button, Code } from '@jjordy/layout'
 import { action } from '@storybook/react'
 
 export default function InputExamples () {

@@ -1,13 +1,13 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { Icon } from 'semantic-ui-react'
+import { FiChevronUp, FiChevronDown } from 'react-icons/fi'
 
 export default class DataColumn extends PureComponent {
-  state = { hovering: false }
+  state = { hovering: false };
 
-  hoverOn = () => this.setState({ hovering: true })
+  hoverOn = () => this.setState({ hovering: true });
 
-  hoverOff = () => this.setState({ hovering: false })
+  hoverOff = () => this.setState({ hovering: false });
 
   render () {
     const {
@@ -28,11 +28,20 @@ export default class DataColumn extends PureComponent {
 
     return (
       <div {...rest} onClick={() => toggleSort(id)}>
-        <div style={{ cursor: 'pointer', minWidth: width }} onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}>
+        <div
+          style={{ cursor: 'pointer', minWidth: width, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+          onMouseEnter={this.hoverOn}
+          onMouseLeave={this.hoverOff}
+        >
           <small>
             <strong>{name}</strong>
           </small>
-          {activeSort === id && <Icon name={`caret ${asc ? 'up' : 'down'}`} color='red' />}
+          {' '}
+          {activeSort === id && asc ? (
+            <FiChevronUp color='red' />
+          ) : (
+            <FiChevronDown color='red' />
+          )}
         </div>
       </div>
     )
