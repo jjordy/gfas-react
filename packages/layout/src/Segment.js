@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ThemeContext from './Theme'
-import Color from 'color'
 import styled, { css } from 'styled-components'
-import { StyledButton } from './Button'
-import { StyledInput } from './Input'
-import { CheckIcon } from './Checkbox'
+import Dimmer from './Dimmer'
+import Loader from './Loader'
+import withTheme from './withTheme'
+import {
+  spacing
+} from './mixins'
 
 const borderTopRadiusMixin = css`
   border-top-right-radius: .28rem;
@@ -37,37 +38,10 @@ const attachedBottomMixin = css`
 const segmentMixin = css`
   border-radius: ${props => props.rounded ? '.28rem' : '0px'};
   margin: 1rem;
-  ${StyledButton} {
-    border-radius: ${props => props.rounded ? '.28rem' : '0px'};
-  }
-  ${StyledInput} {
-    border-radius: ${props => props.rounded ? '.28rem' : '0px'};
-  }
-`
-
-const paddedMixin = css`
-  padding: 2rem;
-`
-
-const veryPaddedMixin = css`
-  padding: 2.5rem;
 `
 
 const colorMixin = css`
   border-top: 0.15rem solid ${props => props.color.hex()};
-  ${StyledButton} {
-    background-color: ${props => props.color.hex()};
-    color: ${props => (props.color.isDark() ? '#FFF' : '#222')};
-    &:hover {
-      background-color: ${props => props.color.darken(0.2).hex()};
-    }
-    &:focus {
-      background-color: ${props => props.color.darken(0.2).hex()};
-    }
-  }
-  ${CheckIcon} {
-    fill: ${props => props.color.hex()};
-  }
 `
 
 const clearingMixin = css`
@@ -83,9 +57,8 @@ const clearingMixin = css`
 
 const Segment = styled.div`
   border: 1px solid #e7e7e7;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  padding: 1rem;
+  position: relative;
+  ${spacing}
   clear: ${props => (props.clearing ? clearingMixin : null)};
   ${props => props.attached && props.attached === 'top' && attachedTopMixin}
   ${props =>
@@ -93,27 +66,33 @@ const Segment = styled.div`
   ${props =>
     props.attached && typeof props.attached === 'boolean' && attachedMixin}
   ${props => !props.attached && segmentMixin}
-  ${props => props.padded && props.padded === 'very' && veryPaddedMixin}
-  ${props => props.padded && typeof props.padded === 'boolean' && paddedMixin}
   ${props => props.color && colorMixin}
   background-color: #fff;
+  & ${Dimmer} {
+    padding: 0;
+  }
 `
 
 Segment.propTypes = {
   clearing: PropTypes.bool,
   children: PropTypes.node.isRequired,
-  attached: PropTypes.oneOfType([PropTypes.bool, PropTypes.oneOf(['top', 'bottom'])]),
-  padded: PropTypes.oneOfType([PropTypes.bool, PropTypes.oneOf(['very'])])
+  attached: PropTypes.oneOfType([PropTypes.bool, PropTypes.oneOf(['top', 'bottom'])])
 }
 
-const WithColor = ({ theme, color, ...rest }) => {
-  let hex = null
-  if (color) {
-    hex = Color(theme[color])
-  }
-  return <Segment {...rest} color={hex} />
+Segment.defaultProps = {
+  p: 2,
+  loading: false
 }
 
-export default function ThemedSegment (props) {
-  return <ThemeContext.Consumer>{theme => <WithColor {...props} theme={theme} />}</ThemeContext.Consumer>
-}
+const ThemedSegment = withTheme(Segment)
+
+const LoadingSegment = ({loading, ...rest}) => (
+  <div style={{position: 'relative'}}>
+    <Dimmer active={loading}>
+      <Loader color='blue' />
+    </Dimmer>
+    <ThemedSegment {...rest} />
+  </div>
+)
+
+export default LoadingSegment

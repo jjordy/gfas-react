@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import ThemeContext from './Theme'
+import { inputColorMixin, inputPaddingMixin, normalFontMixin, inputMarginMixin, heavyFontMixin } from './mixins'
+import withTheme from './withTheme'
 import Color from 'color'
 
 const labelColorMixin = css`
@@ -20,29 +21,27 @@ const FormMessage = styled.small`
 `
 
 export const StyledSelect = styled.select`
-  font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  ${normalFontMixin} 
   margin: 0;
+  ${inputColorMixin}
   outline: 0;
   -webkit-appearance: none;
   tap-highlight-color: rgba(255, 255, 255, 0);
   line-height: 1.6em;
-  padding: 0.2rem;
-  font-size: 1.1em;
-  background: #fff;
+  ${inputPaddingMixin} background: #fff;
   border: ${props => (props.error ? `2px solid ${props.theme.red}` : '1px solid rgba(34, 36, 38, 0.15)')};
-  color: ${({ theme }) => [theme['darkGrey']]};
   border-radius: ${props => (props.rounded ? '.28571429rem' : 0)};
   box-shadow: 0 0 0 0 transparent inset;
   transition: color 0.1s ease, border-color 0.1s ease;
   width: 100%;
-  vertical-align: top;`
+  vertical-align: top;
+`
 
 const StyledLabel = styled.label`
   display: block;
-  margin: 0 0 0.28571429rem 0;
   ${labelColorMixin}
-  font-size: 1.0em;
-  font-weight: 700;
+  ${inputMarginMixin}
+  ${heavyFontMixin}
   text-transform: none;
   $
 `
@@ -105,8 +104,4 @@ Select.propTypes = {
   label: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.node.isRequired])
 }
 
-const ThemedSelect = props => {
-  return <ThemeContext.Consumer>{theme => <Select {...props} theme={theme} />}</ThemeContext.Consumer>
-}
-
-export default ThemedSelect
+export default withTheme(Select)

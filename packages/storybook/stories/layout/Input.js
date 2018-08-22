@@ -5,7 +5,7 @@ import { action } from '@storybook/react'
 
 export default function InputExamples () {
   return (
-    <Container text>
+    <Container>
       <Header color='grey'>Simple Inputs</Header>
       <Divider />
       <Segment color='darkGrey' clearing>

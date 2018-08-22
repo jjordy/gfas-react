@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { spacing } from './mixins'
+import withTheme from './withTheme'
 
 const px = n => (typeof n === 'number' ? n + 'px' : n)
 
@@ -14,6 +16,7 @@ const Grid = styled.div`
     `@media (max-width: 768px) {
     grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
     }`};
+  ${spacing}
 `
 
 Grid.propTypes = {
@@ -27,4 +30,4 @@ Grid.defaultProps = {
   gap: 8
 }
 
-export default Grid
+export default withTheme(Grid)

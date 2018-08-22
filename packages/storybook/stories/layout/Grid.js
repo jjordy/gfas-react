@@ -7,7 +7,7 @@ export default function HeaderExamples () {
     <Container>
       <Header color='grey'>Grid Component</Header>
       <Divider />
-      <Grid width='33%' gap={8}>
+      <Grid width='33%' gap={16}>
         <div style={{ backgroundColor: '#ccc' }}>Item 1</div>
         <div style={{ backgroundColor: '#ccc' }}>Item 2</div>
         <div style={{ backgroundColor: '#ccc' }}>Item 3</div>
@@ -17,7 +17,7 @@ export default function HeaderExamples () {
       </Grid>
       <Code
         code={`
-        <Grid width='33%' gap={8}>
+        <Grid width='33%' gap={16}>
           <div style={{ backgroundColor: '#ccc' }}>Item 1</div>
           <div style={{ backgroundColor: '#ccc' }}>Item 2</div>
           <div style={{ backgroundColor: '#ccc' }}>Item 3</div>

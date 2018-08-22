@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import withTheme from './withTheme'
 import Color from 'color'
+import { spacing } from './mixins'
 
 function handleDefault (props) {
   const darkGrey = Color(props.theme.grey)
@@ -42,9 +43,7 @@ const StyledButton = styled.button`
 const ContentContainer = styled.div`
   display: flex;
   align-items: center;
-  padding: 0.5rem;
-  margin-right: 0.5rem;
-  margin-left: 0.5rem;
+  ${spacing}
 `
 const ContentIcon = styled.div`
   border-radius: ${props => (props.circular ? '99px' : '0px')};
@@ -57,7 +56,7 @@ const StyledMessage = styled.div`
   border-radius: ${props => (props.rounded ? '.28rem' : 0)};
   border: ${props => `1.2px solid ${props.color ? props.color.darken(0.1).hex() : handleDefault(props)}`};
   box-sizing: border-box;
-  margin-bottom: 0.5rem;
+  ${spacing}
   & ${StyledHeader} {
     text-shadow: ${props => (isDark(props) ? 'none' : '1px 1px 1px #222')};
     color: ${props => {
@@ -65,7 +64,7 @@ const StyledMessage = styled.div`
   }};
   }
   & ${StyledContent} {
-      color:${props => isDark(props) ? '#FFF' : '#222'}
+      color:${props => (isDark(props) ? '#FFF' : '#222')}
     };
   }
   
@@ -101,8 +100,15 @@ ThemedMessage.Content = ThemedContent
 
 ThemedMessage.Icon = ThemedContentIcon
 
+ContentContainer.defaultProps = {
+  mb: 2
+}
+
 ThemedMessage.defaultProps = {
-  color: 'lightGrey'
+  color: 'lightGrey',
+  mb: 2,
+  px: 2,
+  pt: 1
 }
 
 export default ThemedMessage

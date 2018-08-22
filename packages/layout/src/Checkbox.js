@@ -3,10 +3,12 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import ThemeContext from './Theme'
 import Icon from './Icon'
+import { spacing } from './mixins'
 
 const Container = styled.div`
   display: inline-flex;
   user-select: none;
+  ${spacing}
 `
 
 const FormMessage = styled.small`
@@ -57,15 +59,14 @@ class Checkbox extends Component {
   constructor (props) {
     super(props)
     const { checked } = props
-
     this.state = {
       checked: checked
     }
   }
 
-  onClick = () => {
+  onClick = (e) => {
     this.setState({ checked: !this.state.checked }, () => {
-      this.props.onChange({ checked: this.state.checked })
+      this.props.onChange(!this.state.checked)
     })
   }
 

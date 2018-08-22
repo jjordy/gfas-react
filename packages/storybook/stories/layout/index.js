@@ -19,6 +19,7 @@ import { injectGlobal } from 'styled-components'
 injectGlobal`
   body {
     background-color: #f6f9fc;
+    box-sizing: border-box;
   }
 `
 

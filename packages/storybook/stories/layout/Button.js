@@ -94,5 +94,22 @@ export default function ButtonExamples () {
       </Button>
     </Segment>
 `} />
+
+    <Header dividing>Rounded Button</Header>
+    <Segment>
+      <Button rounded>
+        <Button.Content>Im round</Button.Content>
+      </Button>
+    </Segment>
+    <Code code={`
+    <Segment>
+      <Button rounded>
+        <Button.Content>Im Fluid</Button.Content>
+        <Button.Icon>
+          <FiAlertTriangle />
+        </Button.Icon>
+      </Button>
+    </Segment>
+`} />
   </Container>
 }

@@ -1,46 +1,56 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import ThemeContext from './Theme'
+import withTheme from './withTheme'
 import Color from 'color'
+import {
+  spacing,
+  inputPaddingMixin,
+  inputMarginMixin,
+  normalFontMixin,
+  heavyFontMixin,
+  inputColorMixin
+} from './mixins'
 
 const labelColorMixin = css`
-  color: ${props => props.theme ? Color(props.theme.darkGrey).darken(0.2).hex() : 'rgba(0, 0, 0, 0.87)'};
+  color: ${props =>
+    props.theme
+      ? Color(props.theme.darkGrey)
+        .darken(0.2)
+        .hex()
+      : 'rgba(0, 0, 0, 0.87)'};
 `
 
 const FormMessage = styled.small`
-  font-size: .8rem;
+  font-size: 0.8rem;
   font-weight: 400;
-  color: ${props => props.error ? props.theme.red : props.theme.darkGray};
+  color: ${props => (props.error ? props.theme.red : props.theme.darkGray)};
 `
 
 export const StyledInput = styled.input`
-  font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  ${normalFontMixin}
   margin: 0;
   outline: 0;
   -webkit-appearance: none;
   tap-highlight-color: rgba(255, 255, 255, 0);
   line-height: 1.6em;
-  padding: .2rem;
-  font-size: 1.1em;
-  font-family: inherit;
+  ${inputPaddingMixin}
   background: #fff;
   border: ${props => (props.error ? `2px solid ${props.theme.red}` : '1px solid rgba(34, 36, 38, 0.15)')};
-  color: ${({ theme }) => [theme['darkGrey']]};
+  ${inputColorMixin}
   border-radius: ${props => (props.rounded ? '.28571429rem' : 0)};
   box-shadow: 0 0 0 0 transparent inset;
   transition: color 0.1s ease, border-color 0.1s ease;
   width: 100%;
-  vertical-align: top;`
+  vertical-align: top;
+`
 
 const StyledLabel = styled.label`
   display: block;
-  margin: 0 0 0.28571429rem 0;
+  ${inputMarginMixin}
   ${labelColorMixin}
-  font-size: 1.0em;
-  font-weight: 700;
+  ${heavyFontMixin}
   text-transform: none;
-  $
 `
 const inlineLabelMixin = css`
   margin-right: 1rem;
@@ -48,10 +58,10 @@ const inlineLabelMixin = css`
 
 const FormField = styled.div`
   clear: both;
-  margin: 0 0 1em;
   display: ${props => (props.inline ? 'flex' : 'inherit')} ${StyledLabel} {
     ${props => props.inline && inlineLabelMixin};
   }
+  ${spacing};
 `
 
 const Required = ({ required, theme }) => {
@@ -63,12 +73,16 @@ const Required = ({ required, theme }) => {
 
 const Input = ({ theme, label, id, name, inline, message, ...rest }) => {
   return (
-    <FormField inline={inline} theme={theme}>
+    <FormField inline={inline} theme={theme} {...rest}>
       <StyledLabel htmlFor={id || `id_${name}`} theme={theme}>
         {label} <Required {...rest} theme={theme} />
       </StyledLabel>
       <StyledInput id={id || `id_${name}`} name={name} {...rest} theme={theme} />
-      {message && <FormMessage {...rest} theme={theme}>{message}</FormMessage>}
+      {message && (
+        <FormMessage {...rest} theme={theme}>
+          {message}
+        </FormMessage>
+      )}
     </FormField>
   )
 }
@@ -78,9 +92,10 @@ Input.propTypes = {
   id: PropTypes.string,
   label: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.node.isRequired])
 }
-
-const ThemedInput = props => {
-  return <ThemeContext.Consumer>{theme => <Input {...props} theme={theme} />}</ThemeContext.Consumer>
+Input.defaultProps = {
+  mb: 2
 }
+
+const ThemedInput = withTheme(Input)
 
 export default ThemedInput

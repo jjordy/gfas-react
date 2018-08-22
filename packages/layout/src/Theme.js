@@ -12,7 +12,9 @@ const defaultTheme = {
   black: '#222',
   grey: '#ccc',
   darkGrey: '#594A46',
-  lightGrey: '#e7e7e7'
+  lightGrey: '#e7e7e7',
+  BASE_SIZE: 0.5,
+  UNIT: 'rem'
 }
 
 const ThemeContext = React.createContext(defaultTheme)

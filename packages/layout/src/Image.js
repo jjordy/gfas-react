@@ -39,7 +39,8 @@ const StyledImage = styled.img`
     `
     margin: auto;
   `}
-  ${widthMixin} ${props => props.thumbnail && thumbnailMixin};
+  ${widthMixin} 
+  ${props => props.thumbnail && thumbnailMixin};
 `
 
 const StyledBackgroundImage = styled.div.attrs({

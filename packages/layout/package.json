@@ -1,6 +1,6 @@
 {
   "name": "@jjordy/layout",
-  "version": "0.0.15",
+  "version": "0.0.26",
   "description": "Composable layout components",
   "main": "./lib",
   "module": "./lib",
@@ -51,7 +51,8 @@
   "peerDependencies": {
     "prop-types": "15 || 16",
     "react": "15 || 16",
-    "react-dom": "15 || 16"
+    "react-dom": "15 || 16",
+    "styled-components": "3"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",
@@ -63,9 +64,6 @@
   },
   "dependencies": {
     "color": "^3.0.0",
-    "gfas-component-utils": "^0.0.3",
-    "react-icons": "^3.0.5",
-    "styled-components": "^3.4.2",
-    "styled-system": "^3.0.2"
+    "gfas-component-utils": "^0.0.3"
   }
 }
