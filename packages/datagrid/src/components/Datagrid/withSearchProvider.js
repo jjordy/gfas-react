@@ -6,9 +6,9 @@ import { FiHelpCircle } from 'react-icons/fi'
 
 export default function SearchProvider (C) {
   class SearchProvider extends Component {
-    state = { searchTerm: '', showHelp: false }
-    searchUpdated = term => this.setState({ searchTerm: term })
-    toggleHelp = () => this.setState({ showHelp: !this.state.showHelp })
+    state = { searchTerm: '', showHelp: false };
+    searchUpdated = term => this.setState({ searchTerm: term });
+    toggleHelp = () => this.setState({ showHelp: !this.state.showHelp });
     render () {
       const { searchTerm, showHelp } = this.state
       const { data, search } = this.props
@@ -34,20 +34,30 @@ export default function SearchProvider (C) {
         mySearchTerm = Date.parse(searchTerm).toString()
       }
 
-      const filteredResults = data ? data.filter(createFilter(mySearchTerm, searchKeys, searchOptions)) : null
+      const filteredResults = data
+        ? data.filter(createFilter(mySearchTerm, searchKeys, searchOptions))
+        : null
       return (
         <div>
           <Grid width='33%' gap={16}>
             <React.Fragment>
               {search && (
-                <SearchInput className='ui input search' inputClassName='prompt' onChange={this.searchUpdated} />
+                <SearchInput
+                  className='ui input search'
+                  inputClassName='prompt'
+                  onChange={this.searchUpdated}
+                />
               )}
               {!search && <div />}
             </React.Fragment>
-            <strong>Total Results: {(filteredResults && filteredResults.length) || 0}</strong>
-            {search && <Button onClick={this.toggleHelp} ariaLabel='Help'>
-              <FiHelpCircle />
-            </Button>}
+            <strong>
+              Total Results: {(filteredResults && filteredResults.length) || 0}
+            </strong>
+            {search && (
+              <Button onClick={this.toggleHelp} ariaLabel='Help'>
+                <FiHelpCircle />
+              </Button>
+            )}
           </Grid>
           <Fade visible={showHelp} duration={500}>
             <div>
@@ -60,19 +70,22 @@ export default function SearchProvider (C) {
                       {search &&
                         Array.isArray(search) &&
                         search.map((column, id) => {
-                          const mc = this.props.columns.find(c => c.id === column.key)
+                          const mc = this.props.columns.find(
+                            c => c.id === column.key
+                          )
                           return (
                             <li key={id}>
-                              <p>
+                              <span>
                                 <small>
                                   <pre>
                                     <code>
-                                      {column.key.split('.')[0]}:{'{your search}'} returns matches for{' '}
+                                      {column.key.split('.')[0]}:
+                                      {'{your search}'} returns matches for{' '}
                                       {(mc && mc.name) || ''}
                                     </code>
                                   </pre>
                                 </small>
-                              </p>
+                              </span>
                             </li>
                           )
                         })}
@@ -80,8 +93,13 @@ export default function SearchProvider (C) {
                   </div>
                   <div>
                     <Message>
-                      <Message.Header>Search not returning what you want?</Message.Header>
-                      <p>NOTE: Remember if you are searching for a date always used the MM/DD/YYYY format.</p>
+                      <Message.Header>
+                        Search not returning what you want?
+                      </Message.Header>
+                      <p>
+                        NOTE: Remember if you are searching for a date always
+                        used the MM/DD/YYYY format.
+                      </p>
                       <strong>Examples:</strong>
                       <p>
                         <strong>Date:</strong> 01/01/1999
