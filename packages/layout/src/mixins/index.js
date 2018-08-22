@@ -26,7 +26,7 @@ export const borderRadiusMixin = css`
   ${props =>
     props.rounded &&
     `
-    border-radius: ${props.theme.BASE_SIZE / 1.5}${props.theme.UNIT}; 
+    border-radius: ${props.theme.BASE_SIZE / 2.0}${props.theme.UNIT}; 
   `};
 `
 

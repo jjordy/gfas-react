@@ -27,6 +27,7 @@ export const buttonStyles = css`
   display: flex;
   align-self: center;
   flex: 1 1 auto;
+  box-sizing: border-box;
   align-items: center;
   justify-content: space-around;
   text-align: center;
@@ -65,7 +66,7 @@ Button.Content = Content
 
 Button.propTypes = {
   children: PropTypes.node,
-  color: PropTypes.oneOf(['blue', 'green', 'yellow', 'teal', 'orange', 'red', 'lightBlue', 'white', 'black']),
+  color: PropTypes.string,
   content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   float: PropTypes.oneOf(['right', 'left']),
   fluid: PropTypes.bool
@@ -74,7 +75,9 @@ Button.propTypes = {
 Button.displayName = 'Button'
 
 Button.defaultProps = {
-  py: 1
+  px: 2.0,
+  py: 1.5,
+  inverted: false
 }
 
 export default Button

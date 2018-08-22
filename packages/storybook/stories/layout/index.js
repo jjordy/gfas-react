@@ -14,6 +14,8 @@ import FadeExamples from './Fade'
 import MessageExamples from './Message'
 import ResponsiveExamples from './Responsive'
 import ProgressExamples from './Progress'
+import Loader from './Loader'
+
 import { injectGlobal } from 'styled-components'
 
 injectGlobal`
@@ -38,3 +40,4 @@ storiesOf('Gfas Layout', module)
   .add('Message', () => <MessageExamples />)
   .add('Responsive', () => <ResponsiveExamples />)
   .add('Progress', () => <ProgressExamples />)
+  .add('Loader', () => <Loader />)

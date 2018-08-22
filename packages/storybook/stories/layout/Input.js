@@ -8,23 +8,23 @@ export default function InputExamples () {
     <Container>
       <Header color='grey'>Simple Inputs</Header>
       <Divider />
-      <Segment color='darkGrey' clearing>
+      <Segment color='lightBlue' clearing>
         <Form onSubmit={action('FORM SUBMITTED')}>
           <Input label='Name' name='Given_Name' required placeholder='Given Name' />
           <Input label='Age' name='age' placeholder='Your Age' />
           <Input label='DOB' name='dob' placeholder='Date of Birth' />
-          <Button float='right' color='black'>Submit</Button>
+          <Button float='right'>Submit</Button>
         </Form>
       </Segment>
       <Header color='grey'>Rounded Inputs</Header>
       <Divider />
-      <Segment color='darkGrey' clearing rounded>
+      <Segment color='lightBlue' clearing rounded>
         <Header as='h4' dividing>Round is cascading meaning you round a parent segment it will round children like form inputs and buttons.</Header>
         <Form onSubmit={action('FORM SUBMITTED')}>
           <Input label='Name' name='Given_Name' required placeholder='Given Name' />
           <Input label='Age' name='age' placeholder='Your Age' />
           <Input label='DOB' name='dob' placeholder='Date of Birth' />
-          <Button float='right' color='black'>Submit</Button>
+          <Button float='right' color='lightBlue'>Submit</Button>
         </Form>
       </Segment>
       <Code code={`

@@ -52,7 +52,8 @@ const inlineLabelMixin = css`
 const FormField = styled.div`
   clear: both;
   margin: 0 0 1em;
-  display: ${props => (props.inline ? 'flex' : 'inherit')} ${StyledLabel} {
+  display: ${props => (props.inline ? 'flex' : 'inherit')} 
+  & ${StyledLabel} {
     ${props => props.inline && inlineLabelMixin};
   }
   &::after {

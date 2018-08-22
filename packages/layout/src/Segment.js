@@ -4,9 +4,9 @@ import styled, { css } from 'styled-components'
 import Dimmer from './Dimmer'
 import Loader from './Loader'
 import withTheme from './withTheme'
-import {
-  spacing
-} from './mixins'
+import { spacing, borderRadiusMixin } from './mixins'
+import { StyledButton } from './Button'
+import { StyledInput } from './Input'
 
 const borderTopRadiusMixin = css`
   border-top-right-radius: .28rem;
@@ -70,6 +70,14 @@ const Segment = styled.div`
   background-color: #fff;
   & ${Dimmer} {
     padding: 0;
+  }
+
+  & ${StyledButton} {
+    ${borderRadiusMixin}
+  }
+
+  & ${StyledInput} {
+    ${borderRadiusMixin}
   }
 `
 

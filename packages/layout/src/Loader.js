@@ -24,7 +24,7 @@ const Spinner = ({ color, theme, type }) => {
     case 'three-dots':
       return <ThreeDots color={c} />
     default:
-      return <Puff color={c} />
+      return <Oval color={c} />
   }
 }
 
@@ -39,6 +39,10 @@ Spinner.propTypes = {
     'oval',
     'three-dots'
   ])
+}
+
+ThemedSpinner.defaultProps = {
+  color: 'darkGrey'
 }
 
 export default ThemedSpinner
