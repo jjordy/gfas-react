@@ -1,9 +1,9 @@
 {
   "name": "@jjordy/iam",
-  "version": "1.0.29",
+  "version": "1.0.30",
   "description": "React Utilities for Dealing with IAM Policies",
-  "main": "./lib/components/IAMPolicy",
-  "module": "./lib/components/IAMPolicy",
+  "main": "./lib/index.js",
+  "module": "./lib/es/index.js",
   "scripts": {
     "build": "node ./tools/build.js",
     "dev": "babel ./src -d lib/es --ignore __tests__ --watch",
