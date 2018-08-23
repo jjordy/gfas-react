@@ -42,6 +42,7 @@
   "homepage": "https://github.com/jjordy/Universal-React-Min",
   "peerDependencies": {
     "react": "15 || 16",
+    "prop-types": "^15.6.2",
     "styled-components": "3"
   },
   "devDependencies": {
@@ -58,7 +59,6 @@
     "dom-helpers": "^3.2.1",
     "fuse.js": "^3.2.0",
     "lodash.sortby": "^4.7.0",
-    "prop-types": "^15.6.2",
     "react-virtualized": "^9.20.1",
     "uuid": "^3.2.1"
   }

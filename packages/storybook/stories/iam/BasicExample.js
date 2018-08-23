@@ -1,6 +1,6 @@
 import React from 'react'
 import { Header, Form } from 'semantic-ui-react'
-import { iamDisabled } from '@jjordy/iam/lib/components/IAMPolicy'
+import { iamDisabled } from '@jjordy/iam'
 
 const MyTestComponent = ({ policy }) => (
   <div>

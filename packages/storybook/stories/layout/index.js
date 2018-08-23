@@ -14,9 +14,28 @@ import FadeExamples from './Fade'
 import MessageExamples from './Message'
 import ResponsiveExamples from './Responsive'
 import ProgressExamples from './Progress'
-import Loader from './Loader'
+import LoaderExamples from './Loader'
+import IconExamples from './Icon'
 
 import { injectGlobal } from 'styled-components'
+
+storiesOf('Gfas Layout', module)
+  .add('Header', () => <HeaderExamples />)
+  .add('Segment', () => <SegmentExamples />)
+  .add('Container', () => <ContainerExamples />)
+  .add('Divider', () => <DividerExamples />)
+  .add('Grid', () => <GridExamples />)
+  .add('Button', () => <ButtonExamples />)
+  .add('Image', () => <ImageExamples />)
+  .add('Form', () => <FormExamples />)
+  .add('Input', () => <InputExamples />)
+  .add('Text', () => <TextExamples />)
+  .add('Fade', () => <FadeExamples />)
+  .add('Message', () => <MessageExamples />)
+  .add('Responsive', () => <ResponsiveExamples />)
+  .add('Progress', () => <ProgressExamples />)
+  .add('Loader', () => <LoaderExamples />)
+  .add('Icon', () => <IconExamples />)
 
 injectGlobal`
   html {
@@ -203,20 +222,3 @@ injectGlobal`
     display: none;
   }
 `
-
-storiesOf('Gfas Layout', module)
-  .add('Header', () => <HeaderExamples />)
-  .add('Segment', () => <SegmentExamples />)
-  .add('Container', () => <ContainerExamples />)
-  .add('Divider', () => <DividerExamples />)
-  .add('Grid', () => <GridExamples />)
-  .add('Button', () => <ButtonExamples />)
-  .add('Image', () => <ImageExamples />)
-  .add('Form', () => <FormExamples />)
-  .add('Input', () => <InputExamples />)
-  .add('Text', () => <TextExamples />)
-  .add('Fade', () => <FadeExamples />)
-  .add('Message', () => <MessageExamples />)
-  .add('Responsive', () => <ResponsiveExamples />)
-  .add('Progress', () => <ProgressExamples />)
-  .add('Loader', () => <Loader />)

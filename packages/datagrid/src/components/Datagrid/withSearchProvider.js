@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import SearchInput, { createFilter } from './Search'
-import { Fade, Segment, Grid, Header, Text } from '@jjordy/layout'
-import { FiHelpCircle } from 'react-icons/fi'
+import { Fade, Segment, Grid, Header, Text, Icon } from '@jjordy/layout'
 import styled from 'styled-components'
 
 const SearchContainer = styled.div`
@@ -95,13 +94,15 @@ export default function SearchProvider (C) {
             </TotalResultsContainer>
             <HelpIconContainer>
               {search && (
-                <FiHelpCircle
+                <Icon
                   onClick={this.toggleHelp}
-                  size='1.5em'
+                  width='32'
+                  height='32'
+                  icon='question'
                   role='button'
                   style={{ textAlign: 'right' }}
                   aria-label='Show Help Button'
-                  color='grey'
+                  color='gray'
                 />
               )}
             </HelpIconContainer>
