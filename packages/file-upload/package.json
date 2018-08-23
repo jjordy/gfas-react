@@ -1,6 +1,6 @@
 {
   "name": "@jjordy/file-upload",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "description": "Composable Drag and drop file upload for react",
   "main": "./lib/index.js",
   "module": "./lib/es/index.js",
@@ -9,7 +9,6 @@
     "clean": "git clean -fdX .",
     "lint": "eslint src",
     "test": "jest",
-    "prepublishOnly": "node ./tools/build.js",
     "watch": "babel ./src --out-dir lib/es --ignore __tests__ --watch"
   },
   "publishConfig": {
@@ -80,7 +79,7 @@
     "rollup-plugin-uglify": "^3.0.0"
   },
   "dependencies": {
-    "@jjordy/layout": "^0.0.33",
+    "@jjordy/layout": "^0.0.34",
     "prop-types": "^15.6.1",
     "react-dropzone": "^5.0.1"
   }

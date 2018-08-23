@@ -1,6 +1,6 @@
 {
   "name": "@jjordy/iam",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "React Utilities for Dealing with IAM Policies",
   "main": "./lib/index.js",
   "module": "./lib/es/index.js",
@@ -9,7 +9,6 @@
     "clean": "git clean -fdX .",
     "lint": "eslint src",
     "test": "jest",
-    "prepublishOnly": "node ./tools/build.js",
     "watch": "babel ./src -d --out-dir lib/es --ignore __tests__ --watch"
   },
   "publishConfig": {

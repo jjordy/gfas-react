@@ -1,6 +1,6 @@
 {
   "name": "@jjordy/layout",
-  "version": "0.0.33",
+  "version": "0.0.34",
   "description": "Composable layout components",
   "main": "./lib/index.js",
   "module": "./lib/es/index.js",
@@ -9,7 +9,6 @@
     "clean": "git clean -fdX .",
     "lint": "eslint src",
     "test": "jest",
-    "prepublishOnly": "node ./tools/build.js",
     "watch": "babel src -d --out-dir lib/es --ignore __tests__ --watch"
   },
   "jest": {
