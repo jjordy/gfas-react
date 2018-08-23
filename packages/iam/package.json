@@ -1,6 +1,6 @@
 {
   "name": "@jjordy/iam",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "description": "React Utilities for Dealing with IAM Policies",
   "main": "./lib/components/IAMPolicy",
   "module": "./lib/components/IAMPolicy",
@@ -13,6 +13,9 @@
     "test": "better-npm-run test",
     "test:dev": "npm run test -- --watch --coverage"
   },
+  "files": [
+    "lib"
+  ],
   "publishConfig": {
     "access": "public"
   },
