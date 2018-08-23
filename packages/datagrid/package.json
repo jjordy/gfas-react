@@ -1,6 +1,6 @@
 {
   "name": "@jjordy/datagrid",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "description": "Composable Datagrid for react",
   "main": "./lib",
   "module": "./lib",
@@ -58,10 +58,7 @@
   },
   "homepage": "https://github.com/jjordy/Universal-React-Min",
   "peerDependencies": {
-    "prop-types": "15 || 16",
     "react": "15 || 16",
-    "react-dom": "15 || 16",
-    "react-virtualized": "*",
     "styled-components": "3"
   },
   "devDependencies": {
@@ -73,12 +70,13 @@
     "rimraf": "^2.5.4"
   },
   "dependencies": {
-    "@jjordy/layout": "^0.0.30",
+    "@jjordy/layout": "^0.0.31",
     "date-fns": "^1.29.0",
     "dom-helpers": "^3.2.1",
     "fuse.js": "^3.2.0",
     "lodash.sortby": "^4.7.0",
-    "react-icons": "^3.0.5",
-    "uuid": "*"
+    "prop-types": "^15.6.2",
+    "react-virtualized": "^9.20.1",
+    "uuid": "^3.2.1"
   }
 }
