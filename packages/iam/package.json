@@ -1,18 +1,16 @@
 {
   "name": "@jjordy/iam",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "React Utilities for Dealing with IAM Policies",
-  "main": "./lib/components/IAMPolicy",
-  "module": "./lib/components/IAMPolicy",
+  "main": "./lib/index.js",
+  "module": "./lib/es/index.js",
   "scripts": {
-    "build": "better-npm-run build",
-    "lint": "eslint src test",
-    "lint:fix": "eslint src test --fix",
-    "prepublish": "npm run build",
-    "start": "npm run build",
-    "test": "better-npm-run test",
-    "test:dev": "npm run test -- --watch --coverage",
-    "postversion": "npm run build"
+    "build": "node ./tools/build.js",
+    "clean": "git clean -fdX .",
+    "lint": "eslint src",
+    "test": "jest",
+    "prepublishOnly": "node ./tools/build.js",
+    "watch": "babel ./src/components -d --out-dir lib/es --ignore __tests__ --watch"
   },
   "publishConfig": {
     "access": "public"
@@ -64,21 +62,49 @@
   },
   "homepage": "https://github.com/jjordy/gfas-IAM-react",
   "peerDependencies": {
-    "prop-types": "15 || 16",
-    "react": "15 || 16",
-    "react-dom": "15 || 16"
+    "react": ">=16",
+    "styled-components": "3"
   },
   "devDependencies": {
-    "babel-cli": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.3",
+    "babel-jest": "^23.0.1",
+    "babel-plugin-dev-expression": "^0.2.1",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-imports": "^1.5.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-1": "^6.5.0",
     "better-npm-run": "^0.1.1",
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-16": "^1.0.2",
     "eslint": "^5.4.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-config-standard-react": "^6.0.0",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-react": "^7.0.1",
+    "eslint-plugin-standard": "^3.0.1",
+    "gzip-size": "^5.0.0",
     "jest": "^23.5.0",
-    "jest-junit-reporter": "^1.1.0",
     "mkdirp": "^0.5.1",
-    "rimraf": "^2.5.4"
+    "pretty-bytes": "^5.1.0",
+    "pretty-quick": "^1.2.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "rimraf": "^2.5.4",
+    "rollup": "^0.60.0",
+    "rollup-plugin-babel": "^3.0.4",
+    "rollup-plugin-commonjs": "^9.1.3",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-replace": "^2.0.0",
+    "rollup-plugin-uglify": "^3.0.0"
   },
   "dependencies": {
     "deep-equal": "^1.0.1",
+    "prop-types": "^15.6.1",
     "validate.js": "^0.12.0"
   }
 }
