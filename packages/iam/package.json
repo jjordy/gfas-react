@@ -1,6 +1,6 @@
 {
   "name": "@jjordy/iam",
-  "version": "1.0.25",
+  "version": "1.0.26",
   "description": "React Utilities for Dealing with IAM Policies",
   "main": "./lib/components/IAMPolicy",
   "module": "./lib/components/IAMPolicy",
@@ -8,11 +8,10 @@
     "build": "better-npm-run build",
     "lint": "eslint src test",
     "lint:fix": "eslint src test --fix",
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "start": "npm run build",
     "test": "better-npm-run test",
-    "test:dev": "npm run test -- --watch --coverage",
-    "postversion": "npm run build"
+    "test:dev": "npm run test -- --watch --coverage"
   },
   "publishConfig": {
     "access": "public"
