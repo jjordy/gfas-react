@@ -1,3 +1,3 @@
-import Datagrid from './DataGrid'
-export { default as DataColumn } from './DataColumn'
+import Datagrid from './Datagrid'
+export { default as DataColumn } from './Datagrid/DataColumn'
 export default Datagrid

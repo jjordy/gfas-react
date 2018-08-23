@@ -41,7 +41,7 @@ const segmentMixin = css`
 `
 
 const colorMixin = css`
-  border-top: .14rem solid ${props => props.color.hex()};
+  border-top: 0.15rem solid ${props => props.color.hex()};
 `
 
 const clearingMixin = css`

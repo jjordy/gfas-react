@@ -29,7 +29,7 @@
     "react/react-in-jsx-scope": 2,
     "semi" : [2, "never"],
     "max-len": [2, 120, 2],
-    "camelcase": [0, {"properties": "never"}],
+    "camelcase": [0, {properties: "never"}],
     "react/jsx-space-before-closing": [0, "never"],
     "react/jsx-no-bind": [0],
     "jsx-quotes": ["error", "prefer-single"]

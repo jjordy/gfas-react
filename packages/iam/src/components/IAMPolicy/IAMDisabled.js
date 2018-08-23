@@ -1,3 +1,5 @@
+import React from 'react'
+
 export const IAMDisabled = ({ render, field, effects }) => {
   if (effects && effects['all']) {
     return render(!effects.all)

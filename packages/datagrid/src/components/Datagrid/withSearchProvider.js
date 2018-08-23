@@ -77,31 +77,34 @@ export default function SearchProvider (C) {
       return (
         <div>
           <SearchContainer>
-            {search && <SearchInputContainer>
-              <SearchInput
-                name='search'
-                onChange={this.searchUpdated}
-                mb={0}
-                style={{ height: 45, border: 0 }}
-                placeholder='Search...'
-              />
-
-            </SearchInputContainer>}
+            <SearchInputContainer>
+              {search && (
+                <SearchInput
+                  name='search'
+                  onChange={this.searchUpdated}
+                  mb={0}
+                  style={{ height: 45, border: 0 }}
+                  placeholder='Search...'
+                />
+              )}
+            </SearchInputContainer>
             <TotalResultsContainer>
               <Text color='grey' small mb={0} px={1}>
                 {(filteredResults && filteredResults.length) || 0} Total
               </Text>
             </TotalResultsContainer>
-            {search && <HelpIconContainer>
-              <FiHelpCircle
-                onClick={this.toggleHelp}
-                size='1.5em'
-                role='button'
-                style={{ textAlign: 'right' }}
-                aria-label='Show Help Button'
-                color='grey'
-              />
-            </HelpIconContainer>}
+            <HelpIconContainer>
+              {search && (
+                <FiHelpCircle
+                  onClick={this.toggleHelp}
+                  size='1.5em'
+                  role='button'
+                  style={{ textAlign: 'right' }}
+                  aria-label='Show Help Button'
+                  color='grey'
+                />
+              )}
+            </HelpIconContainer>
           </SearchContainer>
           <Fade visible={showHelp} duration={250}>
             <Segment attached p={1} color='blue'>
