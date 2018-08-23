@@ -5,7 +5,7 @@
 ## Install
 
 ```bash
-$ npm install gfas-react-datagrid react-vitualized semantic-ui-react
+$ npm install gfas-react-datagrid styled-components
 ```
 ## Requirements
 * node `v6 - v7`
@@ -17,7 +17,7 @@ $ npm install gfas-react-datagrid react-vitualized semantic-ui-react
 
 ```bash
 $ npm install                   # Install project dependencies
-$ npm run dev                     # Development via storybook @ localhost:9001
+$ npm run build                      # Build project
 ```
 While developing, you will probably rely mostly on `npm run dev`; however, there are additional scripts at your disposal:
 
@@ -27,11 +27,12 @@ While developing, you will probably rely mostly on `npm run dev`; however, there
 |`lint`|Lint all `.js` files.|
 |`build`| Build Production Library.|
 |`lint:fix`|Lint and fix all `.js` files. [Read more on this](http://eslint.org/docs/user-guide/command-line-interface.html#fix).|
+| `test`| Run Test |
+| `test:dev`| Run Test Watch Mode |
 
 ## Project Structure
 ```
 .
-├── .storybook               # Storybook config
 ├── src                      # Client entry point
 │   |   ├── components       # Component Source
 ```

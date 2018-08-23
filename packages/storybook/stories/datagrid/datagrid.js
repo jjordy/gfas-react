@@ -15,7 +15,25 @@ const hugeList = _.times(10000, i => ({
 }))
 
 storiesOf('Datagrid', module)
-  .add('Basic', () => (
+  .add('Base Grid', () => (
+    <Container>
+      <Header color='grey' dividing>
+        BasicDatagrid
+      </Header>
+      <DataGrid
+        data={batches.Results}
+        height={500}
+      >
+        <DataColumn name='Batch Id' id='Id' width={100} render={({ row, value }) => <a href='#'>Batch {value} </a>} />
+        <DataColumn name='Status' id='Status' width={200} />
+        <DataColumn name='Last Revised On' id='RevOn' width={150} />
+        <DataColumn name='Last Revised By' id='RevBy' width={250} />
+        <DataColumn name='Submitted On' id='SubmittedOn' width={150} date nullDateMessage='Not Submitted' />
+        <DataColumn name='ReceivedOn' id='ReceivedOn' width={150} date nullDateMessage='Not Received' />
+      </DataGrid>
+    </Container>
+  ))
+  .add('Search Grid', () => (
     <Container>
       <Header color='grey' dividing>
         Datagrid
@@ -75,9 +93,7 @@ storiesOf('Datagrid', module)
           name='Status'
           id='Status'
           width={200}
-          render={({ value }) => (
-            <Input name='Status' value={value} mb={1} style={{border: 0}} />
-          )}
+          render={({ value }) => <Input name='Status' value={value} mb={1} style={{ border: 0 }} />}
         />
         <DataColumn name='Enroll Begin Date' id='EnrollBeginDate' width={150} date />
         <DataColumn name='First name' id='FirstName' width={150} />

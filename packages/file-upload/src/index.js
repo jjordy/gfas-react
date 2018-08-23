@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { Segment } from '@jjordy/layout'
 import UploadStatusPanel from './UploadStatusPanel'
 import UploadPanel from './UploadPanel'
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { FiChevronUp, FiChevronDown } from 'react-icons/fi'
+import { Icon } from '@jjordy/layout'
 import styled from 'styled-components'
 
 const Column = styled.div`
@@ -26,7 +27,7 @@ const DataColumn = ({
   active,
   ...rest
 }) => {
-  const displaySortIcon = asc ? <FiChevronUp color='red' /> : <FiChevronDown color='red' />
+  const displaySortIcon = asc ? <Icon color='red' icon='chevron_up' /> : <Icon color='red' icon='chevron_down' />
   return (
     <div {...rest} onClick={() => toggleSort(id)}>
       <Column width={width}>

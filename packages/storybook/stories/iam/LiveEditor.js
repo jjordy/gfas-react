@@ -1,6 +1,6 @@
 import React from 'react'
-import { Grid, Header, Message, Dimmer } from 'semantic-ui-react'
-import { IAMPolicy } from '@jjordy/iam/lib/components/IAMPolicy'
+import { Grid, Header, Message } from '@jjordy/layout'
+import { IAMPolicy } from '@jjordy/iam'
 import { action } from '@storybook/addon-actions'
 import JSONEditor from './JSONEditor'
 
@@ -66,34 +66,34 @@ export default class LiveEditor extends React.Component {
 
   render () {
     const { livePolicy, invalid, userData } = this.state
-    const deny = <Dimmer active={this.state.deny} content='Access Denied' />
+    const deny = <div>XDENIEDX</div>
     return (
-      <Grid container columns={2}>
-        <Grid.Row>
-          <Grid.Column>
+      <div>
+        <Grid width='33%' gap={8}>
+          <div>
             {this.state.error && <div>{this.state.error}</div>}
             {this.state.deny && deny}
             {userData &&
               livePolicy && (
-                <IAMPolicy
-                  policy={livePolicy}
-                  userData={userData}
-                  name={this.props.policyName}
-                  onDeny={this.onDeny}
-                  onAllow={this.onAllow}
-                  render={({ display, policy }) => (
-                    <div>
-                      {display &&
+              <IAMPolicy
+                policy={livePolicy}
+                userData={userData}
+                name={this.props.policyName}
+                onDeny={this.onDeny}
+                onAllow={this.onAllow}
+                render={({ display, policy }) => (
+                  <div>
+                    {display &&
                         React.createElement(this.props.component, {
                           policy: policy,
                           userData: userData
                         })}
-                    </div>
-                  )}
-                />
-              )}
-          </Grid.Column>
-          <Grid.Column>
+                  </div>
+                )}
+              />
+            )}
+          </div>
+          <Grid width='100%' p={2}>
             <Header dividing color='blue'>
               Live Edit
             </Header>
@@ -104,10 +104,10 @@ export default class LiveEditor extends React.Component {
               onChange={this.onEditorUpdate}
               userData={this.state.userData}
             />
-            {invalid && <Message negative>Invalid JSON</Message>}
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
+            {invalid && <Message color='red'>Invalid JSON</Message>}
+          </Grid>
+        </Grid>
+      </div>
     )
   }
 }

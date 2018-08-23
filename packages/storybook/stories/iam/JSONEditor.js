@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Header, Checkbox, Button, Grid } from 'semantic-ui-react'
+import { Header, Checkbox, Button, Grid, Segment } from '@jjordy/layout'
 import deepEqual from 'deep-equal'
 
 export default class JSONEditor extends React.Component {
@@ -76,59 +76,51 @@ export default class JSONEditor extends React.Component {
   }
   render () {
     return (
-      <Grid>
-        <Grid.Column width={12}>
+      <Grid width='50%' gap={16}>
+        <Segment color='blue'>
           <Header>User Data</Header>
           <textarea style={this.userDatastyles} value={this.state.userValue} onChange={this.handleChangeUserData} />
 
           <Header>IAM Policy</Header>
           <textarea style={this.iAMPolicystyles} value={this.state.value} onChange={this.handleTextChange} />
-        </Grid.Column>
-        <Grid.Column width={4}>
-          <Header as='h5'>UserTypes</Header>
+        </Segment>
+        <Segment color='blue'>
+          <Header>UserTypes</Header>
           <Checkbox
             checked={this.state.userTypes.administrator}
             value='administrator'
             label='Administrator'
             onClick={this.handleUserTypesChange}
           />
-          <br />
           <Checkbox
             checked={this.state.userTypes.billing}
             value='billing'
             label='Billing'
             onClick={this.handleUserTypesChange}
           />
-          <br />
           <Checkbox
             checked={this.state.userTypes.user}
             value='user'
             label='User'
             onClick={this.handleUserTypesChange}
           />
-          <br />
-          <br />
-          <Button onClick={this.handleUpdateUserTypes} content='Update UserTypes' />
-          <br />
-          <br />
-          <Header as='h5'>Groups</Header>
+          <Button mt={2} onClick={this.handleUpdateUserTypes} content='Update UserTypes' />
+          <Header>Groups</Header>
           <Checkbox
             checked={this.state.groups.group1}
             value='group1'
             label='group1'
             onClick={this.handleGroupsChange}
           />
-          <br />
+
           <Checkbox
             checked={this.state.groups.group2}
             value='group2'
             label='group2'
             onClick={this.handleGroupsChange}
           />
-          <br />
-          <br />
-          <Button onClick={this.handleUpdateGroups} content='Update UserTypes' />
-        </Grid.Column>
+          <Button mt={2} onClick={this.handleUpdateGroups} content='Update UserTypes' />
+        </Segment>
       </Grid>
     )
   }
