@@ -1,9 +1,9 @@
 {
   "name": "@jjordy/datagrid",
-  "version": "1.0.50",
+  "version": "1.0.51",
   "description": "Composable Datagrid for react",
-  "main": "./lib",
-  "module": "./lib",
+  "main": "./lib/index.js",
+  "module": "./lib/es/index.js",
   "publishConfig": {
     "access": "public"
   },
@@ -11,30 +11,11 @@
     "lib"
   ],
   "scripts": {
-    "build": "better-npm-run build",
-    "dev": "npm run build --watch",
+    "build": "node ./tools/build.js",
+    "dev": "babel ./src/components -d lib/es --ignore __tests__ --watch",
     "lint": "eslint src test",
-    "lint:fix": "eslint src test --fix",
-    "start": "better-npm-run dev",
-    "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "better-npm-run test",
-    "test:dev": "npm run test -- --watch",
     "prepublishOnly": "npm run build"
-  },
-  "betterScripts": {
-    "build": {
-      "command": "rimraf lib && mkdirp lib && babel ./src/components -d . --ignore __tests__ --out-dir lib",
-      "env": {
-        "NODE_ENV": "production"
-      }
-    },
-    "test": {
-      "command": "jest",
-      "env": {
-        "NODE_ENV": "test",
-        "DEBUG": "urm:*"
-      }
-    }
   },
   "jest": {
     "setupFiles": [
@@ -72,7 +53,7 @@
     "rimraf": "^2.5.4"
   },
   "dependencies": {
-    "@jjordy/layout": "^0.0.53",
+    "@jjordy/layout": "^0.0.54",
     "date-fns": "^1.29.0",
     "dom-helpers": "^3.2.1",
     "fuse.js": "^3.2.0",
