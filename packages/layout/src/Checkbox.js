@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import ThemeContext from './Theme'
+import withTheme from './withTheme'
 import Icon from './Icon'
 import { spacing } from './mixins'
 
 const Container = styled.div`
   display: inline-flex;
   user-select: none;
-  ${spacing}
+  ${spacing};
 `
 
 const FormMessage = styled.small`
-  font-size: .8rem;
+  font-size: 0.8rem;
   font-weight: 400;
 `
 
@@ -35,7 +35,7 @@ const Check = styled.div`
 
 const HiddenCheck = styled.input`
   z-index: -1;
-  width: .2px;
+  width: 0.2px;
   translate: transform(99999px);
 `
 
@@ -64,7 +64,7 @@ class Checkbox extends Component {
     }
   }
 
-  onClick = (e) => {
+  onClick = e => {
     this.setState({ checked: !this.state.checked }, () => {
       this.props.onChange(!this.state.checked)
     })
@@ -74,16 +74,19 @@ class Checkbox extends Component {
     const { id, label, message, ...rest } = this.props
     const { checked } = this.state
 
-    return <Container id={id} onClick={this.onClick}>
-      <HiddenCheck type='checkbox' tabIndex='0' checked={checked} id={id} />
-      <Check>
-        <CheckIcon {...rest} icon={checked ? 'checkbox_checked' : 'checkbox_unchecked'} checked={checked} />
-      </Check> <Label {...rest} className='label' htmlFor={id}>
-        {label}
-        <br />
-        <FormMessage>{message && message}</FormMessage>
-      </Label>
-    </Container>
+    return (
+      <Container id={id} onClick={this.onClick}>
+        <HiddenCheck type='checkbox' tabIndex='0' checked={checked} id={id} />
+        <Check>
+          <CheckIcon {...rest} icon={checked ? 'checkbox_checked' : 'checkbox_unchecked'} checked={checked} />
+        </Check>{' '}
+        <Label {...rest} className='label' htmlFor={id}>
+          {label}
+          <br />
+          <FormMessage>{message && message}</FormMessage>
+        </Label>
+      </Container>
+    )
   }
 }
 
@@ -98,9 +101,4 @@ Checkbox.defaultProps = {
   color: 'grey'
 }
 
-export default function ThemedCheckbox (props) {
-  return <ThemeContext.Consumer>{theme =>
-    <Checkbox {...props} theme={theme} />
-  }
-  </ThemeContext.Consumer>
-}
+export default withTheme(Checkbox, 'grey')

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const defaultTheme = {
+export const defaultTheme = {
   blue: '#004D71',
   green: '#94D500',
   yellow: '#F2DF00',
@@ -13,6 +13,11 @@ const defaultTheme = {
   grey: '#6c757d',
   darkGrey: '#343a40',
   lightGrey: '#f8f9fa',
+  primary: '#004D71',
+  secondary: '#f8f9fa',
+  success: '#94D500',
+  error: '#EF483D',
+  info: '#00A5CD',
   BASE_SIZE: 0.5,
   UNIT: 'rem'
 }
