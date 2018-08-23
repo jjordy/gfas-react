@@ -9,6 +9,7 @@
     "clean": "git clean -fdX .",
     "lint": "eslint src",
     "test": "jest",
+    "postversion": "node ./tools/build.js",
     "watch": "babel ./src --out-dir lib/es --ignore __tests__ --watch"
   },
   "publishConfig": {
@@ -79,7 +80,7 @@
     "rollup-plugin-uglify": "^3.0.0"
   },
   "dependencies": {
-    "@jjordy/layout": "^0.0.34",
+    "@jjordy/layout": "^0.0.33",
     "prop-types": "^15.6.1",
     "react-dropzone": "^5.0.1"
   }
