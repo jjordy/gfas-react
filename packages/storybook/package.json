@@ -1,6 +1,6 @@
 {
   "name": "storybook",
-  "version": "0.1.21",
+  "version": "0.1.22",
   "description": "",
   "private": true,
   "main": "index.js",
@@ -9,10 +9,11 @@
     "build-docs": "build-storybook -c .storybook -o ../../www"
   },
   "dependencies": {
-    "@jjordy/datagrid": "^1.0.29",
-    "@jjordy/file-upload": "^0.0.19",
-    "@jjordy/iam": "^1.0.15",
-    "@jjordy/layout": "^0.0.32",
+    "@jjordy/datagrid": "^1.0.30",
+    "@jjordy/file-upload": "^0.0.20",
+    "@jjordy/iam": "^1.0.16",
+    "@jjordy/layout": "^0.0.33",
+    "@storybook/addon-actions": "^4.0.0-alpha.16",
     "@storybook/addon-info": "^4.0.0-alpha.16",
     "@storybook/react": "^4.0.0-alpha.16",
     "babel-core": "^6.26.3",
