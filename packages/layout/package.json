@@ -1,6 +1,6 @@
 {
   "name": "@jjordy/layout",
-  "version": "0.0.50",
+  "version": "0.0.51",
   "description": "Composable layout components",
   "main": "./lib/index.js",
   "module": "./lib/es/index.js",
@@ -11,6 +11,9 @@
     "test:dev": "npm run test -- --watch",
     "prepublishOnly": "npm run build"
   },
+  "files": [
+    "lib"
+  ],
   "betterScripts": {
     "build": {
       "command": "rimraf lib && mkdirp lib && babel ./src/ -d . --ignore __tests__ --out-dir lib",
