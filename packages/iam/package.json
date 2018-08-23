@@ -1,6 +1,6 @@
 {
   "name": "@jjordy/iam",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "description": "React Utilities for Dealing with IAM Policies",
   "main": "./lib/index.js",
   "module": "./lib/es/index.js",
