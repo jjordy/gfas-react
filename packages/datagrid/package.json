@@ -1,9 +1,10 @@
 {
   "name": "@jjordy/datagrid",
-  "version": "1.0.59",
+  "version": "1.0.60",
   "description": "Composable Datagrid for react",
   "main": "./lib/index.js",
   "module": "./lib/es/index.js",
+  "sideEffects": false,
   "publishConfig": {
     "access": "public"
   },
@@ -54,7 +55,7 @@
     "rimraf": "^2.5.4"
   },
   "dependencies": {
-    "@jjordy/layout": "^0.0.62",
+    "@jjordy/layout": "^0.0.63",
     "date-fns": "^1.29.0",
     "dom-helpers": "^3.2.1",
     "fuse.js": "^3.2.0",

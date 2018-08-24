@@ -1,9 +1,10 @@
 {
   "name": "@jjordy/layout",
-  "version": "0.0.62",
+  "version": "0.0.63",
   "description": "Composable layout components",
   "main": "./lib/index.js",
   "module": "./lib/es/index.js",
+  "sideEffects": false,
   "scripts": {
     "build": "node ./tools/build.js",
     "dev": "babel ./src -d lib/es --ignore __tests__ --watch",
