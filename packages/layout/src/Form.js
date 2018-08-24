@@ -9,7 +9,7 @@ const StyledForm = styled.form`
   font-size: 1rem;
   max-width: 100%;
   position: relative;
-  ${spacing}
+  ${spacing};
 `
 
 const ThemedForm = withTheme(StyledForm)
@@ -19,12 +19,14 @@ const Form = ({ onSubmit, loading, ...rest }) => {
     evt.preventDefault()
     onSubmit(evt, ...rest, ...args)
   }
-  return <React.Fragment>
-    <Dimmer active={loading}>
-      <Loader color='blue' />
-    </Dimmer>
-    <ThemedForm onSubmit={handleSubmit} {...rest} />
-  </React.Fragment>
+  return (
+    <React.Fragment>
+      <Dimmer active={loading}>
+        <Loader color='primary' />
+      </Dimmer>
+      <ThemedForm onSubmit={handleSubmit} {...rest} />
+    </React.Fragment>
+  )
 }
 
 export default Form

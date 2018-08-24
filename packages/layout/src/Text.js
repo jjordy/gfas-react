@@ -9,7 +9,7 @@ const P = styled.p`
 `
 
 const Strong = styled.strong`
-  display: inline-block;
+  display: block;
   margin-bottom: 1rem;
   ${colorMixin} ${spacing};
 `
@@ -23,7 +23,7 @@ P.defaultProps = {
 }
 
 const Small = styled.small`
-  display: inline-block;
+  display: block;
   ${colorMixin} ${spacing};
 `
 Small.defaultProps = {

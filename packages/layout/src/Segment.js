@@ -9,19 +9,19 @@ import { StyledButton } from './Button'
 import { StyledInput } from './Input'
 
 const borderTopRadiusMixin = css`
-  border-top-right-radius: .28rem;
-  border-top-left-radius: .28rem;
+  border-top-right-radius: 0.28rem;
+  border-top-left-radius: 0.28rem;
 `
 
 const borderBottomRadiusMixin = css`
-  border-bottom-right-radius: .28rem;
-  border-bottom-left-radius: .28rem;
+  border-bottom-right-radius: 0.28rem;
+  border-bottom-left-radius: 0.28rem;
 `
 
 const attachedTopMixin = css`
   margin-top: 1rem;
   border-bottom: 0;
-  ${props => props.rounded && borderTopRadiusMixin}
+  ${props => props.rounded && borderTopRadiusMixin};
 `
 
 const attachedMixin = css`
@@ -32,11 +32,11 @@ const attachedMixin = css`
 
 const attachedBottomMixin = css`
   margin-bottom: 1rem;
-  ${props => props.rounded && borderBottomRadiusMixin}
+  ${props => props.rounded && borderBottomRadiusMixin};
 `
 
 const segmentMixin = css`
-  border-radius: ${props => props.rounded ? '.28rem' : '0px'};
+  border-radius: ${props => (props.rounded ? '.28rem' : '0px')};
   margin: 1rem;
 `
 
@@ -58,13 +58,23 @@ const clearingMixin = css`
 const Segment = styled.div`
   border: 1px solid #e7e7e7;
   position: relative;
+  padding-right: ${props => `
+    ${props.theme.BASE_SIZE * 2}${props.theme.UNIT};
+  `};
+  padding-left: ${props => `
+    ${props.theme.BASE_SIZE * 2}${props.theme.UNIT};
+  `};
+  padding-top: ${props => `
+    ${props.theme.BASE_SIZE * 2}${props.theme.UNIT};
+  `};
+  padding-bottom: ${props => `
+    ${props.theme.BASE_SIZE * 2}${props.theme.UNIT};
+  `};
   ${spacing}
   clear: ${props => (props.clearing ? clearingMixin : null)};
   ${props => props.attached && props.attached === 'top' && attachedTopMixin}
-  ${props =>
-    props.attached && props.attached === 'bottom' && attachedBottomMixin}
-  ${props =>
-    props.attached && typeof props.attached === 'boolean' && attachedMixin}
+  ${props => props.attached && props.attached === 'bottom' && attachedBottomMixin}
+  ${props => props.attached && typeof props.attached === 'boolean' && attachedMixin}
   ${props => !props.attached && segmentMixin}
   ${props => props.color && colorMixin}
   background-color: #fff;
@@ -88,16 +98,15 @@ Segment.propTypes = {
 }
 
 Segment.defaultProps = {
-  p: 2,
   loading: false
 }
 
 const ThemedSegment = withTheme(Segment)
 
-const LoadingSegment = ({loading, ...rest}) => (
-  <div style={{position: 'relative'}}>
+const LoadingSegment = ({ loading, ...rest }) => (
+  <div style={{ position: 'relative' }}>
     <Dimmer active={loading}>
-      <Loader color='blue' />
+      <Loader color='primary' />
     </Dimmer>
     <ThemedSegment {...rest} />
   </div>

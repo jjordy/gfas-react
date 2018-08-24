@@ -14,12 +14,12 @@ import {
 
 const Icon = styled.span`
   margin-left: 1rem;
-  ${spacing}
+  ${spacing};
 `
 
 const Content = styled.span`
   flex: 1 1 auto;
-  ${spacing}
+  ${spacing};
 `
 
 export const buttonStyles = css`
@@ -48,6 +48,18 @@ export const buttonStyles = css`
   ${floatMixin}
   ${textBasedOnColorMixin}
   ${borderRadiusMixin}
+  padding-right: ${props => `
+    ${props.theme.BASE_SIZE * 2}${props.theme.UNIT};
+  `};
+  padding-left: ${props => `
+    ${props.theme.BASE_SIZE * 2}${props.theme.UNIT};
+  `};
+  padding-top: ${props => `
+    ${props.theme.BASE_SIZE * 1.5}${props.theme.UNIT};
+  `};
+  padding-bottom: ${props => `
+    ${props.theme.BASE_SIZE * 1.5}${props.theme.UNIT};
+  `};
   ${spacing}
 `
 
@@ -73,11 +85,5 @@ Button.propTypes = {
 }
 
 Button.displayName = 'Button'
-
-Button.defaultProps = {
-  px: 2.0,
-  py: 1.5,
-  inverted: false
-}
 
 export default Button
