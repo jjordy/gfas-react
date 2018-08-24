@@ -4,6 +4,7 @@ import { withInfo } from '@storybook/addon-info'
 import { action } from '@storybook/addon-actions'
 import LiveEditor from './LiveEditor'
 import BasicExample from './BasicExample'
+import { Header, Grid } from '@jjordy/layout'
 import basicIAMPolicyExample from './examples/basic_example_iam_policy.json'
 import basicUserDataExample from './examples/basic_user_data_example.json'
 import KitchenSinkExampleComponent from './KitchenSinkExampleComponent'
@@ -15,30 +16,31 @@ import { IAMPolicy } from '@jjordy/iam'
 
 storiesOf('IAMPolicy Component', module)
   .add(
-    'Basic Example',
-    withInfo()(() => (
-      <LiveEditor
-        policyName='BasicExample'
-        component={BasicExample}
-        policy={basicIAMPolicyExample}
-        userData={basicUserDataExample}
-      />
+    'Basic Example', () => (
+      <Grid width='100%' gap={16} p={3}>
+        <Header dividing>Basic Example</Header>
+        <LiveEditor
+          policyName='BasicExample'
+          component={BasicExample}
+          policy={basicIAMPolicyExample}
+          userData={basicUserDataExample}
+        />
+      </Grid>
     ))
-  )
   .add(
-    'Kitchen Sink Example',
-    withInfo()(() => (
-      <LiveEditor
-        policyName='KitchenSinkExample'
-        component={KitchenSinkExampleComponent}
-        policy={kitchenSinkIAMPolicyExample}
-        userData={kitchenSinkUserData}
-      />
+    'Kitchen Sink Example', () => (
+      <Grid width='100%' gap={16} p={3}>
+        <Header dividing>Kitchen Sink Example</Header>
+        <LiveEditor
+          policyName='KitchenSinkExample'
+          component={KitchenSinkExampleComponent}
+          policy={kitchenSinkIAMPolicyExample}
+          userData={kitchenSinkUserData}
+        />
+      </Grid>
     ))
-  )
   .add(
-    'Access Example',
-    withInfo()(() => (
+    'Access Example', () => (
       <IAMPolicy
         name='AccessExample'
         policy={accessExamplePolicy}
@@ -48,4 +50,3 @@ storiesOf('IAMPolicy Component', module)
         userData={{ token: { groups: ['billing'] } }}
       />
     ))
-  )

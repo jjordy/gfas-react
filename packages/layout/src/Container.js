@@ -1,14 +1,12 @@
 import styled from 'styled-components'
 import withTheme from './withTheme'
 
-import { spacing } from './mixins'
+import { spacing, createRule } from './mixins'
 
 const Container = styled.div`
   margin: auto;
   box-sizing: border-box;
-  padding: ${props => `
-    ${props.theme.BASE_SIZE * 1}${props.theme.UNIT};
-  `};
+  ${createRule(1, 'padding')}
   ${spacing}
   width: ${props => (props.text ? '750px' : '1150px')};
   @media (max-width: 1024px) {

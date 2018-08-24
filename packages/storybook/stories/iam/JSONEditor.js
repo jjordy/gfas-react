@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Header, Checkbox, Button, Grid } from 'semantic-ui-react'
+import { Header, Checkbox, Button, Grid } from '@jjordy/layout'
 import deepEqual from 'deep-equal'
 
 export default class JSONEditor extends React.Component {
@@ -14,11 +14,12 @@ export default class JSONEditor extends React.Component {
     },
     groups: {
       group1: true,
-      group2: true
+      group2: true,
+      myApp: true
     }
   }
 
-  handleUserTypesChange = (evt, { value, checked }) => {
+  handleUserTypesChange = ({ value, checked }) => {
     const newValues = Object.assign({}, this.state.userTypes, { [value]: checked })
     this.setState({ userTypes: newValues })
   }
@@ -31,22 +32,22 @@ export default class JSONEditor extends React.Component {
     this.props.updateGroups(this.state.groups)
   }
 
-  handleGroupsChange = (evt, { value, checked }) => {
+  handleGroupsChange = ({ value, checked }) => {
     const newValues = Object.assign({}, this.state.groups, { [value]: checked })
     this.setState({ groups: newValues })
   }
 
   iAMPolicystyles = {
     width: '100%',
-    height: 400,
-    fontSize: 15,
+    height: 200,
+    fontSize: '1rem',
     focus: 'none'
   }
 
   userDatastyles = {
     width: '100%',
-    height: 400,
-    fontSize: 15,
+    height: 200,
+    fontSize: '1rem',
     focus: 'none'
   }
 
@@ -76,59 +77,75 @@ export default class JSONEditor extends React.Component {
   }
   render () {
     return (
-      <Grid>
-        <Grid.Column width={12}>
-          <Header>User Data</Header>
-          <textarea style={this.userDatastyles} value={this.state.userValue} onChange={this.handleChangeUserData} />
+      <Grid width='100%' gap={8}>
+        <Grid width='50%' gap={8}>
+          <div>
+            <Header as='h5' my={1}>
+              User Data
+            </Header>
+            <textarea style={this.userDatastyles} value={this.state.userValue} onChange={this.handleChangeUserData} />
+          </div>
+          <div>
+            <Header as='h5' my={1}>
+              IAM Policy
+            </Header>
+            <textarea style={this.iAMPolicystyles} value={this.state.value} onChange={this.handleTextChange} />
+          </div>
+        </Grid>
+        <Grid width='50%'>
+          <div>
+            <Header as='h5' my={1}>
+              UserTypes
+            </Header>
+            <Checkbox
+              checked={this.state.userTypes.administrator}
+              value='administrator'
+              label='Administrator'
+              name='administrator'
+              onChange={checked => this.handleUserTypesChange({ checked, value: 'administrator' })}
+            />
+            <Checkbox
+              checked={this.state.userTypes.billing}
+              value='billing'
+              label='Billing'
+              name='billing'
+              onChange={checked => this.handleUserTypesChange({ checked, value: 'billing' })}
+            />
+            <Checkbox
+              checked={this.state.userTypes.user}
+              value='user'
+              label='User'
+              name='user'
+              onChange={checked => this.handleUserTypesChange({ checked, value: 'user' })}
+            />
 
-          <Header>IAM Policy</Header>
-          <textarea style={this.iAMPolicystyles} value={this.state.value} onChange={this.handleTextChange} />
-        </Grid.Column>
-        <Grid.Column width={4}>
-          <Header as='h5'>UserTypes</Header>
-          <Checkbox
-            checked={this.state.userTypes.administrator}
-            value='administrator'
-            label='Administrator'
-            onClick={this.handleUserTypesChange}
-          />
-          <br />
-          <Checkbox
-            checked={this.state.userTypes.billing}
-            value='billing'
-            label='Billing'
-            onClick={this.handleUserTypesChange}
-          />
-          <br />
-          <Checkbox
-            checked={this.state.userTypes.user}
-            value='user'
-            label='User'
-            onClick={this.handleUserTypesChange}
-          />
-          <br />
-          <br />
-          <Button onClick={this.handleUpdateUserTypes} content='Update UserTypes' />
-          <br />
-          <br />
-          <Header as='h5'>Groups</Header>
-          <Checkbox
-            checked={this.state.groups.group1}
-            value='group1'
-            label='group1'
-            onClick={this.handleGroupsChange}
-          />
-          <br />
-          <Checkbox
-            checked={this.state.groups.group2}
-            value='group2'
-            label='group2'
-            onClick={this.handleGroupsChange}
-          />
-          <br />
-          <br />
-          <Button onClick={this.handleUpdateGroups} content='Update UserTypes' />
-        </Grid.Column>
+          </div>
+          <div>
+            <Header as='h5' my={1}>Groups</Header>
+            <Checkbox
+              checked={this.state.groups.group1}
+              value='group1'
+              label='group1'
+              name='group1'
+              onChange={this.handleGroupsChange}
+            />
+            <Checkbox
+              checked={this.state.groups.group2}
+              value='group2'
+              label='group2'
+              name='group2'
+              onChange={this.handleGroupsChange}
+            />
+            <Checkbox
+              checked={this.state.groups.myApp}
+              value='myApp'
+              label='myApp'
+              name='myApp'
+              onChange={this.handleGroupsChange} />
+          </div>
+
+        </Grid>
+        <Button onClick={this.handleUpdateUserTypes} content='UPDATE' />
       </Grid>
     )
   }

@@ -18,7 +18,7 @@ export const defaultTheme = {
   success: '#94D500',
   error: '#EF483D',
   info: '#00A5CD',
-  BASE_SIZE: 0.5,
+  BASE_SIZE: 1,
   UNIT: 'rem'
 }
 

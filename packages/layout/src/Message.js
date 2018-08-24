@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import withTheme from './withTheme'
 import Color from 'color'
-import { spacing } from './mixins'
+import { spacing, createRule } from './mixins'
 
 function handleDefault (props) {
   const darkGrey = Color(props.theme.grey)
@@ -11,10 +11,6 @@ function handleDefault (props) {
 
 function isDark (props) {
   return props.color && props.color.isDark()
-}
-
-function isLight (props) {
-  return props.color && props.color.isLight()
 }
 
 const StyledHeader = styled.div`
@@ -43,6 +39,7 @@ const StyledButton = styled.button`
 const ContentContainer = styled.div`
   display: flex;
   align-items: center;
+  ${createRule(1, 'margin-bottom')};
   ${spacing}
 `
 const ContentIcon = styled.div`
@@ -56,6 +53,10 @@ const StyledMessage = styled.div`
   border-radius: ${props => (props.rounded ? '.28rem' : 0)};
   border: ${props => `1.2px solid ${props.color ? props.color.darken(0.1).hex() : handleDefault(props)}`};
   box-sizing: border-box;
+  ${createRule(1, 'margin-bottom')};
+  ${createRule(1, 'padding-right')};
+  ${createRule(1, 'padding-left')};
+  ${createRule(0.5, 'padding-top')};
   ${spacing}
   & ${StyledHeader} {
     text-shadow: ${props => (isDark(props) ? 'none' : '1px 1px 1px #222')};
@@ -99,16 +100,5 @@ ThemedMessage.Header = ThemedHeader
 ThemedMessage.Content = ThemedContent
 
 ThemedMessage.Icon = ThemedContentIcon
-
-ContentContainer.defaultProps = {
-  mb: 2
-}
-
-ThemedMessage.defaultProps = {
-  color: 'lightGrey',
-  mb: 2,
-  px: 2,
-  pt: 1
-}
 
 export default ThemedMessage

@@ -17,10 +17,10 @@ import { action } from '@storybook/addon-actions'
 export default function FormExamples () {
   return (
     <Container>
-      <Header color='grey'>Form Wrapper Component</Header>
+      <Header color='grey' as='h1'>Form Wrapper Component</Header>
       <Divider />
       <Segment clearing color='lightBlue'>
-        <Header as='h2' dividing>
+        <Header dividing>
           Please sign up
         </Header>
         <Form onSubmit={action('FORM SUBMITTED')}>

@@ -1,5 +1,6 @@
 import { css } from 'styled-components'
 import {
+  createRule,
   pxMixin,
   pyMixin,
   mxMixin,
@@ -26,7 +27,7 @@ export const borderRadiusMixin = css`
   ${props =>
     props.rounded &&
     `
-    border-radius: ${props.theme.BASE_SIZE / 2.0}${props.theme.UNIT}; 
+    border-radius: ${props.theme.BASE_SIZE / 3.5}${props.theme.UNIT}; 
   `};
 `
 
@@ -44,13 +45,13 @@ export const textAlignMixin = css`
 `
 
 export const inputPaddingMixin = css`
-  padding: ${props => `${props.theme.BASE_SIZE * 0.50}${props.theme.UNIT}`};
-  box-sizing:border-box;
+  ${createRule(0.3, 'padding')}
+  box-sizing: border-box;
 `
 
 export const inputMarginMixin = css`
   margin: ${props => `${props.theme.BASE_SIZE * 0.48}${props.theme.UNIT}`};
-  box-sizing:border-box;
+  box-sizing: border-box;
 `
 
 export const normalFontMixin = css`
@@ -88,4 +89,17 @@ export {
   darkenBackgroundColorMixin,
   inputColorMixin
 } from './colors'
-export { pxMixin, pyMixin, mxMixin, myMixin, pMixin, mMixin, mbMixin, mtMixin, pbMixin, ptMixin } from './spacing'
+
+export {
+  pxMixin,
+  pyMixin,
+  mxMixin,
+  myMixin,
+  pMixin,
+  mMixin,
+  mbMixin,
+  mtMixin,
+  pbMixin,
+  ptMixin,
+  createRule
+} from './spacing'

@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import Dimmer from './Dimmer'
 import Loader from './Loader'
 import withTheme from './withTheme'
-import { spacing, borderRadiusMixin } from './mixins'
+import { spacing, borderRadiusMixin, createRule } from './mixins'
 import { StyledButton } from './Button'
 import { StyledInput } from './Input'
 
@@ -58,18 +58,7 @@ const clearingMixin = css`
 const Segment = styled.div`
   border: 1px solid #e7e7e7;
   position: relative;
-  padding-right: ${props => `
-    ${props.theme.BASE_SIZE * 2}${props.theme.UNIT};
-  `};
-  padding-left: ${props => `
-    ${props.theme.BASE_SIZE * 2}${props.theme.UNIT};
-  `};
-  padding-top: ${props => `
-    ${props.theme.BASE_SIZE * 2}${props.theme.UNIT};
-  `};
-  padding-bottom: ${props => `
-    ${props.theme.BASE_SIZE * 2}${props.theme.UNIT};
-  `};
+  ${createRule(1, 'padding')}
   ${spacing}
   clear: ${props => (props.clearing ? clearingMixin : null)};
   ${props => props.attached && props.attached === 'top' && attachedTopMixin}

@@ -7,7 +7,8 @@ import {
   colorMixin,
   floatMixin,
   spacing,
-  textAlignMixin
+  textAlignMixin,
+  createRule
 } from './mixins'
 
 export const headerStyles = css`
@@ -15,58 +16,45 @@ export const headerStyles = css`
   font-weight: 700;
   line-height: 1.28em;
   text-transform: none;
-  ${colorMixin}
+  ${createRule(1, 'margin-top')};
+  ${createRule(1, 'margin-bottom')};
+  ${colorMixin};
   ${floatMixin};
   ${textAlignMixin};
-  ${spacing}
+  ${spacing};
 `
 
 export const Default = styled.div`
-  ${headerStyles}
-  ${props => `
-    font-size: ${props.theme.BASE_SIZE * 3.5}${props.theme.UNIT};
-  `}
-
+  ${headerStyles};
+  ${createRule(2.0, 'font-size')};
 `
 const H1 = styled.h1`
-  ${headerStyles}
-  ${props => `
-    font-size: ${props.theme.BASE_SIZE * 3.5}${props.theme.UNIT};
-  `}
+  ${headerStyles};
+  ${createRule(2.0, 'font-size')};
 `
 const H2 = styled.h2`
-  ${headerStyles}
-  ${props => `
-    font-size: ${props.theme.BASE_SIZE * 3.0}${props.theme.UNIT};
-  `}
+  ${headerStyles};
+  ${createRule(1.8, 'font-size')};
 `
 
 const H3 = styled.h3`
-  ${headerStyles}
-  ${props => `
-    font-size: ${props.theme.BASE_SIZE * 2.5}${props.theme.UNIT};
-  `}
+  ${headerStyles};
+  ${createRule(1.6, 'font-size')};
 `
 
 const H4 = styled.h4`
-  ${headerStyles}
-  ${props => `
-    font-size: ${props.theme.BASE_SIZE * 2.0}${props.theme.UNIT};
-  `}
+  ${headerStyles};
+  ${createRule(1.4, 'font-size')};
 `
 
 const H5 = styled.h5`
-  ${headerStyles}
-  ${props => `
-    font-size: ${props.theme.BASE_SIZE * 1.5}${props.theme.UNIT};
-  `}
+  ${headerStyles};
+  ${createRule(1.2, 'font-size')};
 `
 
 const H6 = styled.h6`
-  ${headerStyles}
-  ${props => `
-    font-size: ${props.theme.BASE_SIZE}${props.theme.UNIT};
-  `}
+  ${headerStyles};
+  ${createRule(1.0, 'font-size')};
 `
 
 function Header ({ as = 'div', ...rest }) {

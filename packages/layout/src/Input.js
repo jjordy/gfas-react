@@ -9,7 +9,8 @@ import {
   inputMarginMixin,
   normalFontMixin,
   heavyFontMixin,
-  inputColorMixin
+  inputColorMixin,
+  createRule
 } from './mixins'
 
 const labelColorMixin = css`
@@ -32,7 +33,6 @@ export const StyledInput = styled.input`
   margin: 0;
   outline: 0;
   -webkit-appearance: none;
-  tap-highlight-color: rgba(255, 255, 255, 0);
   line-height: 1.6em;
   ${inputPaddingMixin}
   background: #fff;
@@ -43,6 +43,9 @@ export const StyledInput = styled.input`
   transition: color 0.1s ease, border-color 0.1s ease;
   width: 100%;
   vertical-align: top;
+  :disabled {
+    background-color: #f6f9fc;
+  }
 `
 
 const StyledLabel = styled.label`
@@ -58,6 +61,7 @@ const inlineLabelMixin = css`
 
 const FormField = styled.div`
   clear: both;
+  ${createRule(1, 'margin-bottom')};
   display: ${props => (props.inline ? 'flex' : 'inherit')} ${StyledLabel} {
     ${props => props.inline && inlineLabelMixin};
   }
@@ -91,9 +95,6 @@ Input.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string,
   label: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.node.isRequired])
-}
-Input.defaultProps = {
-  mb: 2
 }
 
 const ThemedInput = withTheme(Input)

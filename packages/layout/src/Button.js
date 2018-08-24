@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import withTheme from './withTheme'
+
 import {
   textBasedOnColorMixin,
   fluidMixin,
@@ -9,11 +10,12 @@ import {
   backgroundColorMixin,
   borderRadiusMixin,
   darkenBackgroundColorMixin,
-  heavyFontMixin
+  heavyFontMixin,
+  createRule
 } from './mixins'
 
 const Icon = styled.span`
-  margin-left: 1rem;
+  ${createRule(1, 'margin-left')}
   ${spacing};
 `
 
@@ -23,7 +25,7 @@ const Content = styled.span`
 `
 
 export const buttonStyles = css`
-  min-height: 1em;
+  ${createRule(1, 'min-height')}
   display: flex;
   align-self: center;
   flex: 1 1 auto;
@@ -48,18 +50,10 @@ export const buttonStyles = css`
   ${floatMixin}
   ${textBasedOnColorMixin}
   ${borderRadiusMixin}
-  padding-right: ${props => `
-    ${props.theme.BASE_SIZE * 2}${props.theme.UNIT};
-  `};
-  padding-left: ${props => `
-    ${props.theme.BASE_SIZE * 2}${props.theme.UNIT};
-  `};
-  padding-top: ${props => `
-    ${props.theme.BASE_SIZE * 1.5}${props.theme.UNIT};
-  `};
-  padding-bottom: ${props => `
-    ${props.theme.BASE_SIZE * 1.5}${props.theme.UNIT};
-  `};
+  ${createRule(1, 'padding-right')}
+  ${createRule(1, 'padding-left')}
+  ${createRule(0.5, 'padding-top')}
+  ${createRule(0.5, 'padding-bottom')}
   ${spacing}
 `
 
@@ -72,9 +66,9 @@ export const StyledButton = styled.button.attrs({
 
 const Button = withTheme(StyledButton)
 
-Button.Icon = Icon
+Button.Icon = withTheme(Icon)
 
-Button.Content = Content
+Button.Content = withTheme(Content)
 
 Button.propTypes = {
   children: PropTypes.node,

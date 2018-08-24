@@ -3,6 +3,7 @@
   "scripts": {
     "postinstall": "node ./scripts/postinstall.js",
     "build": "node ./scripts/build.js",
+    "dev": "lerna exec --parallel npm run dev -- --watch",
     "clean": "lerna clean",
     "precommit": "pretty-quick --staged",
     "start": "cd packages/storybook && npm start",

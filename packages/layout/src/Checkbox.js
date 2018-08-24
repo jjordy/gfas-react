@@ -8,6 +8,8 @@ import { spacing } from './mixins'
 const Container = styled.div`
   display: inline-flex;
   user-select: none;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
   ${spacing};
 `
 
@@ -66,19 +68,19 @@ class Checkbox extends Component {
 
   onClick = e => {
     this.setState({ checked: !this.state.checked }, () => {
-      this.props.onChange(!this.state.checked)
+      this.props.onChange(this.state.checked)
     })
   }
 
   render () {
-    const { id, label, message, ...rest } = this.props
+    const { id, label, message, ...rest, } = this.props
     const { checked } = this.state
 
     return (
-      <Container id={id} onClick={this.onClick}>
-        <HiddenCheck type='checkbox' tabIndex='0' checked={checked} id={id} />
+      <Container id={id} onClick={this.onClick} {...rest}>
+        <HiddenCheck type='checkbox' tabIndex='0' checked={checked} id={id} onChange={() => {}} />
         <Check>
-          <CheckIcon {...rest} icon={checked ? 'checkbox_checked' : 'checkbox_unchecked'} checked={checked} />
+          <CheckIcon  {...rest} icon={checked ? 'checkbox_checked' : 'checkbox_unchecked'} checked={checked} />
         </Check>{' '}
         <Label {...rest} className='label' htmlFor={id}>
           {label}

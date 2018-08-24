@@ -1,34 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
 import withTheme from './withTheme'
-import { colorMixin, spacing } from './mixins'
+import { colorMixin, spacing, createRule } from './mixins'
 
 const P = styled.p`
   font-size: 1rem;
-  ${colorMixin} ${spacing};
+  ${createRule(1, 'margin-bottom')}
+  ${colorMixin}
+  ${spacing};
 `
 
 const Strong = styled.strong`
-  display: block;
-  margin-bottom: 1rem;
-  ${colorMixin} ${spacing};
+  ${createRule(1, 'margin-bottom')}
+  ${colorMixin};
+  ${spacing};
 `
-
-Strong.defaultProps = {
-  mb: 1
-}
-
-P.defaultProps = {
-  mb: 1
-}
 
 const Small = styled.small`
-  display: block;
-  ${colorMixin} ${spacing};
+  ${createRule(1, 'margin-bottom')}
+  font-weight: ${props => props.bold ? 700 : 400};
+  ${colorMixin} 
+  ${spacing};
 `
-Small.defaultProps = {
-  mb: 1
-}
 
 const ThemedP = withTheme(P, 'black')
 

@@ -24,7 +24,7 @@ const Spinner = ({ color, theme, type }) => {
     case 'three-dots':
       return <ThreeDots color={c} />
     default:
-      return <Oval color={c} />
+      return <Puff color={c} />
   }
 }
 

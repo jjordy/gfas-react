@@ -1,7 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { inputColorMixin, inputPaddingMixin, normalFontMixin, inputMarginMixin, heavyFontMixin } from './mixins'
+import {
+  inputColorMixin,
+  inputPaddingMixin,
+  normalFontMixin,
+  inputMarginMixin,
+  heavyFontMixin,
+  createRule
+} from './mixins'
 import withTheme from './withTheme'
 import Color from 'color'
 
@@ -21,12 +28,9 @@ const FormMessage = styled.small`
 `
 
 export const StyledSelect = styled.select`
-  ${normalFontMixin} 
-  margin: 0;
-  ${inputColorMixin}
-  outline: 0;
+  ${normalFontMixin} margin: 0;
+  ${inputColorMixin} outline: 0;
   -webkit-appearance: none;
-  tap-highlight-color: rgba(255, 255, 255, 0);
   line-height: 1.6em;
   ${inputPaddingMixin} background: #fff;
   border: ${props => (props.error ? `2px solid ${props.theme.red}` : '1px solid rgba(34, 36, 38, 0.15)')};
@@ -51,9 +55,8 @@ const inlineLabelMixin = css`
 
 const FormField = styled.div`
   clear: both;
-  margin: 0 0 1em;
-  display: ${props => (props.inline ? 'flex' : 'inherit')} 
-  & ${StyledLabel} {
+  ${createRule(1, 'margin-bottom')};
+  display: ${props => (props.inline ? 'flex' : 'inherit')} & ${StyledLabel} {
     ${props => props.inline && inlineLabelMixin};
   }
   &::after {
@@ -63,8 +66,8 @@ const FormField = styled.div`
     color: ${props => props.theme[props.color] || props.theme.darkGray};
     transform: rotate(90deg);
     padding: 0 0 2px;
-    margin-top: .5rem;
-    margin-left: -2rem;
+    ${createRule(0.5, 'margin-top')};
+    ${createRule(-2, 'margin-left')};
     position: absolute;
     pointer-events: none;
   }
@@ -76,9 +79,7 @@ const Required = ({ required, theme }) => {
   }
   return null
 }
-const SelectOption = ({ option }) => (
-  <option value={option.value}>{option.name || option.label || option.value}</option>
-)
+const SelectOption = ({ option }) => <option value={option.value}>{option.name || option.label || option.value}</option>
 const Select = ({ theme, label, id, name, inline, message, options, children, ...rest }) => {
   return (
     <FormField inline={inline} theme={theme}>

@@ -1,5 +1,9 @@
 import { css } from 'styled-components'
 
+export const createRule = (value, selector) => css`
+  ${selector}: ${props => props.theme.BASE_SIZE * value}${props => props.theme.UNIT};
+`
+
 export const pxMixin = css`
   ${props =>
     props.px &&

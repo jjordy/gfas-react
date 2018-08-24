@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Header, Message, Dimmer } from 'semantic-ui-react'
+import { Grid, Message, Dimmer, Text } from '@jjordy/layout'
 import { IAMPolicy } from '@jjordy/iam'
 import { action } from '@storybook/addon-actions'
 import JSONEditor from './JSONEditor'
@@ -66,47 +66,46 @@ export default class LiveEditor extends React.Component {
 
   render () {
     const { livePolicy, invalid, userData } = this.state
-    const deny = <Dimmer active={this.state.deny} content='Access Denied' />
+    const deny = <Dimmer active={this.state.deny}>
+      <Text strong color='red'>Access Denied</Text>
+    </Dimmer>
     return (
-      <Grid container columns={2}>
-        <Grid.Row>
-          <Grid.Column>
-            {this.state.error && <div>{this.state.error}</div>}
-            {this.state.deny && deny}
-            {userData &&
-              livePolicy && (
-              <IAMPolicy
-                policy={livePolicy}
-                userData={userData}
-                name={this.props.policyName}
-                onDeny={this.onDeny}
-                onAllow={this.onAllow}
-                render={({ display, policy }) => (
-                  <div>
-                    {display &&
-                        React.createElement(this.props.component, {
-                          policy: policy,
-                          userData: userData
-                        })}
-                  </div>
-                )}
-              />
-            )}
-          </Grid.Column>
-          <Grid.Column>
-            <Header dividing color='blue'>
-              Live Edit
-            </Header>
-            <JSONEditor
-              updateUserTypes={this.handleUpdateUserTypes}
-              updateGroups={this.handleUpdateGroups}
-              policy={this.props.policy}
-              onChange={this.onEditorUpdate}
-              userData={this.state.userData}
+      <Grid width='50%' gap={32}>
+        <div>
+          {this.state.error && <div>{this.state.error}</div>}
+          <div style={{position: 'relative'}}>
+            {deny}
+          </div>
+          {userData &&
+            livePolicy && (
+            <IAMPolicy
+              policy={livePolicy}
+              userData={userData}
+              name={this.props.policyName}
+              onDeny={this.onDeny}
+              onAllow={this.onAllow}
+              render={({ display, policy }) => (
+                <div>
+                  {display &&
+                      React.createElement(this.props.component, {
+                        policy: policy,
+                        userData: userData
+                      })}
+                </div>
+              )}
             />
-            {invalid && <Message negative>Invalid JSON</Message>}
-          </Grid.Column>
-        </Grid.Row>
+          )}
+        </div>
+        <div>
+          <JSONEditor
+            updateUserTypes={this.handleUpdateUserTypes}
+            updateGroups={this.handleUpdateGroups}
+            policy={this.props.policy}
+            onChange={this.onEditorUpdate}
+            userData={this.state.userData}
+          />
+          {invalid && <Message>Invalid JSON</Message>}
+        </div>
       </Grid>
     )
   }
