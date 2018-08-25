@@ -1,15 +1,17 @@
-# Gfas React Drag and drop file upload.
+# @jjordy/file-upload
+
+## A simple wrapper around react dropzone
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
 ## Install
 
 ```bash
-$ npm install gfas-react-datagrid react-vitualized semantic-ui-react
+$ npm install @jjordy/file-upload
 ```
 ## Requirements
-* node `v6 - v8`
-* npm `^3.0.0`
+* node `>= 8`
+* npm `>= 5`
 
 # Contributing & Development Instructions
 

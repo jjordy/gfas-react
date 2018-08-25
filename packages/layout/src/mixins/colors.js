@@ -8,6 +8,21 @@ export const colorMixin = css`
   `};
 `
 
+export const iconReverseColorMixin = css`
+  ${props =>
+    props.color &&
+    `
+    ${console.log(props.color.luminosity())}
+    stroke: ${
+  props.color.luminosity() < 0.6 ? props.theme.white : props.theme.black
+};
+    fill: ${
+  props.color.luminosity() < 0.6 ? props.theme.white : props.theme.black
+};
+    color
+  `};
+`
+
 export const backgroundColorMixin = css`
   ${props =>
     props.color &&
@@ -20,14 +35,14 @@ export const backgroundColorMixin = css`
 
 function handleLightColor (props) {
   if (props.inverted) {
-    return props.color.lighten(0.5).hex()
+    return props.color.darken(1).hex()
   }
   return '#222'
 }
 
 function handleDarkColor (props) {
   if (props.inverted) {
-    return props.color.lighten(0.5).hex()
+    return props.color.lighten(1).hex()
   }
   return '#FFF'
 }
@@ -37,7 +52,9 @@ export const textBasedOnColorMixin = css`
     props.color &&
     `
     color: ${
-  props.color.isDark() ? handleDarkColor(props) : handleLightColor(props)
+  props.color.luminosity() < 0.6
+    ? handleDarkColor(props)
+    : handleLightColor(props)
 };
   `};
 `
@@ -46,7 +63,7 @@ export const darkenBackgroundColorMixin = css`
   ${props =>
     props.color &&
     `
-    background-color: ${props.color.darken(0.1).hex()};
+    background-color: ${props.color.darken(0.2).hex()};
   `};
 `
 

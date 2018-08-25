@@ -17,12 +17,12 @@ import { action } from '@storybook/addon-actions'
 export default function FormExamples () {
   return (
     <Container>
-      <Header color='grey' as='h1'>Form Wrapper Component</Header>
+      <Header color='grey' as='h1'>
+        Form Wrapper Component
+      </Header>
       <Divider />
-      <Segment clearing color='lightBlue'>
-        <Header dividing>
-          Please sign up
-        </Header>
+      <Segment clearing color='lightBlue' rounded>
+        <Header dividing>Please sign up</Header>
         <Form onSubmit={action('FORM SUBMITTED')}>
           <Grid width='33%' gap={16}>
             <Input
@@ -60,8 +60,10 @@ export default function FormExamples () {
             />
             <Input label='Zip' name='zip' placeholder='39507' required />
           </Grid>
-          <Checkbox name='test' label='This is a checkbox!' />
-          <Button float='right'>Submit</Button>
+          <Checkbox name='test' label='This is a checkbox!' color='lightBlue' />
+          <Button color='lightBlue' float='right' icon='chevron_right' labelPosition='right'>
+            Submit
+          </Button>
         </Form>
       </Segment>
       <Code

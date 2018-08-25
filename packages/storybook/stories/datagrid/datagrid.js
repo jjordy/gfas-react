@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import DataGrid, { DataColumn } from '@jjordy/datagrid'
 import batches from './batches.json'
 import batchDetail from './batchDetail.json'
-import { Container, Header, Text, Input } from '@jjordy/layout'
+import { Container, Header, Text, Label } from '@jjordy/layout'
 import { FiCheckCircle, FiAlertTriangle, FiSlash } from 'react-icons/fi'
 import _ from 'lodash'
 
@@ -75,7 +75,7 @@ storiesOf('Datagrid', module)
           name='Status'
           id='Status'
           width={200}
-          render={({ value }) => <Input name='Status' value={value} mb={1} style={{ border: 0 }} />}
+          render={({ value }) => <Label color='primary' rounded>{value}</Label>}
         />
         <DataColumn name='Enroll Begin Date' id='EnrollBeginDate' width={150} date />
         <DataColumn name='First name' id='FirstName' width={150} />

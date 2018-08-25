@@ -1,5 +1,5 @@
 import React from 'react'
-import { Divider, Container, Header, Message, Rotate, Loader } from '@jjordy/layout'
+import { Divider, Container, Header, Message, Button, Loader, Grid } from '@jjordy/layout'
 import {
   FiAlertTriangle,
   FiAnchor,
@@ -21,7 +21,7 @@ export default function MessageExamples () {
         <Loader type='three-dots' />
       </Message.Icon>
       <Message.Content>
-        <Message.Header>Test</Message.Header>
+        <Message.Header strong>Test</Message.Header>
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed molestie ante quis placerat pulvinar. Donec
             odio enim, tincidunt in rhoncus nec, venenatis vitae nibh. Donec vitae elit est. Aliquam suscipit semper
@@ -128,7 +128,7 @@ export default function MessageExamples () {
         <FiCloudLightning color='white' size='2em' />
       </Message.Icon>
       <Message.Content>
-        <Message.Header>Test</Message.Header>
+        <Message.Header strong inverted>ERROR</Message.Header>
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed molestie ante quis placerat pulvinar. Donec
             odio enim, tincidunt in rhoncus nec, venenatis vitae nibh. Donec vitae elit est. Aliquam suscipit semper
@@ -152,6 +152,11 @@ export default function MessageExamples () {
             tincidunt fermentum. Morbi ultrices tortor in leo molestie aliquam. Praesent vehicula quis massa eu
             placerat. Aliqu
         </p>
+        <Divider />
+        <Grid width='50%' gap={16}>
+          <Button color='error'>CANCEL</Button>
+          <Button color='success'>I AGREE</Button>
+        </Grid>
       </Message.Content>
     </Message>
   </Container>

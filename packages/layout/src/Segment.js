@@ -4,9 +4,16 @@ import styled, { css } from 'styled-components'
 import Dimmer from './Dimmer'
 import Loader from './Loader'
 import withTheme from './withTheme'
-import { spacing, borderRadiusMixin, createRule, borderTopRadiusMixin, borderBottomRadiusMixin } from './mixins'
+import {
+  spacing,
+  borderRadiusMixin,
+  createRule,
+  borderTopRadiusMixin,
+  borderBottomRadiusMixin
+} from './mixins'
 import { StyledButton } from './Button'
 import { StyledInput } from './Input'
+import { StyledSelect } from './Select'
 
 const attachedTopMixin = css`
   margin-top: 1rem;
@@ -26,7 +33,8 @@ const attachedBottomMixin = css`
 `
 
 const segmentMixin = css`
-  ${borderRadiusMixin} margin: 1rem;
+  ${borderRadiusMixin};
+  ${createRule(1, 'margin')};
 `
 
 const colorMixin = css`
@@ -36,7 +44,7 @@ const colorMixin = css`
 const clearingMixin = css`
   overflow: auto;
   &::after {
-    content: '.';
+    content: ".";
     display: block;
     height: 0;
     clear: both;
@@ -51,8 +59,10 @@ const Segment = styled.div`
   ${spacing}
   clear: ${props => (props.clearing ? clearingMixin : null)};
   ${props => props.attached && props.attached === 'top' && attachedTopMixin}
-  ${props => props.attached && props.attached === 'bottom' && attachedBottomMixin}
-  ${props => props.attached && typeof props.attached === 'boolean' && attachedMixin}
+  ${props =>
+    props.attached && props.attached === 'bottom' && attachedBottomMixin}
+  ${props =>
+    props.attached && typeof props.attached === 'boolean' && attachedMixin}
   ${props => !props.attached && segmentMixin}
   ${props => props.color && colorMixin}
   background-color: #fff;
@@ -67,12 +77,19 @@ const Segment = styled.div`
   & ${StyledInput} {
     ${borderRadiusMixin}
   }
+
+  & ${StyledSelect} {
+    ${borderRadiusMixin}
+  }
 `
 
 Segment.propTypes = {
   clearing: PropTypes.bool,
   children: PropTypes.node.isRequired,
-  attached: PropTypes.oneOfType([PropTypes.bool, PropTypes.oneOf(['top', 'bottom'])])
+  attached: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.oneOf(['top', 'bottom'])
+  ])
 }
 
 Segment.defaultProps = {

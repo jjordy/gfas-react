@@ -1,6 +1,8 @@
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import withTheme from './withTheme'
+import MyIcon, { Svg } from './Icon'
 
 import {
   textBasedOnColorMixin,
@@ -11,12 +13,12 @@ import {
   borderRadiusMixin,
   darkenBackgroundColorMixin,
   heavyFontMixin,
+  iconReverseColorMixin,
   createRule
 } from './mixins'
 
 const Icon = styled.span`
-  ${createRule(1, 'margin-left')}
-  ${spacing};
+  ${createRule(1, 'margin-left')} ${spacing};
 `
 
 const Content = styled.span`
@@ -26,6 +28,10 @@ const Content = styled.span`
 
 export const buttonStyles = css`
   ${createRule(1, 'min-height')}
+  ${createRule(1, 'padding-right')}
+  ${createRule(1, 'padding-left')}
+  ${createRule(0.5, 'padding-top')}
+  ${createRule(0.5, 'padding-bottom')}
   display: flex;
   align-self: center;
   flex: 1 1 auto;
@@ -34,10 +40,10 @@ export const buttonStyles = css`
   justify-content: space-around;
   text-align: center;
   outline: 0;
-  border: ${props => (props.color && props.color.isDark() ? 0 : '1px solid #e7e7e7')};
-  box-shadow: ${props => (props.color && props.color.isDark() ? 'none' : '1px 1px 1px #e7e7e7')};
-  ${heavyFontMixin}
+  border: 1px solid ${props => props.color.darken(0.3).hex()};
+  ${heavyFontMixin};
   vertical-align: middle;
+  transition: background-color 0.2s ease;
   line-height: 1em;
   &:hover {
      ${darkenBackgroundColorMixin}
@@ -45,15 +51,15 @@ export const buttonStyles = css`
   &:focus {
     ${darkenBackgroundColorMixin}
   }
+  & ${Svg} {
+    ${iconReverseColorMixin}
+  }
   ${backgroundColorMixin}
   ${fluidMixin}
   ${floatMixin}
   ${textBasedOnColorMixin}
   ${borderRadiusMixin}
-  ${createRule(1, 'padding-right')}
-  ${createRule(1, 'padding-left')}
-  ${createRule(0.5, 'padding-top')}
-  ${createRule(0.5, 'padding-bottom')}
+
   ${spacing}
 `
 
@@ -64,7 +70,17 @@ export const StyledButton = styled.button.attrs({
   ${buttonStyles};
 `
 
-const Button = withTheme(StyledButton)
+const ThemedButton = withTheme(StyledButton)
+
+const Button = ({ icon, labelPosition, children, content, ...rest }) => (
+  <ThemedButton {...rest}>
+    {icon && !labelPosition && <MyIcon icon={icon} mr={1} />}
+    {children || content}
+    {icon &&
+      labelPosition &&
+      labelPosition === 'right' && <MyIcon icon={icon} ml={1} />}
+  </ThemedButton>
+)
 
 Button.Icon = withTheme(Icon)
 
@@ -79,5 +95,4 @@ Button.propTypes = {
 }
 
 Button.displayName = 'Button'
-
 export default Button

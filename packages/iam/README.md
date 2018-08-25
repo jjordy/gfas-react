@@ -1,15 +1,17 @@
-# Gfas IAM React 
+# @jjordy/iam
+
+# Work with custom IAM policies
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
 ## Install
 
 ```bash
-$ npm install gfas-iam-react
+$ npm install @jjordy/iam
 ```
 ## Requirements
-* node `v6 - v9`
-* npm `^3.0.0`
+* node `>= 8`
+* npm `>= 5`
 
 # Contributing & Development Instructions
 
@@ -27,14 +29,11 @@ While developing, you will probably rely mostly on `npm run dev`; however, there
 |`lint`|Lint all `.js` files.|
 |`build`| Build Production Library.|
 |`test`| Run tests.|
-|`test:dev`| Run test and watch tet for changes.|
-|`lint:fix`|Lint and fix all `.js` files. [Read more on this](http://eslint.org/docs/user-guide/command-line-interface.html#fix).|
+(http://eslint.org/docs/user-guide/command-line-interface.html#fix).|
 
 ## Project Structure
 ```
 .
 ├── .storybook               # Storybook config
 ├── src                      # Client entry point
-│   |   ├── components       # Component Source
-|   |   |--- util
 ```

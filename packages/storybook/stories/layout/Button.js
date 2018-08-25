@@ -27,7 +27,7 @@ export default function ButtonExamples () {
         <Button color='lightBlue'>Button</Button>
         <Button color='red'>Button</Button>
         <Button color='teal'>Button</Button>
-        <Button inverted>Button</Button>
+        <Button inverted color='black'>Button</Button>
       </Grid>
       <Code
         code={`

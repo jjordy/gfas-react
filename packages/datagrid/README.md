@@ -1,15 +1,15 @@
-# Gfas React Datagrid
+# @jjordy/datagrid
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-$ npm install gfas-react-datagrid react-vitualized semantic-ui-react
+  $ npm install @jjordy/datagrid
 ```
 ## Requirements
-* node `v6 - v7`
-* npm `^3.0.0`
+* node `>= 8`
+* npm `>= 5`
 
 # Contributing & Development Instructions
 
@@ -30,8 +30,6 @@ While developing, you will probably rely mostly on `npm run dev`; however, there
 
 ## Project Structure
 ```
-.
 ├── .storybook               # Storybook config
 ├── src                      # Client entry point
-│   |   ├── components       # Component Source
 ```

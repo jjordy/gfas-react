@@ -8,7 +8,7 @@ const hasProp = (v, p) => {
 }
 
 export const createRule = (value, selector) => css`
-  ${selector}: ${props => props.theme.BASE_SIZE * value}${props => props.theme.UNIT};
+  ${selector}: ${props => `${props.theme.BASE_SIZE * value}${props.theme.UNIT}`};
 `
 
 export const pxMixin = css`

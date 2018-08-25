@@ -2,31 +2,32 @@ import React from 'react'
 import styled from 'styled-components'
 import withTheme from './withTheme'
 import Color from 'color'
-import { spacing, createRule } from './mixins'
+import { spacing, createRule, textBasedOnColorMixin } from './mixins'
 
 function handleDefault (props) {
   const darkGrey = Color(props.theme.grey)
   return darkGrey.darken(0.2).hex()
 }
 
-function isDark (props) {
-  return props.color && props.color.isDark()
-}
-
 const StyledHeader = styled.div`
   font-size: 1.3rem;
-  font-weight: ${props => props.strong ? 700 : 400};
+  font-weight: ${props => (props.strong ? 700 : 400)};
+  ${createRule(0.5, 'margin-left')};
+  ${spacing};
 `
 const StyledContent = styled.div`
   font-weight: ${props => props.strong ? 700 : 400};
   font-size: 0.9rem;
-  margin-left: 0.5rem;
-  margin-bottom: 0.5rem;
+  ${createRule(0.5, 'margin-left')};
+  ${createRule(0.5, 'margin-bottom')};
+  p {
+    ${createRule(0.5, 'margin')}
+  }
 `
 
 const StyledButton = styled.button`
   background-color: transparent;
-  padding: 1rem;
+  ${createRule(1, 'padding')};
   align-self: flex-start;
   font-size: 1.2rem;
   cursor: pointer;
@@ -51,7 +52,10 @@ const StyledMessage = styled.div`
   justify-content: space-between;
   background-color: ${props => props.color && props.color.hex()};
   border-radius: ${props => (props.rounded ? '.28rem' : 0)};
-  border: ${props => `1.2px solid ${props.color ? props.color.darken(0.1).hex() : handleDefault(props)}`};
+  border: ${props =>
+    `1.2px solid ${
+      props.color ? props.color.darken(0.1).hex() : handleDefault(props)
+    }`};
   box-sizing: border-box;
   ${createRule(1, 'margin-bottom')};
   ${createRule(1, 'padding-right')};
@@ -59,13 +63,10 @@ const StyledMessage = styled.div`
   ${createRule(0.5, 'padding-top')};
   ${spacing}
   & ${StyledHeader} {
-    text-shadow: ${props => (isDark(props) ? 'none' : '1px 1px 1px #222')};
-    color: ${props => {
-    return isDark(props) ? 'props.color.darken(1).hex()' : '#FFF'
-  }};
-  }
+      ${textBasedOnColorMixin}
+  };
   & ${StyledContent} {
-      color:${props => (isDark(props) ? '#FFF' : '#222')}
+      ${textBasedOnColorMixin}
     };
   }
   

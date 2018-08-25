@@ -33,7 +33,10 @@ export const StyledSelect = styled.select`
   -webkit-appearance: none;
   line-height: 1.6em;
   ${inputPaddingMixin} background: #fff;
-  border: ${props => (props.error ? `2px solid ${props.theme.red}` : '1px solid rgba(34, 36, 38, 0.15)')};
+  border: ${props =>
+    props.error
+      ? `2px solid ${props.theme.red}`
+      : '1px solid rgba(34, 36, 38, 0.15)'};
   border-radius: ${props => (props.rounded ? '.28571429rem' : 0)};
   box-shadow: 0 0 0 0 transparent inset;
   transition: color 0.1s ease, border-color 0.1s ease;
@@ -54,14 +57,16 @@ const inlineLabelMixin = css`
 `
 
 const FormField = styled.div`
-  clear: both;
+  width: 100%;
+  position: relative;
   ${createRule(1, 'margin-bottom')};
-  display: ${props => (props.inline ? 'flex' : 'inherit')} & ${StyledLabel} {
+  display: ${props => (props.inline ? 'flex' : 'block')};
+  & ${StyledLabel} {
     ${props => props.inline && inlineLabelMixin};
   }
   &::after {
-    content: '>';
-    font: 17px 'Consolas', monospace;
+    content: ">";
+    font: 1rem "Consolas", monospace;
     font-weight: 700;
     color: ${props => props.theme[props.color] || props.theme.darkGray};
     transform: rotate(90deg);
@@ -79,8 +84,24 @@ const Required = ({ required, theme }) => {
   }
   return null
 }
-const SelectOption = ({ option }) => <option value={option.value}>{option.name || option.label || option.value}</option>
-const Select = ({ theme, label, id, name, inline, message, options, children, ...rest }) => {
+
+const SelectOption = ({ option }) => (
+  <option value={option.value}>
+    {option.name || option.label || option.value}
+  </option>
+)
+
+const Select = ({
+  theme,
+  label,
+  id,
+  name,
+  inline,
+  message,
+  options,
+  children,
+  ...rest
+}) => {
   return (
     <FormField inline={inline} theme={theme}>
       <StyledLabel htmlFor={id || `id_${name}`} theme={theme}>
@@ -88,7 +109,12 @@ const Select = ({ theme, label, id, name, inline, message, options, children, ..
       </StyledLabel>
       <StyledSelect id={id || `id_${name}`} name={name} {...rest} theme={theme}>
         {options
-          ? options.map((option, id) => <SelectOption option={option} key={`${name}_select_option_${id}`} />)
+          ? options.map((option, id) => (
+            <SelectOption
+              option={option}
+              key={`${name}_select_option_${id}`}
+            />
+          ))
           : children}
       </StyledSelect>
       {message && (
@@ -103,7 +129,17 @@ const Select = ({ theme, label, id, name, inline, message, options, children, ..
 Select.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string,
-  label: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.node.isRequired])
+  label: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.node.isRequired
+  ])
+}
+
+SelectOption.propTypes = { option: PropTypes.object }
+
+Required.propTypes = {
+  required: PropTypes.bool,
+  theme: PropTypes.object
 }
 
 export default withTheme(Select)

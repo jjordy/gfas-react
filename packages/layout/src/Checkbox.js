@@ -50,7 +50,7 @@ export const CheckIcon = styled(Icon)`
     if (error) {
       return theme['red']
     } else {
-      return theme[color]
+      return color.hex()
     }
   }};
 `
@@ -73,14 +73,14 @@ class Checkbox extends Component {
   }
 
   render () {
-    const { id, label, message, ...rest, } = this.props
+    const { id, label, message, ...rest } = this.props
     const { checked } = this.state
 
     return (
       <Container id={id} onClick={this.onClick} {...rest}>
         <HiddenCheck type='checkbox' tabIndex='0' checked={checked} id={id} onChange={() => {}} />
         <Check>
-          <CheckIcon  {...rest} icon={checked ? 'checkbox_checked' : 'checkbox_unchecked'} checked={checked} />
+          <CheckIcon {...rest} icon={checked ? 'checkbox_checked' : 'checkbox_unchecked'} checked={checked} />
         </Check>{' '}
         <Label {...rest} className='label' htmlFor={id}>
           {label}
@@ -99,8 +99,7 @@ Checkbox.propTypes = {
 
 Checkbox.defaultProps = {
   checked: false,
-  onChange: () => {},
-  color: 'grey'
+  onChange: () => {}
 }
 
-export default withTheme(Checkbox, 'grey')
+export default withTheme(Checkbox, 'lightGrey')

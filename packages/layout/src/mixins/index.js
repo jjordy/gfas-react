@@ -64,7 +64,7 @@ export const borderRadiusMixin = css`
   ${props =>
     (props.rounded || props.theme.rounded) &&
     `
-    border-radius: ${props.theme.BASE_SIZE / 3.5}${props.theme.UNIT}; 
+    border-radius: ${props.theme.BASE_SIZE / 3.8}${props.theme.UNIT};
   `};
 `
 
@@ -79,6 +79,11 @@ export const textAlignMixin = css`
       width: 100%;
     }
   `};
+`
+
+export const size = css`
+  width: ${props => props.size && props.size * props.theme.BASE_SIZE * 16}px;
+  height: ${props => props.size && props.size * props.theme.BASE_SIZE * 16}px;
 `
 
 export const inputPaddingMixin = css`
@@ -123,7 +128,8 @@ export {
   colorMixin,
   textBasedOnColorMixin,
   darkenBackgroundColorMixin,
-  inputColorMixin
+  inputColorMixin,
+  iconReverseColorMixin
 } from './colors'
 
 export {

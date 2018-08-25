@@ -1,5 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import withTheme from './withTheme'
+import styled from 'styled-components'
+import { spacing, size } from './mixins'
+
+export const Svg = styled.svg`
+  ${spacing};
+  ${size};
+`
 
 const icons = {
   checkbox_checked: {
@@ -38,18 +46,16 @@ const icons = {
   }
 }
 
-const Icon = ({ className, icon, style, width, height, color, ...rest }) => (
-  <svg
-    width={width}
-    height={height}
-    viewBox={icons[icon].viewBox}
-    className={className}
+const ThemedSvg = withTheme(Svg)
+
+const Icon = ({ icon, style, ...rest }) => (
+  <ThemedSvg
+    viewBox={icons[icon] && icons[icon].viewBox}
     style={style}
-    stroke={color}
     {...rest}
   >
-    <path d={icons[icon].d} fill={color} />
-  </svg>
+    <path d={icons[icon] && icons[icon].d} />
+  </ThemedSvg>
 )
 
 Icon.propTypes = {
@@ -57,8 +63,7 @@ Icon.propTypes = {
 }
 
 Icon.defaultProps = {
-  height: '18',
-  width: '18'
+  size: 1
 }
 
 export default Icon
