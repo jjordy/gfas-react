@@ -6,53 +6,37 @@
   version "7.0.0-beta.53"
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.0.0-beta.53.tgz#1f45eb617bf9463d482b2c04d349d9e4edbf4892"
 
-"@babel/runtime@^7.0.0-beta.56":
-  version "7.0.0-rc.2"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0-rc.2.tgz#63082909bd27c39f92c27c641f278389ad30a478"
+"@jjordy/datagrid@^1.0.62":
+  version "1.0.62"
+  resolved "https://registry.yarnpkg.com/@jjordy/datagrid/-/datagrid-1.0.62.tgz#d705cb01ae0b1f85b03f92b067f79998b016766b"
   dependencies:
-    regenerator-runtime "^0.12.0"
-
-"@jjordy/datagrid@^1.0.23":
-  version "1.0.23"
-  resolved "https://registry.yarnpkg.com/@jjordy/datagrid/-/datagrid-1.0.23.tgz#671e70e2aec5d174f630c48ea3401b6539746068"
-  dependencies:
-    classnames "^2.2.5"
+    "@jjordy/layout" "^0.0.63"
     date-fns "^1.29.0"
     dom-helpers "^3.2.1"
     fuse.js "^3.2.0"
-    uuid "*"
+    lodash.sortby "^4.7.0"
+    react-virtualized "^9.20.1"
+    uuid "^3.2.1"
 
-"@jjordy/file-upload@^0.0.15":
-  version "0.0.15"
-  resolved "https://registry.yarnpkg.com/@jjordy/file-upload/-/file-upload-0.0.15.tgz#4a6cef284cd9f7e65938f6b6fa6fd14d7f6f2306"
+"@jjordy/file-upload@^0.0.49":
+  version "0.0.49"
+  resolved "https://registry.yarnpkg.com/@jjordy/file-upload/-/file-upload-0.0.49.tgz#514e789c12ed6f3415c1eb7359d3b302064baafc"
   dependencies:
-    "@jjordy/layout" "^0.0.6"
-    react-dropzone "^4.2.1"
-    styled-components "^3.4.2"
+    "@jjordy/layout" "^0.0.63"
+    react-dropzone "^5.0.1"
 
-"@jjordy/iam@^1.0.12":
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/@jjordy/iam/-/iam-1.0.12.tgz#0fc7380d837f75f7c44990cb5a27d6bad05dd213"
+"@jjordy/iam@^1.0.34":
+  version "1.0.34"
+  resolved "https://registry.yarnpkg.com/@jjordy/iam/-/iam-1.0.34.tgz#e7cba3795bd019c35ee2a430f9ea0be74ac69c83"
   dependencies:
     deep-equal "^1.0.1"
     validate.js "^0.12.0"
 
-"@jjordy/layout@^0.0.28":
-  version "0.0.28"
-  resolved "https://registry.yarnpkg.com/@jjordy/layout/-/layout-0.0.28.tgz#5b186217ec5c81a22b596b0444e80668691a4c11"
+"@jjordy/layout@^0.0.63":
+  version "0.0.63"
+  resolved "https://registry.yarnpkg.com/@jjordy/layout/-/layout-0.0.63.tgz#d12e9159162f3a68f09ee505067f6833bf42fb54"
   dependencies:
     color "^3.0.0"
-    gfas-component-utils "^0.0.3"
-
-"@jjordy/layout@^0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@jjordy/layout/-/layout-0.0.6.tgz#8dfd7ba629d1f1eb74692ebd017e1bd155925484"
-  dependencies:
-    color "^3.0.0"
-    gfas-component-utils "^0.0.3"
-    react-icons "^3.0.5"
-    styled-components "^3.4.2"
-    styled-system "^3.0.2"
 
 "@storybook/addon-actions@3.4.10", "@storybook/addon-actions@^3.3.15":
   version "3.4.10"
@@ -1474,14 +1458,6 @@ base@^0.11.1:
     mixin-deep "^1.2.0"
     pascalcase "^0.1.1"
 
-better-npm-run@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/better-npm-run/-/better-npm-run-0.1.1.tgz#6bb6008591de1b72554aa8b0cefa0da1572fd481"
-  dependencies:
-    commander "^2.9.0"
-    dotenv "^2.0.0"
-    object-assign "^4.0.1"
-
 big.js@^3.1.3:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/big.js/-/big.js-3.2.0.tgz#a5fc298b81b9e0dca2e458824784b65c52ba588e"
@@ -2434,10 +2410,6 @@ dotenv-webpack@^1.5.5:
   dependencies:
     dotenv "^5.0.1"
 
-dotenv@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-2.0.0.tgz#bd759c357aaa70365e01c96b7b0bec08a6e0d949"
-
 dotenv@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-5.0.1.tgz#a5317459bd3d79ab88cff6e44057a6a3fbb1fcef"
@@ -3071,10 +3043,6 @@ get-stream@^3.0.0:
 get-value@^2.0.3, get-value@^2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/get-value/-/get-value-2.0.6.tgz#dc15ca1c672387ca76bd37ac0a395ba2042a2c28"
-
-gfas-component-utils@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/gfas-component-utils/-/gfas-component-utils-0.0.3.tgz#070bb22348214f4470f22395a19f1de060e660b0"
 
 glamor@^2.20.40:
   version "2.20.40"
@@ -3823,10 +3791,6 @@ json5@^0.5.0, json5@^0.5.1:
 jsonify@~0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
-
-keyboard-key@^1.0.1:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/keyboard-key/-/keyboard-key-1.0.2.tgz#212e14dde4c2059814336159bbc5acd0a348ca6b"
 
 keycode@^2.1.9:
   version "2.2.0"
@@ -5193,9 +5157,9 @@ react-dom@^16.2.0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
-react-dropzone@^4.2.1:
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/react-dropzone/-/react-dropzone-4.3.0.tgz#facdd7db16509772633c9f5200621ac01aa6706f"
+react-dropzone@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/react-dropzone/-/react-dropzone-5.0.1.tgz#3ed201215794c0f650c6f25a8311a9d96d35ebb6"
   dependencies:
     attr-accept "^1.1.3"
     prop-types "^15.5.7"
@@ -5301,7 +5265,7 @@ react-treebeard@^2.1.0:
     shallowequal "^0.2.2"
     velocity-react "^1.3.1"
 
-react-virtualized@^9.18.5:
+react-virtualized@^9.18.5, react-virtualized@^9.20.1:
   version "9.20.1"
   resolved "https://registry.yarnpkg.com/react-virtualized/-/react-virtualized-9.20.1.tgz#02dc08fe9070386b8c48e2ac56bce7af0208d22d"
   dependencies:
@@ -5426,10 +5390,6 @@ regenerate@^1.2.1:
 regenerator-runtime@^0.11.0:
   version "0.11.1"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
-
-regenerator-runtime@^0.12.0:
-  version "0.12.1"
-  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.12.1.tgz#fa1a71544764c036f8c49b13a08b2594c9f8a0de"
 
 regenerator-transform@^0.10.0:
   version "0.10.1"
@@ -5655,17 +5615,6 @@ schema-utils@^0.4.0, schema-utils@^0.4.5:
     ajv "^6.1.0"
     ajv-keywords "^3.1.0"
 
-semantic-ui-react@^0.82.2:
-  version "0.82.2"
-  resolved "https://registry.yarnpkg.com/semantic-ui-react/-/semantic-ui-react-0.82.2.tgz#725f6a1a5f007cebff66c2c9f697b165ce1ebceb"
-  dependencies:
-    "@babel/runtime" "^7.0.0-beta.56"
-    classnames "^2.2.5"
-    keyboard-key "^1.0.1"
-    lodash "^4.17.10"
-    prop-types "^15.6.1"
-    shallowequal "^1.0.2"
-
 "semver@2 || 3 || 4 || 5", semver@^5.3.0:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.0.tgz#dc4bbc7a6ca9d916dee5d43516f0092b58f7b8ab"
@@ -5765,10 +5714,6 @@ shallowequal@^0.2.2:
   resolved "https://registry.yarnpkg.com/shallowequal/-/shallowequal-0.2.2.tgz#1e32fd5bcab6ad688a4812cb0cc04efc75c7014e"
   dependencies:
     lodash.keys "^3.1.2"
-
-shallowequal@^1.0.2:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/shallowequal/-/shallowequal-1.1.0.tgz#188d521de95b9087404fd4dcb68b13df0ae4e7f8"
 
 shebang-command@^1.2.0:
   version "1.2.0"
@@ -6060,20 +6005,6 @@ style-loader@^0.20.3:
     loader-utils "^1.1.0"
     schema-utils "^0.4.5"
 
-styled-components@^3.4.2:
-  version "3.4.2"
-  resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-3.4.2.tgz#8f518419932327e47fe9144824e3184b3e2da95d"
-  dependencies:
-    buffer "^5.0.3"
-    css-to-react-native "^2.0.3"
-    fbjs "^0.8.16"
-    hoist-non-react-statics "^2.5.0"
-    prop-types "^15.5.4"
-    react-is "^16.3.1"
-    stylis "^3.5.0"
-    stylis-rule-sheet "^0.0.10"
-    supports-color "^3.2.3"
-
 styled-components@^3.4.4:
   version "3.4.4"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-3.4.4.tgz#dbd2ea6338fb050b5b56783e189434fd7f18eda5"
@@ -6087,12 +6018,6 @@ styled-components@^3.4.4:
     stylis "^3.5.0"
     stylis-rule-sheet "^0.0.10"
     supports-color "^3.2.3"
-
-styled-system@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/styled-system/-/styled-system-3.0.2.tgz#2189a6d829117d212fb6ac8ebc4260fdb75d1109"
-  dependencies:
-    prop-types "^15.6.2"
 
 stylis-rule-sheet@^0.0.10:
   version "0.0.10"
@@ -6435,7 +6360,7 @@ utils-merge@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
 
-uuid@*, uuid@^3.2.1:
+uuid@^3.2.1:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
 

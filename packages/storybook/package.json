@@ -28,11 +28,8 @@
     "react-icons": "^3.0.5",
     "react-test-renderer": "^16.2.0",
     "react-virtualized": "^9.18.5",
-    "semantic-ui-react": "^0.82.2",
     "styled-components": "^3.4.4",
     "uuid": "^3.2.1"
   },
-  "devDependencies": {
-    "better-npm-run": "^0.1.1"
-  }
+  "devDependencies": {}
 }

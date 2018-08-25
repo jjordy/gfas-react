@@ -91,7 +91,7 @@ export const inputPaddingMixin = css`
 `
 
 export const inputMarginMixin = css`
-  margin: ${props => `${props.theme.BASE_SIZE * 0.48}${props.theme.UNIT}`};
+  margin: ${props => `${props.theme.BASE_SIZE * 0.24}${props.theme.UNIT}`};
   box-sizing: border-box;
 `
 

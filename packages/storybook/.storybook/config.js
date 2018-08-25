@@ -1,7 +1,6 @@
 import React from 'react'
 import { configure, addDecorator } from '@storybook/react'
 import { setDefaults } from '@storybook/addon-info'
-import { Container, Header, Segment, Divider, Grid } from 'semantic-ui-react'
 
 const req = require.context('../stories', true, /\.jsx?$/)
 
