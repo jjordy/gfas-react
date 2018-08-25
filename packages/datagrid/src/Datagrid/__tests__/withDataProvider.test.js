@@ -1,6 +1,6 @@
 import React from 'react'
 import withDataProvider from '../withDataProvider'
-import { testData } from '../../../../test/testData'
+import { testData } from '../../../test/testData'
 import { shallow } from 'enzyme'
 import { format } from 'date-fns'
 

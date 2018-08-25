@@ -13,9 +13,9 @@
   ],
   "scripts": {
     "build": "node ./tools/build.js",
-    "dev": "babel ./src/components -d lib/es --ignore __tests__ --watch",
+    "dev": "babel ./src -d lib/es --ignore __tests__ --watch",
     "lint": "eslint src test",
-    "test": "better-npm-run test",
+    "test": "jest",
     "prepublishOnly": "npm run build"
   },
   "jest": {

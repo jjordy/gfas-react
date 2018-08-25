@@ -13,23 +13,21 @@ describe('<FileUpload />', () => {
     _wrapper = shallow(<FileUpload {..._props} />)
   })
 
-  const getChildComponent = n => _wrapper.dive().find(n)
-
   describe('General', () => {
     it('Should render without crashing...', () => {
       expect(mount(<FileUpload {..._props} />)).toHaveLength(1)
     })
 
     it('Should render an upload panel', () => {
-      expect(getChildComponent('UploadPanel')).toHaveLength(1)
+      expect(_wrapper.find('UploadPanel')).toHaveLength(1)
     })
 
     it('Should render an upload status panel', () => {
-      expect(getChildComponent('UploadStatusPanel')).toHaveLength(1)
+      expect(_wrapper.find('UploadStatusPanel')).toHaveLength(1)
     })
     it('Should submit the files on drop...', () => {
       expect(_props.onSubmit).toHaveBeenCalledTimes(0)
-      const dropzone = _wrapper.dive().find('UploadPanel').dive().find('t')
+      const dropzone = _wrapper.find('UploadPanel').dive().find('Styled(t)')
       dropzone.simulate('drop', ['file1', 'file2'])
       expect(_props.onSubmit).toHaveBeenCalledTimes(1)
     })
