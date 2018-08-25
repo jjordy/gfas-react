@@ -20,7 +20,7 @@ describe('<UploadPanel />', () => {
 
     it('Should submit the files on drop...', () => {
       expect(_props.onDrop).toHaveBeenCalledTimes(0)
-      const dropzone = _wrapper.dive().find('t')
+      const dropzone = _wrapper.dive().find('Styled(t)')
       dropzone.simulate('drop', ['file1', 'file2'])
       expect(_props.onDrop).toHaveBeenCalledTimes(1)
     })

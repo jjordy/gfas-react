@@ -9,26 +9,12 @@
     "build": "node ./tools/build.js",
     "dev": "babel ./src -d lib/es --ignore __tests__ --watch",
     "lint": "eslint src test --fix",
-    "test": "better-npm-run test",
+    "test": "jest",
     "prepublishOnly": "npm run build"
   },
   "files": [
     "lib"
   ],
-  "betterScripts": {
-    "build": {
-      "command": "rimraf lib && mkdirp lib && babel ./src/ -d . --ignore __tests__ --out-dir lib",
-      "env": {
-        "NODE_ENV": "production"
-      }
-    },
-    "test": {
-      "command": "jest",
-      "env": {
-        "NODE_ENV": "test"
-      }
-    }
-  },
   "jest": {
     "setupFiles": [
       "<rootDir>/test/shim.js",

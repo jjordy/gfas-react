@@ -7,7 +7,7 @@
     "clean": "lerna clean",
     "precommit": "pretty-quick --staged",
     "start": "cd packages/storybook && npm start",
-    "test": "lerna run test --stream -- --passWithNoTests"
+    "test": "lerna exec --ignore storybook --no-bail --concurrency 1 npm run test --passWithNoTests"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -39,5 +39,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "eslint": "^5.4.0"
+  }
 }

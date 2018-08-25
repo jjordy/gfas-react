@@ -10,28 +10,13 @@
     "dev": "babel ./src -d lib/es --ignore __tests__ --watch",
     "lint": "eslint src test",
     "prepublishOnly": "npm run build",
-    "test": "better-npm-run test"
+    "test": "jest"
   },
   "files": [
     "lib"
   ],
   "publishConfig": {
     "access": "public"
-  },
-  "betterScripts": {
-    "build": {
-      "command": "rimraf lib && mkdirp lib && babel ./src/ -d . --ignore __tests__ --out-dir lib",
-      "env": {
-        "NODE_ENV": "production"
-      }
-    },
-    "test": {
-      "command": "jest",
-      "env": {
-        "NODE_ENV": "test",
-        "DEBUG": "urm:*"
-      }
-    }
   },
   "jest": {
     "collectCoverage": true,
