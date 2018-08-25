@@ -15,9 +15,7 @@ import Color from 'color'
 const labelColorMixin = css`
   color: ${props =>
     props.theme
-      ? Color(props.theme.darkGrey)
-        .darken(0.2)
-        .hex()
+      ? props.theme.grey
       : 'rgba(0, 0, 0, 0.87)'};
 `
 
@@ -28,11 +26,14 @@ const FormMessage = styled.small`
 `
 
 export const StyledSelect = styled.select`
-  ${normalFontMixin} margin: 0;
-  ${inputColorMixin} outline: 0;
+  ${normalFontMixin};
+  margin: 0;
+  ${inputColorMixin};
+   outline: 0;
   -webkit-appearance: none;
   line-height: 1.6em;
-  ${inputPaddingMixin} background: #fff;
+  ${inputPaddingMixin};
+  background: #fff;
   border: ${props =>
     props.error
       ? `2px solid ${props.theme.red}`

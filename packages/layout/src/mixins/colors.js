@@ -71,6 +71,6 @@ export const inputColorMixin = css`
   ${props =>
     props.theme &&
     `
-    color: ${props.theme.darkGrey};
+    color: ${props.theme.grey};
   `};
 `

@@ -22,7 +22,7 @@ export default function FormExamples () {
       </Header>
       <Divider />
       <Segment clearing color='lightBlue' rounded>
-        <Header dividing>Please sign up</Header>
+        <Header dividing as='h5' color='grey'>Please sign up</Header>
         <Form onSubmit={action('FORM SUBMITTED')}>
           <Grid width='33%' gap={16}>
             <Input

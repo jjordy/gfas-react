@@ -40,7 +40,7 @@ export const buttonStyles = css`
   justify-content: space-around;
   text-align: center;
   outline: 0;
-  border: 1px solid ${props => props.color.darken(0.3).hex()};
+  border: 1px solid ${props => props.color.darken(0.1).hex()};
   ${heavyFontMixin};
   vertical-align: middle;
   transition: background-color 0.2s ease;

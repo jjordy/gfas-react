@@ -5,11 +5,14 @@ import { spacing, createRule } from './mixins'
 const Divider = styled.div`
   ${createRule(1, 'margin-top')}
   ${createRule(1, 'margin-bottom')}
+  ${props =>
+    props.fitted &&
+    `
+    margin-top: ${props.theme.BASE_SIZE * 0.5 + props.theme.UNIT};
+    margin-bottom: ${props.theme.BASE_SIZE * 0.5 + props.theme.UNIT};
+  `}
   ${spacing}
   border-bottom: ${props => !props.hidden && '2px solid #e7e7e7'};
-  &::after {
-    content:""
-  }
 `
 const ThemedDivider = withTheme(Divider)
 

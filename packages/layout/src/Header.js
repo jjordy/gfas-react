@@ -78,11 +78,11 @@ function Header ({ as = 'div', ...rest }) {
   }
 }
 
-const ThemedHeader = withTheme(Header, '#000')
+const ThemedHeader = withTheme(Header, 'black')
 
 const DividedHeader = (props) => (
   <div>
-    <ThemedHeader {...props} />
+    <ThemedHeader style={{marginBottom: '.5rem'}} {...props} />
     <Divider fitted />
   </div>
 )

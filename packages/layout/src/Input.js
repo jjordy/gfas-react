@@ -16,9 +16,7 @@ import {
 const labelColorMixin = css`
   color: ${props =>
     props.theme
-      ? Color(props.theme.darkGrey)
-        .darken(0.2)
-        .hex()
+      ? props.theme.grey
       : 'rgba(0, 0, 0, 0.87)'};
 `
 
@@ -36,7 +34,10 @@ export const StyledInput = styled.input`
   line-height: 1.6em;
   ${inputPaddingMixin}
   background: #fff;
-  border: ${props => (props.error ? `2px solid ${props.theme.red}` : '1px solid rgba(34, 36, 38, 0.15)')};
+  border: ${props =>
+    props.error
+      ? `2px solid ${props.theme.red}`
+      : '1px solid rgba(34, 36, 38, 0.15)'};
   ${inputColorMixin}
   border-radius: ${props => (props.rounded ? '.28571429rem' : 0)};
   box-shadow: 0 0 0 0 transparent inset;
@@ -75,13 +76,36 @@ const Required = ({ required, theme }) => {
   return null
 }
 
-const Input = ({ theme, label, id, name, inline, message, ...rest }) => {
+Required.propTypes = {
+  required: PropTypes.bool,
+  theme: PropTypes.object
+}
+
+const Input = ({
+  theme,
+  hideLabel,
+  label,
+  id,
+  name,
+  inline,
+  message,
+  ...rest
+}) => {
   return (
     <FormField inline={inline} theme={theme} {...rest}>
-      <StyledLabel htmlFor={id || `id_${name}`} theme={theme}>
+      <StyledLabel
+        hideLabel={hideLabel}
+        htmlFor={id || `id_${name}`}
+        theme={theme}
+      >
         {label} <Required {...rest} theme={theme} />
       </StyledLabel>
-      <StyledInput id={id || `id_${name}`} name={name} {...rest} theme={theme} />
+      <StyledInput
+        id={id || `id_${name}`}
+        name={name}
+        {...rest}
+        theme={theme}
+      />
       {message && (
         <FormMessage {...rest} theme={theme}>
           {message}
@@ -94,7 +118,10 @@ const Input = ({ theme, label, id, name, inline, message, ...rest }) => {
 Input.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string,
-  label: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.node.isRequired])
+  label: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.node.isRequired
+  ])
 }
 
 const ThemedInput = withTheme(Input)
