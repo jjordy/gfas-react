@@ -23,9 +23,46 @@ export const fluidMixin = css`
 export const floatMixin = css`
   float: ${props => (props.float ? props.float : null)};
 `
+
+export const borderTopRadiusMixin = css`
+  ${props =>
+    (props.rounded || props.theme.rounded) &&
+    `
+    border-top-right-radius: ${props.theme.BASE_SIZE / 3.5}${props.theme.UNIT};
+    border-top-left-radius: ${props.theme.BASE_SIZE / 3.5}${props.theme.UNIT}; 
+  `};
+`
+
+export const borderBottomRadiusMixin = css`
+  ${props =>
+    (props.rounded || props.theme.rounded) &&
+    `
+    border-bottom-right-radius: ${props.theme.BASE_SIZE / 3.5}${props.theme.UNIT};
+    border-bottom-left-radius: ${props.theme.BASE_SIZE / 3.5}${props.theme.UNIT}; 
+  `};
+`
+
+export const borderRightRadiusMixin = css`
+  ${props =>
+    (props.rounded || props.theme.rounded) &&
+    `
+    border-top-right-radius: ${props.theme.BASE_SIZE / 3.5}${props.theme.UNIT};
+    border-bottom-right-radius: ${props.theme.BASE_SIZE / 3.5}${props.theme.UNIT}; 
+  `};
+`
+
+export const borderLeftRadiusMixin = css`
+  ${props =>
+    (props.rounded || props.theme.rounded) &&
+    `
+    border-top-left-radius: ${props.theme.BASE_SIZE / 3.5}${props.theme.UNIT};
+    border-bottom-left-radius: ${props.theme.BASE_SIZE / 3.5}${props.theme.UNIT}; 
+  `};
+`
+
 export const borderRadiusMixin = css`
   ${props =>
-    props.rounded &&
+    (props.rounded || props.theme.rounded) &&
     `
     border-radius: ${props.theme.BASE_SIZE / 3.5}${props.theme.UNIT}; 
   `};
@@ -45,8 +82,7 @@ export const textAlignMixin = css`
 `
 
 export const inputPaddingMixin = css`
-  ${createRule(0.3, 'padding')}
-  box-sizing: border-box;
+  ${createRule(0.3, 'padding')} box-sizing: border-box;
 `
 
 export const inputMarginMixin = css`

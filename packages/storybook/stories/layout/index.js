@@ -16,6 +16,7 @@ import ResponsiveExamples from './Responsive'
 import ProgressExamples from './Progress'
 import LoaderExamples from './Loader'
 import IconExamples from './Icon'
+import LabelExamples from './Label'
 
 import { injectGlobal } from 'styled-components'
 
@@ -36,6 +37,7 @@ storiesOf('Gfas Layout', module)
   .add('Progress', () => <ProgressExamples />)
   .add('Loader', () => <LoaderExamples />)
   .add('Icon', () => <IconExamples />)
+  .add('Label', () => <LabelExamples />)
 
 injectGlobal`
   html {

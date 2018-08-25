@@ -19,7 +19,8 @@ export const defaultTheme = {
   error: '#EF483D',
   info: '#00A5CD',
   BASE_SIZE: 1,
-  UNIT: 'rem'
+  UNIT: 'rem',
+  rounded: false
 }
 
 const ThemeContext = React.createContext(defaultTheme)

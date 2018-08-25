@@ -4,24 +4,14 @@ import styled, { css } from 'styled-components'
 import Dimmer from './Dimmer'
 import Loader from './Loader'
 import withTheme from './withTheme'
-import { spacing, borderRadiusMixin, createRule } from './mixins'
+import { spacing, borderRadiusMixin, createRule, borderTopRadiusMixin, borderBottomRadiusMixin } from './mixins'
 import { StyledButton } from './Button'
 import { StyledInput } from './Input'
-
-const borderTopRadiusMixin = css`
-  border-top-right-radius: 0.28rem;
-  border-top-left-radius: 0.28rem;
-`
-
-const borderBottomRadiusMixin = css`
-  border-bottom-right-radius: 0.28rem;
-  border-bottom-left-radius: 0.28rem;
-`
 
 const attachedTopMixin = css`
   margin-top: 1rem;
   border-bottom: 0;
-  ${props => props.rounded && borderTopRadiusMixin};
+  ${borderTopRadiusMixin};
 `
 
 const attachedMixin = css`
@@ -32,12 +22,11 @@ const attachedMixin = css`
 
 const attachedBottomMixin = css`
   margin-bottom: 1rem;
-  ${props => props.rounded && borderBottomRadiusMixin};
+  ${borderBottomRadiusMixin};
 `
 
 const segmentMixin = css`
-  border-radius: ${props => (props.rounded ? '.28rem' : '0px')};
-  margin: 1rem;
+  ${borderRadiusMixin} margin: 1rem;
 `
 
 const colorMixin = css`
