@@ -12,7 +12,7 @@ const Divider = styled.div`
     margin-bottom: ${props.theme.BASE_SIZE * 0.5 + props.theme.UNIT};
   `}
   ${spacing}
-  border-bottom: ${props => !props.hidden && '2px solid #e7e7e7'};
+  border-bottom: ${props => !props.hidden && `2px solid ${props.theme.colors.lightGrey}`};
 `
 const ThemedDivider = withTheme(Divider)
 

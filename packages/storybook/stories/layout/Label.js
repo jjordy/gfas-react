@@ -24,7 +24,7 @@ export default function LabelExamples () {
     <Container>
       <Header color='grey'>Labels</Header>
       <Divider />
-      <Grid width='10%' gap={1}>
+      <Grid width={120}>
         {_.times(10, (i) => (
           <React.Fragment key={i}>
             <Label
@@ -32,9 +32,8 @@ export default function LabelExamples () {
               rounded
               icon='chevron_left'
               color={colors[getRandomInt(0, 9)]}>
-              LABEL
+              LABEL {i}
             </Label>
-            <br />
           </React.Fragment>
         ))}
       </Grid>

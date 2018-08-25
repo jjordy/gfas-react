@@ -22,7 +22,7 @@ const ProgressBar = styled.div`
   background-color: ${props => props.color.darken(props.percent < 100 ? props.percent / 1000 : 100 / 1000).hex()};
   width: ${props => (props.percent && props.percent > 100 ? 100 : props.percent)}%;
   transition: width 200ms ease-in-out;
-  ${createRule(2, 'height')}
+  ${createRule(1, 'height')}
   ${borderRadiusMixin}
 `
 

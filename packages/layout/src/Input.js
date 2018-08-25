@@ -15,15 +15,14 @@ import {
 
 const labelColorMixin = css`
   color: ${props =>
-    props.theme
-      ? props.theme.grey
-      : 'rgba(0, 0, 0, 0.87)'};
+    props.theme ? props.theme.colors.grey : 'rgba(0, 0, 0, 0.87)'};
 `
 
 const FormMessage = styled.small`
   font-size: 0.8rem;
   font-weight: 400;
-  color: ${props => (props.error ? props.theme.red : props.theme.darkGray)};
+  color: ${props =>
+    props.error ? props.theme.colors.red : props.theme.colors.darkGray};
 `
 
 export const StyledInput = styled.input`
@@ -36,7 +35,7 @@ export const StyledInput = styled.input`
   background: #fff;
   border: ${props =>
     props.error
-      ? `2px solid ${props.theme.red}`
+      ? `2px solid ${props.theme.colors.red}`
       : '1px solid rgba(34, 36, 38, 0.15)'};
   ${inputColorMixin}
   border-radius: ${props => (props.rounded ? '.28571429rem' : 0)};

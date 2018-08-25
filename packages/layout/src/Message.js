@@ -5,7 +5,7 @@ import Color from 'color'
 import { spacing, createRule, textBasedOnColorMixin } from './mixins'
 
 function handleDefault (props) {
-  const darkGrey = Color(props.theme.grey)
+  const darkGrey = Color(props.theme.colors.grey)
   return darkGrey.darken(0.2).hex()
 }
 

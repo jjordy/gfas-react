@@ -10,33 +10,31 @@ import {
   createRule
 } from './mixins'
 import withTheme from './withTheme'
-import Color from 'color'
 
 const labelColorMixin = css`
   color: ${props =>
-    props.theme
-      ? props.theme.grey
-      : 'rgba(0, 0, 0, 0.87)'};
+    props.theme ? props.theme.colors.grey : 'rgba(0, 0, 0, 0.87)'};
 `
 
 const FormMessage = styled.small`
   font-size: 0.8rem;
   font-weight: 400;
-  color: ${props => (props.error ? props.theme.red : props.theme.darkGray)};
+  color: ${props =>
+    props.error ? props.theme.colors.red : props.theme.colors.darkGray};
 `
 
 export const StyledSelect = styled.select`
   ${normalFontMixin};
   margin: 0;
   ${inputColorMixin};
-   outline: 0;
+  outline: 0;
   -webkit-appearance: none;
   line-height: 1.6em;
   ${inputPaddingMixin};
   background: #fff;
   border: ${props =>
     props.error
-      ? `2px solid ${props.theme.red}`
+      ? `2px solid ${props.theme.colors.red}`
       : '1px solid rgba(34, 36, 38, 0.15)'};
   border-radius: ${props => (props.rounded ? '.28571429rem' : 0)};
   box-shadow: 0 0 0 0 transparent inset;
@@ -69,7 +67,8 @@ const FormField = styled.div`
     content: ">";
     font: 1rem "Consolas", monospace;
     font-weight: 700;
-    color: ${props => props.theme[props.color] || props.theme.darkGray};
+    color: ${props =>
+    props.theme.colors[props.color] || props.theme.colors.darkGray};
     transform: rotate(90deg);
     padding: 0 0 2px;
     ${createRule(0.5, 'margin-top')};

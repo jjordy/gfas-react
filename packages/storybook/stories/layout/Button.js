@@ -8,7 +8,7 @@ export default function ButtonExamples () {
       <Header color='grey' dividing>
         Buttons
       </Header>
-      <Grid width='20%' gap={16} align='middle'>
+      <Grid width='10%' gap={16} align='middle'>
         <Button>
           <Button.Content>Button</Button.Content>
           <Button.Icon>
@@ -27,7 +27,7 @@ export default function ButtonExamples () {
         <Button color='lightBlue'>Button</Button>
         <Button color='red'>Button</Button>
         <Button color='teal'>Button</Button>
-        <Button inverted color='black'>Button</Button>
+        <Button inverted >Button</Button>
       </Grid>
       <Code
         code={`

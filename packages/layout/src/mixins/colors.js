@@ -14,10 +14,10 @@ export const iconReverseColorMixin = css`
     `
     ${console.log(props.color.luminosity())}
     stroke: ${
-  props.color.luminosity() < 0.6 ? props.theme.white : props.theme.black
+  props.color.luminosity() < 0.6 ? props.theme.colors.white : props.theme.colors.black
 };
     fill: ${
-  props.color.luminosity() < 0.6 ? props.theme.white : props.theme.black
+  props.color.luminosity() < 0.6 ? props.theme.colors.white : props.theme.colors.black
 };
     color
   `};
@@ -28,7 +28,7 @@ export const backgroundColorMixin = css`
     props.color &&
     `
     background-color: ${
-  props.inverted ? props.color.darken(0.5).hex() : props.color.hex()
+  props.inverted ? (props.color.darken(0.5).hex()) : props.color.hex()
 };
   `};
 `
@@ -45,6 +45,10 @@ function handleDarkColor (props) {
     return props.color.lighten(1).hex()
   }
   return '#FFF'
+}
+
+function isDark (color) {
+  return color.luminosity() >= 0.55
 }
 
 export const textBasedOnColorMixin = css`
@@ -71,6 +75,6 @@ export const inputColorMixin = css`
   ${props =>
     props.theme &&
     `
-    color: ${props.theme.grey};
+    color: ${props.theme.colors.grey};
   `};
 `

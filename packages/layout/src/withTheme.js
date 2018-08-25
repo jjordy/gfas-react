@@ -18,7 +18,7 @@ const withTheme = (Component, defaultColor = 'lightGrey') => props => {
 }
 
 const WithColor = ({ Component, color, theme, defaultColor, ...rest }) => {
-  const c = color ? Color(theme[color]) : Color(theme[defaultColor])
+  const c = color ? Color(theme.colors[color]) : Color(theme.colors[defaultColor])
   return <Component {...rest} theme={theme} color={c} />
 }
 
