@@ -6,7 +6,7 @@
     "dev": "lerna exec --parallel npm run dev -- --watch",
     "clean": "lerna clean",
     "precommit": "pretty-quick --staged",
-    "start": "cd packages/storybook-new && npm start",
+    "start": "cd packages/storybook && npm start",
     "test": "lerna exec --ignore storybook --no-bail --concurrency 1 npm run test --passWithNoTests"
   },
   "devDependencies": {
