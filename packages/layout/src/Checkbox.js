@@ -102,4 +102,4 @@ Checkbox.defaultProps = {
   onChange: () => {}
 }
 
-export default withTheme(Checkbox, 'lightGrey')
+export default withTheme(Checkbox, 'primary')

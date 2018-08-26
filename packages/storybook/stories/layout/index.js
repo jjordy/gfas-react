@@ -17,10 +17,12 @@ import ProgressExamples from './Progress'
 import LoaderExamples from './Loader'
 import IconExamples from './Icon'
 import LabelExamples from './Label'
+import Overview from './Overview'
 
 import { injectGlobal } from 'styled-components'
 
 storiesOf('Gfas Layout', module)
+  .add('Overview', () => <Overview />)
   .add('Header', () => <HeaderExamples />)
   .add('Segment', () => <SegmentExamples />)
   .add('Container', () => <ContainerExamples />)

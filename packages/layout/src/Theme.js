@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const defaultTheme = {
-  BASE_SIZE: 1.2,
+  BASE_SIZE: 1.0,
   UNIT: 'rem',
   rounded: true,
   colors: {
