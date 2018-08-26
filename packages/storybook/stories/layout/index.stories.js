@@ -1,39 +1,26 @@
 import React from 'react'
+import { injectGlobal } from 'styled-components'
 import { storiesOf } from '@storybook/react'
 import HeaderExamples from './Header'
 import SegmentExamples from './Segment'
-import ContainerExamples from './Container'
-import DividerExamples from './Divider'
 import GridExamples from './Grid'
-import ButtonExamples from './Button'
 import ImageExamples from './Image'
-import FormExamples from './Form'
 import InputExamples from './Input'
 import TextExamples from './Text'
-import FadeExamples from './Fade'
 import MessageExamples from './Message'
 import ResponsiveExamples from './Responsive'
 import ProgressExamples from './Progress'
 import LoaderExamples from './Loader'
 import IconExamples from './Icon'
 import LabelExamples from './Label'
-import Overview from './Overview'
 
-import { injectGlobal } from 'styled-components'
-
-storiesOf('Gfas Layout', module)
-  .add('Overview', () => <Overview />)
+storiesOf('@jjordy/Layout', module)
   .add('Header', () => <HeaderExamples />)
   .add('Segment', () => <SegmentExamples />)
-  .add('Container', () => <ContainerExamples />)
-  .add('Divider', () => <DividerExamples />)
   .add('Grid', () => <GridExamples />)
-  .add('Button', () => <ButtonExamples />)
   .add('Image', () => <ImageExamples />)
-  .add('Form', () => <FormExamples />)
   .add('Input', () => <InputExamples />)
   .add('Text', () => <TextExamples />)
-  .add('Fade', () => <FadeExamples />)
   .add('Message', () => <MessageExamples />)
   .add('Responsive', () => <ResponsiveExamples />)
   .add('Progress', () => <ProgressExamples />)
@@ -150,7 +137,7 @@ injectGlobal`
   [type="reset"]::-moz-focus-inner,
   [type="submit"]::-moz-focus-inner {
     border-style: none;
-    padding: 0;
+    paddWithJSXing: 0;
   }
 
   button:-moz-focusring,
@@ -161,7 +148,7 @@ injectGlobal`
   }
 
   fieldset {
-    padding: 0.35em 0.75em 0.625em;
+    paddWithJSXing: 0.35em 0.75em 0.625em;
   }
 
   legend {
@@ -169,7 +156,7 @@ injectGlobal`
     color: inherit; /* 2 */
     display: table; /* 1 */
     max-width: 100%; /* 1 */
-    padding: 0; /* 3 */
+    paddWithJSXing: 0; /* 3 */
     white-space: normal; /* 1 */
   }
 
@@ -184,7 +171,7 @@ injectGlobal`
   [type="checkbox"],
   [type="radio"] {
     box-sizing: border-box; /* 1 */
-    padding: 0; /* 2 */
+    paddWithJSXing: 0; /* 2 */
   }
 
   [type="number"]::-webkit-inner-spin-button,

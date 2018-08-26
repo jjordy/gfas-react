@@ -8,12 +8,19 @@ const UploadContainer = styled.div`
   flex-grow: 2;
   max-width: 75%;
   background-color: #FFF;
+  @media(max-width: 768px) {
+    max-width: 100%;
+  }
 `
 
 const StyledDropzone = styled(Dropzone)`
   width: 100%;
   min-height: 300px;
   border-right: 2px dashed #e7e7e7;
+  @media(max-width: 768px) {
+    border-right: none;
+    border-bottom: 2px dashed #e7e7e7;
+  }
 `
 
 const UploadMessage = styled.div`

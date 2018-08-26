@@ -82,7 +82,7 @@ export default function SearchProvider (C) {
                   name='search'
                   onChange={this.searchUpdated}
                   mb={0}
-                  style={{ border: 0, margin: 0, height: 45, marginTop: -2 }}
+                  style={{ border: 0, margin: 0, height: 42, marginTop: -2 }}
                   placeholder='Search...'
                 />
               )}

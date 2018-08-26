@@ -74,11 +74,11 @@ const ThemedButton = withTheme(StyledButton)
 
 const Button = ({ icon, labelPosition, children, content, ...rest }) => (
   <ThemedButton {...rest}>
-    {icon && !labelPosition && <MyIcon icon={icon} mr={1} />}
+    {icon && !labelPosition && <MyIcon icon={icon} mr={(children || content) && 1} />}
     {children || content}
     {icon &&
       labelPosition &&
-      labelPosition === 'right' && <MyIcon icon={icon} ml={1} />}
+      labelPosition === 'right' && <MyIcon icon={icon} ml={(children || content) && 1} />}
   </ThemedButton>
 )
 

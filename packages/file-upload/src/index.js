@@ -1,8 +1,16 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { Segment } from '@jjordy/layout'
 import UploadStatusPanel from './UploadStatusPanel'
 import UploadPanel from './UploadPanel'
+import styled from 'styled-components'
+
+const StyledContainer = styled.div`
+  display: flex;
+  flex: 2 2 auto;
+  @media(max-width: 768px) {
+    flex-direction: column;
+  }
+`
 
 export default class FileUpload extends Component {
   state = {
@@ -25,12 +33,10 @@ export default class FileUpload extends Component {
 
   render () {
     const { files } = this.state
-    return (
-      <div style={{ display: 'flex', flex: '2 2 auto' }}>
-        <UploadPanel {...this.props} {...this.state} onDrop={this.onDrop} />
-        <UploadStatusPanel {...this.props} files={files} clearList={this.handleClearStagedFiles} />
-      </div>
-    )
+    return <StyledContainer>
+      <UploadPanel {...this.props} {...this.state} onDrop={this.onDrop} />
+      <UploadStatusPanel {...this.props} files={files} clearList={this.handleClearStagedFiles} />
+    </StyledContainer>
   }
 }
 

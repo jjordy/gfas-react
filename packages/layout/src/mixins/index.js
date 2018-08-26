@@ -17,6 +17,8 @@ import {
   mrMixin
 } from './spacing'
 
+const isBool = v => typeof v === 'boolean'
+
 export const fluidMixin = css`
   width: ${props => props.fluid && '100%'};
 `
@@ -37,8 +39,12 @@ export const borderBottomRadiusMixin = css`
   ${props =>
     (props.rounded || props.theme.rounded) &&
     `
-    border-bottom-right-radius: ${props.theme.BASE_SIZE / 3.5}${props.theme.UNIT};
-    border-bottom-left-radius: ${props.theme.BASE_SIZE / 3.5}${props.theme.UNIT}; 
+    border-bottom-right-radius: ${props.theme.BASE_SIZE / 3.5}${
+  props.theme.UNIT
+};
+    border-bottom-left-radius: ${props.theme.BASE_SIZE / 3.5}${
+  props.theme.UNIT
+}; 
   `};
 `
 
@@ -47,22 +53,26 @@ export const borderRightRadiusMixin = css`
     (props.rounded || props.theme.rounded) &&
     `
     border-top-right-radius: ${props.theme.BASE_SIZE / 3.5}${props.theme.UNIT};
-    border-bottom-right-radius: ${props.theme.BASE_SIZE / 3.5}${props.theme.UNIT}; 
+    border-bottom-right-radius: ${props.theme.BASE_SIZE / 3.5}${
+  props.theme.UNIT
+}; 
   `};
 `
 
 export const borderLeftRadiusMixin = css`
   ${props =>
-    (props.rounded || props.theme.rounded) &&
+    (props.rounded || (!isBool(props.rounded) && props.theme.rounded)) &&
     `
     border-top-left-radius: ${props.theme.BASE_SIZE / 3.5}${props.theme.UNIT};
-    border-bottom-left-radius: ${props.theme.BASE_SIZE / 3.5}${props.theme.UNIT}; 
+    border-bottom-left-radius: ${props.theme.BASE_SIZE / 3.5}${
+  props.theme.UNIT
+}; 
   `};
 `
 
 export const borderRadiusMixin = css`
-  ${props =>
-    (props.rounded || props.theme.rounded) &&
+ ${props =>
+    (props.rounded || (!isBool(props.rounded) && props.theme.rounded)) &&
     `
     border-radius: ${props.theme.BASE_SIZE / 3.8}${props.theme.UNIT};
   `};

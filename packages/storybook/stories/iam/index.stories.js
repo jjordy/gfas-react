@@ -14,7 +14,7 @@ import accessExamplePolicy from './examples/access_example_iam_policy.json'
 
 import { IAMPolicy } from '@jjordy/iam'
 
-storiesOf('IAMPolicy Component', module)
+storiesOf('@jjordy/IAM', module)
   .add(
     'Basic Example', () => (
       <Grid width='100%' gap={16} p={3}>

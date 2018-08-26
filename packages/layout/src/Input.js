@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import withTheme from './withTheme'
-import Color from 'color'
 import {
   spacing,
   inputPaddingMixin,
@@ -10,7 +9,8 @@ import {
   normalFontMixin,
   heavyFontMixin,
   inputColorMixin,
-  createRule
+  createRule,
+  borderRadiusMixin
 } from './mixins'
 
 const labelColorMixin = css`
@@ -38,7 +38,7 @@ export const StyledInput = styled.input`
       ? `2px solid ${props.theme.colors.red}`
       : '1px solid rgba(34, 36, 38, 0.15)'};
   ${inputColorMixin}
-  border-radius: ${props => (props.rounded ? '.28571429rem' : 0)};
+  ${borderRadiusMixin}
   box-shadow: 0 0 0 0 transparent inset;
   transition: color 0.1s ease, border-color 0.1s ease;
   width: 100%;

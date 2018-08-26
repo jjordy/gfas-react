@@ -1,13 +1,16 @@
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { spacing } from './mixins'
-import withTheme from './withTheme'
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { spacing } from './mixins';
+import withTheme from './withTheme';
 
 const px = n => (typeof n === 'number' ? n + 'px' : n)
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(calc(${props => px(props.width)} - ${props => px(props.gap)}), 1fr));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(calc(${props => px(props.width)} - ${props => px(props.gap)}), 1fr)
+  );
   grid-gap: ${props => px(props.gap)};
   align-items: ${props => props.align || null};
   grid-column: ${props => (props.span ? `span ${props => props.span}` : null)};
@@ -16,7 +19,7 @@ const Grid = styled.div`
     `@media (max-width: 768px) {
     grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
     }`};
-  ${spacing}
+  ${spacing};
 `
 
 Grid.propTypes = {

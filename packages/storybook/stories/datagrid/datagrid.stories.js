@@ -14,7 +14,7 @@ const hugeList = _.times(10000, i => ({
   EnrollBeginDate: new Date().toISOString()
 }))
 
-storiesOf('Datagrid', module)
+storiesOf('@jjordy/Datagrid', module)
   .add('Basic', () => (
     <Container>
       <Header color='grey' dividing>
@@ -75,7 +75,7 @@ storiesOf('Datagrid', module)
           name='Status'
           id='Status'
           width={200}
-          render={({ value }) => <Label color='primary' rounded>{value}</Label>}
+          render={({ value }) => <Label color='success' rounded>{value}</Label>}
         />
         <DataColumn name='Enroll Begin Date' id='EnrollBeginDate' width={150} date />
         <DataColumn name='First name' id='FirstName' width={150} />

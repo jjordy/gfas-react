@@ -53,7 +53,7 @@ const clearingMixin = css`
 `
 
 const Segment = styled.div`
-  border: 1px solid #e7e7e7;
+  ${props => (!props.vertical ? 'border: 1px solid #e7e7e7' : null)}
   position: relative;
   ${createRule(1, 'padding')}
   ${spacing}
@@ -65,7 +65,7 @@ const Segment = styled.div`
     props.attached && typeof props.attached === 'boolean' && attachedMixin}
   ${props => !props.attached && segmentMixin}
   ${props => props.color && colorMixin}
-  background-color: #fff;
+  background-color: ${props => !props.vertical && '#FFF'};
   & ${Dimmer} {
     padding: 0;
   }

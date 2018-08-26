@@ -2,7 +2,10 @@ import styled from 'styled-components'
 import withTheme from './withTheme'
 import { spacing, createRule } from './mixins'
 
-const Divider = styled.div`
+const Divider = styled.div.attrs({
+  children: null,
+  content: null
+})`
   ${createRule(1, 'margin-top')}
   ${createRule(1, 'margin-bottom')}
   ${props =>
@@ -12,7 +15,10 @@ const Divider = styled.div`
     margin-bottom: ${props.theme.BASE_SIZE * 0.5 + props.theme.UNIT};
   `}
   ${spacing}
-  border-bottom: ${props => !props.hidden && `2px solid ${props.theme.colors.lightGrey}`};
+  height: 2px;
+  border-bottom: ${props =>
+    !props.hidden &&
+    `2px solid ${props.color.hex() || props.theme.colors.lightGrey}`};
 `
 const ThemedDivider = withTheme(Divider)
 

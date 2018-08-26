@@ -1,6 +1,6 @@
 import React from 'react'
 import { Divider, Container, Header, Form, Input, Segment, Button, Code, Grid } from '@jjordy/layout'
-import { action } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
 
 export default function InputExamples () {
   return (

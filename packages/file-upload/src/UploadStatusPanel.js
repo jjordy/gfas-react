@@ -10,6 +10,10 @@ const StatusContainer = styled.div`
   max-height: 300px;
   overflow-y: scroll;
   background-color: #FFF;
+  @media(max-width: 768px) {
+    max-width: 100%;
+    border-bottom: 2px solid #e7e7e7;
+  }
 `
 
 export default function UploadStatusPanel ({ files, clearList, renderUploadStatusPanel }) {

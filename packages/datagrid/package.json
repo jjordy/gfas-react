@@ -37,22 +37,15 @@
   },
   "author": "Jordan Addison <jordanrileyaddison@gmail.com> (http://github.com/jjordy)",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jjordy/Universal-React-Min/issues"
-  },
-  "homepage": "https://github.com/jjordy/Universal-React-Min",
   "peerDependencies": {
     "prop-types": "^15.6.2",
     "react": "15 || 16",
     "styled-components": "3"
   },
   "devDependencies": {
-    "babel-cli": "^6.23.0",
-    "better-npm-run": "^0.1.1",
+    "@babel/cli": "^7.0.0-rc.3",
     "eslint": "^5.4.0",
-    "jest": "^23.5.0",
-    "mkdirp": "^0.5.1",
-    "rimraf": "^2.5.4"
+    "jest": "^23.5.0"
   },
   "dependencies": {
     "@jjordy/layout": "^0.0.65",

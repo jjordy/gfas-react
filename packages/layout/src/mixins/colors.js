@@ -12,7 +12,6 @@ export const iconReverseColorMixin = css`
   ${props =>
     props.color &&
     `
-    ${console.log(props.color.luminosity())}
     stroke: ${
   props.color.luminosity() < 0.6 ? props.theme.colors.white : props.theme.colors.black
 };
