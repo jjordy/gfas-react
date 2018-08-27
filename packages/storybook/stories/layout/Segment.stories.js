@@ -4,12 +4,21 @@ import { storiesOf } from '@storybook/react'
 import { setOptions } from '@storybook/addon-options'
 import { select, number, boolean } from '@storybook/addon-knobs/react'
 
-const defaultValue = 1
-const options = {
+const defaultMargin = 0
+const defaultPadding = 1
+
+const marginOptions = {
   range: true,
   min: 0,
   max: 5,
-  step: 0.1
+  step: 1
+}
+
+const paddingOptions = {
+  range: true,
+  min: 0,
+  max: 5,
+  step: 1
 }
 
 const attached = { top: 'top', center: true, bottom: 'bottom' }
@@ -40,8 +49,8 @@ storiesOf('@jjordy/Layout/Segment', module)
           color={select('Colors', colors, 'primary', segment1)}
           rounded={boolean('Rounded', false, segment1)}
           attached={select('Attached', attached, false, segment1)}
-          m={number('Margin', defaultValue, options, segment1)}
-          p={number('Padding', defaultValue, options, segment1)}
+          m={number('Margin', defaultMargin, marginOptions, segment1)}
+          p={number('Padding', defaultPadding, paddingOptions, segment1)}
         >
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium

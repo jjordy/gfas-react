@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import {
   spacing,
@@ -10,6 +11,11 @@ import {
 } from './mixins'
 import withTheme from './withTheme'
 import Icon, { Svg } from './Icon'
+import { sharedPropTypes } from './sharedPropTypes'
+
+const InlineWrapper = styled.div`
+  display: inline-block;
+`
 
 const StyledLabel = styled.div`
   ${createRule(0.5, 'padding-right')}
@@ -33,10 +39,18 @@ const StyledLabel = styled.div`
 const ThemedLabel = withTheme(StyledLabel)
 
 const Label = ({ icon, children, color, content, ...rest }) => (
-  <ThemedLabel color={color} {...rest}>
-    {icon && <Icon icon={icon} mr={1} mb={0} color={color} />}
-    {children || content}
-  </ThemedLabel>
+  <InlineWrapper>
+    <ThemedLabel color={color} {...rest}>
+      {icon && <Icon icon={icon} mr={1} mb={0} color={color} />}
+      {children || content}
+    </ThemedLabel>
+  </InlineWrapper>
+
 )
 
+Label.propTypes = {
+  icon: PropTypes.string,
+  color: PropTypes.string,
+  ...sharedPropTypes
+}
 export default Label

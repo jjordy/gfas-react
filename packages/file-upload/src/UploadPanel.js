@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Dropzone from 'react-dropzone'
 import styled from 'styled-components'
-import { Header, Image } from '@jjordy/layout'
+import { Header, Image, Loader } from '@jjordy/layout'
 
 const UploadContainer = styled.div`
   flex-grow: 2;
@@ -42,10 +42,7 @@ export default class UploadPanel extends React.Component {
                 <div style={{ textAlign: 'center', padding: '1em' }}>
                   {!completed && (
                     <div>
-                      <Image
-                        src='https://s3.us-east-2.amazonaws.com/globalfas-test/Global_Loader_Small.gif'
-                        size='small'
-                      />
+                      <Loader active />
                       <Header as='h5' color='grey'>
                         Files Uploading...
                       </Header>

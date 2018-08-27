@@ -66,4 +66,6 @@ Responsive.propTypes = {
   only: PropTypes.oneOf(['mobile', 'desktop', 'tablet'])
 }
 
+Responsive.displayName = 'Responsive'
+
 export default Responsive

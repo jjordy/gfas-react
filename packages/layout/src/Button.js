@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import withTheme from './withTheme'
 import MyIcon, { Svg } from './Icon'
+import { sharedPropTypes } from './sharedPropTypes'
 
 import {
   textBasedOnColorMixin,
@@ -90,8 +91,10 @@ Button.propTypes = {
   color: PropTypes.string,
   content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   float: PropTypes.oneOf(['right', 'left']),
-  fluid: PropTypes.bool
+  fluid: PropTypes.bool,
+  ...sharedPropTypes
 }
 
 Button.displayName = 'Button'
+
 export default Button

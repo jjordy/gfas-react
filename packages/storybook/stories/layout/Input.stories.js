@@ -65,3 +65,9 @@ storiesOf('@jjordy/Layout/Input', module)
       </div>
     </Segment>
   ))
+  .add('Hide Label', () =>
+    <Input hideLabel label='Label Hidden' placeholder='Label Hidden...' name='test' />
+  )
+  .add('Form Message', () =>
+    <Input label='Name' message='You can decorate your form field with a messge.' name='test' />
+  )

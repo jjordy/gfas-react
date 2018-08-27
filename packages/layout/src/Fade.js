@@ -67,3 +67,5 @@ Fade.propTypes = {
 Fade.defaultProps = {
   duration: 250
 }
+
+Fade.displayName = 'Fade'

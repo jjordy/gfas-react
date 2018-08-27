@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 import withTheme from './withTheme'
-
+import PropTypes from 'prop-types'
 import { spacing, createRule } from './mixins'
+
+import { sharedPropTypes } from './sharedPropTypes'
 
 const Container = styled.div`
   margin: auto;
@@ -13,10 +15,16 @@ const Container = styled.div`
   @media (max-width: 1024px) {
     width: 100%;
   }
+  & p {
+    font-size: ${props => props.text && `
+      ${(props.theme.BASE_SIZE * 1.125) + props.theme.UNIT};
+    `};
+  }
 `
-
-Container.displayName = 'Container'
-
 const ThemedContainer = withTheme(Container)
+
+ThemedContainer.displayName = 'Container'
+
+ThemedContainer.propTypes = { text: PropTypes.bool, ...sharedPropTypes }
 
 export default ThemedContainer

@@ -1,7 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import Divider from './Divider'
 import withTheme from './withTheme'
+import { sharedPropTypes } from './sharedPropTypes'
 
 import {
   colorMixin,
@@ -86,6 +88,16 @@ const DividedHeader = ({ color, ...rest }) => (
     <Divider fitted color={color} />
   </div>
 )
+
+HeaderWithDivider.displayName = 'Header'
+
+HeaderWithDivider.propTypes = {
+  color: PropTypes.string,
+  float: PropTypes.oneOf(['right']),
+  dividing: PropTypes.bool,
+  textAlign: PropTypes.oneOf(['right', 'center', 'left', 'justify']),
+  ...sharedPropTypes
+}
 
 export default function HeaderWithDivider ({ dividing, ...props }) {
   return (

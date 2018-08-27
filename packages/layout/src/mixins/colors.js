@@ -25,7 +25,6 @@ export const iconColorMixin = css`
   ${props =>
     props.color &&
     `
-    stroke: ${props.color.hex()};
     fill: ${props.color.hex()};
   `};
 `

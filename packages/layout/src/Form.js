@@ -1,9 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Loader from './Loader'
 import Dimmer from './Dimmer'
 import { spacing } from './mixins'
 import withTheme from './withTheme'
+import { sharedPropTypes } from './sharedPropTypes'
 
 const StyledForm = styled.form`
   font-size: 1rem;
@@ -27,6 +29,11 @@ const Form = ({ onSubmit, loading, ...rest }) => {
       <ThemedForm onSubmit={handleSubmit} {...rest} />
     </React.Fragment>
   )
+}
+
+Form.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  ...sharedPropTypes
 }
 
 export default Form

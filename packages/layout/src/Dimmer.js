@@ -29,4 +29,6 @@ const Dimmer = styled.div`
   }
 `
 
+Dimmer.displayName = 'Dimmer'
+
 export default Dimmer

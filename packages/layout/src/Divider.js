@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import withTheme from './withTheme'
 import { spacing, createRule } from './mixins'
+import { sharedPropTypes } from './sharedPropTypes'
 
 const Divider = styled.div.attrs({
   children: null,
@@ -21,5 +22,11 @@ const Divider = styled.div.attrs({
     `2px solid ${props.color.hex() || props.theme.colors.lightGrey}`};
 `
 const ThemedDivider = withTheme(Divider)
+
+ThemedDivider.displayName = 'Divider'
+
+ThemedDivider.propTypes = {
+  ...sharedPropTypes
+}
 
 export default ThemedDivider

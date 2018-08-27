@@ -1,7 +1,8 @@
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { spacing } from './mixins';
-import withTheme from './withTheme';
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { spacing } from './mixins'
+import withTheme from './withTheme'
+import { sharedPropTypes } from './sharedPropTypes'
 
 const px = n => (typeof n === 'number' ? n + 'px' : n)
 
@@ -21,16 +22,20 @@ const Grid = styled.div`
     }`};
   ${spacing};
 `
+const ThemedGrid = withTheme(Grid)
 
-Grid.propTypes = {
+ThemedGrid.displayName = 'Grid'
+
+ThemedGrid.propTypes = {
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   gap: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   align: PropTypes.string,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  ...sharedPropTypes
 }
 
-Grid.defaultProps = {
+ThemedGrid.defaultProps = {
   gap: 8
 }
 
-export default withTheme(Grid)
+export default ThemedGrid

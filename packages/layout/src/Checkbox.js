@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import withTheme from './withTheme'
 import Icon from './Icon'
 import { spacing } from './mixins'
+import { sharedPropTypes } from './sharedPropTypes'
 
 const Container = styled.div`
   display: inline-flex;
@@ -102,4 +103,11 @@ Checkbox.defaultProps = {
   onChange: () => {}
 }
 
+Checkbox.displayName = 'Checkbox'
+
+Container.displayName = 'CheckboxContainer'
+
+Container.propTypes = {
+  ...sharedPropTypes
+}
 export default withTheme(Checkbox, 'grey')

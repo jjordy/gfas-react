@@ -10,9 +10,10 @@ import {
   heavyFontMixin,
   inputColorMixin,
   createRule,
-  isBool,
   borderRadiusMixin
 } from './mixins'
+
+import { sharedPropTypes } from './sharedPropTypes'
 
 const labelColorMixin = css`
   color: ${props =>
@@ -23,7 +24,7 @@ const FormMessage = styled.small`
   font-size: 0.8rem;
   font-weight: 400;
   color: ${props =>
-    props.error ? props.theme.colors.red : props.theme.colors.darkGray};
+    props.error ? props.theme.colors.red : props.theme.colors.grey};
 `
 
 export const StyledInput = styled.input`
@@ -54,6 +55,18 @@ const StyledLabel = styled.label`
   ${inputMarginMixin}
   ${labelColorMixin}
   ${heavyFontMixin}
+  ${props =>
+    props.hideLabel &&
+    `
+      border: 0;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+  `}
   text-transform: none;
 `
 const inlineLabelMixin = css`
@@ -119,15 +132,24 @@ const Input = ({
   )
 }
 
-Input.propTypes = {
+const ThemedInput = withTheme(Input)
+
+ThemedInput.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string,
+  inline: PropTypes.bool,
+  error: PropTypes.bool,
+  disabled: PropTypes.bool,
+  onChange: PropTypes.func,
+  message: PropTypes.string,
+  hideLabel: PropTypes.bool,
   label: PropTypes.oneOfType([
     PropTypes.string.isRequired,
     PropTypes.node.isRequired
-  ])
+  ]),
+  ...sharedPropTypes
 }
 
-const ThemedInput = withTheme(Input)
+ThemedInput.displayName = 'Input'
 
 export default ThemedInput

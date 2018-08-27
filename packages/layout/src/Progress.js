@@ -35,6 +35,8 @@ Progress.propTypes = {
   color: PropTypes.string
 }
 
+Progress.displayName = 'Progress'
+
 export default function Progress (props) {
   return (
     <ThemedProgressContainer {...props}>

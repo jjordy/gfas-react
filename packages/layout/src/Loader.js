@@ -42,7 +42,10 @@ Spinner.propTypes = {
 }
 
 ThemedSpinner.defaultProps = {
-  color: 'darkGrey'
+  color: 'darkGrey',
+  active: PropTypes.bool
 }
+
+ThemedSpinner.displayName = 'Loader'
 
 export default ThemedSpinner
