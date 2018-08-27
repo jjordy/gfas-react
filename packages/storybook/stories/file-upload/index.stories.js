@@ -1,40 +1,40 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
-import { action } from "@storybook/addon-actions";
-import { withInfo } from "@storybook/addon-info";
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import { withInfo } from '@storybook/addon-info';
 
-import FileUpload from "@jjordy/file-upload";
+import FileUpload from '@jjordy/file-upload';
 
-storiesOf("@jjordy/File-Upload", module)
+storiesOf('@jjordy/File-Upload', module)
   .add(
-    "Multiple File upload",
+    'Multiple File upload',
     withInfo({
       propTables: [FileUpload]
-    })(() => <FileUpload onSubmit={action("File Dropped")} />)
+    })(() => <FileUpload onSubmit={action('File Dropped')} />)
   )
   .add(
-    "Single File upload",
+    'Single File upload',
     withInfo()(() => (
-      <FileUpload multiple={false} onSubmit={action("File Dropped")} />
+      <FileUpload multiple={false} onSubmit={action('File Dropped')} />
     ))
   )
   .add(
-    "Limit File types",
+    'Limit File types',
     withInfo()(() => (
       <FileUpload
         multiple={false}
-        onSubmit={action("File Dropped")}
-        accept="image/png, image/gif, image/jpeg, image/jpg, application/pdf, image/tiff, image/tif"
+        onSubmit={action('File Dropped')}
+        accept='image/png, image/gif, image/jpeg, image/jpg, application/pdf, image/tiff, image/tif'
       />
     ))
   )
   .add(
-    "Custom look and feel via render props.",
+    'Custom look and feel via render props.',
     withInfo()(() => (
       <FileUpload
         multiple
         onSubmit={action('File Dropped')}
-        accept="image/png, image/gif, image/jpeg, image/jpg, application/pdf, image/tiff, image/tif"
+        accept='image/png, image/gif, image/jpeg, image/jpg, application/pdf, image/tiff, image/tif'
         renderUploadStatusPanel={(files, clearList) => (
           <div>
             {files &&
@@ -42,15 +42,15 @@ storiesOf("@jjordy/File-Upload", module)
           </div>
         )}
         uploadPanelStyles={{
-          border: "2px solid orange",
+          border: '2px solid orange',
           height: 150
         }}
         children={
           <div
             style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
               flexDirection: 'row'
             }}
           >
@@ -59,4 +59,4 @@ storiesOf("@jjordy/File-Upload", module)
         }
       />
     ))
-  );
+  )

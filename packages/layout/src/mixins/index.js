@@ -17,7 +17,7 @@ import {
   mrMixin
 } from './spacing'
 
-const isBool = v => typeof v === 'boolean'
+export const isBool = v => typeof v === 'boolean'
 
 export const fluidMixin = css`
   width: ${props => props.fluid && '100%'};
@@ -71,7 +71,7 @@ export const borderLeftRadiusMixin = css`
 `
 
 export const borderRadiusMixin = css`
- ${props =>
+  ${props =>
     (props.rounded || (!isBool(props.rounded) && props.theme.rounded)) &&
     `
     border-radius: ${props.theme.BASE_SIZE / 3.8}${props.theme.UNIT};
@@ -92,8 +92,10 @@ export const textAlignMixin = css`
 `
 
 export const size = css`
-  width: ${props => props.size && props.size * props.theme.BASE_SIZE * 16}px;
-  height: ${props => props.size && props.size * props.theme.BASE_SIZE * 16}px;
+  width: ${props =>
+    props.size && (props.size * props.theme.BASE_SIZE) + props.theme.UNIT};
+  height: ${props =>
+    props.size && (props.size * props.theme.BASE_SIZE) + props.theme.UNIT};
 `
 
 export const inputPaddingMixin = css`
@@ -139,7 +141,8 @@ export {
   textBasedOnColorMixin,
   darkenBackgroundColorMixin,
   inputColorMixin,
-  iconReverseColorMixin
+  iconReverseColorMixin,
+  iconColorMixin
 } from './colors'
 
 export {

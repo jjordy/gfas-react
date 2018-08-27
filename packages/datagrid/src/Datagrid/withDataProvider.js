@@ -4,7 +4,7 @@ import formatDate from 'date-fns/format'
 import sortBy from 'lodash.sortby'
 
 export default function DataProvider (C) {
-  class DataProvider extends Component {
+  class DataGrid extends Component {
     state = {
       data: null,
       columns: [],
@@ -94,11 +94,11 @@ export default function DataProvider (C) {
       )
     }
   }
-  DataProvider.propTypes = {
+  DataGrid.propTypes = {
     data: PropTypes.array.isRequired,
     children: PropTypes.node.isRequired,
     settings: PropTypes.bool
   }
-
-  return DataProvider
+  DataGrid.displayName = C.displayName
+  return DataGrid
 }

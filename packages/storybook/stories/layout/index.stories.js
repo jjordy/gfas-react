@@ -1,31 +1,15 @@
 import React from 'react'
 import { injectGlobal } from 'styled-components'
 import { storiesOf } from '@storybook/react'
-import HeaderExamples from './Header'
-import SegmentExamples from './Segment'
-import GridExamples from './Grid'
-import ImageExamples from './Image'
-import InputExamples from './Input'
-import TextExamples from './Text'
-import MessageExamples from './Message'
 import ResponsiveExamples from './Responsive'
 import ProgressExamples from './Progress'
 import LoaderExamples from './Loader'
-import IconExamples from './Icon'
 import LabelExamples from './Label'
 
 storiesOf('@jjordy/Layout', module)
-  .add('Header', () => <HeaderExamples />)
-  .add('Segment', () => <SegmentExamples />)
-  .add('Grid', () => <GridExamples />)
-  .add('Image', () => <ImageExamples />)
-  .add('Input', () => <InputExamples />)
-  .add('Text', () => <TextExamples />)
-  .add('Message', () => <MessageExamples />)
   .add('Responsive', () => <ResponsiveExamples />)
   .add('Progress', () => <ProgressExamples />)
   .add('Loader', () => <LoaderExamples />)
-  .add('Icon', () => <IconExamples />)
   .add('Label', () => <LabelExamples />)
 
 injectGlobal`

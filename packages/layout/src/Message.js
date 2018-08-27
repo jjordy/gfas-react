@@ -1,9 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import withTheme from './withTheme'
 import Color from 'color'
 import { spacing, createRule, textBasedOnColorMixin } from './mixins'
-
+import { sharedPropTypes } from './sharedPropTypes'
 function handleDefault (props) {
   const darkGrey = Color(props.theme.colors.grey)
   return darkGrey.darken(0.2).hex()
@@ -12,7 +13,7 @@ function handleDefault (props) {
 const StyledHeader = styled.div`
   font-size: 1.3rem;
   font-weight: ${props => (props.strong ? 700 : 400)};
-  ${createRule(0.5, 'margin-left')};
+  ${createRule(0.5, 'margin-bottom')};
   ${spacing};
 `
 const StyledContent = styled.div`
@@ -89,17 +90,38 @@ const Message = props => {
 }
 
 const ThemedHeader = withTheme(StyledHeader)
-
 const ThemedMessage = withTheme(Message)
-
 const ThemedContent = withTheme(StyledContent)
-
 const ThemedContentIcon = withTheme(ContentIcon)
+
+ThemedHeader.displayName = 'Message.Header'
+ThemedContent.displayName = 'Message.Content'
+ThemedContentIcon.displayName = 'Message.Icon'
+
+ThemedHeader.propTypes = {
+  ...sharedPropTypes
+}
+
+ThemedContent.propTypes = {
+  ...sharedPropTypes
+}
+
+ThemedContentIcon.propTypes = {
+  ...sharedPropTypes
+}
+
+ThemedMessage.propTypes = {
+  children: PropTypes.node.isRequired,
+  onClose: PropTypes.func,
+  ...sharedPropTypes
+}
 
 ThemedMessage.Header = ThemedHeader
 
 ThemedMessage.Content = ThemedContent
 
 ThemedMessage.Icon = ThemedContentIcon
+
+ThemedMessage.displayName = 'Message'
 
 export default ThemedMessage

@@ -9,7 +9,7 @@ const Container = styled.div`
   display: inline-flex;
   user-select: none;
   margin-right: 1rem;
-  margin-bottom: 1rem;
+  align-self: center;
   ${spacing};
 `
 

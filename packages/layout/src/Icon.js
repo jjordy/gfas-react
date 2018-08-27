@@ -2,11 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import withTheme from './withTheme'
 import styled from 'styled-components'
-import { spacing, size } from './mixins'
+import { spacing, size, iconColorMixin } from './mixins'
 
 export const Svg = styled.svg`
   ${spacing};
   ${size};
+  ${iconColorMixin};
 `
 
 const icons = {
@@ -46,7 +47,7 @@ const icons = {
   }
 }
 
-const ThemedSvg = withTheme(Svg)
+const ThemedSvg = withTheme(Svg, 'black')
 
 const Icon = ({ icon, style, ...rest }) => (
   <ThemedSvg
@@ -59,7 +60,8 @@ const Icon = ({ icon, style, ...rest }) => (
 )
 
 Icon.propTypes = {
-  icon: PropTypes.string.isRequired
+  icon: PropTypes.string.isRequired,
+  size: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 }
 
 Icon.defaultProps = {

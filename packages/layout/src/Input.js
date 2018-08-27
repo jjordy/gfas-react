@@ -10,6 +10,7 @@ import {
   heavyFontMixin,
   inputColorMixin,
   createRule,
+  isBool,
   borderRadiusMixin
 } from './mixins'
 
@@ -56,13 +57,15 @@ const StyledLabel = styled.label`
   text-transform: none;
 `
 const inlineLabelMixin = css`
-  margin-right: 1rem;
+  ${createRule(1, 'margin-right')};
 `
 
 const FormField = styled.div`
   clear: both;
-  ${createRule(1, 'margin-bottom')};
-  display: ${props => (props.inline ? 'flex' : 'inherit')} ${StyledLabel} {
+  ${props => props.inline ? 'margin-right: 1rem' : 'margin-bottom: 1rem'};
+  display: ${props => (props.inline ? 'flex' : 'block')};
+  align-items: center;
+  ${StyledLabel} {
     ${props => props.inline && inlineLabelMixin};
   }
   ${spacing};
@@ -99,17 +102,19 @@ const Input = ({
       >
         {label} <Required {...rest} theme={theme} />
       </StyledLabel>
-      <StyledInput
-        id={id || `id_${name}`}
-        name={name}
-        {...rest}
-        theme={theme}
-      />
-      {message && (
-        <FormMessage {...rest} theme={theme}>
-          {message}
-        </FormMessage>
-      )}
+      <div>
+        <StyledInput
+          id={id || `id_${name}`}
+          name={name}
+          {...rest}
+          theme={theme}
+        />
+        {message && (
+          <FormMessage {...rest} theme={theme}>
+            {message}
+          </FormMessage>
+        )}
+      </div>
     </FormField>
   )
 }

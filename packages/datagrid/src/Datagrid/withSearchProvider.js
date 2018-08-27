@@ -44,9 +44,9 @@ const HelpIconContainer = styled.div`
 
 export default function SearchProvider (C) {
   class SearchProvider extends Component {
-    state = { searchTerm: '', showHelp: false }
-    searchUpdated = term => this.setState({ searchTerm: term })
-    toggleHelp = () => this.setState({ showHelp: !this.state.showHelp })
+    state = { searchTerm: '', showHelp: false };
+    searchUpdated = term => this.setState({ searchTerm: term });
+    toggleHelp = () => this.setState({ showHelp: !this.state.showHelp });
     render () {
       const { searchTerm, showHelp } = this.state
       const { data, search } = this.props
@@ -72,7 +72,9 @@ export default function SearchProvider (C) {
         mySearchTerm = Date.parse(searchTerm).toString()
       }
 
-      const filteredResults = data ? data.filter(createFilter(mySearchTerm, searchKeys, searchOptions)) : null
+      const filteredResults = data
+        ? data.filter(createFilter(mySearchTerm, searchKeys, searchOptions))
+        : null
       return (
         <div>
           <SearchContainer>
@@ -82,7 +84,8 @@ export default function SearchProvider (C) {
                   name='search'
                   onChange={this.searchUpdated}
                   mb={0}
-                  style={{ border: 0, margin: 0, height: 42, marginTop: -2 }}
+                  rounded={false}
+                  style={{ border: 0, margin: 0, height: 43 }}
                   placeholder='Search...'
                 />
               )}
@@ -109,13 +112,25 @@ export default function SearchProvider (C) {
           </SearchContainer>
           <Fade visible={showHelp} duration={250}>
             <Segment attached p={1} color='blue'>
-              <Header as='h4' children='Advanced Search for this grid' color='grey' dividing my={1} />
+              <Header
+                as='h4'
+                children='Advanced Search for this grid'
+                color='grey'
+                dividing
+                my={1}
+              />
               <Grid width='20%' gap={8}>
                 {search &&
                   Array.isArray(search) &&
                   search.map((column, id) => {
                     return (
-                      <span key={id} style={{ border: '1px dashed #e7e7e7', paddingLeft: '1rem' }}>
+                      <span
+                        key={id}
+                        style={{
+                          border: '1px dashed #e7e7e7',
+                          paddingLeft: '1rem'
+                        }}
+                      >
                         <code>
                           <Text m={0} p={0} strong color='blue'>
                             <code>{column.key.split('.')[0]}:</code>
@@ -126,7 +141,8 @@ export default function SearchProvider (C) {
                   })}
               </Grid>
               <Header as='h5' color='grey' my={1}>
-                NOTE: Remember if you are searching for a date always used the MM/DD/YYYY format.
+                NOTE: Remember if you are searching for a date always used the
+                MM/DD/YYYY format.
               </Header>
             </Segment>
           </Fade>

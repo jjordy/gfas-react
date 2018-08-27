@@ -9,32 +9,16 @@ const P = styled.p`
   ${colorMixin}
   ${spacing};
 `
-
-const Strong = styled.strong`
-  ${createRule(1, 'margin-bottom')}
-  ${colorMixin};
-  ${spacing};
-`
-
-const Small = styled.small`
-  ${createRule(1, 'margin-bottom')}
-  font-weight: ${props => props.bold ? 700 : 400};
-  ${colorMixin} 
-  ${spacing};
-`
-
 const ThemedP = withTheme(P, 'black')
 
-const ThemedSmall = withTheme(Small, 'black')
-
-const ThemedStrong = withTheme(Strong, 'black')
-
-export default function Text ({ strong, small, ...props }) {
+export default function Text ({ strong, small, children, ...props }) {
   if (strong) {
-    return <ThemedStrong {...props} />
+    return <ThemedP {...props}><strong>{children}</strong></ThemedP>
   }
   if (small) {
-    return <ThemedSmall {...props} />
+    return <ThemedP {...props}>
+      <small>{children}</small>
+    </ThemedP>
   }
-  return <ThemedP {...props} />
+  return <ThemedP {...props} children={children} />
 }

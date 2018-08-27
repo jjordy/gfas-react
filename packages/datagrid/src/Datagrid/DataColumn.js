@@ -67,4 +67,6 @@ DataColumn.defaultProps = {
   active: true
 }
 
+DataColumn.displayName = 'DataColumn'
+
 export default DataColumn

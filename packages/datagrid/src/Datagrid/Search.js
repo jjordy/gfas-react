@@ -91,5 +91,7 @@ Search.propTypes = {
   value: PropTypes.string
 }
 
+Search.displayName = 'Search'
+
 export default Search
 export { createFilter }

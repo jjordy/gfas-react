@@ -245,6 +245,8 @@ DataGrid.defaultProps = {
   rowHighlightColor: 'rgba(172, 222, 242, 0.6)'
 }
 
+DataGrid.displayName = 'DataGrid'
+
 export default compose(
   withDataProvider,
   withSearchProvider

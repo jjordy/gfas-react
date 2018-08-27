@@ -24,6 +24,7 @@ function handleNonFluidHeight (props) {
 
 const widthMixin = css`
   width: ${props => (props.fluid ? '100%' : handleNonFluidWidth(props))};
+  max-width: 100%;
 `
 const thumbnailMixin = css`
   padding: 2px;

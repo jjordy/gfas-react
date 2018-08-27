@@ -18,7 +18,15 @@ export const iconReverseColorMixin = css`
     fill: ${
   props.color.luminosity() < 0.6 ? props.theme.colors.white : props.theme.colors.black
 };
-    color
+  `};
+`
+
+export const iconColorMixin = css`
+  ${props =>
+    props.color &&
+    `
+    stroke: ${props.color.hex()};
+    fill: ${props.color.hex()};
   `};
 `
 

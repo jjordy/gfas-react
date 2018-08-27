@@ -34,7 +34,6 @@ export const buttonStyles = css`
   ${createRule(0.5, 'padding-bottom')}
   display: flex;
   align-self: center;
-  flex: 1 1 auto;
   box-sizing: border-box;
   align-items: center;
   justify-content: space-around;

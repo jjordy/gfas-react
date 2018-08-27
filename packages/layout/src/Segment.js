@@ -34,7 +34,6 @@ const attachedBottomMixin = css`
 
 const segmentMixin = css`
   ${borderRadiusMixin};
-  ${createRule(1, 'margin')};
 `
 
 const colorMixin = css`
@@ -56,6 +55,7 @@ const Segment = styled.div`
   ${props => (!props.vertical ? 'border: 1px solid #e7e7e7' : null)}
   position: relative;
   ${createRule(1, 'padding')}
+  ${createRule(1, 'margin')};
   ${spacing}
   clear: ${props => (props.clearing ? clearingMixin : null)};
   ${props => props.attached && props.attached === 'top' && attachedTopMixin}
