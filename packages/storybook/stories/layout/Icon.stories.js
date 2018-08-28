@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon } from '@jjordy/layout'
+import { Icon, Grid } from '@jjordy/layout'
 import { storiesOf } from '@storybook/react'
 import { number } from '@storybook/addon-knobs/react'
 import { setOptions } from '@storybook/addon-options'
@@ -24,11 +24,25 @@ storiesOf('@jjordy/Layout/Icon', module)
   .add(
     'Default',
     () => (
-      <Icon
-        icon='question'
-        color='success'
-        size={number('Icon Size', defaultValue, options, iconDefault)}
-      />
+      <Grid width='10%' gap={8}>
+        <Icon
+          icon='question'
+          size={number('Icon Size', defaultValue, options, iconDefault)}
+        />
+        <Icon
+          icon='settings'
+          size={number('Icon Size', defaultValue, options, iconDefault)}
+        />
+        <Icon
+          icon='download'
+          size={number('Icon Size', defaultValue, options, iconDefault)}
+        />
+        <Icon
+          icon='school'
+          size={number('Icon Size', defaultValue, options, iconDefault)}
+        />
+      </Grid>
+
     ),
     {
       notes: 'Icon Component'
@@ -50,3 +64,6 @@ storiesOf('@jjordy/Layout/Icon', module)
   .add('Question', () => <Icon icon='question' size={2} />, {
     notes: 'Icon Component'
   })
+  .add('Settings', () => <Icon icon='settings' size={2} />)
+  .add('Download', () => <Icon icon='download' size={2} />)
+  .add('School', () => <Icon icon='school' size={2} />)

@@ -138,7 +138,7 @@ ThemedInput.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string,
   inline: PropTypes.bool,
-  error: PropTypes.bool,
+  error: PropTypes.oneOfType([ PropTypes.bool, PropTypes.string ]),
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
   message: PropTypes.string,

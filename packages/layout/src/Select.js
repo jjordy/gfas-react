@@ -129,6 +129,7 @@ const Select = ({
 Select.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string,
+  error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   label: PropTypes.oneOfType([
     PropTypes.string.isRequired,
     PropTypes.node.isRequired

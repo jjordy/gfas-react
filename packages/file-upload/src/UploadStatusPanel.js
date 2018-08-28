@@ -18,7 +18,6 @@ const StatusContainer = styled.div`
 
 const FilePreviewLink = styled.a`
   text-decoration: none;
-  color: ${props => props.theme.colors.grey};
   font-size: 0.8rem;
 `
 

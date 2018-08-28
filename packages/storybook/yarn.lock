@@ -715,11 +715,11 @@
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/@emotion/utils/-/utils-0.8.1.tgz#f3a81587ad8d0ef33cdad6f3b4310774fcc1053e"
 
-"@jjordy/datagrid@^1.0.64":
-  version "1.0.64"
-  resolved "https://registry.yarnpkg.com/@jjordy/datagrid/-/datagrid-1.0.64.tgz#e45b1f6330b9895f4df49adf5efb9a4a307273f3"
+"@jjordy/datagrid@^1.0.66":
+  version "1.0.66"
+  resolved "https://registry.yarnpkg.com/@jjordy/datagrid/-/datagrid-1.0.66.tgz#6d99c27dd27417612f167b2462a0796eb1ae4b8c"
   dependencies:
-    "@jjordy/layout" "^0.0.65"
+    "@jjordy/layout" "^0.0.67"
     date-fns "^1.29.0"
     dom-helpers "^3.2.1"
     fuse.js "^3.2.0"
@@ -727,24 +727,26 @@
     react-virtualized "^9.20.1"
     uuid "^3.2.1"
 
-"@jjordy/file-upload@^0.0.51":
-  version "0.0.51"
-  resolved "https://registry.yarnpkg.com/@jjordy/file-upload/-/file-upload-0.0.51.tgz#426b1be1d992cc39f4f1e58b1ab63a41a0acffa1"
+"@jjordy/file-upload@^0.0.53":
+  version "0.0.53"
+  resolved "https://registry.yarnpkg.com/@jjordy/file-upload/-/file-upload-0.0.53.tgz#42f7ef46de52a601c54962e2a02d477a08e1d0a0"
   dependencies:
-    "@jjordy/layout" "^0.0.65"
+    "@jjordy/layout" "^0.0.67"
     react-dropzone "^5.0.1"
 
-"@jjordy/iam@^1.0.35":
-  version "1.0.35"
-  resolved "https://registry.yarnpkg.com/@jjordy/iam/-/iam-1.0.35.tgz#72036ed606b0968e1b277420d9d72b444c16c98b"
+"@jjordy/iam@^1.0.36":
+  version "1.0.36"
+  resolved "https://registry.yarnpkg.com/@jjordy/iam/-/iam-1.0.36.tgz#9646758700fb0b8dbf5fd56dfe314a3ac6db9aa5"
   dependencies:
+    "@babel/cli" "^7.0.0-rc.3"
     deep-equal "^1.0.1"
     validate.js "^0.12.0"
 
-"@jjordy/layout@^0.0.65":
-  version "0.0.65"
-  resolved "https://registry.yarnpkg.com/@jjordy/layout/-/layout-0.0.65.tgz#c9cdf5f2e8d70b16340cda35403df7a16bde120d"
+"@jjordy/layout@^0.0.67":
+  version "0.0.67"
+  resolved "https://registry.yarnpkg.com/@jjordy/layout/-/layout-0.0.67.tgz#fa73f99e51c3968a86ee95bad5b61dffba9d1823"
   dependencies:
+    "@babel/cli" "^7.0.0-rc.3"
     color "^3.0.0"
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
@@ -1599,6 +1601,10 @@ aws4@^1.8.0:
 axe-core@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-3.0.3.tgz#ce016fd01476e23f4f3199d48a3f07125450b5db"
+
+axe-core@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-3.1.0.tgz#81337d203928b0fe7f066d16f028a759893b47f2"
 
 babel-code-frame@^6.26.0:
   version "6.26.0"

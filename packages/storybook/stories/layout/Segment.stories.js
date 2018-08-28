@@ -63,3 +63,8 @@ storiesOf('@jjordy/Layout/Segment', module)
     ),
     { notes: 'Segment Component' }
   )
+  .add('Attached', () => <div>
+    <Segment attached='top' color='blue'>Attached Top</Segment>
+    <Segment attached>Attached</Segment>
+    <Segment attached='bottom'>Attached Bottom</Segment>
+  </div>)
