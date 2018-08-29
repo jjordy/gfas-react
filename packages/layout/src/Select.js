@@ -10,6 +10,7 @@ import {
   createRule
 } from './mixins'
 import withTheme from './withTheme'
+import Color from 'color'
 
 const labelColorMixin = css`
   color: ${props =>
@@ -41,6 +42,22 @@ export const StyledSelect = styled.select`
   transition: color 0.1s ease, border-color 0.1s ease;
   width: 100%;
   vertical-align: top;
+  :disabled {
+    background-color: #f6f9fc;
+  }
+  :focus {
+    border-color: ${props => !props.error && props.theme.colors.info};
+    box-shadow: 0 0 0 0.2rem
+      rgba(
+        ${props =>
+    !props.error &&
+          Color(props.theme.colors.info)
+            .rgb()
+            .array()
+            .join(',')},
+        0.25
+      );
+  }
 `
 
 const StyledLabel = styled.label`
@@ -64,7 +81,7 @@ const FormField = styled.div`
     ${props => props.inline && inlineLabelMixin};
   }
   &::after {
-    content: ">";
+  content: ${props => !props.error && '>'};
     font: 1rem "Consolas", monospace;
     font-weight: 700;
     color: ${props =>

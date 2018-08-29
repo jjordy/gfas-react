@@ -5,7 +5,7 @@
     {
       "action": "AccessExample",
       "effect": "Allow",
-      "resource": "*",
+      "resource": ["panel"],
       "conditions": [
         {
           "rules": { "includes": { "$token.groups": "billing" } }

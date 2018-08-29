@@ -7,7 +7,7 @@ import { withKnobs } from "@storybook/addon-knobs";
 import { withNotes } from '@storybook/addon-notes';
 import { withInfo } from '@storybook/addon-info'
 const themes = [defaultTheme, boldAndLarge];
-// import { checkA11y } from "@storybook/addon-a11y";
+import { checkA11y } from "@storybook/addon-a11y";
 import { Container, Segment, Header } from "@jjordy/layout";
 import { withBackgrounds } from "@storybook/addon-backgrounds";
 import { injectGlobal } from 'styled-components'
@@ -207,7 +207,7 @@ addDecorator(withInfo);
 addDecorator(withThemesProvider(themes));
 addDecorator(withKnobs);
 addDecorator(withNotes);
-// addDecorator(checkA11y);
+addDecorator(checkA11y);
 addDecorator(
   withBackgrounds([
     { name: 'White', value: '#FFF', default: true},

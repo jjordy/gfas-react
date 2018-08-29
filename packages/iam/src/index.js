@@ -107,6 +107,7 @@ class IAMPolicy extends Component {
   }
   render () {
     const { statement, display, error, policyErrors } = this.state
+    console.log(display, statement)
     if (display && !error) {
       return this.props.render({ policy: statement, display: display })
     } else if (error) {

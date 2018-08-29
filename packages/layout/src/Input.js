@@ -12,7 +12,7 @@ import {
   createRule,
   borderRadiusMixin
 } from './mixins'
-
+import Color from 'color'
 import { sharedPropTypes } from './sharedPropTypes'
 
 const labelColorMixin = css`
@@ -28,25 +28,35 @@ const FormMessage = styled.small`
 `
 
 export const StyledInput = styled.input`
-  ${normalFontMixin}
-  margin: 0;
+  ${normalFontMixin} margin: 0;
   outline: 0;
   -webkit-appearance: none;
   line-height: 1.6em;
-  ${inputPaddingMixin}
-  background: #fff;
+  ${inputPaddingMixin} background: #fff;
   border: ${props =>
     props.error
       ? `2px solid ${props.theme.colors.red}`
       : '1px solid rgba(34, 36, 38, 0.15)'};
-  ${inputColorMixin}
-  ${borderRadiusMixin}
+  ${inputColorMixin} ${borderRadiusMixin}
   box-shadow: 0 0 0 0 transparent inset;
-  transition: color 0.1s ease, border-color 0.1s ease;
+  transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out;
   width: 100%;
   vertical-align: top;
   :disabled {
     background-color: #f6f9fc;
+  }
+
+  :focus {
+    border-color: ${props => !props.error && props.theme.colors.info};
+    box-shadow: 0 0 0 0.2rem
+      rgba(
+        ${props => !props.error &&
+    Color(props.theme.colors.info)
+      .rgb()
+      .array()
+      .join(',')},
+        0.25
+      );
   }
 `
 
@@ -75,7 +85,7 @@ const inlineLabelMixin = css`
 
 const FormField = styled.div`
   clear: both;
-  ${props => props.inline ? 'margin-right: 1rem' : 'margin-bottom: 1rem'};
+  ${props => (props.inline ? 'margin-right: 1rem' : 'margin-bottom: 1rem')};
   display: ${props => (props.inline ? 'flex' : 'block')};
   align-items: center;
   ${StyledLabel} {
@@ -138,7 +148,7 @@ ThemedInput.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string,
   inline: PropTypes.bool,
-  error: PropTypes.oneOfType([ PropTypes.bool, PropTypes.string ]),
+  error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
   message: PropTypes.string,
