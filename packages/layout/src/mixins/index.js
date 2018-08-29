@@ -115,7 +115,7 @@ export const normalFontMixin = css`
 export const heavyFontMixin = css`
   font-family: inherit;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.8rem;
 `
 
 export const spacing = css`
