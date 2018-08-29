@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "storybook",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Dev env for components",
   "scripts": {
     "dev": "start-storybook -p 9001",
@@ -10,10 +10,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-rc.3",
-    "@jjordy/datagrid": "^1.0.72",
-    "@jjordy/file-upload": "^0.0.59",
+    "@jjordy/datagrid": "^1.0.73",
+    "@jjordy/file-upload": "^0.0.60",
     "@jjordy/iam": "^1.0.39",
-    "@jjordy/layout": "^0.0.73",
+    "@jjordy/layout": "^0.0.74",
     "@storybook/addon-a11y": "^4.0.0-alpha.18",
     "@storybook/addon-actions": "^4.0.0-alpha.18",
     "@storybook/addon-backgrounds": "4.0.0-alpha.18",
@@ -43,10 +43,10 @@
     "jest": "^23.5.0",
     "lodash": "^4.17.5",
     "moment": "^2.22.2",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
     "react-icons": "^3.0.5",
-    "react-virtualized": "^9.18.5",
+    "react-virtualized": "^9.20.1",
     "storybook-addon-jsx": "^5.4.0",
     "storybook-addon-styled-component-theme": "^1.0.3",
     "styled-components": "^3.4.4",
@@ -54,6 +54,7 @@
     "webpack": "^4.17.1"
   },
   "dependencies": {
-    "@babel/cli": "^7.0.0-rc.3"
+    "@babel/cli": "^7.0.0-rc.3",
+    "@jjordy/validation": "^0.0.1"
   }
 }
