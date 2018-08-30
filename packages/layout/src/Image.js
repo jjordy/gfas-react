@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+
+import { borderRadiusMixin } from './mixins'
 const widthInPxs = {
   tiny: { width: '64px', height: '48px' },
   small: { width: '128px', height: '96px' },
@@ -42,6 +44,7 @@ const StyledImage = styled.img`
   `}
   ${widthMixin} 
   ${props => props.thumbnail && thumbnailMixin};
+  border-radius: ${props => props.rounded && '.28rem'};
 `
 
 const StyledBackgroundImage = styled.div.attrs({

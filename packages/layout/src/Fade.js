@@ -60,7 +60,11 @@ export default class Fade extends React.Component {
 
 Fade.propTypes = {
   children: PropTypes.node.isRequired,
-  visible: PropTypes.bool.isRequired,
+  visible: PropTypes.oneOfType([
+    PropTypes.bool.isRequired,
+    PropTypes.string.isRequired,
+    PropTypes.number.isRequired
+  ]),
   duration: PropTypes.number.isRequired
 }
 

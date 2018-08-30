@@ -43,7 +43,7 @@ const Responsive = styled.div`
     props.only === 'mobile' &&
     `
     ${hideDesktop}
-    ${hideMobile}
+    ${hideTablet}
     ${showMobile}
   `};
   ${props =>

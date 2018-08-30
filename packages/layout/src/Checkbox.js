@@ -74,16 +74,21 @@ class Checkbox extends Component {
   }
 
   render () {
-    const { id, label, message, ...rest } = this.props
+    const { id, label, message, name, ...rest } = this.props
     const { checked } = this.state
 
     return (
       <Container id={id} onClick={this.onClick} {...rest}>
-        <HiddenCheck type='checkbox' tabIndex='0' checked={checked} id={id} onChange={() => {}} />
+        <HiddenCheck type='checkbox' tabIndex='0' checked={checked} aria-labelledby={id || `id_${name}`} onChange={() => {}} />
         <Check>
-          <CheckIcon {...rest} icon={checked ? 'checkbox_checked' : 'checkbox_unchecked'} checked={checked} />
+          <CheckIcon
+            {...rest}
+            name={name}
+            icon={checked ? 'checkbox_checked' : 'checkbox_unchecked'}
+            checked={checked}
+          />
         </Check>{' '}
-        <Label {...rest} className='label' htmlFor={id}>
+        <Label {...rest} className='label' id={id || `id_${name}`}>
           {label}
           <br />
           <FormMessage>{message && message}</FormMessage>
