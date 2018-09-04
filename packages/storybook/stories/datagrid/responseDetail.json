@@ -1,0 +1,181 @@
+{
+  "ValidUntil": {
+    "Display": "History Valid Until",
+    "Description": "Date after which the financial aid history will expire",
+    "Value": "11/27/2017"
+  },
+  "NameHistory": {
+    "Display": "Name History",
+    "Description": null,
+    "Changed": true,
+    "FirstName": {
+      "Display": "FirstName",
+      "Description": null,
+      "Value": "BILLI"
+    },
+    "LastName": {
+      "Display": "LastName",
+      "Description": null,
+      "Value": "HUMPHREY"
+    }
+  },
+  "UnusualEnrollment": {
+    "Display": "Unusual Enrollment History",
+    "Description": null,
+    "Value": "N/A"
+  },
+  "Alerts": {
+    "Display": "Alerts",
+    "Description": null,
+    "Value": null
+  },
+  "IsResolved": true,
+  "OpenAY": {
+    "Display": "Open AY",
+    "Description": null,
+    "Value": "N"
+  },
+  "SULA": {
+    "Display": "Subsidized Usage Limit Applies",
+    "Description": "The REP is estimated based on NSLDS results. Verify the REP based on the results in the Common Origination and Disbursement (COD) website.",
+    "Flag": {
+      "Display": "Flag",
+      "Description": null,
+      "Value": "N"
+    },
+    "Usage": {
+      "Display": "Usage",
+      "Description": null,
+      "Value": null
+    }
+  },
+  "UndergraduateLoans": {
+    "Display": "Undergraduate Loans Remaining Eligibility",
+    "Description": null,
+    "Unsubsidized": {
+      "Display": "Unsubsidized",
+      "Description": null,
+      "Independent": {
+        "Display": "Independent",
+        "Description": null,
+        "Value": "$4,275.00"
+      },
+      "Dependent": {
+        "Display": "Dependent",
+        "Description": null,
+        "Value": "$0.00"
+      },
+      "OutstandingPrincipalBal": {
+        "Display": "Outstanding Principal Balance",
+        "Description": null,
+        "Value": "$30,225.00"
+      },
+      "PendingDisbursement": {
+        "Display": "Pending Disbursement",
+        "Description": null,
+        "Value": "$0.00"
+      }
+    },
+    "Subsidized": {
+      "Display": "Subsidized",
+      "Description": null,
+      "Independent": {
+        "Display": "Independent",
+        "Description": null,
+        "Value": "$818.00"
+      },
+      "Dependent": {
+        "Display": "Dependent",
+        "Description": null,
+        "Value": "$0.00"
+      },
+      "OutstandingPrincipalBal": {
+        "Display": "Outstanding Principal Balance",
+        "Description": null,
+        "Value": "$22,182.00"
+      },
+      "PendingDisbursement": {
+        "Display": "Pending Disbursement",
+        "Description": null,
+        "Value": "$0.00"
+      }
+    }
+  },
+  "GraduateLoans": {
+    "Display": "Graduate Loans Remaining Eligibility",
+    "Description": null,
+    "Subsidized": {
+      "Display": "Subsidized",
+      "Description": null,
+      "Value": "$0.00"
+    },
+    "SubOutstandingPrincipalBal": {
+      "Display": "Outstanding Principal Balance",
+      "Description": null,
+      "Value": "$0.00"
+    },
+    "SubPendingDisbursement": {
+      "Display": "Pending Disbursement",
+      "Description": null,
+      "Value": "$0.00"
+    },
+    "Unsubsidized": {
+      "Display": "Unsubsidized",
+      "Description": null,
+      "Value": "$86,093.00"
+    },
+    "OutstandingPrincipalBal": {
+      "Display": "Outstanding Principal Balance",
+      "Description": null,
+      "Value": "$0.00"
+    },
+    "PendingDisbursement": {
+      "Display": "Pending Disbursement",
+      "Description": null,
+      "Value": "$0.00"
+    }
+  },
+  "Grants": {
+    "Display": "Grant History",
+    "Description": null,
+    "PellLEU": {
+      "Display": "Pell LEU Remaining Eligibility",
+      "Description": null,
+      "Value": "287.4251%"
+    },
+    "AnnualAwards": {
+      "Display": "Annual Awards",
+      "Description": null,
+      "Values": [
+        {
+          "AYear": "16/17",
+          "TentativeAmount": 5815.00,
+          "RevisedAmount": null,
+          "EligiblePercent": "49.9826%",
+          "EligibleAmount": "2906.4882",
+          "AdditionalEligibility": null
+        },
+        {
+          "AYear": "17/18",
+          "TentativeAmount": 5920.00,
+          "RevisedAmount": null,
+          "EligiblePercent": "100.0000%",
+          "EligibleAmount": "5920.0000",
+          "AdditionalEligibility": {
+            "AYear": "17/18",
+            "Apply": false,
+            "TentativeAmount": 5920.00,
+            "RevisedAmount": null,
+            "EligiblePercent": "0.0000%",
+            "EligibleAmount": "0.0000"
+          }
+        }
+      ]
+    }
+  },
+  "OtherFunding": {
+    "Display": "Other Funding",
+    "Description": null,
+    "Value": null
+  }
+}

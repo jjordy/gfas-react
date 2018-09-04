@@ -7,7 +7,7 @@ import styled from 'styled-components'
 const StyledContainer = styled.div`
   display: flex;
   flex: 2 2 auto;
-  @media(max-width: 768px) {
+  @media (max-width: 768px) {
     flex-direction: column;
   }
 `
@@ -33,10 +33,12 @@ export default class FileUpload extends Component {
 
   render () {
     const { files } = this.state
-    return <StyledContainer>
-      <UploadPanel {...this.props} {...this.state} onDrop={this.onDrop} />
-      <UploadStatusPanel {...this.props} files={files} clearList={this.handleClearStagedFiles} />
-    </StyledContainer>
+    return (
+      <StyledContainer>
+        <UploadPanel {...this.state} {...this.props} onDrop={this.onDrop} />
+        <UploadStatusPanel {...this.props} files={files} clearList={this.handleClearStagedFiles} />
+      </StyledContainer>
+    )
   }
 }
 

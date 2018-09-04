@@ -117,7 +117,7 @@ const Input = ({
   ...rest
 }) => {
   return (
-    <FormField inline={inline} theme={theme}>
+    <FormField inline={inline} theme={theme} {...rest}>
       <StyledLabel
         hideLabel={hideLabel}
         htmlFor={id || `id_${name}`}

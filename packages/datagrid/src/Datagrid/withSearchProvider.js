@@ -44,9 +44,9 @@ const HelpIconContainer = styled.div`
 
 export default function SearchProvider (C) {
   class SearchProvider extends Component {
-    state = { searchTerm: '', showHelp: false };
-    searchUpdated = term => this.setState({ searchTerm: term });
-    toggleHelp = () => this.setState({ showHelp: !this.state.showHelp });
+    state = { searchTerm: '', showHelp: false }
+    searchUpdated = term => this.setState({ searchTerm: term })
+    toggleHelp = () => this.setState({ showHelp: !this.state.showHelp })
     render () {
       const { searchTerm, showHelp } = this.state
       const { data, search } = this.props
@@ -72,9 +72,7 @@ export default function SearchProvider (C) {
         mySearchTerm = Date.parse(searchTerm).toString()
       }
 
-      const filteredResults = data
-        ? data.filter(createFilter(mySearchTerm, searchKeys, searchOptions))
-        : null
+      const filteredResults = data ? data.filter(createFilter(mySearchTerm, searchKeys, searchOptions)) : null
       return (
         <div>
           <SearchContainer>
@@ -111,14 +109,8 @@ export default function SearchProvider (C) {
             </HelpIconContainer>
           </SearchContainer>
           <Fade visible={showHelp} duration={250}>
-            <Segment attached p={1} color='blue'>
-              <Header
-                as='h4'
-                children='Advanced Search for this grid'
-                color='grey'
-                dividing
-                my={1}
-              />
+            <Segment attached p={1}>
+              <Header as='h4' children='Advanced Search for this grid' dividing my={1} />
               <Grid width='20%' gap={8}>
                 {search &&
                   Array.isArray(search) &&
@@ -127,7 +119,7 @@ export default function SearchProvider (C) {
                       <span
                         key={id}
                         style={{
-                          border: '1px dashed #e7e7e7',
+                          border: '1px dashed #ccc',
                           paddingLeft: '1rem'
                         }}
                       >
@@ -140,9 +132,8 @@ export default function SearchProvider (C) {
                     )
                   })}
               </Grid>
-              <Header as='h5' color='grey' my={1}>
-                NOTE: Remember if you are searching for a date always used the
-                MM/DD/YYYY format.
+              <Header as='h6' color='grey' my={1}>
+                NOTE: Remember if you are searching for a date always used the MM/DD/YYYY format.
               </Header>
             </Segment>
           </Fade>

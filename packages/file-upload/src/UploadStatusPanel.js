@@ -38,7 +38,7 @@ export default function UploadStatusPanel ({
           files.map((file, key) => (
             <div key={`Upload_List_File_${key}`}>
               <FilePreviewLink href={file.preview} target='_blank'>
-                <Label icon='file' mb={0.5} color='grey'>
+                <Label icon='file' mb={1} color='grey'>
                   {file.name} - <FileSize fileSize={file.size} />
                 </Label>
               </FilePreviewLink>
