@@ -14,17 +14,35 @@ import {
 } from './mixins'
 import Color from 'color'
 import { sharedPropTypes } from './sharedPropTypes'
+import Icon from './Icon'
+import Button from './Button'
 
 const labelColorMixin = css`
-  color: ${props =>
-    props.theme ? props.theme.colors.grey : 'rgba(0, 0, 0, 0.87)'};
+  color: ${props => (props.theme ? props.theme.colors.grey : 'rgba(0, 0, 0, 0.87)')};
 `
 
 const FormMessage = styled.small`
   font-size: 0.8rem;
   font-weight: 400;
-  color: ${props =>
-    props.error ? props.theme.colors.red : props.theme.colors.grey};
+  color: ${props => (props.error ? props.theme.colors.red : props.theme.colors.grey)};
+`
+
+const ActionContainer = styled.div`
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+  &:first-child input {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  & button {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    height: 36px;
+    border-left: 0px;
+  }
 `
 
 export const StyledInput = styled.input`
@@ -33,10 +51,7 @@ export const StyledInput = styled.input`
   -webkit-appearance: none;
   line-height: 1.6em;
   ${inputPaddingMixin} background: #fff;
-  border: ${props =>
-    props.error
-      ? `2px solid ${props.theme.colors.red}`
-      : '1px solid rgba(34, 36, 38, 0.15)'};
+  border: ${props => (props.error ? `2px solid ${props.theme.colors.red}` : '1px solid rgba(34, 36, 38, 0.15)')};
   ${inputColorMixin} ${borderRadiusMixin}
   box-shadow: 0 0 0 0 transparent inset;
   transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out;
@@ -50,11 +65,12 @@ export const StyledInput = styled.input`
     border-color: ${props => !props.error && props.theme.colors.info};
     box-shadow: 0 0 0 0.2rem
       rgba(
-        ${props => !props.error &&
-    Color(props.theme.colors.info)
-      .rgb()
-      .array()
-      .join(',')},
+        ${props =>
+    !props.error &&
+          Color(props.theme.colors.info)
+            .rgb()
+            .array()
+            .join(',')},
         0.25
       );
   }
@@ -106,32 +122,21 @@ Required.propTypes = {
   theme: PropTypes.object
 }
 
-const Input = ({
-  theme,
-  hideLabel,
-  label,
-  id,
-  name,
-  inline,
-  message,
-  ...rest
-}) => {
+const Input = ({ action, theme, hideLabel, label, id, name, inline, message, ...rest }) => {
   return (
     <FormField inline={inline} theme={theme} {...rest}>
-      <StyledLabel
-        hideLabel={hideLabel}
-        htmlFor={id || `id_${name}`}
-        theme={theme}
-      >
+      <StyledLabel hideLabel={hideLabel} htmlFor={id || `id_${name}`} theme={theme}>
         {label} <Required {...rest} theme={theme} />
       </StyledLabel>
       <div>
-        <StyledInput
-          id={id || `id_${name}`}
-          name={name}
-          {...rest}
-          theme={theme}
-        />
+        {action ? (
+          <ActionContainer>
+            <StyledInput id={id || `id_${name}`} name={name} {...rest} theme={theme} />
+            {action()}
+          </ActionContainer>
+        ) : (
+          <StyledInput id={id || `id_${name}`} name={name} {...rest} theme={theme} />
+        )}
         {message && (
           <FormMessage {...rest} theme={theme}>
             {message}
@@ -145,6 +150,9 @@ const Input = ({
 const ThemedInput = withTheme(Input)
 
 ThemedInput.propTypes = {
+  action: PropTypes.func,
+  actionIcon: PropTypes.string,
+  actionName: PropTypes.string,
   name: PropTypes.string.isRequired,
   id: PropTypes.string,
   inline: PropTypes.bool,
@@ -153,10 +161,7 @@ ThemedInput.propTypes = {
   onChange: PropTypes.func,
   message: PropTypes.string,
   hideLabel: PropTypes.bool,
-  label: PropTypes.oneOfType([
-    PropTypes.string.isRequired,
-    PropTypes.node.isRequired
-  ]),
+  label: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.node.isRequired]),
   ...sharedPropTypes
 }
 

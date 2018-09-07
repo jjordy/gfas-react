@@ -45,6 +45,13 @@ export const buttonStyles = css`
   vertical-align: middle;
   transition: background-color 0.2s ease;
   line-height: 1em;
+  &[disabled] {
+    background-color: #CCC;
+    border: 0;
+    &:hover {
+      background-color: #CCC;
+    }
+  }
   &:hover {
      ${darkenBackgroundColorMixin}
   }
@@ -75,9 +82,7 @@ const Button = ({ icon, labelPosition, children, content, ...rest }) => (
   <ThemedButton {...rest}>
     {icon && !labelPosition && <MyIcon icon={icon} mr={(children || content) && 1} />}
     {children || content}
-    {icon &&
-      labelPosition &&
-      labelPosition === 'right' && <MyIcon icon={icon} ml={(children || content) && 1} />}
+    {icon && labelPosition && labelPosition === 'right' && <MyIcon icon={icon} ml={(children || content) && 1} />}
   </ThemedButton>
 )
 

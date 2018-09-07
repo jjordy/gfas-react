@@ -2,13 +2,12 @@ import React from 'react'
 import { Button, Grid, withTheme, Segment } from '@jjordy/layout'
 import { storiesOf } from '@storybook/react'
 import _ from 'lodash'
+import { boolean } from '@storybook/addon-knobs'
 
 const WithAllColors = ({ theme }) => (
   <Grid width='15%'>
     {_.times(Object.keys(theme.colors).length, i => (
-      <Button color={Object.keys(theme.colors)[i]}>
-        {Object.keys(theme.colors)[i].toUpperCase()}
-      </Button>
+      <Button color={Object.keys(theme.colors)[i]}>{Object.keys(theme.colors)[i].toUpperCase()}</Button>
     ))}
   </Grid>
 )
@@ -29,7 +28,7 @@ storiesOf('@jjordy/Layout/Button', module)
     </Grid>
   ))
   .add('Margin', () => (
-    <Grid width='50%' gap={16} style={{backgroundColor: '#e7e7e7'}}>
+    <Grid width='50%' gap={16} style={{ backgroundColor: '#e7e7e7' }}>
       <Button m={1}>I HAVE LOTS OF SPACE AROUND ME</Button>
       <div>More content</div>
     </Grid>
@@ -43,4 +42,9 @@ storiesOf('@jjordy/Layout/Button', module)
     <Segment clearing vertical>
       <Button float='right'>FLOATED RIGHT</Button>
     </Segment>
+  ))
+  .add('Disabled', () => (
+    <Button color='primary' disabled={boolean('Disable Button', false)}>
+      Disabled Button
+    </Button>
   ))
