@@ -9,6 +9,8 @@
     "build-docs": "build-storybook -o ../../www"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0-rc.3",
+    "@jjordy/validation": "^0.0.5",
     "@babel/core": "^7.0.0-rc.3",
     "@jjordy/datagrid": "^1.0.86",
     "@jjordy/file-upload": "^0.0.73",
@@ -33,13 +35,6 @@
     "babel-loader": "^8.0.0-beta.6",
     "deep-equal": "^1.0.1",
     "eslint": "^5.4.0",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-config-standard-react": "^6.0.0",
-    "eslint-plugin-import": "^2.3.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.4.0",
-    "eslint-plugin-react": "^7.0.1",
-    "eslint-plugin-standard": "^3.0.1",
     "jest": "^23.5.0",
     "lodash": "^4.17.5",
     "moment": "^2.22.2",
@@ -49,12 +44,9 @@
     "react-virtualized": "^9.20.1",
     "storybook-addon-jsx": "^5.4.0",
     "storybook-addon-styled-component-theme": "^1.0.3",
-    "styled-components": "^3.4.4",
     "uuid": "^3.2.1",
-    "webpack": "^4.17.1"
-  },
-  "dependencies": {
-    "@babel/cli": "^7.0.0-rc.3",
-    "@jjordy/validation": "^0.0.5"
+    "webpack": "^4.17.1",
+
+    "styled-components": "4.0.0-beta.3"
   }
 }

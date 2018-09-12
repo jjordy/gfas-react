@@ -10,9 +10,9 @@ const themes = [defaultTheme, boldAndLarge];
 import { checkA11y } from "@storybook/addon-a11y";
 import { Container, Segment, Header } from "@jjordy/layout";
 import { withBackgrounds } from "@storybook/addon-backgrounds";
-import { injectGlobal } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 
-injectGlobal`
+const GlobalStyle = createGlobalStyle`
   html {
     line-height: 1.15; /* 1 */
     -webkit-text-size-adjust: 100%; /* 2 */
@@ -219,6 +219,7 @@ addDecorator(
 
 addDecorator((s, { kind, story }) => (
   <Container p={2}>
+    <GlobalStyle />
     {s()}
   </Container>
 ));
