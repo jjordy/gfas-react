@@ -20,7 +20,7 @@ export const headerStyles = css`
   ${spacing};
 `
 
-const getSize = props => {
+const getDefaults = props => {
   switch (props.as) {
     case 'h1':
       return createRule(2.0, 'font-size')
@@ -41,8 +41,8 @@ const getSize = props => {
 
 export const Default = styled.div`
   ${headerStyles};
-  ${props => getSize(props)};
-
+  ${props => !props.size && getDefaults(props)};
+  ${props => props.size && createRule(props.size, 'font-size')};
 `
 
 function Header ({ ...rest }) {

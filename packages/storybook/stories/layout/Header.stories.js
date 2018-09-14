@@ -68,8 +68,11 @@ storiesOf('@jjordy/Layout/Header', module)
       <Header textAlign='right'>Right Aligned</Header>
       <Header textAlign='center'>Center Aligned</Header>
       <Header textAlign='left'>Left Aligned</Header>
-      <Header textAlign='justify'>
-        This will take up the full width of the container
-      </Header>
+      <Header textAlign='justify'>This will take up the full width of the container</Header>
     </div>
+  ))
+  .add('Size', () => (
+    <Header as='h1' size={1}>
+      Size overrides as
+    </Header>
   ))

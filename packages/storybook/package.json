@@ -9,9 +9,9 @@
     "build-docs": "build-storybook -o ../../www"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0-rc.3",
+    "@babel/cli": "^7.0.0",
     "@jjordy/validation": "^0.0.5",
-    "@babel/core": "^7.0.0-rc.3",
+    "@babel/core": "^7.0.0",
     "@jjordy/datagrid": "^1.0.86",
     "@jjordy/file-upload": "^0.0.73",
     "@jjordy/iam": "^1.0.39",
@@ -46,7 +46,6 @@
     "storybook-addon-styled-component-theme": "^1.0.3",
     "uuid": "^3.2.1",
     "webpack": "^4.17.1",
-
     "styled-components": "4.0.0-beta.3"
   }
 }

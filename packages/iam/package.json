@@ -55,12 +55,11 @@
     "react-dom": "15 || 16"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0-rc.3",
+    "@babel/cli": "^7.0.0",
     "eslint": "^5.4.0",
     "jest": "^23.5.0"
   },
   "dependencies": {
-    "@babel/cli": "^7.0.0-rc.3",
     "deep-equal": "^1.0.1",
     "validate.js": "^0.12.0"
   }

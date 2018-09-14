@@ -75,7 +75,6 @@ export default function DataProvider (C) {
     }
 
     toggleSort = column => {
-      console.log(column)
       const newSort = !this.state.asc
       const sorted = sortBy(this.state.data, [item => item[column]])
       this.setState({
