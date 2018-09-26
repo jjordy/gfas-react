@@ -19,7 +19,7 @@ export default function DataProvider (C) {
       if (this.props.data) {
         const d = [...this.props.data]
         const data = this.formatDataWithDates(d)
-        this.setState({ data: data, rowCount: data.length })
+        this.setState({ data: data, rowCount: data.length, rowHeight: this.props.rowHeight || 40 })
         this._generateColumns()
       }
     }

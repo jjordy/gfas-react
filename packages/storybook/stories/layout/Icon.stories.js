@@ -25,24 +25,11 @@ storiesOf('@jjordy/Layout/Icon', module)
     'Default',
     () => (
       <Grid width='10%' gap={8}>
-        <Icon
-          icon='question'
-          size={number('Icon Size', defaultValue, options, iconDefault)}
-        />
-        <Icon
-          icon='settings'
-          size={number('Icon Size', defaultValue, options, iconDefault)}
-        />
-        <Icon
-          icon='download'
-          size={number('Icon Size', defaultValue, options, iconDefault)}
-        />
-        <Icon
-          icon='school'
-          size={number('Icon Size', defaultValue, options, iconDefault)}
-        />
+        <Icon icon='question' size={number('Icon Size', defaultValue, options, iconDefault)} />
+        <Icon icon='settings' size={number('Icon Size', defaultValue, options, iconDefault)} />
+        <Icon icon='download' size={number('Icon Size', defaultValue, options, iconDefault)} />
+        <Icon icon='school' size={number('Icon Size', defaultValue, options, iconDefault)} />
       </Grid>
-
     ),
     {
       notes: 'Icon Component'
@@ -70,3 +57,7 @@ storiesOf('@jjordy/Layout/Icon', module)
   .add('Phone', () => <Icon icon='phone' size={2} />)
   .add('Eye', () => <Icon icon='eye' size={2} />)
   .add('Eye Slash', () => <Icon icon='eye_slash' size={2} />)
+  .add('Search', () => <Icon icon='search' size={2} />)
+  .add('Close', () => <Icon icon='close' size={2} />)
+  .add('Check', () => <Icon icon='check' size={2} />)
+  .add('User', () => <Icon icon='user' size={2} />)

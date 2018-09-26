@@ -76,7 +76,7 @@ export const StyledInput = styled.input`
   }
 `
 
-const StyledLabel = styled.label`
+export const StyledLabel = styled.label`
   display: block;
   ${inputMarginMixin}
   ${labelColorMixin}

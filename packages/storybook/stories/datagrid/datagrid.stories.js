@@ -19,32 +19,16 @@ storiesOf('@jjordy/Datagrid', module)
     <DataGrid
       data={batches.Results}
       height={500}
+      rowHeight={100}
       rowHighlightKey='IsTM'
       search={[{ key: 'Id' }, { key: 'Status' }, { key: 'RevOn', date: true }]}
     >
-      <DataColumn
-        name='Batch Id'
-        id='Id'
-        width={100}
-        render={({ row, value }) => <a href='#'>Batch {value} </a>}
-      />
+      <DataColumn name='Batch Id' id='Id' width={100} render={({ row, value }) => <a href='#'>Batch {value} </a>} />
       <DataColumn name='Status' id='Status' width={200} />
       <DataColumn name='Last Revised On' id='RevOn' width={150} date />
       <DataColumn name='Last Revised By' id='RevBy' width={250} />
-      <DataColumn
-        name='Submitted On'
-        id='SubmittedOn'
-        width={150}
-        date
-        nullDateMessage='Not Submitted'
-      />
-      <DataColumn
-        name='ReceivedOn'
-        id='ReceivedOn'
-        width={150}
-        date
-        nullDateMessage='Not Received'
-      />
+      <DataColumn name='Submitted On' id='SubmittedOn' width={150} date nullDateMessage='Not Submitted' />
+      <DataColumn name='ReceivedOn' id='ReceivedOn' width={150} date nullDateMessage='Not Received' />
     </DataGrid>
   ))
   .add('Advanced', () => (
@@ -69,13 +53,7 @@ storiesOf('@jjordy/Datagrid', module)
         id='Alerts'
         width={75}
         render={({ row, value }) => (
-          <div>
-            {value && value.length > 0 ? (
-              <FiAlertTriangle color='red' />
-            ) : (
-              <FiCheckCircle color='green' />
-            )}
-          </div>
+          <div>{value && value.length > 0 ? <FiAlertTriangle color='red' /> : <FiCheckCircle color='green' />}</div>
         )}
       />
       <DataColumn name='Record Id' id='Id' width={150} />
@@ -83,11 +61,7 @@ storiesOf('@jjordy/Datagrid', module)
         name='Del. Monitoring'
         id='DeleteMonitoring'
         width={150}
-        render={({ row, value }) => (
-          <span>
-            {value ? <FiCheckCircle color='green' /> : <FiSlash color='red' />}
-          </span>
-        )}
+        render={({ row, value }) => <span>{value ? <FiCheckCircle color='green' /> : <FiSlash color='red' />}</span>}
       />
       <DataColumn
         name='Status'
@@ -99,36 +73,13 @@ storiesOf('@jjordy/Datagrid', module)
           </Label>
         )}
       />
-      <DataColumn
-        name='Enroll Begin Date'
-        id='EnrollBeginDate'
-        width={150}
-        date
-      />
+      <DataColumn name='Enroll Begin Date' id='EnrollBeginDate' width={150} date />
       <DataColumn name='First name' id='FirstName' width={150} />
       <DataColumn name='Last name' id='LastName' width={150} />
       <DataColumn name='SSN' id='SSN' width={95} />
-      <DataColumn
-        name='Date Of Birth'
-        id='DOB'
-        width={150}
-        date
-        dateInputFormat='YYYY-MM-DD'
-      />
-      <DataColumn
-        name='Recieved On'
-        id='ReceivedOn'
-        width={150}
-        date
-        dateInputFormat='YYYY-MM-DD'
-      />
-      <DataColumn
-        name='Submitted On'
-        id='SubmittedOn'
-        width={150}
-        date
-        dateInputFormat='YYYY-MM-DD'
-      />
+      <DataColumn name='Date Of Birth' id='DOB' width={150} date dateInputFormat='YYYY-MM-DD' />
+      <DataColumn name='Recieved On' id='ReceivedOn' width={150} date dateInputFormat='YYYY-MM-DD' />
+      <DataColumn name='Submitted On' id='SubmittedOn' width={150} date dateInputFormat='YYYY-MM-DD' />
     </DataGrid>
   ))
   .add(
@@ -137,20 +88,10 @@ storiesOf('@jjordy/Datagrid', module)
       <DataGrid
         height={100}
         data={hugeList}
-        search={[
-          { key: 'Id' },
-          { key: 'EnrollBeginDate', date: true },
-          { key: 'FirstName' },
-          { key: 'LastName' }
-        ]}
+        search={[{ key: 'Id' }, { key: 'EnrollBeginDate', date: true }, { key: 'FirstName' }, { key: 'LastName' }]}
       >
         <DataColumn name='Identifier' id='Id' width={300} />
-        <DataColumn
-          name='Enroll Begin Date'
-          id='EnrollBeginDate'
-          width={150}
-          date
-        />
+        <DataColumn name='Enroll Begin Date' id='EnrollBeginDate' width={150} date />
         <DataColumn name='First name' id='FirstName' width={150} />
         <DataColumn name='Last name' id='LastName' width={150} />
       </DataGrid>

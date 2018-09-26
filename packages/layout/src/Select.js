@@ -12,6 +12,8 @@ import {
 import withTheme from './withTheme'
 import Color from 'color'
 
+import { StyledLabel } from './Input'
+
 const labelColorMixin = css`
   color: ${props =>
     props.theme ? props.theme.colors.grey : 'rgba(0, 0, 0, 0.87)'};
@@ -60,14 +62,6 @@ export const StyledSelect = styled.select`
   }
 `
 
-const StyledLabel = styled.label`
-  display: block;
-  ${labelColorMixin}
-  ${inputMarginMixin}
-  ${heavyFontMixin}
-  text-transform: none;
-  $
-`
 const inlineLabelMixin = css`
   margin-right: 1rem;
 `
@@ -77,6 +71,7 @@ const FormField = styled.div`
   position: relative;
   ${createRule(1, 'margin-bottom')};
   display: ${props => (props.inline ? 'flex' : 'block')};
+  align-items: center;
   & ${StyledLabel} {
     ${props => props.inline && inlineLabelMixin};
   }
@@ -117,11 +112,12 @@ const Select = ({
   message,
   options,
   children,
+  hideLabel,
   ...rest
 }) => {
   return (
     <FormField inline={inline} theme={theme}>
-      <StyledLabel htmlFor={id || `id_${name}`} theme={theme}>
+      <StyledLabel hideLabel={hideLabel} htmlFor={id || `id_${name}`} theme={theme}>
         {label} <Required {...rest} theme={theme} />
       </StyledLabel>
       <StyledSelect id={id || `id_${name}`} name={name} {...rest} theme={theme}>

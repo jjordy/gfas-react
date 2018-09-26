@@ -6,6 +6,7 @@
     "dev": "lerna exec --parallel npm run dev -- --watch",
     "clean": "lerna clean",
     "precommit": "pretty-quick --staged",
+    "pub": "lerna publish",
     "start": "cd packages/storybook && npm start",
     "test": "lerna exec --ignore storybook --no-bail --concurrency 1 npm run test --passWithNoTests"
   },

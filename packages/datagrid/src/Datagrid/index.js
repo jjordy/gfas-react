@@ -146,9 +146,7 @@ class DataGrid extends Component {
   }
   render () {
     const { height, overscanColumnCount, overscanRowCount, scrollToColumn, scrollToRow } = this.state
-
     const { data, columnCount, rowCount, rowHeight, rowHighlightColor } = this.props
-
     const renderBodyCell = ({ columnIndex, key, rowIndex, style }) => {
       const { columns } = this.props
       const highlight = this._getRowHighlight(rowIndex)
@@ -192,9 +190,9 @@ class DataGrid extends Component {
                       cellRenderer={this._headerCellRenderer}
                       columnWidth={this._getColumnWidth}
                       columnCount={columnCount}
-                      height={rowHeight}
+                      height={40}
                       overscanColumnCount={overscanColumnCount}
-                      rowHeight={rowHeight}
+                      rowHeight={40}
                       rowCount={1}
                       scrollLeft={scrollLeft}
                       width={width}
