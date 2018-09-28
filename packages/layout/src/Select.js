@@ -1,29 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import {
-  inputColorMixin,
-  inputPaddingMixin,
-  normalFontMixin,
-  inputMarginMixin,
-  heavyFontMixin,
-  createRule
-} from './mixins'
+import { inputColorMixin, inputPaddingMixin, normalFontMixin, createRule } from './mixins'
 import withTheme from './withTheme'
 import Color from 'color'
-
 import { StyledLabel } from './Input'
-
-const labelColorMixin = css`
-  color: ${props =>
-    props.theme ? props.theme.colors.grey : 'rgba(0, 0, 0, 0.87)'};
-`
 
 const FormMessage = styled.small`
   font-size: 0.8rem;
   font-weight: 400;
-  color: ${props =>
-    props.error ? props.theme.colors.red : props.theme.colors.darkGray};
+  color: ${props => (props.error ? props.theme.colors.red : props.theme.colors.darkGray)};
 `
 
 export const StyledSelect = styled.select`
@@ -35,10 +21,7 @@ export const StyledSelect = styled.select`
   line-height: 1.6em;
   ${inputPaddingMixin};
   background: #fff;
-  border: ${props =>
-    props.error
-      ? `2px solid ${props.theme.colors.red}`
-      : '1px solid rgba(34, 36, 38, 0.15)'};
+  border: ${props => (props.error ? `2px solid ${props.theme.colors.red}` : '1px solid rgba(34, 36, 38, 0.15)')};
   border-radius: ${props => (props.rounded ? '.28571429rem' : 0)};
   box-shadow: 0 0 0 0 transparent inset;
   transition: color 0.1s ease, border-color 0.1s ease;
@@ -75,12 +58,11 @@ const FormField = styled.div`
   & ${StyledLabel} {
     ${props => props.inline && inlineLabelMixin};
   }
-  &::after {
-  content: ${props => !props.error && '>'};
-    font: 1rem "Consolas", monospace;
+  :after {
+    content: ${props => !props.error && '">"'};
+    font: 1rem 'Consolas', monospace;
     font-weight: 700;
-    color: ${props =>
-    props.theme.colors[props.color] || props.theme.colors.darkGray};
+    color: ${props => props.theme.colors[props.color] || props.theme.colors.darkGray};
     transform: rotate(90deg);
     padding: 0 0 2px;
     ${createRule(0.5, 'margin-top')};
@@ -97,24 +79,9 @@ const Required = ({ required, theme }) => {
   return null
 }
 
-const SelectOption = ({ option }) => (
-  <option value={option.value}>
-    {option.name || option.label || option.value}
-  </option>
-)
+const SelectOption = ({ option }) => <option value={option.value}>{option.name || option.label || option.value}</option>
 
-const Select = ({
-  theme,
-  label,
-  id,
-  name,
-  inline,
-  message,
-  options,
-  children,
-  hideLabel,
-  ...rest
-}) => {
+const Select = ({ theme, label, id, name, inline, message, options, children, hideLabel, ...rest }) => {
   return (
     <FormField inline={inline} theme={theme}>
       <StyledLabel hideLabel={hideLabel} htmlFor={id || `id_${name}`} theme={theme}>
@@ -122,12 +89,7 @@ const Select = ({
       </StyledLabel>
       <StyledSelect id={id || `id_${name}`} name={name} {...rest} theme={theme}>
         {options
-          ? options.map((option, id) => (
-            <SelectOption
-              option={option}
-              key={`${name}_select_option_${id}`}
-            />
-          ))
+          ? options.map((option, id) => <SelectOption option={option} key={`${name}_select_option_${id}`} />)
           : children}
       </StyledSelect>
       {message && (
@@ -143,10 +105,7 @@ Select.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string,
   error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-  label: PropTypes.oneOfType([
-    PropTypes.string.isRequired,
-    PropTypes.node.isRequired
-  ])
+  label: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.node.isRequired])
 }
 
 SelectOption.propTypes = { option: PropTypes.object }

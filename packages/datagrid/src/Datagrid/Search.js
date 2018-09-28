@@ -40,7 +40,7 @@ class Search extends Component {
     inputProps.placeholder = inputProps.placeholder || 'Search'
     return (
       <div>
-        <Input {...inputProps} />
+        <Input {...inputProps} hideLabel label='Filter Results...' />
       </div>
     )
   }

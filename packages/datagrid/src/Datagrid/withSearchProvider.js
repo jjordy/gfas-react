@@ -84,7 +84,7 @@ export default function SearchProvider (C) {
                   mb={0}
                   rounded={false}
                   style={{ border: 0, margin: 0, height: 43 }}
-                  placeholder='Search...'
+                  placeholder='Filter Results...'
                 />
               )}
             </SearchInputContainer>
