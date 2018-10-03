@@ -48,3 +48,8 @@ storiesOf('@jjordy/Layout/Button', module)
       Disabled Button
     </Button>
   ))
+  .add('As', () => (
+    <Button as='a' color='primary' fluid>
+      Button
+    </Button>
+  ))

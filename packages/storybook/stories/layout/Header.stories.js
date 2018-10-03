@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header } from '@jjordy/layout'
+import { Header, Button } from '@jjordy/layout'
 import { storiesOf } from '@storybook/react'
 import { setOptions } from '@storybook/addon-options'
 import { select } from '@storybook/addon-knobs/react'
@@ -76,3 +76,10 @@ storiesOf('@jjordy/Layout/Header', module)
       Size overrides as
     </Header>
   ))
+  .add('As', () => (
+    <Header size={1.5} color='success' as={TestComponent} href='test'>
+      Test
+    </Header>
+  ))
+
+const TestComponent = props => <a {...props}>Test</a>
