@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "storybook",
-  "version": "0.0.32",
+  "version": "0.0.33",
   "description": "Dev env for components",
   "scripts": {
     "dev": "start-storybook -p 9001",
