@@ -1,6 +1,6 @@
 {
   "name": "@jjordy/layout",
-  "version": "0.0.98",
+  "version": "0.0.99",
   "description": "Composable layout components",
   "main": "./lib/index.js",
   "module": "./lib/es/index.js",
@@ -49,6 +49,7 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
+    "babel-plugin-styled-components": "^1.8.0",
     "eslint": "^5.4.0",
     "jest": "^23.5.0"
   },
