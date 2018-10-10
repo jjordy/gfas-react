@@ -1,25 +1,19 @@
 import React from 'react'
-import ThemeContext from './Theme'
-import Color from 'color'
+import { ThemeProvider } from 'styled-components'
+import WithColor from './withColor'
+import defaultTheme from './Theme'
+
+const createTheme = inheritedTheme => ({
+  ...defaultTheme,
+  ...inheritedTheme
+})
 
 const withTheme = (Component, defaultColor = 'lightGrey') => props => {
   return (
-    <ThemeContext.Consumer>
-      {theme => (
-        <WithColor
-          {...props}
-          defaultColor={defaultColor}
-          theme={theme}
-          Component={Component}
-        />
-      )}
-    </ThemeContext.Consumer>
+    <ThemeProvider theme={createTheme}>
+      <WithColor {...props} defaultColor={defaultColor} Component={Component} />
+    </ThemeProvider>
   )
-}
-
-const WithColor = ({ Component, color, theme, defaultColor, ...rest }) => {
-  const c = color ? Color(theme.colors[color]) : Color(theme.colors[defaultColor])
-  return <Component {...rest} theme={theme} color={c} />
 }
 
 export default withTheme

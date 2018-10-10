@@ -12,22 +12,21 @@ const colors = Object.keys(defaultTheme.colors).reduce((acc, curr) => {
   return acc
 }, {})
 
-storiesOf('@jjordy/Layout/Message', module).add(
-  'Default',
-  () => (
-    <Message onClose={action('CLOSE')} color={select('Colors', colors, 'primary')}>
-      <Message.Content>
-        <Message.Header>Test</Message.Header>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam saepe
-        dolorem cumque earum culpa blanditiis sequi? Pariatur vel debitis quasi
-        molestiae iste in optio praesentium! Laboriosam ipsa voluptates enim
-        excepturi?
-      </Message.Content>
-
-    </Message>
-  ),
-  { notes: 'An alert message' }
-)
+storiesOf('@jjordy/Layout/Message', module)
+  .add(
+    'Default',
+    () => (
+      <Message onClose={action('CLOSE')} color={select('Colors', colors, 'primary')}>
+        <Message.Content>
+          <Message.Header>Test</Message.Header>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam saepe dolorem cumque earum culpa blanditiis
+          sequi? Pariatur vel debitis quasi molestiae iste in optio praesentium! Laboriosam ipsa voluptates enim
+          excepturi?
+        </Message.Content>
+      </Message>
+    ),
+    { notes: 'An alert message' }
+  )
   .add('Icon', () => (
     <Message onClose={action('CLOSE')} color={select('Colors', colors, 'primary')}>
       <Message.Icon>
@@ -35,11 +34,9 @@ storiesOf('@jjordy/Layout/Message', module).add(
       </Message.Icon>
       <Message.Content>
         <Message.Header>Test</Message.Header>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam saepe
-      dolorem cumque earum culpa blanditiis sequi? Pariatur vel debitis quasi
-      molestiae iste in optio praesentium! Laboriosam ipsa voluptates enim
-      excepturi?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam saepe dolorem cumque earum culpa blanditiis
+        sequi? Pariatur vel debitis quasi molestiae iste in optio praesentium! Laboriosam ipsa voluptates enim
+        excepturi?
       </Message.Content>
-
     </Message>
   ))

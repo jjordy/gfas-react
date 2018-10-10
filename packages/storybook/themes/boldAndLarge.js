@@ -1,8 +1,8 @@
 export const boldAndLarge = {
   BASE_SIZE: 1.4,
-  name: "Bold And Large",
+  name: 'Bold And Large',
   UNIT: 'rem',
-  rounded: false,
+  rounded: true,
   colors: {
     blue: '#004D71',
     green: '#94D500',

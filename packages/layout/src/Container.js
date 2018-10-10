@@ -16,8 +16,10 @@ const Container = styled.div`
     width: 100%;
   }
   & p {
-    font-size: ${props => props.text && `
-      ${(props.theme.BASE_SIZE * 1.125) + props.theme.UNIT};
+    font-size: ${props =>
+    props.text &&
+      `
+      ${props.theme.BASE_SIZE * 1.125 + props.theme.UNIT};
     `};
   }
 `

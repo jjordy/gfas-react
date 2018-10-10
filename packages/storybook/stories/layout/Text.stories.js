@@ -16,10 +16,9 @@ storiesOf('@jjordy/Layout/Text', module)
     'Default',
     () => (
       <Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia accusamus,
-        debitis maiores ut adipisci necessitatibus sit fugit maxime consectetur
-        quos ipsum. Itaque beatae voluptates porro soluta quaerat facere eveniet
-        iusto?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia accusamus, debitis maiores ut adipisci
+        necessitatibus sit fugit maxime consectetur quos ipsum. Itaque beatae voluptates porro soluta quaerat facere
+        eveniet iusto?
       </Text>
     ),
     { notes: 'A thin wrapper around the p element' }
@@ -28,10 +27,9 @@ storiesOf('@jjordy/Layout/Text', module)
     'Strong',
     () => (
       <Text strong>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia accusamus,
-        debitis maiores ut adipisci necessitatibus sit fugit maxime consectetur
-        quos ipsum. Itaque beatae voluptates porro soluta quaerat facere eveniet
-        iusto?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia accusamus, debitis maiores ut adipisci
+        necessitatibus sit fugit maxime consectetur quos ipsum. Itaque beatae voluptates porro soluta quaerat facere
+        eveniet iusto?
       </Text>
     ),
     { notes: 'A thin wrapper around the p > strong element' }
@@ -40,10 +38,9 @@ storiesOf('@jjordy/Layout/Text', module)
     'Small',
     () => (
       <Text small>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia accusamus,
-        debitis maiores ut adipisci necessitatibus sit fugit maxime consectetur
-        quos ipsum. Itaque beatae voluptates porro soluta quaerat facere eveniet
-        iusto?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia accusamus, debitis maiores ut adipisci
+        necessitatibus sit fugit maxime consectetur quos ipsum. Itaque beatae voluptates porro soluta quaerat facere
+        eveniet iusto?
       </Text>
     ),
     { notes: 'A thin wrapper around the p > strong element' }
@@ -52,10 +49,9 @@ storiesOf('@jjordy/Layout/Text', module)
     'Color',
     () => (
       <Text color={select('Color', colors, 'primary')}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia accusamus,
-        debitis maiores ut adipisci necessitatibus sit fugit maxime consectetur
-        quos ipsum. Itaque beatae voluptates porro soluta quaerat facere eveniet
-        iusto?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia accusamus, debitis maiores ut adipisci
+        necessitatibus sit fugit maxime consectetur quos ipsum. Itaque beatae voluptates porro soluta quaerat facere
+        eveniet iusto?
       </Text>
     ),
     { notes: 'A thin wrapper around the p > strong element' }

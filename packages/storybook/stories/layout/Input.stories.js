@@ -32,10 +32,7 @@ storiesOf('@jjordy/Layout/Input', module)
   .add('Form Message', () => (
     <Input label='Name' message='You can decorate your form field with a messge.' name='test' />
   ))
-  .add('Action w/ Icon', () => (
-    <Input label='SSN' message='Enter your Social Security Number' action={action('Test')} actionIcon='eye' />
-  ))
-  .add('Action w/ Text', () => (
+  .add('Action', () => (
     <Input
       label='SSN'
       message='Enter your Social Security Number'

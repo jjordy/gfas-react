@@ -21,19 +21,6 @@ const loaderTypes = {
 }
 
 storiesOf('@jjordy/Layout/Loader', module)
-  .add(
-    'Default',
-    () => (
-      <Loader active />
-    ))
-  .add('Colors', () => (
-    <Loader active color={select('Loader Colors', colors, 'primary')} />
-  ))
-  .add(
-    'Alternate Loaders',
-    () => (
-      <Loader
-        active
-        type={select('Loader Type', loaderTypes, 'puff')} />
-    )
-  )
+  .add('Default', () => <Loader active />)
+  .add('Colors', () => <Loader active color={select('Loader Colors', colors, 'primary')} />)
+  .add('Alternate Loaders', () => <Loader active type={select('Loader Type', loaderTypes, 'puff')} />)

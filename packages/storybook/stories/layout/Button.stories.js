@@ -1,7 +1,8 @@
 import React from 'react'
-import { Button, Grid, withTheme, Segment } from '@jjordy/layout'
+import { Button, Grid, Segment } from '@jjordy/layout'
 import { storiesOf } from '@storybook/react'
 import _ from 'lodash'
+import { withTheme } from 'styled-components'
 import { boolean } from '@storybook/addon-knobs'
 
 const WithAllColors = ({ theme }) => (
