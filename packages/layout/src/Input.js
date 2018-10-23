@@ -33,15 +33,15 @@ const ActionContainer = styled.div`
   height: 100%;
 
   &:first-child input {
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
   }
 
   & button {
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-    height: 36px;
-    border-left: 0px;
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    height: 36px !important;
+    border-left: 0px !important;
   }
 `
 
@@ -52,7 +52,8 @@ export const StyledInput = styled.input`
   line-height: 1.6em;
   ${inputPaddingMixin} background: #fff;
   border: ${props => (props.error ? `2px solid ${props.theme.colors.red}` : '1px solid rgba(34, 36, 38, 0.15)')};
-  ${inputColorMixin} ${borderRadiusMixin}
+  ${inputColorMixin}; 
+  ${borderRadiusMixin};
   box-shadow: 0 0 0 0 transparent inset;
   transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out;
   width: 100%;

@@ -16,7 +16,16 @@ const ColoredButtons = withTheme(WithAllColors)
 
 storiesOf('@jjordy/Layout/Button', module)
   .add('Default', () => <Button>SUBMIT</Button>)
-  .add('Fluid', () => <Button fluid>FLUID</Button>)
+  .add('Fluid', () => (
+    <div>
+      <Button fluid>FLUID</Button>
+      <div style={{ maxWidth: 200 }}>
+        <Button fluid icon='chevron_right'>Signup</Button>
+        <br />
+        <Button fluid icon='chevron_right'>Forgot Password</Button>
+      </div>
+    </div>
+  ))
   .add('Colors', () => <ColoredButtons />)
   .add('Inverted', () => <Button inverted>INVERTED</Button>)
   .add('Icon', () => <Button icon='question' />)

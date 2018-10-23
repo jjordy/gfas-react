@@ -37,7 +37,7 @@ export const buttonStyles = css`
   align-self: center;
   box-sizing: border-box;
   align-items: center;
-  justify-content: space-around;
+  justify-content: ${props => props.icon ? 'space-between' : 'space-around'};
   text-align: center;
   outline: 0;
   border: 1px solid ${props => props.color.darken(0.1).hex()};
@@ -78,8 +78,8 @@ export const StyledButton = styled.button.attrs({
 
 const ThemedButton = withTheme(StyledButton)
 
-const Button = ({ icon, labelPosition, children, content, ...rest }) => (
-  <ThemedButton {...rest}>
+const Button = ({ action, icon, labelPosition, children, content, ...rest }) => (
+  <ThemedButton {...rest} icon={icon}>
     {icon && !labelPosition && <MyIcon icon={icon} mr={(children || content) && 1} />}
     {children || content}
     {icon && labelPosition && labelPosition === 'right' && <MyIcon icon={icon} ml={(children || content) && 1} />}
