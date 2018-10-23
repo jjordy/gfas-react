@@ -14,8 +14,6 @@ import {
 } from './mixins'
 import Color from 'color'
 import { sharedPropTypes } from './sharedPropTypes'
-import Icon from './Icon'
-import Button from './Button'
 
 const labelColorMixin = css`
   color: ${props => (props.theme ? props.theme.colors.grey : 'rgba(0, 0, 0, 0.87)')};
@@ -38,10 +36,10 @@ const ActionContainer = styled.div`
   }
 
   & button {
-    border-top-left-radius: 0px !important;
-    border-bottom-left-radius: 0px !important;
-    height: 36px !important;
-    border-left: 0px !important;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    height: ${props => `${props.theme.BASE_SIZE * 2}${props.theme.UNIT}`};
+    border-left: 0px;
   }
 `
 
@@ -49,10 +47,11 @@ export const StyledInput = styled.input`
   ${normalFontMixin} margin: 0;
   outline: 0;
   -webkit-appearance: none;
-  line-height: 1.6em;
+  height: ${props => `${props.theme.BASE_SIZE * 2}${props.theme.UNIT}`};
+  line-height: ${props => props.theme.lineHeight};
   ${inputPaddingMixin} background: #fff;
   border: ${props => (props.error ? `2px solid ${props.theme.colors.red}` : '1px solid rgba(34, 36, 38, 0.15)')};
-  ${inputColorMixin}; 
+  ${inputColorMixin};
   ${borderRadiusMixin};
   box-shadow: 0 0 0 0 transparent inset;
   transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out;

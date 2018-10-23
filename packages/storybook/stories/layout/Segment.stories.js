@@ -53,18 +53,21 @@ storiesOf('@jjordy/Layout/Segment', module)
           p={number('Padding', defaultPadding, paddingOptions, segment1)}
         >
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
-            accusantium tempore voluptatibus iusto deserunt recusandae odio,
-            officiis, voluptatem doloremque repellat voluptate ipsum deleniti
-            consequatur nostrum dolorum, excepturi magnam molestiae ab?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium accusantium tempore voluptatibus iusto
+            deserunt recusandae odio, officiis, voluptatem doloremque repellat voluptate ipsum deleniti consequatur
+            nostrum dolorum, excepturi magnam molestiae ab?
           </p>
         </Segment>
       </div>
     ),
     { notes: 'Segment Component' }
   )
-  .add('Attached', () => <div>
-    <Segment attached='top' color='blue'>Attached Top</Segment>
-    <Segment attached>Attached</Segment>
-    <Segment attached='bottom'>Attached Bottom</Segment>
-  </div>)
+  .add('Attached', () => (
+    <div>
+      <Segment attached='top' color='blue'>
+        Attached Top
+      </Segment>
+      <Segment attached>Attached</Segment>
+      <Segment attached='bottom'>Attached Bottom</Segment>
+    </div>
+  ))

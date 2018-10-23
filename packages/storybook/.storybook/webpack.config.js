@@ -1,26 +1,25 @@
-const path = require("path");
-const { DefinePlugin } = require("webpack");
+const path = require('path')
+const { DefinePlugin } = require('webpack')
 
 module.exports = (baseConfig, env, defaultConfig) => ({
   ...defaultConfig,
+  devtool: 'cheap-module-eval-source-map',
   module: {
     ...defaultConfig.module,
     rules: [
       ...defaultConfig.module.rules,
       {
         test: /\.stories\.jsx?$/,
-        use: require.resolve("@storybook/addon-storysource/loader"),
-        include: [
-          path.resolve(__dirname, "../stories"),
-        ],
-        enforce: "pre"
+        use: require.resolve('@storybook/addon-storysource/loader'),
+        include: [path.resolve(__dirname, '../stories')],
+        enforce: 'pre'
       }
     ]
   },
   resolve: {
     ...defaultConfig.resolve,
     // https://github.com/graphql/graphql-js#using-in-a-browser
-    extensions: [".mjs", ...defaultConfig.resolve.extensions]
+    extensions: ['.mjs', ...defaultConfig.resolve.extensions]
   },
   plugins: [
     ...defaultConfig.plugins,
@@ -29,4 +28,4 @@ module.exports = (baseConfig, env, defaultConfig) => ({
       process: JSON.stringify(true)
     })
   ]
-});
+})

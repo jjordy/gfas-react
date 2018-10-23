@@ -1,9 +1,8 @@
-import React from 'react'
-
-export const defaultTheme = {
+const defaultTheme = {
   BASE_SIZE: 1.0,
   UNIT: 'rem',
   rounded: true,
+  lineHeight: 1.6,
   colors: {
     blue: '#004D71',
     green: '#94D500',
@@ -25,6 +24,4 @@ export const defaultTheme = {
   }
 }
 
-const ThemeContext = React.createContext(defaultTheme)
-
-export default ThemeContext
+export default defaultTheme
