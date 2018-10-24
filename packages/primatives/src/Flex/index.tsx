@@ -1,8 +1,8 @@
-import styled from './styled-components'
-import { spacing } from './mixins'
-import SharedProps from './types/SharedProps'
+import styled from '../styled-components';
+import { spacing } from '../mixins';
+import SharedProps from '../types/SharedProps';
 
-enum JustifyTypes {
+export enum JustifyTypes {
   Center = 'center',
   Start = 'start',
   End = 'end',
@@ -16,7 +16,14 @@ enum JustifyTypes {
   SpaceEvenly = 'space-evenly'
 }
 
-enum AlignTypes {
+export enum DirectionTypes {
+  Row = 'row',
+  RowReverse = 'row-reverse',
+  Column = 'column',
+  ColumnReverse = 'column-reverse'
+}
+
+export enum AlignTypes {
   Normal = 'normal',
   Center = 'center',
   Start = 'start',
@@ -28,9 +35,10 @@ enum AlignTypes {
 }
 
 export interface FlexProps extends SharedProps {
-  text?: boolean
-  justify?: JustifyTypes,
-  align?: AlignTypes
+  text?: boolean;
+  justify?: JustifyTypes | string;
+  align?: AlignTypes | string;
+  direction?: DirectionTypes | string;
 }
 
 export const Flex = styled<FlexProps, 'div'>('div')`
@@ -38,7 +46,8 @@ export const Flex = styled<FlexProps, 'div'>('div')`
   display: flex;
   justify-content: ${props => props.justify || JustifyTypes.FlexStart};
   align-items: ${props => props.align || AlignTypes.Normal};
+  flex-direction: ${props => props.direction || DirectionTypes.Row};
   ${spacing};
-`
+`;
 
-Flex.displayName = 'Flex'
+Flex.displayName = 'Flex';

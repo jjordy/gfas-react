@@ -1,9 +1,9 @@
-import styled from './styled-components'
-import { spacing } from './mixins'
-import SharedProps from './types/SharedProps'
+import styled from '../styled-components';
+import { spacing } from '../mixins';
+import SharedProps from '../types/SharedProps';
 
 export interface ContainerProps extends SharedProps {
-  text?: boolean
+  text?: boolean;
 }
 
 export const Container = styled<ContainerProps, 'div'>('div')`
@@ -12,6 +12,6 @@ export const Container = styled<ContainerProps, 'div'>('div')`
   margin: auto;
   font-size: ${props => (props.text ? '1.1rem' : 'inherit')};
   ${spacing};
-`
+`;
 
-Container.displayName = 'Container'
+Container.displayName = 'Container';

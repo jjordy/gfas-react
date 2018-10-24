@@ -52,7 +52,7 @@ const clearingMixin = css`
 `
 
 const Segment = styled.div`
-  ${props => (!props.vertical ? 'border: 1px solid #e7e7e7' : null)}
+  ${props => (!props.vertical ? 'border: 1px solid #e7e7e7' : null)};
   position: relative;
   ${createRule(1, 'padding')}
   ${spacing}

@@ -1,5 +1,4 @@
-import * as Color from 'color'
-
+import * as Color from 'color';
 
 export enum Sizes {
   One = 1,
@@ -18,42 +17,42 @@ export enum Positions {
 }
 
 export default interface SharedProps {
-  fluid?: boolean
-  float?: Positions
-  rounded?: boolean
-  secondary?: boolean
-  textAlign?: Positions
-  size?: Sizes
+  fluid?: boolean;
+  float?: Positions;
+  rounded?: boolean;
+  secondary?: boolean;
+  textAlign?: Positions;
+  size?: Sizes;
   /* Should the items background and forground be inverted if applicable? */
-  inverted?: boolean
+  inverted?: boolean;
   /* Object from the color library allowing color manipulations */
-  color: Color
+  color?: Color;
   /* Padding */
-  p?: Sizes
+  p?: Sizes;
   /* Padding X-Axis */
-  px?: Sizes
+  px?: Sizes;
   /* Padding Y-Axis */
-  py?: Sizes
+  py?: Sizes;
   /* Padding top */
-  pt?: Sizes
+  pt?: Sizes;
   /* Padding Bottom */
-  pb?: Sizes
+  pb?: Sizes;
   /* Padding Right */
-  pr?: Sizes
+  pr?: Sizes;
   /* Padding Left */
-  pl?: Sizes
+  pl?: Sizes;
   /* Margin */
-  m?: Sizes
+  m?: Sizes;
   /* Margin X-Axis */
-  mx?: Sizes
+  mx?: Sizes;
   /* Margin Y-Axis */
-  my?: Sizes
+  my?: Sizes;
   /* Margin Top */
-  mt?: Sizes
+  mt?: Sizes;
   /* Margin Bottom */
-  mb?: Sizes
+  mb?: Sizes;
   /* Margin Right */
-  mr?: Sizes
+  mr?: Sizes;
   /* Margin Left */
-  ml?: Sizes
+  ml?: Sizes;
 }
