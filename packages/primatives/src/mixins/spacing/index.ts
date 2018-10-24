@@ -1,16 +1,17 @@
-import { css } from '../styled-components'
-import SharedProps, { Sizes } from '../types/SharedProps'
+import { css } from '../../styled-components';
+import SharedProps, { Sizes } from '../../types/SharedProps';
 
 const hasProp = (v: any, p: any) => {
   if (p[v] || p[v] === 0) {
-    return true
+    return true;
   }
-  return false
-}
+  return false;
+};
 
 export const createRule = (value: Sizes, selector: string) => css<SharedProps>`
-  ${selector}: ${props => `${props.theme.BASE_SIZE * value}${props.theme.UNIT}`};
-`
+  ${selector}: ${props =>
+    `${props.theme.BASE_SIZE * value}${props.theme.UNIT}`};
+`;
 
 export const pxMixin = css<SharedProps>`
   ${props =>
@@ -19,7 +20,7 @@ export const pxMixin = css<SharedProps>`
     padding-left: ${props.theme.BASE_SIZE * props.px}${props.theme.UNIT};
     padding-right: ${props.theme.BASE_SIZE * props.px}${props.theme.UNIT};
   `};
-`
+`;
 
 export const pyMixin = css<SharedProps>`
   ${props =>
@@ -28,14 +29,14 @@ export const pyMixin = css<SharedProps>`
     padding-top: ${props.theme.BASE_SIZE * props.py}${props.theme.UNIT};
     padding-bottom: ${props.theme.BASE_SIZE * props.py}${props.theme.UNIT};
   `};
-`
+`;
 
 export const pMixin = css<SharedProps>`
   ${props =>
     hasProp('p', props) &&
     `padding:${props.theme.BASE_SIZE * props.p}${props.theme.UNIT};
   `};
-`
+`;
 
 export const ptMixin = css<SharedProps>`
   ${props =>
@@ -43,7 +44,7 @@ export const ptMixin = css<SharedProps>`
     `
     padding-top: ${props.theme.BASE_SIZE * props.pt}${props.theme.UNIT};
   `};
-`
+`;
 
 export const pbMixin = css<SharedProps>`
   ${props =>
@@ -51,7 +52,7 @@ export const pbMixin = css<SharedProps>`
     `
   padding-bottom: ${props.theme.BASE_SIZE * props.pb}${props.theme.UNIT};
   `};
-`
+`;
 
 export const mtMixin = css<SharedProps>`
   ${props =>
@@ -59,7 +60,7 @@ export const mtMixin = css<SharedProps>`
     `
   margin-top: ${props.theme.BASE_SIZE * props.mt}${props.theme.UNIT};
   `};
-`
+`;
 
 export const mbMixin = css<SharedProps>`
   ${props =>
@@ -67,7 +68,7 @@ export const mbMixin = css<SharedProps>`
     `
   margin-bottom: ${props.theme.BASE_SIZE * props.mb}${props.theme.UNIT};
   `};
-`
+`;
 
 export const myMixin = css<SharedProps>`
   ${props =>
@@ -76,7 +77,7 @@ export const myMixin = css<SharedProps>`
     margin-top: ${props.theme.BASE_SIZE * props.my}${props.theme.UNIT};
     margin-bottom: ${props.theme.BASE_SIZE * props.my}${props.theme.UNIT};
   `};
-`
+`;
 
 export const mxMixin = css<SharedProps>`
   ${props =>
@@ -85,28 +86,28 @@ export const mxMixin = css<SharedProps>`
     margin-left: ${props.theme.BASE_SIZE * props.mx}${props.theme.UNIT};
     margin-right: ${props.theme.BASE_SIZE * props.mx}${props.theme.UNIT};
   `};
-`
+`;
 
 export const mMixin = css<SharedProps>`
   ${props =>
     hasProp('m', props) &&
     `margin: ${props.theme.BASE_SIZE * props.m}${props.theme.UNIT};
   `};
-`
+`;
 
 export const mlMixin = css<SharedProps>`
   ${props =>
     hasProp('ml', props) &&
     `margin-left: ${props.theme.BASE_SIZE * props.ml}${props.theme.UNIT};
 `};
-`
+`;
 
 export const mrMixin = css<SharedProps>`
   ${props =>
     hasProp('mr', props) &&
     `margin-right: ${props.theme.BASE_SIZE * props.mr}${props.theme.UNIT};
 `};
-`
+`;
 
 export const plMixin = css<SharedProps>`
   ${props =>
@@ -114,7 +115,7 @@ export const plMixin = css<SharedProps>`
     `
   padding-left: ${props.theme.BASE_SIZE * props.pl}${props.theme.UNIT};
 `};
-`
+`;
 
 export const prMixin = css<SharedProps>`
   ${props =>
@@ -122,4 +123,4 @@ export const prMixin = css<SharedProps>`
     `
   padding-right: ${props.theme.BASE_SIZE * props.pr}${props.theme.UNIT};
 `};
-`
+`;

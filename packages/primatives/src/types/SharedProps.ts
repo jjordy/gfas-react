@@ -18,15 +18,19 @@ export enum Positions {
 
 export default interface SharedProps {
   fluid?: boolean;
-  float?: Positions;
+  float?: Positions | string;
   rounded?: boolean;
   secondary?: boolean;
-  textAlign?: Positions;
+  textAlign?: Positions | string;
   size?: Sizes;
   /* Should the items background and forground be inverted if applicable? */
   inverted?: boolean;
   /* Object from the color library allowing color manipulations */
   color?: Color;
+  /* Object from the color library allowing color manipulations */
+  foreground?: Color;
+  /* Object from the color library allowing color manipulations */
+  background?: Color;
   /* Padding */
   p?: Sizes;
   /* Padding X-Axis */

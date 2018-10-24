@@ -18,7 +18,7 @@ import {
 } from './spacing'
 import SharedProps from '../types/SharedProps'
 
-export const isBool = (v: boolean | string) => typeof v === 'boolean'
+export const isBool = (v: boolean | string | null) => typeof v === 'boolean'
 
 export const fluidMixin = css<SharedProps>`
   width: ${props => props.fluid && '100%'};
@@ -90,7 +90,8 @@ export const size = css<SharedProps>`
 `
 
 export const inputPaddingMixin = css<SharedProps>`
-  ${createRule(0.3, 'padding')} box-sizing: border-box;
+  ${createRule(0.3, 'padding')};
+  box-sizing: border-box;
 `
 
 export const inputMarginMixin = css<SharedProps>`

@@ -34,11 +34,17 @@ export enum AlignTypes {
   Right = 'right'
 }
 
+export enum WrapTypes {
+  NoWrap = 'nowrap',
+  Wrap = 'wrap',
+  WrapReverse = 'wrap-reverse'
+}
+
 export interface FlexProps extends SharedProps {
-  text?: boolean;
   justify?: JustifyTypes | string;
   align?: AlignTypes | string;
   direction?: DirectionTypes | string;
+  wrap?: WrapTypes | string;
 }
 
 export const Flex = styled<FlexProps, 'div'>('div')`
@@ -47,6 +53,7 @@ export const Flex = styled<FlexProps, 'div'>('div')`
   justify-content: ${props => props.justify || JustifyTypes.FlexStart};
   align-items: ${props => props.align || AlignTypes.Normal};
   flex-direction: ${props => props.direction || DirectionTypes.Row};
+  flex-wrap: ${props => props.wrap || WrapTypes.NoWrap};
   ${spacing};
 `;
 
