@@ -165,7 +165,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-addDecorator(withInfo)
+addDecorator(withInfo())
 addDecorator(withThemesProvider(themes))
 addDecorator(withKnobs)
 addDecorator(withNotes)

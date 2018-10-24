@@ -1,5 +1,6 @@
 {
   "private": true,
+  "license": "MIT",
   "scripts": {
     "postinstall": "node ./scripts/postinstall.js",
     "build": "node ./scripts/build.js",
