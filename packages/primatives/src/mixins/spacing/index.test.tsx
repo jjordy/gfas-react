@@ -1,6 +1,7 @@
 import * as React from 'react';
 import 'jest-styled-components';
 import {
+  createRule,
   pxMixin,
   pMixin,
   pyMixin,
@@ -101,6 +102,14 @@ describe('Spacing Mixins', () => {
       const tree = renderer.create(<Button mt={1} theme={{BASE_SIZE: 1, UNIT: 'rem'}} />).toJSON();
       expect(tree).toHaveStyleRule('margin-top', '1rem');
     })
+  })
+
+  test('Create rule helper should create the specified rule using the theme BASE_SIZE and unit', () => {
+    const Test = styled.button`
+      ${createRule(1, 'border-radius')}
+    `
+    const tree = renderer.create(<Test theme={{BASE_SIZE: 1, UNIT: 'rem'}} />).toJSON()
+    expect(tree).toHaveStyleRule('border-radius', '1rem')
   })
 })
 

@@ -21,6 +21,7 @@ export default interface SharedProps {
   float?: Positions | string;
   rounded?: boolean;
   secondary?: boolean;
+  border?: string;
   textAlign?: Positions | string;
   size?: Sizes;
   /* Should the items background and forground be inverted if applicable? */
@@ -28,9 +29,10 @@ export default interface SharedProps {
   /* Object from the color library allowing color manipulations */
   color?: Color;
   /* Object from the color library allowing color manipulations */
-  foreground?: Color;
+  fg?: string;
   /* Object from the color library allowing color manipulations */
-  background?: Color;
+  bg?: string;
+  backgroundColor?: string;
   /* Padding */
   p?: Sizes;
   /* Padding X-Axis */

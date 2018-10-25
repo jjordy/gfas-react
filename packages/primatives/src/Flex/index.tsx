@@ -1,5 +1,5 @@
 import styled from '../styled-components';
-import { spacing } from '../mixins';
+import { spacing, size } from '../mixins';
 import SharedProps from '../types/SharedProps';
 
 export enum JustifyTypes {
@@ -55,6 +55,7 @@ export const Flex = styled<FlexProps, 'div'>('div')`
   flex-direction: ${props => props.direction || DirectionTypes.Row};
   flex-wrap: ${props => props.wrap || WrapTypes.NoWrap};
   ${spacing};
+  ${size};
 `;
 
 Flex.displayName = 'Flex';
