@@ -1,5 +1,3 @@
-import * as Color from 'color';
-
 export enum Sizes {
   One = 1,
   Two = 2,
@@ -26,13 +24,10 @@ export default interface SharedProps {
   size?: Sizes;
   /* Should the items background and forground be inverted if applicable? */
   inverted?: boolean;
-  /* Object from the color library allowing color manipulations */
-  color?: Color;
-  /* Object from the color library allowing color manipulations */
+  /* Foreground color */
   fg?: string;
-  /* Object from the color library allowing color manipulations */
+  /* Background color */
   bg?: string;
-  backgroundColor?: string;
   /* Padding */
   p?: Sizes;
   /* Padding X-Axis */

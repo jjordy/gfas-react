@@ -22,7 +22,8 @@ import {
   iconReverseColorMixin,
   darkenBackgroundColorMixin,
   lookupThemeColor,
-  inputColorMixin
+  inputColorMixin,
+  handleSetBorder
 } from '.';
 import styled, { ThemeProvider } from '../styled-components';
 import renderer from 'react-test-renderer';
@@ -281,6 +282,28 @@ describe('General Mixins', () => {
       expect(isBool(null)).toBe(false);
       expect(isBool(false)).toBe(true);
       expect(isBool('false')).toBe(false);
+    });
+
+    describe('Border helper function', () => {
+      test('Should use a passed border first and foremost', () => {
+        expect(
+          handleSetBorder('1px solid #e7e7e7', {
+            BASE_SIZE: 1,
+            UNIT: 'rem',
+            border: '2px solid #e7e7e7'
+          })
+        ).toEqual('1px solid #e7e7e7');
+      });
+
+      test('Should use a theme border if border property is null', () => {
+        expect(
+          handleSetBorder(null, {
+            BASE_SIZE: 1,
+            UNIT: 'rem',
+            border: '2px solid #e7e7e7'
+          })
+        ).toEqual('2px solid #e7e7e7');
+      });
     });
   });
 

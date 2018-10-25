@@ -39,7 +39,7 @@ export const isBool = (v: boolean | string | null) => typeof v === 'boolean';
  **/
 
 export const handleSetBorder = (
-  val: string | string,
+  val: string | null,
   theme: ThemeInterface
 ): string => {
   if (val) {

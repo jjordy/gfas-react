@@ -6,10 +6,10 @@ import {
   backgroundColorMixin,
   colorMixin,
   borderRadiusMixin,
-  textBasedOnColorMixin
+  textBasedOnColorMixin,
+  textAlignMixin
 } from '../mixins';
 import SharedProps from '../types/SharedProps';
-// import { backgroundColorMixin } from '../mixins/colors';
 
 export interface BoxProps extends SharedProps {}
 
@@ -22,6 +22,7 @@ export const Box = styled<BoxProps, 'div'>('div')`
   ${colorMixin};
   ${borderRadiusMixin};
   ${textBasedOnColorMixin};
+  ${textAlignMixin};
 `;
 
 Box.displayName = 'Box';
