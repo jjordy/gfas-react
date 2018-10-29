@@ -1,6 +1,7 @@
+import * as React from 'react';
 import styled from '../styled-components';
-import { spacing, size } from '../mixins';
 import SharedProps from '../types/SharedProps';
+import { Box, BoxProps } from '../Box';
 
 export enum JustifyTypes {
   Center = 'center',
@@ -47,15 +48,22 @@ export interface FlexProps extends SharedProps {
   wrap?: WrapTypes | string;
 }
 
-export const Flex = styled<FlexProps, 'div'>('div')`
-  box-sizing: border-box;
+const Base: React.SFC<FlexProps & BoxProps> = ({
+  justify,
+  align,
+  direction,
+  wrap,
+  ...rest
+}) => {
+  return <Box {...rest} />;
+};
+
+export const Flex = styled(Base)`
   display: flex;
   justify-content: ${props => props.justify || JustifyTypes.FlexStart};
   align-items: ${props => props.align || AlignTypes.Normal};
   flex-direction: ${props => props.direction || DirectionTypes.Row};
   flex-wrap: ${props => props.wrap || WrapTypes.NoWrap};
-  ${spacing};
-  ${size};
 `;
 
 Flex.displayName = 'Flex';

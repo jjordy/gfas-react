@@ -14,13 +14,27 @@ export enum Positions {
   Justify = 'justify'
 }
 
+export interface Border {
+  top?: string;
+  bottom?: string;
+  left?: string;
+  right?: string;
+}
+
 export default interface SharedProps {
+  /* Should the element be fluid e.g. 100% width */
   fluid?: boolean;
+  /* Should the element be floated to the right or left */
   float?: Positions | string;
+  /* Should the element be rounded with border radius? */
   rounded?: boolean;
+  /* The element can be secondary and take secondary styles */
   secondary?: boolean;
-  border?: string;
+  /* Border for the item */
+  border?: string | Border;
+  /* Align the text */
   textAlign?: Positions | string;
+  /* Sets the width and height to 5 times the BASE_SIZE + UNIT */
   size?: Sizes;
   /* Should the items background and forground be inverted if applicable? */
   inverted?: boolean;

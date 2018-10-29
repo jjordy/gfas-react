@@ -17,9 +17,9 @@ import {
   mrMixin
 } from './spacing';
 
-import * as Color from 'color';
+import Color from 'color';
 
-import SharedProps from '../types/SharedProps';
+import SharedProps, { Border } from '../types/SharedProps';
 import ThemeInterface from '../types/Theme';
 /**
  *  HELPER FUNCTIONS
@@ -38,12 +38,35 @@ export const isBool = (v: boolean | string | null) => typeof v === 'boolean';
  * sets a border property and set it there.
  **/
 
+export const handleObjBorder = (border: Border): string => {
+  let rule = ``;
+  if (border.top) {
+    rule += ` border-top: ${border.top};`;
+  }
+
+  if (border.bottom) {
+    rule += ` border-bottom: ${border.bottom};`;
+  }
+
+  if (border.right) {
+    rule += ` border-right: ${border.right};`;
+  }
+
+  if (border.left) {
+    rule += ` border-left: ${border.left};`;
+  }
+  return rule;
+};
+
 export const handleSetBorder = (
-  val: string | null,
+  val: string | Border | null,
   theme: ThemeInterface
 ): string => {
-  if (val) {
-    return val;
+  if (val && typeof val === 'string') {
+    return `border: ${val}`;
+  } else if (val && typeof val === 'object') {
+    console.log('handling obj border');
+    return handleObjBorder(val);
   } else if (!val && theme.border) {
     return theme.border;
   }
@@ -59,15 +82,15 @@ export const lookupThemeColor = (
   theme: ThemeInterface
 ): Color => {
   try {
-    if (theme && theme.colors[color]) {
-      const themeColor: Color = Color.default(theme.colors[color]);
+    if (theme && theme.colors && theme.colors[color]) {
+      const themeColor: Color = Color(theme.colors[color]);
       return themeColor;
     } else {
-      const passedColor: Color = Color.default(color);
+      const passedColor: Color = Color(color);
       return passedColor;
     }
   } catch (err) {
-    const defaultColor: Color = Color.default('#000');
+    const defaultColor: Color = Color('#000');
     return defaultColor;
   }
 };
@@ -175,7 +198,7 @@ export const textAlignMixin = css<SharedProps>`
  * Border Mixins
  */
 export const borderMixin = css<SharedProps>`
-  border: ${props => handleSetBorder(props.border, props.theme)};
+  ${props => handleSetBorder(props.border, props.theme)};
 `;
 /**
  * Size Mixins

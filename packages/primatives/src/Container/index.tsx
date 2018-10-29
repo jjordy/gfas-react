@@ -7,9 +7,9 @@ export interface ContainerProps extends SharedProps {
   text?: boolean;
 }
 
-const Base: React.SFC<ContainerProps & BoxProps> = ({ text, ...rest }) => (
-  <Box {...rest} />
-);
+const Base: React.SFC<ContainerProps & BoxProps> = ({ text, ...rest }) => {
+  return <Box {...rest} />;
+};
 
 export const Container = styled(Base)`
   max-width: ${props => (props.text ? '750px' : '1150px')};
