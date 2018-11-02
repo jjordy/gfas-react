@@ -10,7 +10,8 @@ describe('Box Component', () => {
       .create(
         <ThemeProvider theme={{ BASE_SIZE: 1, UNIT: 'rem' }}>
           <Box {...props} />
-        </ThemeProvider>)
+        </ThemeProvider>
+      )
       .toJSON()
   }
   it('Should render a div', () => {
@@ -41,7 +42,7 @@ describe('Box Component', () => {
 
   it('Should take a size prop', () => {
     const w = createWrapper({ size: 1 })
-    expect(w).toHaveStyleRule('width', '1rem')
-    expect(w).toHaveStyleRule('height', '1rem')
+    expect(w).toHaveStyleRule('width', '10rem')
+    expect(w).toHaveStyleRule('height', '10rem')
   })
 })

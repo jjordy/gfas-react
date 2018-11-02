@@ -1,16 +1,17 @@
 import { css } from 'styled-components'
 import Color from 'color'
+import { getIn } from '../.'
 
-export const findColor = (props) => {
+export const findColor = (props, def = '#000') => {
   const c = props.bg || props.color
   try {
     if (props.theme && props.theme.colors && props.theme.colors[c]) {
       return Color(props.theme.colors[c])
     } else {
-      return Color(props.color)
+      return Color(c)
     }
   } catch {
-    return Color()
+    return Color(def)
   }
 }
 
@@ -40,26 +41,18 @@ export const colorMixin = css`
 
 export const iconReverseColorMixin = css`
   ${props =>
-    props.color &&
+    (props.color || props.bg) &&
     `
-    stroke: ${
-  props.color.luminosity() < 0.6
-    ? props.theme.colors.white
-    : props.theme.colors.black
-};
-    fill: ${
-  props.color.luminosity() < 0.6
-    ? props.theme.colors.white
-    : props.theme.colors.black
-};
+    stroke: ${findColor(props).luminosity() < 0.6 ? '#FFF' : '#000'};
+    fill: ${findColor(props).luminosity() < 0.6 ? '#FFF' : '#000'};
   `};
 `
 
 export const iconColorMixin = css`
   ${props =>
-    props.color &&
+    (props.color || props.bg) &&
     `
-    fill: ${props.color.hex()};
+    fill: ${findColor(props).hex()};
   `};
 `
 
@@ -67,33 +60,37 @@ export const backgroundColorMixin = css`
   ${props =>
     props.color &&
     `
-    background-color: ${
-  props.inverted ? props.color.darken(0.5).hex() : props.color.hex()
-};
+    background-color: ${props.inverted ? props.color.darken(0.5).hex() : props.color.hex()};
   `};
 `
 
-function handleLightColor (props) {
+export function handleLightColor (props) {
   if (props.inverted) {
-    return props.color.darken(1).hex()
+    return findColor(props)
+      .darken(1)
+      .hex()
   }
   return '#222'
 }
 
-function handleDarkColor (props) {
+export function handleDarkColor (props) {
   if (props.inverted) {
-    return props.color.lighten(1).hex()
+    return findColor(props)
+      .lighten(1)
+      .hex()
   }
   return '#FFF'
 }
 
 export const textBasedOnColorMixin = css`
-  ${props => props.bg ? `
-    color: ${findColor(props).luminosity() < 0.6
-    ? handleDarkColor(props) : handleLightColor(props)};
-  ` : props.color && `
-      color: ${findColor(props).luminosity() < 0.6
-    ? handleDarkColor(props) : handleLightColor(props)};
+  ${props =>
+    props.bg
+      ? `
+    color: ${findColor(props).luminosity() < 0.6 ? handleDarkColor(props) : handleLightColor(props)};
+  `
+      : props.color &&
+        `
+      color: ${findColor(props).luminosity() < 0.6 ? handleDarkColor(props) : handleLightColor(props)};
   `};
 `
 
@@ -101,8 +98,12 @@ export const darkenBackgroundColorMixin = css`
   ${props =>
     (props.color || props.bg) &&
     `
-    background-color: ${findColor(props).darken(0.2).hex()};
-    border: 1px solid ${findColor(props).darken(0.3).hex()};
+    background-color: ${findColor(props)
+    .darken(0.2)
+    .hex()};
+    border: 1px solid ${findColor(props)
+    .darken(0.3)
+    .hex()};
   `};
 `
 
@@ -110,6 +111,6 @@ export const inputColorMixin = css`
   ${props =>
     props.theme &&
     `
-    color: ${props.theme.colors.grey};
+    color: ${getIn(props.theme, 'colors.grey', '#CCC')};
   `};
 `

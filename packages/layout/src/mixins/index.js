@@ -29,7 +29,7 @@ export function getIn (obj, key, def, p = 0) {
   return obj === undefined ? def : obj
 }
 
-export const handleObjBorder = (border) => {
+export const handleObjBorder = border => {
   let rule = ''
   if (border.top) {
     rule += ` border-top: ${border.top};`
@@ -49,11 +49,11 @@ export const handleObjBorder = (border) => {
   return rule
 }
 
-export const handleSetBorder = (val, theme) => {
+export const handleSetBorder = (val, theme, handleObj = handleObjBorder) => {
   if (val && typeof val === 'string') {
     return `border: ${val}`
   } else if (val && typeof val === 'object') {
-    return handleObjBorder(val)
+    return handleObj(val)
   } else if (!val && theme.border) {
     return theme.border
   }
@@ -134,7 +134,8 @@ export const size = css`
 `
 
 export const inputPaddingMixin = css`
-  ${createRule(0.3, 'padding')} box-sizing: border-box;
+  ${createRule(0.3, 'padding')};
+  box-sizing: border-box;
 `
 
 export const inputMarginMixin = css`
