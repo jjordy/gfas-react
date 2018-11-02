@@ -1,4 +1,33 @@
 import { css } from 'styled-components'
+import Color from 'color'
+
+export const findColor = (color, theme) => {
+  try {
+    if (theme && theme.colors && theme.colors[color]) {
+      return Color(theme.colors[color])
+    } else {
+      return Color(color)
+    }
+  } catch {
+    return Color()
+  }
+}
+
+export const bgMixin = css`
+  ${props =>
+    (props.bg || props.color) &&
+    `
+    background-color: ${findColor(props.bg || props.color, props.theme).hex()};
+  `};
+`
+
+export const fgMixin = css`
+  ${props =>
+    props.fg &&
+    `
+    color: ${findColor(props.fg, props.theme).hex()};
+  `};
+`
 
 export const colorMixin = css`
   ${props =>
@@ -13,10 +42,14 @@ export const iconReverseColorMixin = css`
     props.color &&
     `
     stroke: ${
-  props.color.luminosity() < 0.6 ? props.theme.colors.white : props.theme.colors.black
+  props.color.luminosity() < 0.6
+    ? props.theme.colors.white
+    : props.theme.colors.black
 };
     fill: ${
-  props.color.luminosity() < 0.6 ? props.theme.colors.white : props.theme.colors.black
+  props.color.luminosity() < 0.6
+    ? props.theme.colors.white
+    : props.theme.colors.black
 };
   `};
 `
@@ -34,7 +67,7 @@ export const backgroundColorMixin = css`
     props.color &&
     `
     background-color: ${
-  props.inverted ? (props.color.darken(0.5).hex()) : props.color.hex()
+  props.inverted ? props.color.darken(0.5).hex() : props.color.hex()
 };
   `};
 `
@@ -53,19 +86,13 @@ function handleDarkColor (props) {
   return '#FFF'
 }
 
-function isDark (color) {
-  return color.luminosity() >= 0.55
-}
-
 export const textBasedOnColorMixin = css`
-  ${props =>
-    props.color &&
-    `
-    color: ${
-  props.color.luminosity() < 0.6
-    ? handleDarkColor(props)
-    : handleLightColor(props)
-};
+  ${props => props.bg ? `
+    color: ${findColor(props.bg, props.theme).luminosity() < 0.6
+    ? handleDarkColor(props) : handleLightColor(props)};
+  ` : props.color && `
+      color: ${findColor(props.color, props.theme).luminosity() < 0.6
+    ? handleDarkColor(props) : handleLightColor(props)};
   `};
 `
 

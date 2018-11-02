@@ -51,9 +51,12 @@
     "@babel/cli": "^7.0.0",
     "babel-plugin-styled-components": "^1.8.0",
     "eslint": "^5.4.0",
-    "jest": "^23.5.0"
+    "jest": "^23.5.0",
+    "react-test-render": "^1.1.1"
   },
   "dependencies": {
-    "color": "^3.0.0"
+    "color": "^3.0.0",
+    "jest-styled-components": "^6.2.2",
+    "lodash.topath": "^4.5.2"
   }
 }

@@ -1,4 +1,6 @@
 import { css } from 'styled-components'
+import toPath from 'lodash.topath'
+
 import {
   createRule,
   pxMixin,
@@ -18,6 +20,45 @@ import {
 } from './spacing'
 
 export const isBool = v => typeof v === 'boolean'
+
+export function getIn (obj, key, def, p = 0) {
+  const path = toPath(key)
+  while (obj && p < path.length) {
+    obj = obj[path[p++]]
+  }
+  return obj === undefined ? def : obj
+}
+
+export const handleObjBorder = (border) => {
+  let rule = ''
+  if (border.top) {
+    rule += ` border-top: ${border.top};`
+  }
+
+  if (border.bottom) {
+    rule += ` border-bottom: ${border.bottom};`
+  }
+
+  if (border.right) {
+    rule += ` border-right: ${border.right};`
+  }
+
+  if (border.left) {
+    rule += ` border-left: ${border.left};`
+  }
+  return rule
+}
+
+export const handleSetBorder = (val, theme) => {
+  if (val && typeof val === 'string') {
+    return `border: ${val}`
+  } else if (val && typeof val === 'object') {
+    return handleObjBorder(val)
+  } else if (!val && theme.border) {
+    return theme.border
+  }
+  return ''
+}
 
 export const fluidMixin = css`
   width: ${props => props.fluid && '100%'};
@@ -83,6 +124,10 @@ export const textAlignMixin = css`
   `};
 `
 
+export const borderMixin = css`
+  ${props => handleSetBorder(props.border, props.theme)};
+`
+
 export const size = css`
   width: ${props => props.size && props.size * props.theme.BASE_SIZE + props.theme.UNIT};
   height: ${props => props.size && props.size * props.theme.BASE_SIZE + props.theme.UNIT};
@@ -132,7 +177,9 @@ export {
   darkenBackgroundColorMixin,
   inputColorMixin,
   iconReverseColorMixin,
-  iconColorMixin
+  iconColorMixin,
+  bgMixin,
+  fgMixin
 } from './colors'
 
 export {

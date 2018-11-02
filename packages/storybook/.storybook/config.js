@@ -1,12 +1,9 @@
 import React from 'react'
 import { configure, addDecorator } from '@storybook/react'
 import { setDefaults } from '@storybook/addon-info'
-import { withThemesProvider } from 'storybook-addon-styled-component-theme'
-import { defaultTheme, boldAndLarge } from '../themes'
 import { withKnobs } from '@storybook/addon-knobs'
 import { withNotes } from '@storybook/addon-notes'
 import { withInfo } from '@storybook/addon-info'
-const themes = [defaultTheme, boldAndLarge]
 import { checkA11y } from '@storybook/addon-a11y'
 import { Container, Segment, Header } from '@jjordy/layout'
 import { withBackgrounds } from '@storybook/addon-backgrounds'
@@ -166,7 +163,6 @@ const GlobalStyle = createGlobalStyle`
 `
 
 addDecorator(withInfo())
-addDecorator(withThemesProvider(themes))
 addDecorator(withKnobs)
 addDecorator(withNotes)
 addDecorator(checkA11y)
@@ -187,7 +183,8 @@ addDecorator((s, { kind, story }) => (
 ))
 
 setDefaults({
-  inline: true
+  inline: true,
+  showStoriesPanel: false
 })
 
 configure(loadStories, module)
