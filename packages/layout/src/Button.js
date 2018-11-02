@@ -4,43 +4,30 @@ import styled, { css } from 'styled-components'
 import withTheme from './withTheme'
 import MyIcon, { Svg } from './Icon'
 import { sharedPropTypes } from './sharedPropTypes'
-
+import Box from './Box'
 import {
-  textBasedOnColorMixin,
-  fluidMixin,
-  floatMixin,
-  spacing,
-  backgroundColorMixin,
-  borderRadiusMixin,
   darkenBackgroundColorMixin,
   heavyFontMixin,
   iconReverseColorMixin,
-  createRule
+  createRule,
+  findColor
 } from './mixins'
 
 const Icon = styled.span`
-  ${createRule(1, 'margin-left')} ${spacing};
+  ${createRule(1, 'margin-left')};
 `
 
 const Content = styled.span`
   flex: 1 1 auto;
-  ${spacing};
 `
 
 export const buttonStyles = css`
-  ${createRule(1, 'min-height')}
-  ${createRule(1, 'padding-right')}
-  ${createRule(1, 'padding-left')}
-  ${createRule(0.5, 'padding-top')}
-  ${createRule(0.5, 'padding-bottom')}
   display: flex;
   align-self: center;
-  box-sizing: border-box;
   align-items: center;
-  justify-content: ${props => props.icon ? 'space-between' : 'space-around'};
+  justify-content: ${props => (props.icon ? 'space-between' : 'space-around')};
   text-align: center;
   outline: 0;
-  border: 1px solid ${props => props.color.darken(0.1).hex()};
   ${heavyFontMixin};
   vertical-align: middle;
   transition: background-color 0.2s ease;
@@ -61,28 +48,45 @@ export const buttonStyles = css`
   & ${Svg} {
     ${iconReverseColorMixin}
   }
-  ${backgroundColorMixin}
-  ${fluidMixin}
-  ${floatMixin}
-  ${textBasedOnColorMixin}
-  ${borderRadiusMixin}
-
-  ${spacing}
 `
 
-export const StyledButton = styled.button.attrs({
-  children: props => props.children || props.content || ''
+export const StyledButton = styled(Box).attrs({
+  as: props => props.as ? props.as : 'button',
+  children: props => props.children || props.content || '',
+  px: props => !props.p && !props.px && 1,
+  py: props => !props.p && !props.y && 0.5,
+  border: props =>
+    props.border
+      ? props.border
+      : `1px solid ${findColor(
+        props.bg || props.color,
+        props.theme
+      )
+        .darken(0.1)
+        .hex()}`
 })`
   ${buttonStyles};
 `
 
 const ThemedButton = withTheme(StyledButton)
 
-const Button = ({ action, icon, labelPosition, children, content, ...rest }) => (
+const Button = ({
+  action,
+  icon,
+  labelPosition,
+  children,
+  content,
+  ...rest
+}) => (
   <ThemedButton {...rest} icon={icon}>
-    {icon && !labelPosition && <MyIcon icon={icon} mr={(children || content) && 1} />}
+    {icon &&
+      !labelPosition && <MyIcon icon={icon} mr={(children || content) && 1} />}
     {children || content}
-    {icon && labelPosition && labelPosition === 'right' && <MyIcon icon={icon} ml={(children || content) && 1} />}
+    {icon &&
+      labelPosition &&
+      labelPosition === 'right' && (
+      <MyIcon icon={icon} ml={(children || content) && 1} />
+    )}
   </ThemedButton>
 )
 

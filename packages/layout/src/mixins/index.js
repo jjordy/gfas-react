@@ -179,7 +179,8 @@ export {
   iconReverseColorMixin,
   iconColorMixin,
   bgMixin,
-  fgMixin
+  fgMixin,
+  findColor
 } from './colors'
 
 export {

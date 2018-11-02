@@ -7,12 +7,15 @@ import {
   borderMixin,
   textBasedOnColorMixin,
   borderRadiusMixin,
-  textAlignMixin
+  textAlignMixin,
+  fluidMixin,
+  floatMixin
 } from '../mixins'
 import { sharedPropTypes } from '../sharedPropTypes'
 
 const Box = styled.div.attrs({
-  size: props => props.size * 10
+  as: props => props.as ? props.as : 'div',
+  size: props => props.size ? props.size * 10 : null
 })`
   box-sizing: border-box;
   ${spacing}
@@ -23,6 +26,8 @@ const Box = styled.div.attrs({
   ${textBasedOnColorMixin}
   ${borderRadiusMixin}
   ${textAlignMixin}
+  ${fluidMixin}
+  ${floatMixin}
 `
 
 Box.propTypes = {

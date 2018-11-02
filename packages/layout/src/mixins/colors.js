@@ -1,12 +1,13 @@
 import { css } from 'styled-components'
 import Color from 'color'
 
-export const findColor = (color, theme) => {
+export const findColor = (props) => {
+  const c = props.bg || props.color
   try {
-    if (theme && theme.colors && theme.colors[color]) {
-      return Color(theme.colors[color])
+    if (props.theme && props.theme.colors && props.theme.colors[c]) {
+      return Color(props.theme.colors[c])
     } else {
-      return Color(color)
+      return Color(props.color)
     }
   } catch {
     return Color()
@@ -17,7 +18,7 @@ export const bgMixin = css`
   ${props =>
     (props.bg || props.color) &&
     `
-    background-color: ${findColor(props.bg || props.color, props.theme).hex()};
+    background-color: ${findColor(props).hex()};
   `};
 `
 
@@ -25,7 +26,7 @@ export const fgMixin = css`
   ${props =>
     props.fg &&
     `
-    color: ${findColor(props.fg, props.theme).hex()};
+    color: ${findColor(props).hex()};
   `};
 `
 
@@ -88,19 +89,20 @@ function handleDarkColor (props) {
 
 export const textBasedOnColorMixin = css`
   ${props => props.bg ? `
-    color: ${findColor(props.bg, props.theme).luminosity() < 0.6
+    color: ${findColor(props).luminosity() < 0.6
     ? handleDarkColor(props) : handleLightColor(props)};
   ` : props.color && `
-      color: ${findColor(props.color, props.theme).luminosity() < 0.6
+      color: ${findColor(props).luminosity() < 0.6
     ? handleDarkColor(props) : handleLightColor(props)};
   `};
 `
 
 export const darkenBackgroundColorMixin = css`
   ${props =>
-    props.color &&
+    (props.color || props.bg) &&
     `
-    background-color: ${props.color.darken(0.2).hex()};
+    background-color: ${findColor(props).darken(0.2).hex()};
+    border: 1px solid ${findColor(props).darken(0.3).hex()};
   `};
 `
 

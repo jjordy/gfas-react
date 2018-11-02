@@ -5,7 +5,7 @@ import { withKnobs } from '@storybook/addon-knobs'
 import { withNotes } from '@storybook/addon-notes'
 import { withInfo } from '@storybook/addon-info'
 import { checkA11y } from '@storybook/addon-a11y'
-import { Container, Segment, Header } from '@jjordy/layout'
+import { Container, Segment, Header, Box } from '@jjordy/layout'
 import { withBackgrounds } from '@storybook/addon-backgrounds'
 import { createGlobalStyle } from 'styled-components'
 
@@ -183,8 +183,7 @@ addDecorator((s, { kind, story }) => (
 ))
 
 setDefaults({
-  inline: true,
-  showStoriesPanel: false
+  inline: false
 })
 
 configure(loadStories, module)

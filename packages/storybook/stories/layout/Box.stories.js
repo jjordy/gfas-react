@@ -9,7 +9,7 @@ storiesOf('@jjordy/Layout/Box', module).add(
       rounded={false}
       p={3}
       textAlign='center'
-      border='2px solid #f8c7c'
+      border='1px solid #f8f8f8'
       size={3}
     >
       <p>
