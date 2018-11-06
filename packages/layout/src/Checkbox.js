@@ -19,8 +19,6 @@ const FormMessage = styled.small`
   font-weight: 400;
 `
 
-Container.displayName = 'Container'
-
 export const Label = styled.span`
   margin-left: 8px;
   font-size: 1rem;

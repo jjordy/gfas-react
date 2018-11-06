@@ -9,7 +9,8 @@ import {
   borderRadiusMixin,
   textAlignMixin,
   fluidMixin,
-  floatMixin
+  floatMixin,
+  flexMixin
 } from '../mixins'
 import { sharedPropTypes } from '../sharedPropTypes'
 
@@ -18,6 +19,7 @@ const Box = styled.div.attrs({
   size: props => props.size ? props.size * 10 : null
 })`
   box-sizing: border-box;
+  ${flexMixin}
   ${spacing}
   ${bgMixin}
   ${fgMixin}

@@ -1,8 +1,7 @@
 import styled from 'styled-components'
-import withTheme from './withTheme'
 import PropTypes from 'prop-types'
-import Box from './Box'
-import { sharedPropTypes } from './sharedPropTypes'
+import Box from '../Box'
+import { sharedPropTypes } from '../sharedPropTypes'
 
 const Container = styled(Box).attrs({
   bg: '#FFF'
@@ -15,10 +14,9 @@ const Container = styled(Box).attrs({
     width: 100%;
   }
 `
-const ThemedContainer = withTheme(Container)
 
-ThemedContainer.displayName = 'Container'
+Container.displayName = 'Container'
 
-ThemedContainer.propTypes = { text: PropTypes.bool, ...sharedPropTypes }
+Container.propTypes = { text: PropTypes.bool, ...sharedPropTypes }
 
-export default ThemedContainer
+export default Container

@@ -154,6 +154,12 @@ export const heavyFontMixin = css`
   font-size: 0.8rem;
 `
 
+export const flexMixin = css`
+  ${props => props.flex && `
+    flex: ${props.flex};
+  `}
+`
+
 export const spacing = css`
   ${pxMixin}
   ${pyMixin}

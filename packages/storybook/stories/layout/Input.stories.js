@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input, Button, Checkbox, Segment, Text, Header, ThemeContext, defaultTheme } from '@jjordy/layout'
+import { Input, Button, Checkbox, Segment, Text, Header } from '@jjordy/layout'
 import { storiesOf } from '@storybook/react'
 import { boolean } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
@@ -42,17 +42,13 @@ storiesOf('@jjordy/Layout/Input', module)
     />
   ))
   .add('Action w/ Text', () => (
-    <ThemeContext.Provider value={Object.assign({}, defaultTheme, {
-      rounded: true
-    })}>
-      <Input
-        label='SSN'
-        message='Enter your Social Security Number'
-        action={() => (
-          <Button onClick={action('Action clicked!!!')} icon='eye' labelPosition='right'>
+    <Input
+      label='SSN'
+      message='Enter your Social Security Number'
+      action={() => (
+        <Button onClick={action('Action clicked!!!')} icon='eye' labelPosition='right'>
           Test
-          </Button>
-        )}
-      />
-    </ThemeContext.Provider>
+        </Button>
+      )}
+    />
   ))
