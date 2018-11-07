@@ -1,7 +1,8 @@
 {
   "name": "@jjordy/vtable",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Virtual Table Component",
+  "private": true,
   "main": "./lib/index.js",
   "module": "./lib/es/index.js",
   "sideEffects": false,
