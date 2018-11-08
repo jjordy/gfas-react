@@ -42,6 +42,10 @@ export const buttonStyles = css`
   & ${Svg} {
     ${iconReverseColorMixin};
   }
+  text-decoration: none;
+  & a {
+    text-decoration: none;
+  }
 `
 
 export const StyledButton = styled(Box).attrs({

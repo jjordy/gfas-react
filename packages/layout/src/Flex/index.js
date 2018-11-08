@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { sharedPropTypes } from '../sharedPropTypes'
+import Box from '../Box'
 
-const Flex = styled.div`
+const Flex = styled(Box)`
   display: flex;
   ${props => props.justify && `
     justify-content: ${props.justify}

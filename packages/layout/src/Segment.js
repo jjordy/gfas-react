@@ -91,19 +91,6 @@ Segment.propTypes = {
   ])
 }
 
-Segment.defaultProps = {
-  loading: false
-}
-
 const ThemedSegment = withTheme(Segment)
 
-const LoadingSegment = ({ loading, ...rest }) => (
-  <div style={{ position: 'relative' }}>
-    <Dimmer active={loading}>
-      <Loader color='primary' />
-    </Dimmer>
-    <ThemedSegment {...rest} />
-  </div>
-)
-
-export default LoadingSegment
+export default ThemedSegment
