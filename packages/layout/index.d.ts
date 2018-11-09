@@ -98,7 +98,7 @@ export interface ContainerProps {
 
 export interface CheckboxProps {
   checked?: boolean;
-  onChange?: (checked: boolean) => {};
+  [a: string]: any;
 }
 
 export interface DimmerProps {
@@ -130,7 +130,7 @@ export interface ImageProps {
 }
 
 export interface InputProps {
-  onChange: (a: any) => {};
+  [a: string]: any;
   name: string;
   value?: string | number;
 }
@@ -185,16 +185,16 @@ export interface SelectProps extends InputProps {
   options: Array<SelectOption>;
 }
 
-export interface TabProps {
-  name?: string
-  title?: string
-  render?: (a: any) => {}
-  component?: Component<any>
+export interface TabsProps {
+  name?: string;
+  title?: string;
+  render?: (a: any) => {};
+  component?: Component<any>;
 }
 
 export interface TextProps {
-  strong?: boolean
-  small?: boolean
+  strong?: boolean;
+  small?: boolean;
 }
 
 export interface FlexProps {
@@ -216,7 +216,6 @@ export interface FlexProps {
     | "stretch";
 }
 
-
 declare class Header extends Component<SharedProps & HeaderProps> {}
 declare class Icon extends Component<SharedProps & IconProps> {}
 declare class Image extends Component<SharedProps & ImageProps> {}
@@ -231,7 +230,8 @@ declare class Progress extends Component<SharedProps & ProgressProps> {}
 declare class Responsive extends Component<SharedProps & ResponsiveProps> {}
 declare class Segment extends Component<SharedProps & SegmentProps> {}
 declare class Select extends Component<SharedProps & SelectProps> {}
-declare class Tabs extends Component<SharedProps & TabProps> {}
+declare class Tabs extends Component<SharedProps & TabsProps> {}
+declare class Tab extends Component<SharedProps & TabsProps> {}
 declare class Text extends Component<SharedProps & TextProps> {}
 declare class Flex extends Component<SharedProps & FlexProps> {}
 declare class Divider extends Component<SharedProps & DividerProps> {}

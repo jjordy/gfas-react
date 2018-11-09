@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import withTheme from './withTheme'
-import Icon from './Icon'
-import { spacing } from './mixins'
-import { sharedPropTypes } from './sharedPropTypes'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import withTheme from './withTheme';
+import Icon from './Icon';
+import { spacing } from './mixins';
+import { sharedPropTypes } from './sharedPropTypes';
 
 const Container = styled.div`
   display: inline-flex;
@@ -27,7 +27,7 @@ export const Label = styled.span`
   }};
 `
 
-Label.displayName = 'Label'
+Label.displayName = 'Label';
 
 const Check = styled.div`
   width: 18px;
@@ -40,7 +40,7 @@ const HiddenCheck = styled.input`
   translate: transform(99999px);
 `
 
-Check.displayName = 'Check'
+Check.displayName = 'Check';
 
 export const CheckIcon = styled(Icon)`
   width: 18px;
@@ -54,7 +54,7 @@ export const CheckIcon = styled(Icon)`
   }};
 `
 
-CheckIcon.displayName = 'CheckIcon'
+CheckIcon.displayName = 'CheckIcon';
 
 class Checkbox extends Component {
   constructor (props) {
@@ -69,7 +69,7 @@ class Checkbox extends Component {
     this.setState({ checked: !this.state.checked }, () => {
       this.props.onChange(this.state.checked)
     })
-  }
+  };
 
   render () {
     const { id, label, message, name, ...rest } = this.props
@@ -77,13 +77,19 @@ class Checkbox extends Component {
 
     return (
       <Container id={id} onClick={this.onClick} {...rest}>
-        <HiddenCheck type='checkbox' tabIndex='0' checked={checked} aria-labelledby={id || `id_${name}`} onChange={() => {}} />
+        <HiddenCheck
+          type='checkbox'
+          tabIndex='0'
+          checked={checked}
+          aria-labelledby={id || `id_${name}`}
+          onChange={() => {}}
+        />
         <Check>
           <CheckIcon
-            {...rest}
             name={name}
             icon={checked ? 'checkbox_checked' : 'checkbox_unchecked'}
             checked={checked}
+            {...rest}
           />
         </Check>{' '}
         <Label {...rest} className='label' id={id || `id_${name}`}>
@@ -106,9 +112,9 @@ Checkbox.defaultProps = {
   onChange: () => {}
 }
 
-Checkbox.displayName = 'Checkbox'
+Checkbox.displayName = 'Checkbox';
 
-Container.displayName = 'CheckboxContainer'
+Container.displayName = 'CheckboxContainer';
 
 Container.propTypes = {
   ...sharedPropTypes

@@ -58,9 +58,7 @@ addDecorator((s, { kind, story }) => (
   <ThemeProvider theme={defaultTheme}>
     <div style={{ position: "inherit" }}>
       <GlobalStyle />
-      <div style={{ display: "flex", width: "100%", height: "100%" }}>
-        {s()}
-      </div>
+      <div style={{ marginTop: "2rem" }}>{s()}</div>
     </div>
   </ThemeProvider>
 ));

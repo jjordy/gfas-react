@@ -1,6 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const StyledTab = styled.div`
   border-top: ${props => (props.active ? '2px solid orange' : 'none')};
@@ -12,12 +12,19 @@ const StyledTab = styled.div`
   display: flex;
   justify-content: center;
   font-weight: 700;
-  color: #555;
-  width: 100%;
+  ${props =>
+    props.justify &&
+    `
+    width: 100%;
+  `} color: #555;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   padding-right: 1rem;
   padding-left: 1rem;
+  outline: none;
+  &: hover {
+    cursor: pointer;
+  }
 `
 
 const TabsContainer = styled.div`
@@ -29,16 +36,16 @@ const TabContainer = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: ${props => (props.justify ? 'space-between' : 'flex-start')};
   border-bottom: 1px solid #e7e7e7;
 `
 
 const TabContent = styled.div``
 
 export default class Tabs extends React.Component {
-  state = { activeTab: '' }
+  state = { activeTab: '' };
 
-  setActiveTab = n => this.setState({ activeTab: n })
+  setActiveTab = n => this.setState({ activeTab: n });
 
   componentDidMount () {
     if (this.props.children) {
@@ -50,13 +57,19 @@ export default class Tabs extends React.Component {
   }
 
   render () {
-    const { children } = this.props
+    const { children, justify } = this.props
     const { activeTab } = this.state
     return (
       <TabsContainer>
-        <TabContainer>
-          {React.Children.map(children, child => (
-            <StyledTab active={activeTab === child.props.name} onClick={() => this.setActiveTab(child.props.name)}>
+        <TabContainer justify={justify}>
+          {React.Children.map(children, (child, id) => (
+            <StyledTab
+              tabIndex={id}
+              role='button'
+              justify={justify}
+              active={activeTab === child.props.name}
+              onClick={() => this.setActiveTab(child.props.name)}
+            >
               {child.props.title}
             </StyledTab>
           ))}
@@ -64,7 +77,10 @@ export default class Tabs extends React.Component {
         <br />
         <TabContent>
           {React.Children.map(children, child =>
-            React.cloneElement(child, { activeTab, setActiveTab: this.setActiveTab })
+            React.cloneElement(child, {
+              activeTab,
+              setActiveTab: this.setActiveTab
+            })
           )}
         </TabContent>
       </TabsContainer>
@@ -72,9 +88,19 @@ export default class Tabs extends React.Component {
   }
 }
 
-Tabs.propTypes = { children: PropTypes.node.isRequired }
+Tabs.propTypes = {
+  children: PropTypes.node.isRequired,
+  justify: PropTypes.bool
+}
 
-export const Tab = ({ activeTab, name, render, component, children, ...rest }) => {
+export const Tab = ({
+  activeTab,
+  name,
+  render,
+  component,
+  children,
+  ...rest
+}) => {
   const Component = component
   return (
     <div>
@@ -83,7 +109,7 @@ export const Tab = ({ activeTab, name, render, component, children, ...rest }) =
       {children && activeTab === name && children}
     </div>
   )
-}
+};
 
 Tab.propTypes = {
   name: PropTypes.string.isRequired,
