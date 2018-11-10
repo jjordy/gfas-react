@@ -1,6 +1,6 @@
 {
   "name": "@jjordy/file-upload",
-  "version": "0.0.110",
+  "version": "0.0.111",
   "description": "Composable Drag and drop file upload for react",
   "main": "./lib/index.js",
   "module": "./lib/es/index.js",
@@ -53,7 +53,7 @@
     "jest": "^23.5.0"
   },
   "dependencies": {
-    "@jjordy/layout": "^0.0.124",
+    "@jjordy/layout": "^0.0.125",
     "react-dropzone": "^5.0.1"
   }
 }
