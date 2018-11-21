@@ -14,10 +14,10 @@ import {
 } from '../mixins'
 import { sharedPropTypes } from '../sharedPropTypes'
 
-const Box = styled.div.attrs({
-  as: props => props.as ? props.as : 'div',
-  size: props => props.size ? props.size * 10 : null
-})`
+const Box = styled.div.attrs(props => ({
+  as: props.as ? props.as : 'div',
+  size: props.size ? props.size * 10 : null
+}))`
   box-sizing: border-box;
   ${flexMixin}
   ${spacing}

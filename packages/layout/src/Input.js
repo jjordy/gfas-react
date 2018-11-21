@@ -16,13 +16,15 @@ import Color from 'color'
 import { sharedPropTypes } from './sharedPropTypes'
 
 const labelColorMixin = css`
-  color: ${props => (props.theme ? props.theme.colors.grey : 'rgba(0, 0, 0, 0.87)')};
+  color: ${props =>
+    props.theme ? props.theme.colors.grey : 'rgba(0, 0, 0, 0.87)'};
 `
 
 const FormMessage = styled.small`
   font-size: 0.8rem;
   font-weight: 400;
-  color: ${props => (props.error ? props.theme.colors.red : props.theme.colors.grey)};
+  color: ${props =>
+    props.error ? props.theme.colors.red : props.theme.colors.grey};
 `
 
 const ActionContainer = styled.div`
@@ -50,7 +52,10 @@ export const StyledInput = styled.input`
   height: ${props => `${props.theme.BASE_SIZE * 2}${props.theme.UNIT}`};
   line-height: ${props => props.theme.lineHeight};
   ${inputPaddingMixin} background: #fff;
-  border: ${props => (props.error ? `2px solid ${props.theme.colors.red}` : '1px solid rgba(34, 36, 38, 0.15)')};
+  border: ${props =>
+    props.error
+      ? `2px solid ${props.theme.colors.red}`
+      : '1px solid rgba(34, 36, 38, 0.15)'};
   ${inputColorMixin};
   ${borderRadiusMixin};
   box-shadow: 0 0 0 0 transparent inset;
@@ -122,20 +127,44 @@ Required.propTypes = {
   theme: PropTypes.object
 }
 
-const Input = ({ action, theme, hideLabel, label, id, name, inline, message, ...rest }) => {
+const Input = ({
+  action,
+  theme,
+  hideLabel,
+  label,
+  id,
+  name,
+  inline,
+  message,
+  ...rest
+}) => {
   return (
     <FormField inline={inline} theme={theme} {...rest}>
-      <StyledLabel hideLabel={hideLabel} htmlFor={id || `id_${name}`} theme={theme}>
+      <StyledLabel
+        hideLabel={hideLabel}
+        htmlFor={id || `id_${name}`}
+        theme={theme}
+      >
         {label} <Required {...rest} theme={theme} />
       </StyledLabel>
       <div>
         {action ? (
           <ActionContainer>
-            <StyledInput id={id || `id_${name}`} name={name} {...rest} theme={theme} />
+            <StyledInput
+              id={id || `id_${name}`}
+              name={name}
+              {...rest}
+              theme={theme}
+            />
             {action()}
           </ActionContainer>
         ) : (
-          <StyledInput id={id || `id_${name}`} name={name} {...rest} theme={theme} />
+          <StyledInput
+            id={id || `id_${name}`}
+            name={name}
+            {...rest}
+            theme={theme}
+          />
         )}
         {message && (
           <FormMessage {...rest} theme={theme}>
@@ -161,7 +190,10 @@ ThemedInput.propTypes = {
   onChange: PropTypes.func,
   message: PropTypes.string,
   hideLabel: PropTypes.bool,
-  label: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.node.isRequired]),
+  label: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.node.isRequired
+  ]),
   ...sharedPropTypes
 }
 

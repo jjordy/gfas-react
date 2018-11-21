@@ -17,12 +17,12 @@ const StyledHeader = styled.div`
   ${spacing};
 `
 const StyledContent = styled.div`
-  font-weight: ${props => props.strong ? 700 : 400};
+  font-weight: ${props => (props.strong ? 700 : 400)};
   font-size: 0.9rem;
   ${createRule(0.5, 'margin-left')};
   ${createRule(0.5, 'margin-bottom')};
   p {
-    ${createRule(0.5, 'margin')}
+    ${createRule(0.5, 'margin')};
   }
 `
 
@@ -42,7 +42,7 @@ const ContentContainer = styled.div`
   display: flex;
   align-items: center;
   ${createRule(1, 'margin-bottom')};
-  ${spacing}
+  ${spacing};
 `
 const ContentIcon = styled.div`
   border-radius: ${props => (props.circular ? '99px' : '0px')};
@@ -78,7 +78,7 @@ const StyledMessage = styled.div`
 
 const Message = props => {
   return (
-    <StyledMessage {...props}>
+    <StyledMessage {...props} role='alert'>
       <ContentContainer>{props.content || props.children}</ContentContainer>
       {props.onClose && (
         <StyledButton onClick={props.onClose} ariaLabel='Close' type='button'>

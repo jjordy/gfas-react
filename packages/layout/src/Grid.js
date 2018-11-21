@@ -8,7 +8,10 @@ const px = n => (typeof n === 'number' ? n + 'px' : n)
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(calc(${props => px(props.width)} - ${props => px(props.gap)}), 1fr));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(calc(${props => px(props.width)} - ${props => px(props.gap)}), 1fr)
+  );
   grid-gap: ${props => px(props.gap)};
   align-items: ${props => props.align || null};
   grid-column: ${props => (props.span ? `span ${props => props.span}` : null)};
@@ -19,6 +22,7 @@ const Grid = styled.div`
     }`};
   ${spacing};
 `
+
 const ThemedGrid = withTheme(Grid)
 
 ThemedGrid.displayName = 'Grid'

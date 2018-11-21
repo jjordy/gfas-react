@@ -5,7 +5,13 @@ import withTheme from '../withTheme'
 import MyIcon, { Svg } from '../Icon'
 import { sharedPropTypes } from '../sharedPropTypes'
 import Box from '../Box'
-import { darkenBackgroundColorMixin, heavyFontMixin, iconReverseColorMixin, createRule, findColor } from '../mixins'
+import {
+  darkenBackgroundColorMixin,
+  heavyFontMixin,
+  iconReverseColorMixin,
+  createRule,
+  findColor
+} from '../mixins'
 
 const Icon = styled.span`
   ${createRule(1, 'margin-left')};
@@ -65,11 +71,23 @@ export const StyledButton = styled(Box).attrs({
 
 const ThemedButton = withTheme(StyledButton)
 
-const Button = ({ action, icon, labelPosition, children, content, ...rest }) => (
+const Button = ({
+  action,
+  icon,
+  labelPosition,
+  children,
+  content,
+  ...rest
+}) => (
   <ThemedButton {...rest} icon={icon}>
-    {icon && !labelPosition && <MyIcon icon={icon} mr={(children || content) && 1} />}
+    {icon &&
+      !labelPosition && <MyIcon icon={icon} mr={(children || content) && 1} />}
     {children || content}
-    {icon && labelPosition && labelPosition === 'right' && <MyIcon icon={icon} ml={(children || content) && 1} />}
+    {icon &&
+      labelPosition &&
+      labelPosition === 'right' && (
+      <MyIcon icon={icon} ml={(children || content) && 1} />
+    )}
   </ThemedButton>
 )
 

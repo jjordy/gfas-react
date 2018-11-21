@@ -5,7 +5,13 @@ import Divider from './Divider'
 import withTheme from './withTheme'
 import { sharedPropTypes } from './sharedPropTypes'
 
-import { colorMixin, floatMixin, spacing, textAlignMixin, createRule } from './mixins'
+import {
+  colorMixin,
+  floatMixin,
+  spacing,
+  textAlignMixin,
+  createRule
+} from './mixins'
 
 export const headerStyles = css`
   padding: 0 0;
@@ -69,5 +75,9 @@ HeaderWithDivider.propTypes = {
 }
 
 export default function HeaderWithDivider ({ dividing, ...props }) {
-  return <React.Fragment>{dividing ? <DividedHeader {...props} /> : <ThemedHeader {...props} />}</React.Fragment>
+  return (
+    <React.Fragment>
+      {dividing ? <DividedHeader {...props} /> : <ThemedHeader {...props} />}
+    </React.Fragment>
+  )
 }

@@ -37,7 +37,8 @@ const calculateItemPadding = props => {
 const MenuItem = styled.div`
   position: relative;
   vertical-align: middle;
-  ${createRule(1, 'padding-right')} ${createRule(1, 'padding-left')}
+  ${createRule(1, 'padding-right')};
+  ${createRule(1, 'padding-left')};
   border-right: 1px solid #e7e7e7;
   ${spacing};
   background-color: ${props => (props.active ? 'rgba(0, 0, 0, 0.03)' : null)};
@@ -53,7 +54,8 @@ const Menu = styled.div`
   display: flex;
   flex-direction: ${props => (props.vertical ? 'column' : 'row')};
   width: ${props => calculateWidth(props)};
-  box-shadow: ${props => !props.secondary && '0 1px 2px 0 rgba(34, 36, 38, 0.15)'};
+  box-shadow: ${props =>
+    !props.secondary && '0 1px 2px 0 rgba(34, 36, 38, 0.15)'};
   ${MenuItem} {
     ${props => calculateItemPadding(props)};
     border-right: ${props => (props.secondary ? 0 : 'inherit')};

@@ -150,7 +150,7 @@ export interface LoaderProps {
 
 export interface GridProps {
   width: string | number;
-  align: string;
+  align?: string;
   gap: string | number;
 }
 
@@ -158,6 +158,8 @@ export interface MenuProps {
   vertical?: boolean;
   secondary?: boolean;
 }
+
+export interface MenuItemProps {}
 
 export interface MessageProps {
   onClose: (a: any) => {};
@@ -224,7 +226,9 @@ declare class Form extends Component<SharedProps & FormProps> {}
 declare class Label extends Component<SharedProps & LabelProps> {}
 declare class Loader extends Component<SharedProps & LoaderProps> {}
 declare class Grid extends Component<SharedProps & GridProps> {}
-declare class Menu extends Component<SharedProps & MenuProps> {}
+declare class Menu extends Component<SharedProps & MenuProps> {
+  static Item: Component<SharedProps & MenuItemProps>;
+}
 declare class Message extends Component<SharedProps & MessageProps> {}
 declare class Progress extends Component<SharedProps & ProgressProps> {}
 declare class Responsive extends Component<SharedProps & ResponsiveProps> {}

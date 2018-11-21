@@ -1,8 +1,6 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import Dimmer from './Dimmer'
-import Loader from './Loader'
 import withTheme from './withTheme'
 import {
   spacing,
@@ -43,7 +41,7 @@ const colorMixin = css`
 const clearingMixin = css`
   overflow: auto;
   &::after {
-    content: ".";
+    content: '.';
     display: block;
     height: 0;
     clear: both;

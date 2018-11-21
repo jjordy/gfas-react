@@ -5,19 +5,29 @@ import Box from '../Box'
 
 const Flex = styled(Box)`
   display: flex;
-  ${props => props.justify && `
+  ${props =>
+    props.justify &&
+    `
     justify-content: ${props.justify}
   `}
-  ${props => props.align && `
+  ${props =>
+    props.align &&
+    `
     align-items: ${props.align};
   `}
-  ${props => props.direction && `
+  ${props =>
+    props.direction &&
+    `
     flex-direction: ${props.direction};
   `}
-  ${props => props.wrap && `
+  ${props =>
+    props.wrap &&
+    `
     flex-wrap: ${props.wrap};
   `}
-  ${props => props.content && `
+  ${props =>
+    props.content &&
+    `
     align-content: ${props.content};
   `}
 `
@@ -52,11 +62,7 @@ Flex.propTypes = {
     'space-around'
   ]),
   ...sharedPropTypes,
-  wrap: PropTypes.oneOf([
-    'wrap',
-    'nowrap',
-    'wrap-reverse'
-  ])
+  wrap: PropTypes.oneOf(['wrap', 'nowrap', 'wrap-reverse'])
 }
 
 Flex.displayName = 'Flex'
