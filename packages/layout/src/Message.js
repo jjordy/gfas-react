@@ -3,7 +3,12 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import withTheme from './withTheme'
 import Color from 'color'
-import { spacing, createRule, textBasedOnColorMixin } from './mixins'
+import {
+  spacing,
+  createRule,
+  textBasedOnColorMixin,
+  borderRadiusMixin
+} from './mixins'
 import { sharedPropTypes } from './sharedPropTypes'
 function handleDefault (props) {
   const darkGrey = Color(props.theme.colors.grey)
@@ -52,7 +57,7 @@ const StyledMessage = styled.div`
   display: flex;
   justify-content: space-between;
   background-color: ${props => props.bg && props.bg.hex()};
-  border-radius: ${props => (props.rounded ? '.28rem' : 0)};
+  ${borderRadiusMixin}
   border: ${props =>
     `1.2px solid ${
       props.bg ? props.bg.darken(0.1).hex() : handleDefault(props)
