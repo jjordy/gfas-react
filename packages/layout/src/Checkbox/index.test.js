@@ -16,7 +16,7 @@ describe('Checkbox Component', () => {
     )
   }
   it('Should render a checkbox', () => {
-    const w = createWrapper({ checked: false, color: Color('#f30') })
+    const w = createWrapper({ checked: false, bg: Color('#f30') })
     expect(w).toBeDefined()
   })
 })

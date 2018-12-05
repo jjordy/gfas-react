@@ -60,12 +60,18 @@ storiesOf('@jjordy/Layout/Button', module)
     </Segment>
   ))
   .add('Disabled', () => (
-    <Button bg='primary' disabled={boolean('Disable Button', false)}>
+    <Button bg='primary' disabled={boolean('Disable Button', true)}>
       Disabled Button
     </Button>
   ))
   .add('As', () => (
-    <Button as='a' bg='primary' fluid>
+    <Button
+      as='a'
+      href='#'
+      bg='primary'
+      icon='chevron_right'
+      labelPosition='right'
+    >
       Button
     </Button>
   ))

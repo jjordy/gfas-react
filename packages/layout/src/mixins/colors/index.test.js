@@ -123,7 +123,7 @@ describe('Color Mixins and Helper functions', () => {
 
     it('fgMixin should set the color', () => {
       const w = createWrapper({ fg: 'black' })
-      expect(w).toHaveStyleRule('color', '#000000')
+      expect(w).toHaveStyleRule('color', '#222222')
     })
 
     it('backgroundColorMixin should set the color', () => {

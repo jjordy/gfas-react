@@ -42,6 +42,7 @@ export const buttonStyles = css`
     background-color: #ccc;
     border: 0;
     &:hover {
+      border: 0;
       background-color: #ccc;
     }
   }
@@ -63,15 +64,13 @@ export const buttonStyles = css`
 export const StyledButton = styled(Box).attrs(props => ({
   children: props.children || props.content || '',
   px: !props.p && !props.px && 1,
-  py: !props.p && !props.y && 0.5
+  py: !props.p && !props.py && 0.5
 }))`
   ${buttonStyles};
 `
 
 StyledButton.defaultProps = {
-  as: 'button',
-  px: 1,
-  py: 0.5
+  as: 'button'
 }
 
 const ThemedButton = withTheme(StyledButton)
@@ -85,12 +84,11 @@ const Button = ({
   ...rest
 }) => (
   <ThemedButton {...rest} icon={icon}>
-    {icon &&
-      !labelPosition && <MyIcon icon={icon} mr={(children || content) && 1} />}
+    {icon && !labelPosition && (
+      <MyIcon icon={icon} mr={(children || content) && 1} />
+    )}
     {children || content}
-    {icon &&
-      labelPosition &&
-      labelPosition === 'right' && (
+    {icon && labelPosition && labelPosition === 'right' && (
       <MyIcon icon={icon} ml={(children || content) && 1} />
     )}
   </ThemedButton>

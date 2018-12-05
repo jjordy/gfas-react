@@ -1,9 +1,10 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import withTheme from './withTheme'
-import { spacing, createRule } from './mixins'
-import { sharedPropTypes } from './sharedPropTypes'
+import withTheme from '../withTheme'
+import { createRule } from '../mixins'
+import Box from '../Box'
 
-const Divider = styled.div.attrs({
+const Divider = styled(Box).attrs({
   children: null,
   content: null
 })`
@@ -15,7 +16,6 @@ const Divider = styled.div.attrs({
     margin-top: ${props.theme.BASE_SIZE * 0.5 + props.theme.UNIT};
     margin-bottom: ${props.theme.BASE_SIZE * 0.5 + props.theme.UNIT};
   `}
-  ${spacing}
   height: 2px;
   border-bottom: ${props =>
     !props.hidden &&
@@ -27,7 +27,7 @@ const ThemedDivider = withTheme(Divider)
 ThemedDivider.displayName = 'Divider'
 
 ThemedDivider.propTypes = {
-  ...sharedPropTypes
+  fitted: PropTypes.bool
 }
 
 export default ThemedDivider
