@@ -8,7 +8,9 @@ import { boolean } from '@storybook/addon-knobs'
 const WithAllColors = ({ theme }) => (
   <Grid width='15%'>
     {_.times(Object.keys(theme.colors).length, i => (
-      <Button color={Object.keys(theme.colors)[i]}>{Object.keys(theme.colors)[i].toUpperCase()}</Button>
+      <Button bg={Object.keys(theme.colors)[i]}>
+        {Object.keys(theme.colors)[i].toUpperCase()}
+      </Button>
     ))}
   </Grid>
 )
@@ -16,14 +18,18 @@ const WithAllColors = ({ theme }) => (
 const ColoredButtons = withTheme(WithAllColors)
 
 storiesOf('@jjordy/Layout/Button', module)
-  .add('Default', () => <Button>SUBMIT</Button>)
+  .add('Default', () => <Button type='submit'>SUBMIT</Button>)
   .add('Fluid', () => (
     <div>
       <Button fluid>FLUID</Button>
       <div style={{ maxWidth: 200 }}>
-        <Button fluid icon='chevron_right'>Signup</Button>
+        <Button fluid icon='chevron_right' type='submit'>
+          Signup
+        </Button>
         <br />
-        <Button fluid icon='chevron_right'>Forgot Password</Button>
+        <Button fluid icon='chevron_right'>
+          Forgot Password
+        </Button>
       </div>
     </div>
   ))
@@ -54,12 +60,12 @@ storiesOf('@jjordy/Layout/Button', module)
     </Segment>
   ))
   .add('Disabled', () => (
-    <Button color='primary' disabled={boolean('Disable Button', false)}>
+    <Button bg='primary' disabled={boolean('Disable Button', false)}>
       Disabled Button
     </Button>
   ))
   .add('As', () => (
-    <Button as='a' color='primary' fluid>
+    <Button as='a' bg='primary' fluid>
       Button
     </Button>
   ))

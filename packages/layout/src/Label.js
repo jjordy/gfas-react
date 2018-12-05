@@ -5,7 +5,7 @@ import {
   spacing,
   createRule,
   borderRadiusMixin,
-  backgroundColorMixin,
+  bgMixin,
   textBasedOnColorMixin,
   iconReverseColorMixin
 } from './mixins'
@@ -30,7 +30,7 @@ const StyledLabel = styled.div`
   font-weight: 700;
   ${textBasedOnColorMixin}
   ${borderRadiusMixin}
-  ${backgroundColorMixin}
+  ${bgMixin}
 
   & ${Svg} {
       ${iconReverseColorMixin};
@@ -38,19 +38,18 @@ const StyledLabel = styled.div`
 `
 const ThemedLabel = withTheme(StyledLabel)
 
-const Label = ({ icon, children, color, content, ...rest }) => (
+const Label = ({ icon, children, bg, content, ...rest }) => (
   <InlineWrapper>
-    <ThemedLabel color={color} {...rest}>
-      {icon && <Icon icon={icon} mr={1} mb={0} color={color} />}
+    <ThemedLabel bg={bg} {...rest}>
+      {icon && <Icon icon={icon} mr={1} mb={0} bg={bg} />}
       {children || content}
     </ThemedLabel>
   </InlineWrapper>
-
 )
 
 Label.propTypes = {
   icon: PropTypes.string,
-  color: PropTypes.string,
+  bg: PropTypes.string,
   ...sharedPropTypes
 }
 export default Label

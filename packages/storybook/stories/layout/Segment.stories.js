@@ -46,16 +46,17 @@ storiesOf('@jjordy/Layout/Segment', module)
       <div>
         <Segment
           loading={boolean('Loading', false, segment1)}
-          color={select('Colors', colors, 'primary', segment1)}
+          bg={select('Colors', colors, 'primary', segment1)}
           rounded={boolean('Rounded', false, segment1)}
           attached={select('Attached', attached, false, segment1)}
           m={number('Margin', defaultMargin, marginOptions, segment1)}
           p={number('Padding', defaultPadding, paddingOptions, segment1)}
         >
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium accusantium tempore voluptatibus iusto
-            deserunt recusandae odio, officiis, voluptatem doloremque repellat voluptate ipsum deleniti consequatur
-            nostrum dolorum, excepturi magnam molestiae ab?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
+            accusantium tempore voluptatibus iusto deserunt recusandae odio,
+            officiis, voluptatem doloremque repellat voluptate ipsum deleniti
+            consequatur nostrum dolorum, excepturi magnam molestiae ab?
           </p>
         </Segment>
       </div>
@@ -64,7 +65,7 @@ storiesOf('@jjordy/Layout/Segment', module)
   )
   .add('Attached', () => (
     <div>
-      <Segment attached='top' color='blue'>
+      <Segment attached='top' bg='blue'>
         Attached Top
       </Segment>
       <Segment attached>Attached</Segment>

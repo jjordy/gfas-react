@@ -24,7 +24,7 @@ const Form = ({ onSubmit, loading, ...rest }) => {
   return (
     <React.Fragment>
       <Dimmer active={loading}>
-        <Loader color='primary' />
+        <Loader bg='primary' />
       </Dimmer>
       <ThemedForm onSubmit={handleSubmit} {...rest} />
     </React.Fragment>

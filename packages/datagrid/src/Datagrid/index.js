@@ -68,7 +68,8 @@ const Cell = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: ${props => (props.highlight ? props.rowHighlightColor : '#FFF')};
+  background-color: ${props =>
+    props.highlight ? props.rowHighlightColor : '#FFF'};
   align-items: center;
   padding: 0 0.5em;
   box-sizing: border-box;
@@ -77,7 +78,7 @@ const Cell = styled.div`
 `
 
 class DataGrid extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
@@ -123,7 +124,7 @@ class DataGrid extends Component {
   _noContentRenderer = () => {
     return (
       <NoCells>
-        <Text color='darkGrey' strong>
+        <Text fg="darkGrey" strong>
           No Records Found
         </Text>
       </NoCells>
@@ -131,7 +132,9 @@ class DataGrid extends Component {
   }
 
   _renderHeaderCell = ({ columnIndex, key, rowIndex, style }) => {
-    const childColumnEl = React.Children.toArray(this.props.children)[columnIndex]
+    const childColumnEl = React.Children.toArray(this.props.children)[
+      columnIndex
+    ]
     if (childColumnEl.props.active) {
       return (
         <HeaderCell key={key} style={style}>
@@ -144,15 +147,29 @@ class DataGrid extends Component {
       )
     }
   }
-  render () {
-    const { height, overscanColumnCount, overscanRowCount, scrollToColumn, scrollToRow } = this.state
-    const { data, columnCount, rowCount, rowHeight, rowHighlightColor } = this.props
+  render() {
+    const {
+      height,
+      overscanColumnCount,
+      overscanRowCount,
+      scrollToColumn,
+      scrollToRow
+    } = this.state
+    const {
+      data,
+      columnCount,
+      rowCount,
+      rowHeight,
+      rowHighlightColor
+    } = this.props
     const renderBodyCell = ({ columnIndex, key, rowIndex, style }) => {
       const { columns } = this.props
       const highlight = this._getRowHighlight(rowIndex)
       const datum = data[rowIndex]
       const columnName = columns[columnIndex].id
-      const childColumnEl = React.Children.toArray(this.props.children)[columnIndex]
+      const childColumnEl = React.Children.toArray(this.props.children)[
+        columnIndex
+      ]
 
       if (datum && childColumnEl.props.active) {
         let content = datum[columnName]
@@ -164,12 +181,17 @@ class DataGrid extends Component {
           }
         }
         return (
-          <Cell key={key} style={style} highlight={highlight} rowHighlightColor={rowHighlightColor}>
+          <Cell
+            key={key}
+            style={style}
+            highlight={highlight}
+            rowHighlightColor={rowHighlightColor}
+          >
             {childColumnEl && childColumnEl.props.render
               ? childColumnEl.props.render({
-                row: datum,
-                value: datum[columnName]
-              })
+                  row: datum,
+                  value: datum[columnName]
+                })
               : content}
           </Cell>
         )
@@ -180,7 +202,15 @@ class DataGrid extends Component {
     return (
       <div>
         <ScrollSync>
-          {({ clientHeight, clientWidth, onScroll, scrollHeight, scrollLeft, scrollTop, scrollWidth }) => {
+          {({
+            clientHeight,
+            clientWidth,
+            onScroll,
+            scrollHeight,
+            scrollLeft,
+            scrollTop,
+            scrollWidth
+          }) => {
             return (
               <AutoSizer disableHeight>
                 {({ width }) => (

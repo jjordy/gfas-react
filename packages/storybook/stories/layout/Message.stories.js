@@ -16,7 +16,7 @@ storiesOf('@jjordy/Layout/Message', module)
   .add(
     'Default',
     () => (
-      <Message onClose={action('CLOSE')} color={select('Colors', colors, 'primary')}>
+      <Message onClose={action('CLOSE')} bg={select('Colors', colors, 'primary')}>
         <Message.Content>
           <Message.Header>Test</Message.Header>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam saepe dolorem cumque earum culpa blanditiis
@@ -28,9 +28,9 @@ storiesOf('@jjordy/Layout/Message', module)
     { notes: 'An alert message' }
   )
   .add('Icon', () => (
-    <Message onClose={action('CLOSE')} color={select('Colors', colors, 'primary')}>
+    <Message onClose={action('CLOSE')} bg={select('Colors', colors, 'primary')}>
       <Message.Icon>
-        <Icon icon='question' size={2} color='white' />
+        <Icon icon='question' size={2} bg='white' />
       </Message.Icon>
       <Message.Content>
         <Message.Header>Test</Message.Header>

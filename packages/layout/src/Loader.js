@@ -8,8 +8,8 @@ import Rings from './Rings'
 import Oval from './Oval'
 import ThreeDots from './ThreeDots'
 
-const Spinner = ({ color, theme, type }) => {
-  const c = (color && color.hex()) || theme.darkGrey
+const Spinner = ({ bg, theme, type }) => {
+  const c = (bg && bg.hex()) || theme.darkGrey
   switch (type) {
     case 'puff':
       return <Puff color={c} />
@@ -28,7 +28,7 @@ const Spinner = ({ color, theme, type }) => {
   }
 }
 
-const ThemedSpinner = withTheme(Spinner)
+const ThemedSpinner = withTheme(Spinner, 'darkGrey')
 
 Spinner.propTypes = {
   type: PropTypes.oneOf([

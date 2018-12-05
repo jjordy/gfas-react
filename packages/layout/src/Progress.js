@@ -13,17 +13,19 @@ const ProgressContainer = styled.div`
   ${createRule(1, 'margin-bottom')};
   box-shadow: none;
   background: rgba(0, 0, 0, 0.1);
-  ${borderRadiusMixin}
-  ${spacing}
+  ${borderRadiusMixin} ${spacing};
 `
 const ProgressBar = styled.div`
   display: block;
   line-height: 1;
-  background-color: ${props => props.color.darken(props.percent < 100 ? props.percent / 1000 : 100 / 1000).hex()};
-  width: ${props => (props.percent && props.percent > 100 ? 100 : props.percent)}%;
+  background-color: ${props =>
+    props.bg
+      .darken(props.percent < 100 ? props.percent / 1000 : 100 / 1000)
+      .hex()};
+  width: ${props =>
+    props.percent && props.percent > 100 ? 100 : props.percent}%;
   transition: width 200ms ease-in-out;
-  ${createRule(1, 'height')}
-  ${borderRadiusMixin}
+  ${createRule(1, 'height')} ${borderRadiusMixin};
 `
 
 const ThemedProgressBar = withTheme(ProgressBar, 'primary')

@@ -19,7 +19,7 @@ const Divider = styled.div.attrs({
   height: 2px;
   border-bottom: ${props =>
     !props.hidden &&
-    `2px solid ${props.color.hex() || props.theme.colors.lightGrey}`};
+    `2px solid ${props.bg.hex() || props.theme.colors.lightGrey}`};
 `
 
 const ThemedDivider = withTheme(Divider)

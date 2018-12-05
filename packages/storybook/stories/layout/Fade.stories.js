@@ -16,13 +16,13 @@ storiesOf('@jjordy/Layout/Fade', module)
   .add('Default', () => (
     <Fade visible={boolean('Visible', state)} duration={number('duration', 500)}>
       <Message
-        color='red'
+        bg='red'
         onClose={button('Toggle Close', () => {
           state = !state
         })}
       >
         <Message.Icon>
-          <Icon color='white' size={2} icon='question' />
+          <Icon bg='white' size={2} icon='question' />
         </Message.Icon>
         <Message.Content>
           <Message.Header>Test</Message.Header>

@@ -80,8 +80,12 @@ export const borderBottomRadiusMixin = css`
   ${props =>
     (props.rounded || props.theme.rounded) &&
     `
-    border-bottom-right-radius: ${props.theme.BASE_SIZE / 3.5}${props.theme.UNIT};
-    border-bottom-left-radius: ${props.theme.BASE_SIZE / 3.5}${props.theme.UNIT}; 
+    border-bottom-right-radius: ${props.theme.BASE_SIZE / 3.5}${
+  props.theme.UNIT
+};
+    border-bottom-left-radius: ${props.theme.BASE_SIZE / 3.5}${
+  props.theme.UNIT
+}; 
   `};
 `
 
@@ -90,7 +94,9 @@ export const borderRightRadiusMixin = css`
     (props.rounded || props.theme.rounded) &&
     `
     border-top-right-radius: ${props.theme.BASE_SIZE / 3.5}${props.theme.UNIT};
-    border-bottom-right-radius: ${props.theme.BASE_SIZE / 3.5}${props.theme.UNIT}; 
+    border-bottom-right-radius: ${props.theme.BASE_SIZE / 3.5}${
+  props.theme.UNIT
+}; 
   `};
 `
 
@@ -99,13 +105,16 @@ export const borderLeftRadiusMixin = css`
     (props.rounded || (!isBool(props.rounded) && props.theme.rounded)) &&
     `
     border-top-left-radius: ${props.theme.BASE_SIZE / 3.5}${props.theme.UNIT};
-    border-bottom-left-radius: ${props.theme.BASE_SIZE / 3.5}${props.theme.UNIT}; 
+    border-bottom-left-radius: ${props.theme.BASE_SIZE / 3.5}${
+  props.theme.UNIT
+}; 
   `};
 `
 
 export const borderRadiusMixin = css`
   ${props =>
-    ((!props.secondary && props.rounded) || (!props.secondary && !isBool(props.rounded) && props.theme.rounded)) &&
+    ((!props.secondary && props.rounded) ||
+      (!props.secondary && !isBool(props.rounded) && props.theme.rounded)) &&
     `
     border-radius: ${props.theme.BASE_SIZE / 3.8}${props.theme.UNIT};
   `};
@@ -129,8 +138,10 @@ export const borderMixin = css`
 `
 
 export const size = css`
-  width: ${props => props.size && props.size * props.theme.BASE_SIZE + props.theme.UNIT};
-  height: ${props => props.size && props.size * props.theme.BASE_SIZE + props.theme.UNIT};
+  width: ${props =>
+    props.size && props.size * props.theme.BASE_SIZE + props.theme.UNIT};
+  height: ${props =>
+    props.size && props.size * props.theme.BASE_SIZE + props.theme.UNIT};
 `
 
 export const inputPaddingMixin = css`
@@ -155,9 +166,11 @@ export const heavyFontMixin = css`
 `
 
 export const flexMixin = css`
-  ${props => props.flex && `
+  ${props =>
+    props.flex &&
+    `
     flex: ${props.flex};
-  `}
+  `};
 `
 
 export const spacing = css`
@@ -179,7 +192,6 @@ export const spacing = css`
 
 export {
   backgroundColorMixin,
-  colorMixin,
   textBasedOnColorMixin,
   darkenBackgroundColorMixin,
   inputColorMixin,

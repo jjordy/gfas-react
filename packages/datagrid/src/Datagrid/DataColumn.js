@@ -27,9 +27,9 @@ const DataColumn = ({
   ...rest
 }) => {
   const displaySortIcon = asc ? (
-    <Icon icon='chevron_up' color='red' width='12' height='12' />
+    <Icon icon="chevron_up" bg="red" width="12" height="12" />
   ) : (
-    <Icon icon='chevron_down' color='red' width='12' height='12' />
+    <Icon icon="chevron_down" bg="red" width="12" height="12" />
   )
   return (
     <div {...rest} onClick={() => toggleSort(id)}>

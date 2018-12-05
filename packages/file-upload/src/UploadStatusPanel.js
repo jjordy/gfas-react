@@ -31,21 +31,21 @@ export default function UploadStatusPanel ({
   } else {
     return (
       <StatusContainer>
-        <Header as='h5' color='darkGrey' dividing>
+        <Header as='h5' fg='darkGrey' dividing>
           Uploaded Files
         </Header>
         {files.length > 0 &&
           files.map((file, key) => (
             <div key={`Upload_List_File_${key}`}>
               <FilePreviewLink href={file.preview} target='_blank'>
-                <Label icon='file' mb={1} color='grey'>
+                <Label icon='file' mb={1} fg='grey'>
                   {file.name} - <FileSize fileSize={file.size} />
                 </Label>
               </FilePreviewLink>
             </div>
           ))}
         {files.length === 0 && (
-          <Text strong color='grey'>
+          <Text strong fg='grey'>
             No Files
           </Text>
         )}

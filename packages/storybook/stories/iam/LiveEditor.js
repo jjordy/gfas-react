@@ -12,11 +12,11 @@ export default class LiveEditor extends React.Component {
     deny: false,
     error: null
   }
-  componentDidCatch (err) {
+  componentDidCatch(err) {
     console.log(err)
     this.setState({ error: err })
   }
-  componentWillMount () {
+  componentWillMount() {
     this.setState({
       livePolicy: this.props.policy,
       userData: this.props.userData
@@ -64,37 +64,39 @@ export default class LiveEditor extends React.Component {
     this.setState({ deny: false })
   }
 
-  render () {
+  render() {
     const { livePolicy, invalid, userData } = this.state
-    const deny = <Dimmer active={this.state.deny}>
-      <Text strong color='red'>Access Denied</Text>
-    </Dimmer>
+    const deny = (
+      <Dimmer active={this.state.deny}>
+        <Text strong fg="red">
+          Access Denied
+        </Text>
+      </Dimmer>
+    )
     return (
-      <Grid width='50%' gap={32}>
+      <Grid width="50%" gap={32}>
         <div>
           {this.state.error && <div>{this.state.error}</div>}
-          <div style={{position: 'relative'}}>
-            {deny}
-          </div>
+          <div style={{ position: 'relative' }}>{deny}</div>
           {userData &&
             livePolicy && (
-            <IAMPolicy
-              policy={livePolicy}
-              userData={userData}
-              name={this.props.policyName}
-              onDeny={this.onDeny}
-              onAllow={this.onAllow}
-              render={({ display, policy }) => (
-                <div>
-                  {display &&
+              <IAMPolicy
+                policy={livePolicy}
+                userData={userData}
+                name={this.props.policyName}
+                onDeny={this.onDeny}
+                onAllow={this.onAllow}
+                render={({ display, policy }) => (
+                  <div>
+                    {display &&
                       React.createElement(this.props.component, {
                         policy: policy,
                         userData: userData
                       })}
-                </div>
-              )}
-            />
-          )}
+                  </div>
+                )}
+              />
+            )}
         </div>
         <div>
           <JSONEditor

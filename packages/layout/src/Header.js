@@ -6,7 +6,7 @@ import withTheme from './withTheme'
 import { sharedPropTypes } from './sharedPropTypes'
 
 import {
-  colorMixin,
+  fgMixin,
   floatMixin,
   spacing,
   textAlignMixin,
@@ -20,7 +20,7 @@ export const headerStyles = css`
   text-transform: none;
   ${createRule(1, 'margin-top')};
   ${createRule(1, 'margin-bottom')};
-  ${colorMixin};
+  ${fgMixin};
   ${floatMixin};
   ${textAlignMixin};
   ${spacing};
@@ -57,10 +57,10 @@ function Header ({ ...rest }) {
 
 const ThemedHeader = withTheme(Header, 'black')
 
-const DividedHeader = ({ color, ...rest }) => (
+const DividedHeader = ({ fg, ...rest }) => (
   <div>
-    <ThemedHeader style={{ marginBottom: '.5rem' }} color={color} {...rest} />
-    <Divider fitted color={color} />
+    <ThemedHeader style={{ marginBottom: '.5rem' }} fg={fg} {...rest} />
+    <Divider fitted fg={fg} />
   </div>
 )
 

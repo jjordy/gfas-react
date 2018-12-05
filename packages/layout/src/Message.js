@@ -51,11 +51,11 @@ const ContentIcon = styled.div`
 const StyledMessage = styled.div`
   display: flex;
   justify-content: space-between;
-  background-color: ${props => props.color && props.color.hex()};
+  background-color: ${props => props.bg && props.bg.hex()};
   border-radius: ${props => (props.rounded ? '.28rem' : 0)};
   border: ${props =>
     `1.2px solid ${
-      props.color ? props.color.darken(0.1).hex() : handleDefault(props)
+      props.bg ? props.bg.darken(0.1).hex() : handleDefault(props)
     }`};
   box-sizing: border-box;
   ${createRule(1, 'margin-bottom')};

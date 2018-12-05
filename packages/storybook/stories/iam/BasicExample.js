@@ -4,9 +4,9 @@ import { iamDisabled } from '@jjordy/iam'
 
 const MyTestComponent = ({ policy }) => (
   <div>
-    <Segment color='blue' clearing>
+    <Segment bg='blue' clearing>
       <Icon icon='checkbox_checked' />
-      <Header dividing color='blue' clearing>
+      <Header dividing fg='blue' clearing>
         Basic Example Form Component
       </Header>
       <Form>

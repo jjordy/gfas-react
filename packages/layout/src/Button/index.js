@@ -31,6 +31,12 @@ export const buttonStyles = css`
   ${heavyFontMixin};
   vertical-align: middle;
   transition: background-color 0.2s ease;
+  border: ${props =>
+    props.border
+      ? props.border
+      : `1px solid ${findColor(props)
+        .darken(0.1)
+        .hex()}`};
   line-height: 1em;
   &[disabled] {
     background-color: #ccc;
@@ -54,20 +60,19 @@ export const buttonStyles = css`
   }
 `
 
-export const StyledButton = styled(Box).attrs({
-  as: props => (props.as ? props.as : 'button'),
-  children: props => props.children || props.content || '',
-  px: props => !props.p && !props.px && 1,
-  py: props => !props.p && !props.y && 0.5,
-  border: props =>
-    props.border
-      ? props.border
-      : `1px solid ${findColor(props)
-        .darken(0.1)
-        .hex()}`
-})`
+export const StyledButton = styled(Box).attrs(props => ({
+  children: props.children || props.content || '',
+  px: !props.p && !props.px && 1,
+  py: !props.p && !props.y && 0.5
+}))`
   ${buttonStyles};
 `
+
+StyledButton.defaultProps = {
+  as: 'button',
+  px: 1,
+  py: 0.5
+}
 
 const ThemedButton = withTheme(StyledButton)
 

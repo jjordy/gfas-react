@@ -8,15 +8,23 @@ import { IAMPolicy, IAMVisible } from '@jjordy/iam'
 
 storiesOf('@jjordy/IAM', module).add('Access Example', () => (
   <IAMPolicy
-    name='AccessExample'
+    name="AccessExample"
     policy={object('Access Policy', accessExamplePolicy, 'Access Examples')}
     render={({ policy }) => (
-      <Segment color='orange'>
-        <IAMVisible field='panel' effects={policy.visible} render={() => <div>I AM VISIBLE PANEL</div>} />
+      <Segment bg="orange">
+        <IAMVisible
+          field="panel"
+          effects={policy.visible}
+          render={() => <div>I AM VISIBLE PANEL</div>}
+        />
       </Segment>
     )}
     onDeny={action('Denied')}
     onAllow={action('Allowed')}
-    userData={object('User Data', { token: { groups: ['billing'] } }, 'Access Examples')}
+    userData={object(
+      'User Data',
+      { token: { groups: ['billing'] } },
+      'Access Examples'
+    )}
   />
 ))

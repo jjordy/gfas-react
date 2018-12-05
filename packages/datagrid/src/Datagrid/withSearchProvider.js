@@ -72,7 +72,9 @@ export default function SearchProvider (C) {
         mySearchTerm = Date.parse(searchTerm).toString()
       }
 
-      const filteredResults = data ? data.filter(createFilter(mySearchTerm, searchKeys, searchOptions)) : null
+      const filteredResults = data
+        ? data.filter(createFilter(mySearchTerm, searchKeys, searchOptions))
+        : null
       return (
         <div>
           <SearchContainer>
@@ -89,7 +91,7 @@ export default function SearchProvider (C) {
               )}
             </SearchInputContainer>
             <TotalResultsContainer>
-              <Text color='grey' small mb={0} px={1}>
+              <Text fg='grey' small mb={0} px={1}>
                 {(filteredResults && filteredResults.length) || 0} Total
               </Text>
             </TotalResultsContainer>
@@ -103,14 +105,19 @@ export default function SearchProvider (C) {
                   role='button'
                   style={{ textAlign: 'right' }}
                   aria-label='Show Help Button'
-                  color='gray'
+                  bg='gray'
                 />
               )}
             </HelpIconContainer>
           </SearchContainer>
           <Fade visible={showHelp} duration={250}>
             <Segment attached p={1}>
-              <Header as='h4' children='Advanced Search for this grid' dividing my={1} />
+              <Header
+                as='h4'
+                children='Advanced Search for this grid'
+                dividing
+                my={1}
+              />
               <Grid width='20%' gap={8}>
                 {search &&
                   Array.isArray(search) &&
@@ -124,7 +131,7 @@ export default function SearchProvider (C) {
                         }}
                       >
                         <code>
-                          <Text m={0} p={0} strong color='blue'>
+                          <Text m={0} p={0} strong fg='blue'>
                             <code>{column.key.split('.')[0]}:</code>
                           </Text>
                         </code>
@@ -132,8 +139,9 @@ export default function SearchProvider (C) {
                     )
                   })}
               </Grid>
-              <Header as='h6' color='grey' my={1}>
-                NOTE: Remember if you are searching for a date always used the MM/DD/YYYY format.
+              <Header as='h6' fg='grey' my={1}>
+                NOTE: Remember if you are searching for a date always used the
+                MM/DD/YYYY format.
               </Header>
             </Segment>
           </Fade>

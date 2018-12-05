@@ -7,8 +7,8 @@ import { Header, Image, Loader } from '@jjordy/layout'
 const UploadContainer = styled.div`
   flex-grow: 2;
   max-width: 75%;
-  background-color: #FFF;
-  @media(max-width: 768px) {
+  background-color: #fff;
+  @media (max-width: 768px) {
     max-width: 100%;
   }
 `
@@ -17,7 +17,7 @@ const StyledDropzone = styled(Dropzone)`
   width: 100%;
   min-height: 300px;
   border-right: 2px dashed #e7e7e7;
-  @media(max-width: 768px) {
+  @media (max-width: 768px) {
     border-right: none;
     border-bottom: 2px dashed #e7e7e7;
   }
@@ -35,7 +35,12 @@ export default class UploadPanel extends React.Component {
     const { accept, multiple, onDrop, completed, files, children } = this.props
     return (
       <UploadContainer>
-        <StyledDropzone ref='dropzone' accept={accept} multiple={multiple} onDrop={onDrop}>
+        <StyledDropzone
+          ref='dropzone'
+          accept={accept}
+          multiple={multiple}
+          onDrop={onDrop}
+        >
           {!children && (
             <UploadMessage className='upload-container--message'>
               {files && files.length > 0 ? (
@@ -43,7 +48,7 @@ export default class UploadPanel extends React.Component {
                   {!completed && (
                     <div>
                       <Loader active />
-                      <Header as='h5' color='grey'>
+                      <Header as='h5' fg='grey'>
                         Files Uploading...
                       </Header>
                     </div>
@@ -52,7 +57,7 @@ export default class UploadPanel extends React.Component {
                 </div>
               ) : (
                 <div style={{ textAlign: 'center', padding: '1em' }}>
-                  <Header as='h4' color='darkGrey'>
+                  <Header as='h4' fg='darkGrey'>
                     Click anywhere in this box to select a file to upload <br />
                     or drag and drop one here
                   </Header>

@@ -11,6 +11,10 @@ const colors = Object.keys(defaultTheme.colors).reduce((acc, curr) => {
   return acc
 }, {})
 storiesOf('@jjordy/Layout/Label', module)
-  .add('Default', () => <Label>Default Label</Label>, { notes: 'An informative label' })
-  .add('Color', () => <Label color={select('Color', colors, 'primary')}>Im a Label</Label>)
+  .add('Default', () => <Label>Default Label</Label>, {
+    notes: 'An informative label'
+  })
+  .add('Color', () => (
+    <Label bg={select('Color', colors, 'primary')}>Im a Label</Label>
+  ))
   .add('Icon', () => <Label icon='question'>Icon Label</Label>)

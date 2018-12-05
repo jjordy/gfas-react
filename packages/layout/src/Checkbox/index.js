@@ -3,9 +3,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import withTheme from '../withTheme'
 import Icon from '../Icon'
-import { spacing, borderRadiusMixin } from '../mixins'
+import { spacing } from '../mixins'
 import { sharedPropTypes } from '../sharedPropTypes'
-import Color from 'color'
 
 const Container = styled.div`
   display: inline-flex;
@@ -13,23 +12,8 @@ const Container = styled.div`
   user-select: none;
   margin-right: 1rem;
   align-self: center;
-  ${spacing};
   outline: 0;
-  &:focus {
-    ${borderRadiusMixin};
-    padding: 0.1rem;
-    border-color: ${props => !props.error && props.theme.colors.info};
-    box-shadow: 0 0 0 0.2rem
-      rgba(
-        ${props =>
-    !props.error &&
-          Color(props.theme.colors.info)
-            .rgb()
-            .array()
-            .join(',')},
-        0.25
-      );
-  }
+  ${spacing};
 `
 
 const FormMessage = styled.small`
@@ -66,11 +50,11 @@ Check.displayName = 'Check'
 export const CheckIcon = styled(Icon)`
   width: 18px;
   height: 18px;
-  fill: ${({ color, theme, error }) => {
+  fill: ${({ bg, theme, error }) => {
     if (error) {
       return theme['red']
     } else {
-      return color.hex()
+      return bg.hex()
     }
   }};
 `

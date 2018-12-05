@@ -38,8 +38,8 @@ const ActionContainer = styled.div`
   }
 
   & button {
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
     height: ${props => `${props.theme.BASE_SIZE * 2}${props.theme.UNIT}`};
     border-left: 0px;
   }
@@ -83,7 +83,6 @@ export const StyledInput = styled.input`
 
 export const StyledLabel = styled.label`
   display: block;
-  ${inputMarginMixin}
   ${labelColorMixin}
   ${heavyFontMixin}
   ${props =>
@@ -102,12 +101,14 @@ export const StyledLabel = styled.label`
 `
 const inlineLabelMixin = css`
   ${createRule(1, 'margin-right')};
+  width: 150px;
 `
 
 const FormField = styled.div`
+  margin-bottom: 1rem;
   clear: both;
-  ${props => (props.inline ? 'margin-right: 1rem' : 'margin-bottom: 1rem')};
   display: ${props => (props.inline ? 'flex' : 'block')};
+  flex: 1;
   align-items: center;
   ${StyledLabel} {
     ${props => props.inline && inlineLabelMixin};
@@ -115,9 +116,13 @@ const FormField = styled.div`
   ${spacing};
 `
 
+const RequiredSpan = styled.span`
+  color: ${props => props.theme.colors.red || '#f30'};
+`
+
 const Required = ({ required, theme }) => {
   if (required) {
-    return <span style={{ color: theme.red || '#f30' }}>*</span>
+    return <RequiredSpan>*</RequiredSpan>
   }
   return null
 }
@@ -147,7 +152,7 @@ const Input = ({
       >
         {label} <Required {...rest} theme={theme} />
       </StyledLabel>
-      <div>
+      <div style={{ width: '100%' }}>
         {action ? (
           <ActionContainer>
             <StyledInput
@@ -166,11 +171,7 @@ const Input = ({
             theme={theme}
           />
         )}
-        {message && (
-          <FormMessage {...rest} theme={theme}>
-            {message}
-          </FormMessage>
-        )}
+        {message && <FormMessage {...rest}>{message}</FormMessage>}
       </div>
     </FormField>
   )

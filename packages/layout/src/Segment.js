@@ -35,7 +35,7 @@ const segmentMixin = css`
 `
 
 const colorMixin = css`
-  border-top: 0.15rem solid ${props => props.color.hex()};
+  border-top: 0.15rem solid ${props => props.bg.hex()};
 `
 
 const clearingMixin = css`
@@ -61,7 +61,7 @@ const Segment = styled.div`
   ${props =>
     props.attached && typeof props.attached === 'boolean' && attachedMixin}
   ${props => !props.attached && segmentMixin}
-  ${props => props.color && colorMixin}
+  ${props => props.bg && colorMixin}
   background-color: ${props => !props.vertical && '#FFF'};
   & ${Dimmer} {
     padding: 0;

@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react'
 import { select } from '@storybook/addon-knobs'
 
 const colors = Object.keys(defaultTheme.colors).reduce((acc, curr) => {
-  const key = curr.replace(/([A-Z])/g, ' $1').replace(/^./, function (str) {
+  const key = curr.replace(/([A-Z])/g, ' $1').replace(/^./, function(str) {
     return str.toUpperCase()
   })
   acc[key] = curr
@@ -22,5 +22,9 @@ const loaderTypes = {
 
 storiesOf('@jjordy/Layout/Loader', module)
   .add('Default', () => <Loader active />)
-  .add('Colors', () => <Loader active color={select('Loader Colors', colors, 'primary')} />)
-  .add('Alternate Loaders', () => <Loader active type={select('Loader Type', loaderTypes, 'puff')} />)
+  .add('Colors', () => (
+    <Loader active bg={select('Loader Colors', colors, 'primary')} />
+  ))
+  .add('Alternate Loaders', () => (
+    <Loader active type={select('Loader Type', loaderTypes, 'puff')} />
+  ))

@@ -31,7 +31,8 @@ storiesOf('@jjordy/Layout/Header', module)
     () => (
       <div>
         <Header
-          color={select(
+          as='h1'
+          fg={select(
             'Color',
             {
               Black: 'black',
@@ -58,7 +59,7 @@ storiesOf('@jjordy/Layout/Header', module)
     { notes: 'Header' }
   )
   .add('Dividing', () => (
-    <Header dividing color='grey'>
+    <Header dividing fg='grey'>
       Header
     </Header>
   ))
@@ -68,7 +69,9 @@ storiesOf('@jjordy/Layout/Header', module)
       <Header textAlign='right'>Right Aligned</Header>
       <Header textAlign='center'>Center Aligned</Header>
       <Header textAlign='left'>Left Aligned</Header>
-      <Header textAlign='justify'>This will take up the full width of the container</Header>
+      <Header textAlign='justify'>
+        This will take up the full width of the container
+      </Header>
     </div>
   ))
   .add('Size', () => (
@@ -77,7 +80,7 @@ storiesOf('@jjordy/Layout/Header', module)
     </Header>
   ))
   .add('As', () => (
-    <Header size={1.5} color='success' as={TestComponent} href='test'>
+    <Header size={1.5} fg='success' as={TestComponent} href='test'>
       Test
     </Header>
   ))

@@ -41,15 +41,13 @@
     "react": "next",
     "react-dom": "next",
     "react-virtualized": "^9.20.1",
-    "storybook-addon-jsx": "^5.4.0",
+    "storybook-addon-jsx": "^6.0.0",
     "storybook-addon-styled-component-theme": "^1.0.7",
     "styled-components": "^4.0.2",
     "uuid": "^3.2.1",
     "webpack": "^4.20.2"
   },
   "dependencies": {
-    "@jjordy/primatives": "^0.0.1",
-    "@jjordy/vtable": "^0.0.2",
     "axios": "^0.18.0"
   }
 }

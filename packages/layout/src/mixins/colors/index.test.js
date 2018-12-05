@@ -9,7 +9,6 @@ import {
   darkenBackgroundColorMixin,
   handleDarkColor,
   handleLightColor,
-  colorMixin,
   backgroundColorMixin,
   inputColorMixin
 } from '.'
@@ -55,24 +54,36 @@ describe('Color Mixins and Helper functions', () => {
   describe('Helper Functions', () => {
     describe('findColor helper function', () => {
       it('Should find the color from the theme if it exists', () => {
-        expect(findColor({ bg: 'black', theme }).hex()).toEqual(Color(theme.colors.black).hex())
+        expect(findColor({ bg: 'black', theme }).hex()).toEqual(
+          Color(theme.colors.black).hex()
+        )
       })
 
       it('Should accept bg or color props', () => {
-        expect(findColor({ bg: 'black', theme }).hex()).toEqual(Color(theme.colors.black).hex())
-        expect(findColor({ color: 'black', theme }).hex()).toEqual(Color(theme.colors.black).hex())
+        expect(findColor({ bg: 'black', theme }).hex()).toEqual(
+          Color(theme.colors.black).hex()
+        )
+        expect(findColor({ color: 'black', theme }).hex()).toEqual(
+          Color(theme.colors.black).hex()
+        )
       })
 
       it('Should attempt to create color from passed value if no theme color', () => {
-        expect(findColor({ bg: 'pink', theme }).hex()).toEqual(Color('pink').hex())
+        expect(findColor({ bg: 'pink', theme }).hex()).toEqual(
+          Color('pink').hex()
+        )
       })
 
       it('Should return black if no default is passed and the color is bogus', () => {
-        expect(findColor({ bg: 'bogusColor', theme }).hex()).toEqual(Color('black').hex())
+        expect(findColor({ bg: 'bogusColor', theme }).hex()).toEqual(
+          Color('black').hex()
+        )
       })
 
       it('Should return a default color if one is passed as the second argument and the other checks dont pass', () => {
-        expect(findColor({ bg: 'gobusColor', theme }, '#CCC').hex()).toEqual(Color('#CCC').hex())
+        expect(findColor({ bg: 'gobusColor', theme }, '#CCC').hex()).toEqual(
+          Color('#CCC').hex()
+        )
       })
     })
 
@@ -112,14 +123,6 @@ describe('Color Mixins and Helper functions', () => {
 
     it('fgMixin should set the color', () => {
       const w = createWrapper({ fg: 'black' })
-      expect(w).toHaveStyleRule('color', '#000000')
-    })
-
-    it('colorMixin should set the color', () => {
-      const C = styled.div`
-        ${colorMixin};
-      `
-      const w = createWrapper({ color: Color('#000') }, C)
       expect(w).toHaveStyleRule('color', '#000000')
     })
 

@@ -25,17 +25,29 @@ storiesOf('@jjordy/Layout/Icon', module)
     'Default',
     () => (
       <Grid width='10%' gap={8}>
-        <Icon icon='question' size={number('Icon Size', defaultValue, options, iconDefault)} />
-        <Icon icon='settings' size={number('Icon Size', defaultValue, options, iconDefault)} />
-        <Icon icon='download' size={number('Icon Size', defaultValue, options, iconDefault)} />
-        <Icon icon='school' size={number('Icon Size', defaultValue, options, iconDefault)} />
+        <Icon
+          icon='question'
+          size={number('Icon Size', defaultValue, options, iconDefault)}
+        />
+        <Icon
+          icon='settings'
+          size={number('Icon Size', defaultValue, options, iconDefault)}
+        />
+        <Icon
+          icon='download'
+          size={number('Icon Size', defaultValue, options, iconDefault)}
+        />
+        <Icon
+          icon='school'
+          size={number('Icon Size', defaultValue, options, iconDefault)}
+        />
       </Grid>
     ),
     {
       notes: 'Icon Component'
     }
   )
-  .add('Color', () => <Icon icon='question' color='primary' size={2} />)
+  .add('Color', () => <Icon icon='question' bg='success' size={2} />)
   .add('Chevron Right', () => <Icon icon='chevron_right' size={2} />, {
     notes: 'Icon Component'
   })
