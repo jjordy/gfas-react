@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import withTheme from '../withTheme'
 import Icon from '../Icon'
-import { spacing } from '../mixins'
+import { spacing, findColor } from '../mixins'
 import { sharedPropTypes } from '../sharedPropTypes'
 
 const Container = styled.div`
@@ -54,7 +54,7 @@ export const CheckIcon = styled(Icon)`
     if (error) {
       return theme['red']
     } else {
-      return bg.hex()
+      return findColor({ bg }).hex()
     }
   }};
 `

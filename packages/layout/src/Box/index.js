@@ -10,7 +10,8 @@ import {
   textAlignMixin,
   fluidMixin,
   floatMixin,
-  flexMixin
+  flexMixin,
+  invertedBgMixin
 } from '../mixins'
 import { sharedPropTypes } from '../sharedPropTypes'
 
@@ -30,6 +31,7 @@ const Box = styled.div.attrs(props => ({
   ${textAlignMixin}
   ${fluidMixin}
   ${floatMixin}
+  ${invertedBgMixin}
 `
 
 Box.propTypes = {

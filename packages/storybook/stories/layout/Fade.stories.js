@@ -1,5 +1,5 @@
 import React from 'react'
-import { Fade, Message, Icon } from '@jjordy/layout'
+import { Fade, Message, Icon, Text } from '@jjordy/layout'
 import { storiesOf } from '@storybook/react'
 import { setOptions } from '@storybook/addon-options'
 import { number, boolean, button } from '@storybook/addon-knobs'
@@ -14,26 +14,30 @@ storiesOf('@jjordy/Layout/Fade', module)
     return fn()
   })
   .add('Default', () => (
-    <Fade visible={boolean('Visible', state)} duration={number('duration', 500)}>
-      <Message
-        bg='red'
-        onClose={button('Toggle Close', () => {
-          state = !state
-        })}
+    <div>
+      <Fade
+        visible={boolean('Visible', state)}
+        duration={number('duration', 200)}
+        style={{ minHeight: 130 }}
       >
-        <Message.Icon>
-          <Icon bg='white' size={2} icon='question' />
-        </Message.Icon>
-        <Message.Content>
-          <Message.Header>Test</Message.Header>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed molestie ante quis placerat pulvinar. Donec
-            odio enim, tincidunt in rhoncus nec, venenatis vitae nibh. Donec vitae elit est. Aliquam suscipit semper
-            mattis. Fusce accumsan non massa quis pellentesque. Nullam at laoreet lorem. Proin consectetur leo ut
-            tincidunt fermentum. Morbi ultrices tortor in leo molestie aliquam. Praesent vehicula quis massa eu
-            placerat. Aliqu
-          </p>
-        </Message.Content>
-      </Message>
-    </Fade>
+        <Message bg='yellow' icon='warning'>
+          <Message.Content>
+            <Message.Header strong>EEK something went wrong!!!</Message.Header>
+            <Text>
+              It looks like there was an error we wanted to let you know about
+              it so you can take an action.
+            </Text>
+          </Message.Content>
+        </Message>
+      </Fade>
+      <Text strong>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed molestie
+        ante quis placerat pulvinar. Donec odio enim, tincidunt in rhoncus nec,
+        venenatis vitae nibh. Donec vitae elit est. Aliquam suscipit semper
+        mattis. Fusce accumsan non massa quis pellentesque. Nullam at laoreet
+        lorem. Proin consectetur leo ut tincidunt fermentum. Morbi ultrices
+        tortor in leo molestie aliquam. Praesent vehicula quis massa eu
+        placerat. Aliqu
+      </Text>
+    </div>
   ))

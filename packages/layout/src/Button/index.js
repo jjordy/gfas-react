@@ -10,7 +10,8 @@ import {
   heavyFontMixin,
   iconReverseColorMixin,
   createRule,
-  findColor
+  findColor,
+  invertedBgMixin
 } from '../mixins'
 
 const Icon = styled.span`
@@ -70,7 +71,8 @@ export const StyledButton = styled(Box).attrs(props => ({
 `
 
 StyledButton.defaultProps = {
-  as: 'button'
+  as: 'button',
+  bg: 'lightGrey'
 }
 
 const ThemedButton = withTheme(StyledButton)
@@ -84,11 +86,12 @@ const Button = ({
   ...rest
 }) => (
   <ThemedButton {...rest} icon={icon}>
-    {icon && !labelPosition && (
-      <MyIcon icon={icon} mr={(children || content) && 1} />
-    )}
+    {icon &&
+      !labelPosition && <MyIcon icon={icon} mr={(children || content) && 1} />}
     {children || content}
-    {icon && labelPosition && labelPosition === 'right' && (
+    {icon &&
+      labelPosition &&
+      labelPosition === 'right' && (
       <MyIcon icon={icon} ml={(children || content) && 1} />
     )}
   </ThemedButton>
@@ -100,7 +103,6 @@ Button.Content = withTheme(Content)
 
 Button.propTypes = {
   children: PropTypes.node,
-  color: PropTypes.string,
   content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   float: PropTypes.oneOf(['right', 'left']),
   fluid: PropTypes.bool,

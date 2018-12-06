@@ -7,27 +7,28 @@ import {
   spacing,
   createRule,
   textBasedOnColorMixin,
-  borderRadiusMixin
+  borderRadiusMixin,
+  findColor,
+  iconReverseColorMixin
 } from './mixins'
 import { sharedPropTypes } from './sharedPropTypes'
+import Icon, { Svg } from './Icon'
+
 function handleDefault (props) {
   const darkGrey = Color(props.theme.colors.grey)
   return darkGrey.darken(0.2).hex()
 }
 
 const StyledHeader = styled.div`
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: ${props => (props.strong ? 700 : 400)};
-  ${createRule(0.5, 'margin-bottom')};
   ${spacing};
 `
 const StyledContent = styled.div`
   font-weight: ${props => (props.strong ? 700 : 400)};
   font-size: 0.9rem;
-  ${createRule(0.5, 'margin-left')};
-  ${createRule(0.5, 'margin-bottom')};
   p {
-    ${createRule(0.5, 'margin')};
+    margin-top: 0.5rem;
   }
 `
 
@@ -51,16 +52,25 @@ const ContentContainer = styled.div`
 `
 const ContentIcon = styled.div`
   border-radius: ${props => (props.circular ? '99px' : '0px')};
+  margin-right: 1rem;
+  & ${Svg} {
+    ${props => console.log(props)};
+    ${iconReverseColorMixin};
+  }
 `
 
 const StyledMessage = styled.div`
   display: flex;
   justify-content: space-between;
-  background-color: ${props => props.bg && props.bg.hex()};
+  background-color: ${props => findColor(props).hex()};
   ${borderRadiusMixin}
   border: ${props =>
     `1.2px solid ${
-      props.bg ? props.bg.darken(0.1).hex() : handleDefault(props)
+      props.bg
+        ? findColor(props)
+          .darken(0.1)
+          .hex()
+        : handleDefault(props)
     }`};
   box-sizing: border-box;
   ${createRule(1, 'margin-bottom')};
@@ -75,7 +85,6 @@ const StyledMessage = styled.div`
       ${textBasedOnColorMixin}
     };
   }
-  
   &::after {
     clear: both;
   }
@@ -84,7 +93,14 @@ const StyledMessage = styled.div`
 const Message = props => {
   return (
     <StyledMessage {...props} role='alert'>
-      <ContentContainer>{props.content || props.children}</ContentContainer>
+      <ContentContainer>
+        {props.icon && (
+          <ContentIcon {...props}>
+            <Icon {...props} icon={props.icon} size={2} />
+          </ContentIcon>
+        )}
+        {props.content || props.children}
+      </ContentContainer>
       {props.onClose && (
         <StyledButton onClick={props.onClose} ariaLabel='Close' type='button'>
           &#10006;

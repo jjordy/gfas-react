@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import withTheme from './withTheme'
+import { findColor } from './mixins'
 import Puff from './Puff'
 import Bars from './Bars'
 import Audio from './Audio'
@@ -9,7 +10,8 @@ import Oval from './Oval'
 import ThreeDots from './ThreeDots'
 
 const Spinner = ({ bg, theme, type }) => {
-  const c = (bg && bg.hex()) || theme.darkGrey
+  console.log(bg, theme, type)
+  const c = (bg && findColor({ bg }).hex()) || theme.darkGrey
   switch (type) {
     case 'puff':
       return <Puff color={c} />

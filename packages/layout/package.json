@@ -8,7 +8,7 @@
   "sideEffects": false,
   "scripts": {
     "build": "node ./tools/build.js",
-    "dev": "babel ./src -d lib/es --ignore __tests__ --watch",
+    "dev": "rimraf lib && babel ./src -d lib/es --ignore __tests__ --watch",
     "lint": "eslint src test --fix",
     "test": "jest",
     "prepublishOnly": "npm run build"

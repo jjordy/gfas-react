@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import withTheme from '../withTheme'
-import { createRule } from '../mixins'
+import { createRule, findColor } from '../mixins'
 import Box from '../Box'
 
 const Divider = styled(Box).attrs({
@@ -16,10 +16,10 @@ const Divider = styled(Box).attrs({
     margin-top: ${props.theme.BASE_SIZE * 0.5 + props.theme.UNIT};
     margin-bottom: ${props.theme.BASE_SIZE * 0.5 + props.theme.UNIT};
   `}
-  height: 2px;
+  height: 5px;
   border-bottom: ${props =>
     !props.hidden &&
-    `2px solid ${props.bg.hex() || props.theme.colors.lightGrey}`};
+    `3px solid ${findColor(props, props.theme.colors.lightGrey).hex()}`};
 `
 
 const ThemedDivider = withTheme(Divider)

@@ -3,7 +3,8 @@ import Color from 'color'
 import { getIn } from '../.'
 
 export const findColor = (props, def = '#000') => {
-  const c = props.bg || props.color
+  console.log(props, def)
+  const c = props.bg || def
   try {
     if (props.theme && props.theme.colors && props.theme.colors[c]) {
       return Color(props.theme.colors[c])
@@ -11,7 +12,7 @@ export const findColor = (props, def = '#000') => {
       return Color(c)
     }
   } catch {
-    return Color(def)
+    return Color(c)
   }
 }
 
@@ -36,6 +37,17 @@ export const bgMixin = css`
   `};
 `
 
+export const invertedBgMixin = css`
+  ${props =>
+    props.bg &&
+    props.inverted &&
+    `
+      background-color: ${findColor(props)
+    .darken(0.5)
+    .hex()};
+    `};
+`
+
 export const fgMixin = css`
   ${props =>
     props.fg &&
@@ -55,7 +67,7 @@ export const iconReverseColorMixin = css`
 
 export const iconColorMixin = css`
   ${props =>
-    (props.color || props.bg) &&
+    props.bg &&
     `
     fill: ${findColor(props).hex()};
   `};
@@ -94,6 +106,26 @@ export const textBasedOnColorMixin = css`
     props.bg
       ? `
     color: ${
+  findColor(props).luminosity() < 0.6
+    ? handleDarkColor(props)
+    : handleLightColor(props)
+};
+  `
+      : props.color &&
+        `
+      color: ${
+  findColor(props).luminosity() < 0.6
+    ? handleDarkColor(props)
+    : handleLightColor(props)
+};
+  `};
+`
+
+export const iconBasedOnColorMixin = css`
+  ${props =>
+    props.bg
+      ? `
+    fill: ${
   findColor(props).luminosity() < 0.6
     ? handleDarkColor(props)
     : handleLightColor(props)
