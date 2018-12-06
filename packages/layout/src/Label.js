@@ -7,7 +7,8 @@ import {
   borderRadiusMixin,
   bgMixin,
   textBasedOnColorMixin,
-  iconReverseColorMixin
+  iconReverseColorMixin,
+  findColor
 } from './mixins'
 import withTheme from './withTheme'
 import Icon, { Svg } from './Icon'
@@ -28,6 +29,10 @@ const StyledLabel = styled.div`
   vertical-align: middle;
   ${createRule(0.7, 'font-size')}
   font-weight: 700;
+  box-shadow: ${props =>
+    `1px 1px 1px ${findColor(props)
+      .darken(0.3)
+      .hex()}`};
   ${textBasedOnColorMixin}
   ${borderRadiusMixin}
   ${bgMixin}
@@ -51,5 +56,9 @@ Label.propTypes = {
   icon: PropTypes.string,
   bg: PropTypes.string,
   ...sharedPropTypes
+}
+
+Label.defaultProps = {
+  bg: 'lightGrey'
 }
 export default Label

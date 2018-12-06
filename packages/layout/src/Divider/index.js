@@ -16,10 +16,8 @@ const Divider = styled(Box).attrs({
     margin-top: ${props.theme.BASE_SIZE * 0.5 + props.theme.UNIT};
     margin-bottom: ${props.theme.BASE_SIZE * 0.5 + props.theme.UNIT};
   `}
-  height: 5px;
   border-bottom: ${props =>
-    !props.hidden &&
-    `3px solid ${findColor(props, props.theme.colors.lightGrey).hex()}`};
+    !props.hidden && `2px solid ${findColor(props).hex()}`};
 `
 
 const ThemedDivider = withTheme(Divider)
@@ -28,6 +26,10 @@ ThemedDivider.displayName = 'Divider'
 
 ThemedDivider.propTypes = {
   fitted: PropTypes.bool
+}
+
+ThemedDivider.defaultProps = {
+  bg: 'lightGrey'
 }
 
 export default ThemedDivider

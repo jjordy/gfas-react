@@ -54,7 +54,6 @@ const ContentIcon = styled.div`
   border-radius: ${props => (props.circular ? '99px' : '0px')};
   margin-right: 1rem;
   & ${Svg} {
-    ${props => console.log(props)};
     ${iconReverseColorMixin};
   }
 `
@@ -135,6 +134,10 @@ ThemedMessage.propTypes = {
   children: PropTypes.node.isRequired,
   onClose: PropTypes.func,
   ...sharedPropTypes
+}
+
+ThemedMessage.defaultProps = {
+  bg: 'lightGrey'
 }
 
 ThemedMessage.Header = ThemedHeader

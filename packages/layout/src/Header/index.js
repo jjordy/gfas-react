@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import Divider from './Divider'
-import withTheme from './withTheme'
-import { sharedPropTypes } from './sharedPropTypes'
+import Divider from '../Divider'
+import withTheme from '../withTheme'
+import { sharedPropTypes } from '../sharedPropTypes'
 
 import {
   fgMixin,
@@ -11,7 +11,7 @@ import {
   spacing,
   textAlignMixin,
   createRule
-} from './mixins'
+} from '../mixins'
 
 export const headerStyles = css`
   padding: 0 0;
@@ -60,7 +60,7 @@ const ThemedHeader = withTheme(Header, 'black')
 const DividedHeader = ({ fg, ...rest }) => (
   <div>
     <ThemedHeader style={{ marginBottom: '.5rem' }} fg={fg} {...rest} />
-    <Divider fitted fg={fg} />
+    <Divider fitted bg={fg || 'lightGrey'} />
   </div>
 )
 

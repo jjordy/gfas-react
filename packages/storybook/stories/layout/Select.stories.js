@@ -50,7 +50,7 @@ storiesOf('@jjordy/Layout/Select', module)
     />
   ))
   .add('Inline', () => (
-    <Segment bg='primary' rounded={false} clearing>
+    <Segment bg='primary' clearing>
       <Header dividing as='h4'>
         DO SOMETHING GREAT TODAY
       </Header>

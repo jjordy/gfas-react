@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import withTheme from './withTheme'
-import { spacing, createRule, borderRadiusMixin } from './mixins'
+import { spacing, createRule, borderRadiusMixin, findColor } from './mixins'
 
 const ProgressContainer = styled.div`
   position: relative;
@@ -19,13 +19,14 @@ const ProgressBar = styled.div`
   display: block;
   line-height: 1;
   background-color: ${props =>
-    props.bg
+    findColor(props)
       .darken(props.percent < 100 ? props.percent / 1000 : 100 / 1000)
       .hex()};
   width: ${props =>
     props.percent && props.percent > 100 ? 100 : props.percent}%;
   transition: width 200ms ease-in-out;
-  ${createRule(1, 'height')} ${borderRadiusMixin};
+  ${createRule(1, 'height')};
+  ${borderRadiusMixin};
 `
 
 const ThemedProgressBar = withTheme(ProgressBar, 'primary')
@@ -33,8 +34,11 @@ const ThemedProgressBar = withTheme(ProgressBar, 'primary')
 const ThemedProgressContainer = withTheme(ProgressContainer)
 
 Progress.propTypes = {
-  percent: PropTypes.number.isRequired,
-  color: PropTypes.string
+  percent: PropTypes.number.isRequired
+}
+
+Progress.defaultProps = {
+  bg: 'lightGrey'
 }
 
 Progress.displayName = 'Progress'

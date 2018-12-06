@@ -8,6 +8,7 @@ const Fade = styled.div`
   animation-duration: 0.4s;
   transition: opacity 0.4s ease, height 0.1s ease-out;
   height: ${props => (props.visible ? '100%' : 0)};
+  pointer-events: ${props => (props.visible ? 'auto' : 'none')};
 `
 Fade.propTypes = {
   children: PropTypes.node.isRequired,

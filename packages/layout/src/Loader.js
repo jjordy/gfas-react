@@ -10,8 +10,7 @@ import Oval from './Oval'
 import ThreeDots from './ThreeDots'
 
 const Spinner = ({ bg, theme, type }) => {
-  console.log(bg, theme, type)
-  const c = (bg && findColor({ bg }).hex()) || theme.darkGrey
+  const c = (bg && findColor({ bg, theme }).hex()) || theme.darkGrey
   switch (type) {
     case 'puff':
       return <Puff color={c} />
@@ -44,7 +43,7 @@ Spinner.propTypes = {
 }
 
 ThemedSpinner.defaultProps = {
-  color: 'darkGrey',
+  bg: 'darkGrey',
   active: PropTypes.bool
 }
 

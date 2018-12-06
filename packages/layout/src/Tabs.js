@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
 const StyledTab = styled.div`
   border-top: ${props => (props.active ? '2px solid orange' : 'none')};
@@ -11,7 +11,6 @@ const StyledTab = styled.div`
   border-top-left-radius: ${props => props.active && '6px'};
   display: flex;
   justify-content: center;
-  font-weight: 700;
   ${props =>
     props.justify &&
     `
@@ -43,9 +42,9 @@ const TabContainer = styled.div`
 const TabContent = styled.div``
 
 export default class Tabs extends React.Component {
-  state = { activeTab: '' };
+  state = { activeTab: '' }
 
-  setActiveTab = n => this.setState({ activeTab: n });
+  setActiveTab = n => this.setState({ activeTab: n })
 
   componentDidMount () {
     if (this.props.children) {
@@ -109,7 +108,7 @@ export const Tab = ({
       {children && activeTab === name && children}
     </div>
   )
-};
+}
 
 Tab.propTypes = {
   name: PropTypes.string.isRequired,

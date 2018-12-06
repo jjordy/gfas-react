@@ -16,12 +16,16 @@ storiesOf('@jjordy/Layout/Message', module)
   .add(
     'Default',
     () => (
-      <Message onClose={action('CLOSE')} bg={select('Colors', colors, 'primary')}>
+      <Message
+        onClose={action('CLOSE')}
+        bg={select('Colors', colors, 'primary')}
+      >
         <Message.Content>
           <Message.Header>Test</Message.Header>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam saepe dolorem cumque earum culpa blanditiis
-          sequi? Pariatur vel debitis quasi molestiae iste in optio praesentium! Laboriosam ipsa voluptates enim
-          excepturi?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+          saepe dolorem cumque earum culpa blanditiis sequi? Pariatur vel
+          debitis quasi molestiae iste in optio praesentium! Laboriosam ipsa
+          voluptates enim excepturi?
         </Message.Content>
       </Message>
     ),
@@ -34,8 +38,9 @@ storiesOf('@jjordy/Layout/Message', module)
       </Message.Icon>
       <Message.Content>
         <Message.Header>Test</Message.Header>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam saepe dolorem cumque earum culpa blanditiis
-        sequi? Pariatur vel debitis quasi molestiae iste in optio praesentium! Laboriosam ipsa voluptates enim
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam saepe
+        dolorem cumque earum culpa blanditiis sequi? Pariatur vel debitis quasi
+        molestiae iste in optio praesentium! Laboriosam ipsa voluptates enim
         excepturi?
       </Message.Content>
     </Message>

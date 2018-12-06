@@ -7,7 +7,8 @@ import {
   borderRadiusMixin,
   createRule,
   borderTopRadiusMixin,
-  borderBottomRadiusMixin
+  borderBottomRadiusMixin,
+  findColor
 } from './mixins'
 import { StyledButton } from './Button'
 import { StyledInput } from './Input'
@@ -35,7 +36,7 @@ const segmentMixin = css`
 `
 
 const colorMixin = css`
-  border-top: 0.15rem solid ${props => props.bg.hex()};
+  border-top: 0.15rem solid ${props => findColor(props).hex()};
 `
 
 const clearingMixin = css`

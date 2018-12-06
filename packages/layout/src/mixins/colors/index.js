@@ -3,7 +3,7 @@ import Color from 'color'
 import { getIn } from '../.'
 
 export const findColor = (props, def = '#000') => {
-  const c = props.bg || def
+  const c = props.bg
   try {
     if (props.theme && props.theme.colors && props.theme.colors[c]) {
       return Color(props.theme.colors[c])
@@ -11,7 +11,7 @@ export const findColor = (props, def = '#000') => {
       return Color(c)
     }
   } catch {
-    return Color(c)
+    return Color(def)
   }
 }
 
