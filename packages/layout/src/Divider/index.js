@@ -17,7 +17,7 @@ const Divider = styled(Box).attrs({
     margin-bottom: ${props.theme.BASE_SIZE * 0.5 + props.theme.UNIT};
   `}
   border-bottom: ${props =>
-    !props.hidden && `2px solid ${findColor(props).hex()}`};
+    !props.hidden && `3px solid ${findColor(props).hex()}`};
 `
 
 const ThemedDivider = withTheme(Divider)
@@ -29,7 +29,7 @@ ThemedDivider.propTypes = {
 }
 
 ThemedDivider.defaultProps = {
-  bg: 'lightGrey'
+  bg: 'grey'
 }
 
 export default ThemedDivider
