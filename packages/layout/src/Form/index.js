@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Loader from './Loader'
-import Dimmer from './Dimmer'
-import { spacing } from './mixins'
-import withTheme from './withTheme'
-import { sharedPropTypes } from './sharedPropTypes'
+import Loader from '../Loader'
+import Dimmer from '../Dimmer'
+import { spacing } from '../mixins'
+import withTheme from '../withTheme'
+import { sharedPropTypes } from '../sharedPropTypes'
 
-const StyledForm = styled.form`
+export const StyledForm = styled.form`
   font-size: 1rem;
   max-width: 100%;
   position: relative;
@@ -16,7 +16,7 @@ const StyledForm = styled.form`
 
 const ThemedForm = withTheme(StyledForm)
 
-const Form = ({ onSubmit, loading, ...rest }) => {
+export const Form = ({ onSubmit, loading, ...rest }) => {
   const handleSubmit = (evt, ...args) => {
     evt.preventDefault()
     onSubmit(evt, ...rest, ...args)

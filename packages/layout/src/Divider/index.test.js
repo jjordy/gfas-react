@@ -16,7 +16,7 @@ describe('Divider Component', () => {
   }
   it('Should render a border on the bottom to show the divider', () => {
     const w = createWrapper()
-    expect(w).toHaveStyleRule('border-bottom', '2px solid #F8F9FA')
+    expect(w).toHaveStyleRule('border-bottom', '3px solid #6C757D')
   })
   it('Should render Divider with 1 unit margins by default', () => {
     const w = createWrapper()

@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import Loader from '../Loader'
-
+import Box from '../Box'
 const StyledLoader = styled(Loader)``
 
-const Dimmer = styled.div`
+const Dimmer = styled(Box)`
   box-sizing: border-box;
   position: ${props =>
     props.page ? 'fixed !important' : 'absolute !important'};

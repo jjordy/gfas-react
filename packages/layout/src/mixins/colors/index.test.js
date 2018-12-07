@@ -63,9 +63,6 @@ describe('Color Mixins and Helper functions', () => {
         expect(findColor({ bg: 'black', theme }).hex()).toEqual(
           Color(theme.colors.black).hex()
         )
-        expect(findColor({ color: 'black', theme }).hex()).toEqual(
-          Color(theme.colors.black).hex()
-        )
       })
 
       it('Should attempt to create color from passed value if no theme color', () => {
@@ -124,14 +121,6 @@ describe('Color Mixins and Helper functions', () => {
     it('fgMixin should set the color', () => {
       const w = createWrapper({ fg: 'black' })
       expect(w).toHaveStyleRule('color', '#222222')
-    })
-
-    it('backgroundColorMixin should set the color', () => {
-      const C = styled.div`
-        ${backgroundColorMixin};
-      `
-      const w = createWrapper({ color: Color('#000') }, C)
-      expect(w).toHaveStyleRule('background-color', '#000000')
     })
 
     it('textBasedOnColorMixin should set the text color to reverse the bg color', () => {

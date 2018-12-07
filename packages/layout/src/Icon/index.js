@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import withTheme from './withTheme'
+import withTheme from '../withTheme'
 import styled from 'styled-components'
-import { spacing, size, iconColorMixin } from './mixins'
+import { spacing, size, iconColorMixin } from '../mixins'
 
 export const Svg = styled.svg`
   ${spacing};

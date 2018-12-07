@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
-import { borderRadiusMixin } from './mixins'
 const widthInPxs = {
   tiny: { width: '64px', height: '48px' },
   small: { width: '128px', height: '96px' },
@@ -58,7 +57,8 @@ const StyledBackgroundImage = styled.div.attrs({
   height: ${props => props.height || handleNonFluidHeight(props)};
   background: url(${props => props.src}) no-repeat center center;
   background-size: cover;
-  ${widthMixin} ${props => props.thumbnail && thumbnailMixin};
+  ${widthMixin};
+  ${props => props.thumbnail && thumbnailMixin};
 `
 
 const AnchorImage = ({ href, target, ...rest }) => (
@@ -71,7 +71,11 @@ const Image = props => {
   if (props.href) {
     return <AnchorImage {...props} />
   } else if (props.overlay) {
-    return <StyledBackgroundImage {...props}>{props.overlay({ ...props })}</StyledBackgroundImage>
+    return (
+      <StyledBackgroundImage {...props}>
+        {props.overlay({ ...props })}
+      </StyledBackgroundImage>
+    )
   }
   return <StyledImage {...props} />
 }

@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FileSize, Header, Button, Text, Label } from '@jjordy/layout'
+import { Header, Button, Text, Label } from '@jjordy/layout'
 import styled from 'styled-components'
+import FileSize from './FileSize'
 
 const StatusContainer = styled.div`
   padding: 0.8rem;

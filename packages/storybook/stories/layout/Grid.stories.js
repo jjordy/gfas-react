@@ -2,7 +2,7 @@ import React from 'react'
 import { Grid } from '@jjordy/layout'
 import { storiesOf } from '@storybook/react'
 import { setOptions } from '@storybook/addon-options'
-import { number } from '@storybook/addon-knobs'
+import { number, text } from '@storybook/addon-knobs'
 import { select } from '@storybook/addon-knobs/react'
 import _ from 'lodash'
 
@@ -17,7 +17,7 @@ storiesOf('@jjordy/Layout/Grid', module)
     'Default',
     () => (
       <Grid
-        width={number('Width', 250)}
+        width={text('Width', '33%')}
         gap={number('Gap', 8)}
         align={select(
           'Alignment Options',
@@ -39,10 +39,14 @@ storiesOf('@jjordy/Layout/Grid', module)
           <div
             key={i}
             style={{
-              backgroundColor: 'white',
+              backgroundColor: '#e7e7e7',
               height: 100,
+              gridColumn: i % 2 ? '1 / span 2' : null,
               color: 'gray',
               padding: '1rem',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
               fontWeight: 700
             }}
           >
