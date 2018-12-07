@@ -1,6 +1,6 @@
 {
   "name": "@jjordy/layout",
-  "version": "0.0.150",
+  "version": "0.0.151",
   "description": "Composable layout components",
   "main": "./lib/index.js",
   "module": "./lib/es/index.js",
