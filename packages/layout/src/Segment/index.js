@@ -1,7 +1,9 @@
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import Dimmer from './Dimmer'
-import withTheme from './withTheme'
+import Dimmer from '../Dimmer'
+import Loader from '../Loader'
+import withTheme from '../withTheme'
 import {
   spacing,
   borderRadiusMixin,
@@ -9,10 +11,10 @@ import {
   borderTopRadiusMixin,
   borderBottomRadiusMixin,
   findColor
-} from './mixins'
-import { StyledButton } from './Button'
-import { StyledInput } from './Input'
-import { StyledSelect } from './Select'
+} from '../mixins'
+import { StyledButton } from '../Button'
+import { StyledInput } from '../Input'
+import { StyledSelect } from '../Select'
 
 const attachedTopMixin = css`
   margin-top: 1rem;
@@ -92,4 +94,13 @@ Segment.propTypes = {
 
 const ThemedSegment = withTheme(Segment)
 
-export default ThemedSegment
+const LoadingSegment = ({ loading, ...rest }) => (
+  <React.Fragment>
+    <Dimmer active={loading}>
+      <Loader active={loading} />
+    </Dimmer>
+    <ThemedSegment {...rest} />
+  </React.Fragment>
+)
+
+export default LoadingSegment

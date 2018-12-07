@@ -5,7 +5,6 @@ import withTheme from './withTheme'
 import {
   spacing,
   inputPaddingMixin,
-  inputMarginMixin,
   normalFontMixin,
   heavyFontMixin,
   inputColorMixin,
@@ -98,6 +97,12 @@ export const StyledLabel = styled.label`
       width: 1px;
   `}
   text-transform: none;
+  ${props =>
+    !props.inline &&
+    `
+    margin-left: .3rem;
+    margin-bottom: .3rem;
+  `}
 `
 const inlineLabelMixin = css`
   ${createRule(1, 'margin-right')};
