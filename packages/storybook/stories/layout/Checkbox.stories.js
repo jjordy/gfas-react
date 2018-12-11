@@ -9,7 +9,7 @@ storiesOf('@jjordy/Layout/Checkbox', module)
     'Default',
     () => (
       <Box rounded={false} p={3} textAlign='center' border='2px solid #f30'>
-        <Checkbox label='Im a Checkbox' />
+        <Checkbox label='Im a Checkbox' bg='success' />
       </Box>
     ),
     { notes: 'Default uncontrolled checkbox' }
@@ -20,11 +20,31 @@ storiesOf('@jjordy/Layout/Checkbox', module)
     () => (
       <Box rounded={false} p={3} textAlign='center' border='2px solid #f30'>
         <Header>Check out the knobs panel to toggle this checkbox</Header>
-        <Checkbox label='Im a Checkbox' checked={boolean('Checked', false)} onChange={action('ON Change Called')} />
-        <Checkbox label='Im a Checkbox' checked={boolean('Checked', false)} onChange={action('ON Change Called')} />
-        <Checkbox label='Im a Checkbox' checked={boolean('Checked', false)} onChange={action('ON Change Called')} />
-        <Checkbox label='Im a Checkbox' checked={boolean('Checked', false)} onChange={action('ON Change Called')} />
-        <Checkbox label='Im a Checkbox' checked={boolean('Checked', false)} onChange={action('ON Change Called')} />
+        <Checkbox
+          label='Im a Checkbox'
+          checked={boolean('Checked', false)}
+          onChange={action('ON Change Called')}
+        />
+        <Checkbox
+          label='Im a Checkbox'
+          checked={boolean('Checked', false)}
+          onChange={action('ON Change Called')}
+        />
+        <Checkbox
+          label='Im a Checkbox'
+          checked={boolean('Checked', false)}
+          onChange={action('ON Change Called')}
+        />
+        <Checkbox
+          label='Im a Checkbox'
+          checked={boolean('Checked', false)}
+          onChange={action('ON Change Called')}
+        />
+        <Checkbox
+          label='Im a Checkbox'
+          checked={boolean('Checked', false)}
+          onChange={action('ON Change Called')}
+        />
       </Box>
     ),
     { notes: 'Controlled Checkbox' }

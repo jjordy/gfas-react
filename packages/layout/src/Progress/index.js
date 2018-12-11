@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import withTheme from './withTheme'
-import { spacing, createRule, borderRadiusMixin, findColor } from './mixins'
+import withTheme from '../withTheme'
+import { spacing, createRule, borderRadiusMixin, findColor } from '../mixins'
 
 const ProgressContainer = styled.div`
   position: relative;
@@ -38,7 +38,7 @@ Progress.propTypes = {
 }
 
 Progress.defaultProps = {
-  bg: 'lightGrey'
+  bg: 'success'
 }
 
 Progress.displayName = 'Progress'

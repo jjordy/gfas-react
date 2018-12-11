@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import withTheme from './withTheme'
+import withTheme from '../withTheme'
 import {
   spacing,
   inputPaddingMixin,
@@ -10,9 +10,9 @@ import {
   inputColorMixin,
   createRule,
   borderRadiusMixin
-} from './mixins'
+} from '../mixins'
 import Color from 'color'
-import { sharedPropTypes } from './sharedPropTypes'
+import { sharedPropTypes } from '../sharedPropTypes'
 
 const labelColorMixin = css`
   color: ${props =>

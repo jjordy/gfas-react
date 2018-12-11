@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
-import { spacing, borderRadiusMixin, createRule } from './mixins'
-import withTheme from './withTheme'
+import { spacing, borderRadiusMixin, createRule } from '../mixins'
+import withTheme from '../withTheme'
 import styled, { css } from 'styled-components'
 
 const calculateWidth = props => {

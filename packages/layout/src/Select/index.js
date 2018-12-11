@@ -7,10 +7,10 @@ import {
   normalFontMixin,
   createRule,
   borderRadiusMixin
-} from './mixins'
-import withTheme from './withTheme'
+} from '../mixins'
+import withTheme from '../withTheme'
 import Color from 'color'
-import { StyledLabel } from './Input'
+import { StyledLabel } from '../Input'
 
 const FormMessage = styled.small`
   font-size: 0.8rem;

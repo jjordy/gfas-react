@@ -51,10 +51,11 @@ export const CheckIcon = styled(Icon)`
   width: 18px;
   height: 18px;
   fill: ${({ bg, theme, error }) => {
+    console.log(bg, theme, error)
     if (error) {
       return theme['red']
     } else {
-      return findColor({ bg }).hex()
+      return findColor({ bg, theme }).hex()
     }
   }};
 `
@@ -138,6 +139,7 @@ Checkbox.propTypes = {
 
 Checkbox.defaultProps = {
   checked: false,
+  bg: 'grey',
   onChange: () => {}
 }
 

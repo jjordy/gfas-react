@@ -9,10 +9,10 @@ import {
   textBasedOnColorMixin,
   iconReverseColorMixin,
   findColor
-} from './mixins'
-import withTheme from './withTheme'
-import Icon, { Svg } from './Icon'
-import { sharedPropTypes } from './sharedPropTypes'
+} from '../mixins'
+import withTheme from '../withTheme'
+import Icon, { Svg } from '../Icon'
+import { sharedPropTypes } from '../sharedPropTypes'
 
 const InlineWrapper = styled.div`
   display: inline-block;

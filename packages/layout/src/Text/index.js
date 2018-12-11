@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import withTheme from './withTheme'
-import { fgMixin, spacing, createRule } from './mixins'
+import withTheme from '../withTheme'
+import { fgMixin, spacing, createRule } from '../mixins'
 
 const P = styled.p`
   font-size: 1rem;

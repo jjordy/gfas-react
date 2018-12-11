@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import withTheme from './withTheme'
+import withTheme from '../withTheme'
 import Color from 'color'
 import {
   spacing,
@@ -10,9 +10,9 @@ import {
   borderRadiusMixin,
   findColor,
   iconReverseColorMixin
-} from './mixins'
-import { sharedPropTypes } from './sharedPropTypes'
-import Icon, { Svg } from './Icon'
+} from '../mixins'
+import { sharedPropTypes } from '../sharedPropTypes'
+import Icon, { Svg } from '../Icon'
 
 function handleDefault (props) {
   const darkGrey = Color(props.theme.colors.grey)
