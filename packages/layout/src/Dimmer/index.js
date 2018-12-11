@@ -29,6 +29,7 @@ const Dimmer = styled(Box)`
   & ${StyledLoader} {
     opacity: 1;
   }
+  
 `
 
 Dimmer.displayName = 'Dimmer'
