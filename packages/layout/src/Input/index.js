@@ -14,19 +14,19 @@ import {
 import Color from 'color'
 import { sharedPropTypes } from '../sharedPropTypes'
 
-const labelColorMixin = css`
+export const labelColorMixin = css`
   color: ${props =>
     props.theme ? props.theme.colors.grey : 'rgba(0, 0, 0, 0.87)'};
 `
 
-const FormMessage = styled.small`
+export const FormMessage = styled.small`
   font-size: 0.8rem;
   font-weight: 400;
   color: ${props =>
     props.error ? props.theme.colors.red : props.theme.colors.grey};
 `
 
-const ActionContainer = styled.div`
+export const ActionContainer = styled.div`
   display: flex;
   align-items: center;
   height: 100%;
@@ -104,12 +104,12 @@ export const StyledLabel = styled.label`
     margin-bottom: .3rem;
   `}
 `
-const inlineLabelMixin = css`
+export const inlineLabelMixin = css`
   ${createRule(1, 'margin-right')};
   width: 150px;
 `
 
-const FormField = styled.div`
+export const FormField = styled.div`
   margin-bottom: 1rem;
   clear: both;
   display: ${props => (props.inline ? 'flex' : 'block')};
@@ -121,11 +121,11 @@ const FormField = styled.div`
   ${spacing};
 `
 
-const RequiredSpan = styled.span`
+export const RequiredSpan = styled.span`
   color: ${props => props.theme.colors.red || '#f30'};
 `
 
-const Required = ({ required, theme }) => {
+export const Required = ({ required }) => {
   if (required) {
     return <RequiredSpan>*</RequiredSpan>
   }
@@ -133,8 +133,7 @@ const Required = ({ required, theme }) => {
 }
 
 Required.propTypes = {
-  required: PropTypes.bool,
-  theme: PropTypes.object
+  required: PropTypes.bool
 }
 
 const Input = ({
@@ -155,7 +154,7 @@ const Input = ({
         htmlFor={id || `id_${name}`}
         theme={theme}
       >
-        {label} <Required {...rest} theme={theme} />
+        {label || name} <Required {...rest} theme={theme} />
       </StyledLabel>
       <div style={{ width: '100%' }}>
         {action ? (

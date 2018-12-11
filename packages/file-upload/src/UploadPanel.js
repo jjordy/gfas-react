@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Dropzone from 'react-dropzone'
 import styled from 'styled-components'
-import { Header, Image, Loader } from '@jjordy/layout'
+import { Header, Loader } from '@jjordy/layout'
 
 const UploadContainer = styled.div`
   flex-grow: 2;
@@ -36,6 +36,7 @@ export default class UploadPanel extends React.Component {
     return (
       <UploadContainer>
         <StyledDropzone
+          testref='test'
           ref='dropzone'
           accept={accept}
           multiple={multiple}
