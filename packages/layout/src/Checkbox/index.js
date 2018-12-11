@@ -51,7 +51,6 @@ export const CheckIcon = styled(Icon)`
   width: 18px;
   height: 18px;
   fill: ${({ bg, theme, error }) => {
-    console.log(bg, theme, error)
     if (error) {
       return theme['red']
     } else {
