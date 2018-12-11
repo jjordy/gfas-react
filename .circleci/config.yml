@@ -10,28 +10,30 @@ defaults: &defaults
     - image: circleci/node:8.11
 
 jobs:
-  build:
+  test:
     <<: *defaults  
     steps:
       - checkout
 
-      # Download and cache dependencies
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
+	  # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: yarn install
+      - run: yarn
+      - run:
+          name: Run tests
+          command: yarn test
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-        
-      # run tests!
-      - run: yarn test
-      # store test results
+
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
       - store_test_results:
           path: test-results
   deploy:
@@ -45,21 +47,20 @@ jobs:
       - run:
           name: Publish package
           command: yes | yarn run pub
-
+            
 workflows:
   version: 2
   test-deploy:
     jobs:
-      - build:
+      - test:
           filters:
             tags:
               only: /^v.*/
       - deploy:
           requires:
-            - build
+            - test
           filters:
             tags:
               only: /^v.*/
             branches:
               ignore: /.*/
-
