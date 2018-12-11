@@ -23,6 +23,17 @@
       "<rootDir>/test/shim.js",
       "<rootDir>/test/testSetup.js"
     ],
+    "reporters": [
+      "default",
+      [
+        "jest-junit",
+        {
+          "suiteName": "@jjordy/datagrid - Tests",
+          "outputDirectory": "../../test-results/datagrid",
+          "outputName": "junit.xml"
+        }
+      ]
+    ],
     "testPathIgnorePatterns": [
       "<rootDir>/lib"
     ],
@@ -45,7 +56,8 @@
   "devDependencies": {
     "@babel/cli": "^7.0.0",
     "eslint": "^5.4.0",
-    "jest": "^23.5.0"
+    "jest": "^23.5.0",
+    "jest-junit": "^5.2.0"
   },
   "dependencies": {
     "@jjordy/layout": "^0.0.156",

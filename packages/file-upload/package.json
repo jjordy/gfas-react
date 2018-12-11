@@ -26,6 +26,17 @@
     "testPathIgnorePatterns": [
       "<rootDir>/lib"
     ],
+    "reporters": [
+      "default",
+      [
+        "jest-junit",
+        {
+          "suiteName": "@jjordy/file-upload - Tests",
+          "outputDirectory": "../../test-results/file-upload",
+          "outputName": "junit.xml"
+        }
+      ]
+    ],
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less)$": "identity-obj-proxy"
@@ -50,7 +61,8 @@
   "devDependencies": {
     "@babel/cli": "^7.0.0",
     "eslint": "^5.4.0",
-    "jest": "^23.5.0"
+    "jest": "^23.5.0",
+    "jest-junit": "^5.2.0"
   },
   "dependencies": {
     "@jjordy/layout": "^0.0.156",

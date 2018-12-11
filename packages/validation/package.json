@@ -20,6 +20,17 @@
       "<rootDir>/test/shim.js",
       "<rootDir>/test/testSetup.js"
     ],
+    "reporters": [
+      "default",
+      [
+        "jest-junit",
+        {
+          "suiteName": "@jjordy/validation - Tests",
+          "outputDirectory": "../../test-results/validation",
+          "outputName": "junit.xml"
+        }
+      ]
+    ],
     "testPathIgnorePatterns": [
       "<rootDir>/lib"
     ],
@@ -41,6 +52,7 @@
   "devDependencies": {
     "@babel/cli": "^7.0.0-rc.3",
     "eslint": "^5.4.0",
-    "jest": "^23.5.0"
+    "jest": "^23.5.0",
+    "jest-junit": "^5.2.0"
   }
 }
