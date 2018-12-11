@@ -73,5 +73,8 @@ describe('Input Component', () => {
         expect(message.children).toEqual(['Test Message'])
       })
     })
+    it('Should do something', () => {
+      expect(true).toBe(true)
+    })
   })
 })
