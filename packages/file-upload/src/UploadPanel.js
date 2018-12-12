@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Dropzone from 'react-dropzone'
 import styled from 'styled-components'
-import { Header, Loader } from '@jjordy/layout'
+import { Header, Loader, findColor } from '@jjordy/layout'
 
 const UploadContainer = styled.div`
   flex-grow: 2;
@@ -13,18 +13,36 @@ const UploadContainer = styled.div`
   }
 `
 
-const StyledDropzone = styled(Dropzone)`
+const StyledDropzone = styled.div`
   width: 100%;
+  box-sizing: border-box;
   min-height: 300px;
   border-right: 2px dashed #e7e7e7;
   @media (max-width: 768px) {
     border-right: none;
     border-bottom: 2px dashed #e7e7e7;
   }
+  & :focus {
+    border-color: ${props => !props.error && props.theme.colors.info};
+    outline: none;
+    border-right: none !important;
+    box-shadow: 0 0 0 0.2rem
+      rgba(
+        ${props =>
+    !props.error &&
+          findColor(props.theme.colors.info)
+            .rgb()
+            .array()
+            .join(',')},
+        0.25
+      );
+  }
 `
 
 const UploadMessage = styled.div`
   display: flex;
+  margin: 0px;
+  box-sizing: border-box;
   justify-content: center;
   align-items: center;
   height: 300px;
@@ -35,15 +53,15 @@ export default class UploadPanel extends React.Component {
     const { accept, multiple, onDrop, completed, files, children } = this.props
     return (
       <UploadContainer>
-        <StyledDropzone
-          testref='test'
+        <Dropzone
           ref='dropzone'
           accept={accept}
           multiple={multiple}
           onDrop={onDrop}
         >
-          {({ getRootProps, getInputProps }) => (
-            <div {...getRootProps()} {...getInputProps()}>
+          {({ getRootProps, getInputProps, isDragActive }) => (
+            <StyledDropzone {...getRootProps()}>
+              <input {...getInputProps()} />
               {!children && (
                 <UploadMessage className='upload-container--message'>
                   {files && files.length > 0 ? (
@@ -70,9 +88,9 @@ export default class UploadPanel extends React.Component {
                 </UploadMessage>
               )}
               {children}
-            </div>
+            </StyledDropzone>
           )}
-        </StyledDropzone>
+        </Dropzone>
       </UploadContainer>
     )
   }

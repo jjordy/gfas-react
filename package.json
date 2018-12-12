@@ -15,6 +15,6 @@
     "eslint": "^5.4.0"
   },
   "workspaces": [
-    "packages/**"
+    "packages/*"
   ]
 }
