@@ -50,7 +50,7 @@ jobs:
 
 workflows:
   version: 2
-  test-deploy:
+  new-release:
     jobs:
       - test:
           filters:
