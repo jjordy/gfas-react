@@ -1,6 +1,6 @@
 {
   "name": "@jjordy/datagrid",
-  "version": "1.0.157",
+  "version": "1.0.158",
   "description": "Composable Datagrid for react",
   "main": "./lib/index.js",
   "module": "./lib/es/index.js",
@@ -55,9 +55,6 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
-    "eslint": "^5.4.0",
-    "jest": "^23.5.0",
-    "jest-junit": "^5.2.0",
     "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
     "@babel/plugin-proposal-do-expressions": "^7.0.0",
@@ -73,6 +70,7 @@
     "babel-jest": "^23.4.2",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.0.2",
+    "eslint": "^5.4.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-config-standard-react": "^7.0.2",
     "eslint-plugin-import": "^2.3.0",
@@ -80,6 +78,8 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-react": "^7.0.1",
     "eslint-plugin-standard": "^4.0.0",
+    "jest": "^23.5.0",
+    "jest-junit": "^5.2.0",
     "mkdirp": "^0.5.1",
     "prettier": "^1.10.2",
     "pretty-quick": "^1.2.2",
@@ -88,7 +88,7 @@
     "rimraf": "^2.6.2"
   },
   "dependencies": {
-    "@jjordy/layout": "^0.0.156",
+    "@jjordy/layout": "^0.0.157",
     "date-fns": "^1.29.0",
     "dom-helpers": "^3.2.1",
     "fuse.js": "^3.2.0",
