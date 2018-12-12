@@ -4,6 +4,8 @@
 
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 
+[![CircleCI](https://circleci.com/gh/jjordy/gfas-react.svg?style=svg)](https://circleci.com/gh/jjordy/gfas-react)
+
 ## Install
 
 ```bash
