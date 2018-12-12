@@ -72,7 +72,9 @@ export const borderTopRadiusMixin = css`
     (props.rounded || props.theme.rounded) &&
     `
     border-top-right-radius: ${props.theme.BASE_SIZE / 3.5}${props.theme.UNIT};
-    border-top-left-radius: ${props.theme.BASE_SIZE / 3.5}${props.theme.UNIT}; 
+    border-top-left-radius: ${props.theme.BASE_SIZE / 3.5}${props.theme.UNIT};
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
   `};
 `
 
@@ -85,7 +87,9 @@ export const borderBottomRadiusMixin = css`
 };
     border-bottom-left-radius: ${props.theme.BASE_SIZE / 3.5}${
   props.theme.UNIT
-}; 
+};
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
   `};
 `
 
@@ -97,6 +101,8 @@ export const borderRightRadiusMixin = css`
     border-bottom-right-radius: ${props.theme.BASE_SIZE / 3.5}${
   props.theme.UNIT
 }; 
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
   `};
 `
 
@@ -108,6 +114,8 @@ export const borderLeftRadiusMixin = css`
     border-bottom-left-radius: ${props.theme.BASE_SIZE / 3.5}${
   props.theme.UNIT
 }; 
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
   `};
 `
 

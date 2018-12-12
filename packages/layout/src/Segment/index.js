@@ -5,7 +5,6 @@ import Dimmer from '../Dimmer'
 import Loader from '../Loader'
 import withTheme from '../withTheme'
 import {
-  spacing,
   borderRadiusMixin,
   createRule,
   borderTopRadiusMixin,
@@ -15,6 +14,7 @@ import {
 import { StyledButton } from '../Button'
 import { StyledInput } from '../Input'
 import { StyledSelect } from '../Select'
+import Box from '../Box'
 
 const attachedTopMixin = css`
   margin-top: 1rem;
@@ -26,6 +26,7 @@ const attachedMixin = css`
   margin-top: 0;
   border-bottom: 0;
   margin-bottom: 0;
+  border-radius: 0px;
 `
 
 const attachedBottomMixin = css`
@@ -33,12 +34,9 @@ const attachedBottomMixin = css`
   ${borderBottomRadiusMixin};
 `
 
-const segmentMixin = css`
-  ${borderRadiusMixin};
-`
-
 const colorMixin = css`
   border-top: 0.15rem solid ${props => findColor(props).hex()};
+  color: ${props => props.theme.colors.black};
 `
 
 const clearingMixin = css`
@@ -52,18 +50,16 @@ const clearingMixin = css`
   }
 `
 
-const Segment = styled.div`
+const Segment = styled(Box)`
   ${props => (!props.vertical ? 'border: 1px solid #e7e7e7' : null)};
   position: relative;
   ${createRule(1, 'padding')}
-  ${spacing}
   clear: ${props => (props.clearing ? clearingMixin : null)};
   ${props => props.attached && props.attached === 'top' && attachedTopMixin}
   ${props =>
     props.attached && props.attached === 'bottom' && attachedBottomMixin}
   ${props =>
     props.attached && typeof props.attached === 'boolean' && attachedMixin}
-  ${props => !props.attached && segmentMixin}
   ${props => props.bg && colorMixin}
   background-color: ${props => !props.vertical && '#FFF'};
   & ${Dimmer} {

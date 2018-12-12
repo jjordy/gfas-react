@@ -42,31 +42,36 @@ export default class UploadPanel extends React.Component {
           multiple={multiple}
           onDrop={onDrop}
         >
-          {!children && (
-            <UploadMessage className='upload-container--message'>
-              {files && files.length > 0 ? (
-                <div style={{ textAlign: 'center', padding: '1em' }}>
-                  {!completed && (
-                    <div>
-                      <Loader active />
-                      <Header as='h5' fg='grey'>
-                        Files Uploading...
+          {({ getRootProps }) => (
+            <div {...getRootProps()}>
+              {!children && (
+                <UploadMessage className='upload-container--message'>
+                  {files && files.length > 0 ? (
+                    <div style={{ textAlign: 'center', padding: '1em' }}>
+                      {!completed && (
+                        <div>
+                          <Loader active />
+                          <Header as='h5' fg='grey'>
+                            Files Uploading...
+                          </Header>
+                        </div>
+                      )}
+                      {completed && <strong>Upload Completed</strong>}
+                    </div>
+                  ) : (
+                    <div style={{ textAlign: 'center', padding: '1em' }}>
+                      <Header as='h4' fg='darkGrey'>
+                        Click anywhere in this box to select a file to upload{' '}
+                        <br />
+                        or drag and drop one here
                       </Header>
                     </div>
                   )}
-                  {completed && <strong>Upload Completed</strong>}
-                </div>
-              ) : (
-                <div style={{ textAlign: 'center', padding: '1em' }}>
-                  <Header as='h4' fg='darkGrey'>
-                    Click anywhere in this box to select a file to upload <br />
-                    or drag and drop one here
-                  </Header>
-                </div>
+                </UploadMessage>
               )}
-            </UploadMessage>
+              {children}
+            </div>
           )}
-          {children}
         </StyledDropzone>
       </UploadContainer>
     )
