@@ -8,12 +8,15 @@ import { IAMPolicy, IAMVisible } from '@jjordy/iam'
 
 storiesOf('@jjordy/IAM', module).add('Access Example', () => (
   <IAMPolicy
-    name="AccessExample"
+    name='AccessExample'
     policy={object('Access Policy', accessExamplePolicy, 'Access Examples')}
     render={({ policy }) => (
-      <Segment bg="orange">
+      <Segment bg='orange'>
+        <code>
+          <pre>{JSON.stringify(policy, null, 2)}</pre>
+        </code>
         <IAMVisible
-          field="panel"
+          field='panel'
           effects={policy.visible}
           render={() => <div>I AM VISIBLE PANEL</div>}
         />

@@ -36,32 +36,31 @@ jobs:
           paths: .
       - store_test_results:
           path: test-results
-  deploy:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/repo
-      - run:
-          name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_PUBLISH_KEY" > ~/repo/packages/**/.npmrc
-      - run:
-          name: Verify NPM KEY
-          command: cat ~/repo/.npmrc
-      - run:
-          name: Publish package
-          command: yarn run pub:ci
-
-workflows:
-  version: 2
-  new-release:
-    jobs:
-      - test:
-          filters:
-            tags:
-              only: /^.*/
-      - deploy:
-          requires:
-            - test
-          filters:
-            branches:
-              only: master
+  # deploy:
+  #   <<: *defaults
+  #   steps:
+  #     - attach_workspace:
+  #         at: ~/repo
+  #     - run:
+  #         name: Authenticate with registry
+  #         command: echo "//registry.npmjs.org/:_authToken=$NPM_PUBLISH_KEY" > ~/repo/packages/**/.npmrc
+  #     - run:
+  #         name: Verify NPM KEY
+  #         command: cat ~/repo/.npmrc
+  #     - run:
+  #         name: Publish package
+  #         command: yarn run pub:ci
+# workflows:
+#   version: 2
+#   new-release:
+#     jobs:
+#       - test:
+#           filters:
+#             tags:
+#               only: /^.*/
+#       - deploy:
+#           requires:
+#             - test
+#           filters:
+#             branches:
+#               only: master
