@@ -8,6 +8,7 @@
     "precommit": "pretty-quick --staged",
     "pub": "lerna publish",
     "start": "cd packages/storybook && npm start",
+    "pub:ci": "lerna exec --ignore storybook --concurrency 1 npm publish",
     "test": "lerna exec --ignore storybook --no-bail --concurrency 1 npm run test"
   },
   "dependencies": {
