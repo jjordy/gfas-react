@@ -46,7 +46,7 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=$NPM_PUBLISH_KEY" > ~/repo/.npmrc
       - run:
           name: Publish package
-          command: yarn run pub --no-git-reset
+          command: yarn run pub --no-git-reset --no-verify-access
 
 workflows:
   version: 2
