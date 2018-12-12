@@ -11,15 +11,15 @@ defaults: &defaults
 
 jobs:
   test:
-    <<: *defaults  
+    <<: *defaults
     steps:
       - checkout
 
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+            - v1-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
 
       - run: yarn
       - run:
@@ -46,8 +46,8 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=$NPM_PUBLISH_KEY" > ~/repo/.npmrc
       - run:
           name: Publish package
-          command: yarn run pub
-            
+          command: yarn run pub --no-git-reset
+
 workflows:
   version: 2
   test-deploy:
