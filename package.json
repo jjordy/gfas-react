@@ -4,16 +4,14 @@
   "scripts": {
     "build": "node ./scripts/build.js",
     "dev": "lerna exec --parallel npm run dev -- --watch",
-    "clean": "lerna clean",
+    "clean": "lerna clean -y",
     "precommit": "pretty-quick --staged",
     "pub": "lerna publish",
     "start": "cd packages/storybook && npm start",
     "test": "lerna exec --ignore storybook --no-bail --concurrency 1 npm run test"
   },
-  "devDependencies": {
-    "lerna": "3.6.0"
-  },
   "dependencies": {
+    "lerna": "3.6.0",
     "eslint": "^5.4.0"
   },
   "workspaces": [

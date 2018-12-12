@@ -60,11 +60,15 @@ describe('General Mixins and Helper functions', () => {
 
     describe('getIn Function', () => {
       it('getIn Function should return a nested object path based on dot notation', () => {
-        expect(getIn({ test: { a: { b: { c: 'Hey' } } } }, 'test.a.b.c')).toEqual('Hey')
+        expect(
+          getIn({ test: { a: { b: { c: 'Hey' } } } }, 'test.a.b.c')
+        ).toEqual('Hey')
       })
 
       it('getIn function should return the passed default value if the search value doesnt exist', () => {
-        expect(getIn({ test: { a: { b: { c: 'Hey' } } } }, 'test.a.b.d', 'Default')).toEqual('Default')
+        expect(
+          getIn({ test: { a: { b: { c: 'Hey' } } } }, 'test.a.b.d', 'Default')
+        ).toEqual('Default')
       })
     })
 
@@ -77,7 +81,9 @@ describe('General Mixins and Helper functions', () => {
 
     describe('handleSetBorder helper function', () => {
       it('Should set a string based border', () => {
-        expect(handleSetBorder('1px solid #e7e7e7')).toEqual('border: 1px solid #e7e7e7')
+        expect(handleSetBorder('1px solid #e7e7e7')).toEqual(
+          'border: 1px solid #e7e7e7'
+        )
       })
 
       it('Should call off to handle the object border if one is passed', () => {
@@ -88,7 +94,10 @@ describe('General Mixins and Helper functions', () => {
       })
 
       it('Should use the theme property if one exists', () => {
-        const w = handleSetBorder(null, Object.assign({}, theme, { border: '1px solid #e7e7e7' }))
+        const w = handleSetBorder(
+          null,
+          Object.assign({}, theme, { border: '1px solid #e7e7e7' })
+        )
         expect(w).toEqual('1px solid #e7e7e7')
       })
     })
@@ -115,7 +124,10 @@ describe('General Mixins and Helper functions', () => {
       describe('Border radius mixins', () => {
         it('border radius should set overall border radius on rounded prop', () => {
           const w = createWrapper({ rounded: true })
-          expect(w).toHaveStyleRule('border-radius', `${theme.BASE_SIZE / 3.8}${theme.UNIT}`)
+          expect(w).toHaveStyleRule(
+            'border-radius',
+            `${theme.BASE_SIZE / 3.8}${theme.UNIT}`
+          )
         })
 
         it('borderTopRadiusMixin should only set top border radius', () => {
@@ -123,10 +135,16 @@ describe('General Mixins and Helper functions', () => {
             ${borderTopRadiusMixin};
           `
           const w = createWrapper({ rounded: true }, C)
-          expect(w).toHaveStyleRule('border-top-right-radius', `${theme.BASE_SIZE / 3.5}${theme.UNIT}`)
-          expect(w).toHaveStyleRule('border-top-left-radius', `${theme.BASE_SIZE / 3.5}${theme.UNIT}`)
-          expect(w).toHaveStyleRule('border-bottom-right-radius', undefined)
-          expect(w).toHaveStyleRule('border-bottom-left-radius', undefined)
+          expect(w).toHaveStyleRule(
+            'border-top-right-radius',
+            `${theme.BASE_SIZE / 3.5}${theme.UNIT}`
+          )
+          expect(w).toHaveStyleRule(
+            'border-top-left-radius',
+            `${theme.BASE_SIZE / 3.5}${theme.UNIT}`
+          )
+          expect(w).toHaveStyleRule('border-bottom-right-radius', '0px')
+          expect(w).toHaveStyleRule('border-bottom-left-radius', '0px')
         })
 
         it('borderBottomRadiusMixin should only set top border radius', () => {
@@ -134,10 +152,16 @@ describe('General Mixins and Helper functions', () => {
             ${borderBottomRadiusMixin};
           `
           const w = createWrapper({ rounded: true }, C)
-          expect(w).toHaveStyleRule('border-bottom-right-radius', `${theme.BASE_SIZE / 3.5}${theme.UNIT}`)
-          expect(w).toHaveStyleRule('border-bottom-left-radius', `${theme.BASE_SIZE / 3.5}${theme.UNIT}`)
-          expect(w).toHaveStyleRule('border-top-right-radius', undefined)
-          expect(w).toHaveStyleRule('border-top-left-radius', undefined)
+          expect(w).toHaveStyleRule(
+            'border-bottom-right-radius',
+            `${theme.BASE_SIZE / 3.5}${theme.UNIT}`
+          )
+          expect(w).toHaveStyleRule(
+            'border-bottom-left-radius',
+            `${theme.BASE_SIZE / 3.5}${theme.UNIT}`
+          )
+          expect(w).toHaveStyleRule('border-top-right-radius', '0px')
+          expect(w).toHaveStyleRule('border-top-left-radius', '0px')
         })
 
         it('borderRightRadiusMixin should only set top border radius', () => {
@@ -145,10 +169,16 @@ describe('General Mixins and Helper functions', () => {
             ${borderRightRadiusMixin};
           `
           const w = createWrapper({ rounded: true }, C)
-          expect(w).toHaveStyleRule('border-bottom-right-radius', `${theme.BASE_SIZE / 3.5}${theme.UNIT}`)
-          expect(w).toHaveStyleRule('border-top-right-radius', `${theme.BASE_SIZE / 3.5}${theme.UNIT}`)
-          expect(w).toHaveStyleRule('border-top-left-radius', undefined)
-          expect(w).toHaveStyleRule('border-bottom-left-radius', undefined)
+          expect(w).toHaveStyleRule(
+            'border-bottom-right-radius',
+            `${theme.BASE_SIZE / 3.5}${theme.UNIT}`
+          )
+          expect(w).toHaveStyleRule(
+            'border-top-right-radius',
+            `${theme.BASE_SIZE / 3.5}${theme.UNIT}`
+          )
+          expect(w).toHaveStyleRule('border-top-left-radius', '0px')
+          expect(w).toHaveStyleRule('border-bottom-left-radius', '0px')
         })
 
         it('borderLeftRadiusMixin should only set top border radius', () => {
@@ -156,10 +186,16 @@ describe('General Mixins and Helper functions', () => {
             ${borderLeftRadiusMixin};
           `
           const w = createWrapper({ rounded: true }, C)
-          expect(w).toHaveStyleRule('border-bottom-left-radius', `${theme.BASE_SIZE / 3.5}${theme.UNIT}`)
-          expect(w).toHaveStyleRule('border-top-left-radius', `${theme.BASE_SIZE / 3.5}${theme.UNIT}`)
-          expect(w).toHaveStyleRule('border-top-right-radius', undefined)
-          expect(w).toHaveStyleRule('border-bottom-right-radius', undefined)
+          expect(w).toHaveStyleRule(
+            'border-bottom-left-radius',
+            `${theme.BASE_SIZE / 3.5}${theme.UNIT}`
+          )
+          expect(w).toHaveStyleRule(
+            'border-top-left-radius',
+            `${theme.BASE_SIZE / 3.5}${theme.UNIT}`
+          )
+          expect(w).toHaveStyleRule('border-top-right-radius', '0px')
+          expect(w).toHaveStyleRule('border-bottom-right-radius', '0px')
         })
       })
       describe('Text Alignment', () => {
@@ -209,7 +245,10 @@ describe('General Mixins and Helper functions', () => {
             ${inputMarginMixin};
           `
           const w = createWrapper({}, C)
-          expect(w).toHaveStyleRule('margin', `${theme.BASE_SIZE * 0.24}${theme.UNIT}`)
+          expect(w).toHaveStyleRule(
+            'margin',
+            `${theme.BASE_SIZE * 0.24}${theme.UNIT}`
+          )
         })
       })
 

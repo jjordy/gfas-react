@@ -42,8 +42,8 @@ export default class UploadPanel extends React.Component {
           multiple={multiple}
           onDrop={onDrop}
         >
-          {({ getRootProps }) => (
-            <div {...getRootProps()}>
+          {({ getRootProps, getInputProps }) => (
+            <div {...getRootProps()} {...getInputProps()}>
               {!children && (
                 <UploadMessage className='upload-container--message'>
                   {files && files.length > 0 ? (
