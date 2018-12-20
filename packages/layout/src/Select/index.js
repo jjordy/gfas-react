@@ -6,7 +6,8 @@ import {
   inputPaddingMixin,
   normalFontMixin,
   createRule,
-  borderRadiusMixin
+  borderRadiusMixin,
+  spacing
 } from '../mixins'
 import withTheme from '../withTheme'
 import Color from 'color'
@@ -70,6 +71,7 @@ const FormField = styled.div`
   & ${StyledLabel} {
     ${props => props.inline && inlineLabelMixin};
   }
+  ${spacing};
 `
 
 const InputWrapper = styled.div`
