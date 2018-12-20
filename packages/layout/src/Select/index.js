@@ -119,7 +119,7 @@ const Select = ({
   ...rest
 }) => {
   return (
-    <FormField inline={inline} theme={theme}>
+    <FormField inline={inline} theme={theme} {...rest}>
       <StyledLabel
         hideLabel={hideLabel}
         htmlFor={id || `id_${name}`}
@@ -168,8 +168,7 @@ Select.propTypes = {
 SelectOption.propTypes = { option: PropTypes.object }
 
 Required.propTypes = {
-  required: PropTypes.bool,
-  theme: PropTypes.object
+  required: PropTypes.bool
 }
 
 export default withTheme(Select)
