@@ -21,7 +21,6 @@ const Box = styled.div.attrs(props => ({
 }))`
   box-sizing: border-box;
   ${flexMixin}
-  ${spacing}
   ${bgMixin}
   ${fgMixin}
   ${size}
@@ -32,6 +31,7 @@ const Box = styled.div.attrs(props => ({
   ${fluidMixin}
   ${floatMixin}
   ${invertedBgMixin}
+  ${spacing}
 `
 
 Box.propTypes = {

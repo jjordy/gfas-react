@@ -8,7 +8,8 @@ const hasProp = (v, p) => {
 }
 
 export const createRule = (value, selector) => css`
-  ${selector}: ${props => `${props.theme.BASE_SIZE * value}${props.theme.UNIT}`};
+  ${selector}: ${props =>
+  `${props.theme.BASE_SIZE * value}${props.theme.UNIT}`};
 `
 
 export const pxMixin = css`
@@ -122,3 +123,38 @@ export const prMixin = css`
   padding-right: ${props.theme.BASE_SIZE * props.pr}${props.theme.UNIT};
 `};
 `
+
+export const hasPaddingProp = props => {
+  const hasVal = v => parseInt(v, 10)
+  let hasPadding = false
+  console.log(hasVal(props.p))
+  if (hasVal(props.p)) {
+    hasPadding = true
+  }
+
+  if (props.px) {
+    hasPadding = true
+  }
+
+  if (props.py) {
+    hasPadding = true
+  }
+
+  if (props.pt) {
+    hasPadding = true
+  }
+
+  if (props.pb) {
+    hasPadding = true
+  }
+
+  if (props.pl) {
+    hasPadding = true
+  }
+
+  if (props.pr) {
+    hasPadding = true
+  }
+  console.log(hasPadding)
+  return hasPadding
+}

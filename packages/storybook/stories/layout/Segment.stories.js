@@ -20,6 +20,7 @@ storiesOf('@jjordy/Layout/Segment', module)
     () => (
       <div>
         <Segment
+          p={0}
           loading={boolean('Loading', false, segment1)}
           attached={select('Attached', attached, false, segment1)}
         >

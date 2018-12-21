@@ -195,7 +195,7 @@ export const spacing = css`
   ${plMixin}
   ${prMixin}
   ${mlMixin}
-  ${mrMixin} 
+  ${mrMixin}
 `
 
 export {
@@ -222,5 +222,6 @@ export {
   mtMixin,
   pbMixin,
   ptMixin,
-  createRule
+  createRule,
+  hasPaddingProp
 } from './spacing'

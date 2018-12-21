@@ -9,7 +9,8 @@ import {
   createRule,
   borderTopRadiusMixin,
   borderBottomRadiusMixin,
-  findColor
+  findColor,
+  hasPaddingProp
 } from '../mixins'
 import { StyledButton } from '../Button'
 import { StyledInput } from '../Input'
@@ -53,7 +54,8 @@ const clearingMixin = css`
 const Segment = styled(Box)`
   ${props => (!props.vertical ? 'border: 1px solid #e7e7e7' : null)};
   position: relative;
-  ${createRule(1, 'padding')}
+  ${props => console.log(props)};
+  padding: ${props => (!hasPaddingProp(props) ? '1rem' : null)};
   clear: ${props => (props.clearing ? clearingMixin : null)};
   ${props => props.attached && props.attached === 'top' && attachedTopMixin}
   ${props =>
