@@ -1,4 +1,5 @@
 import { css } from 'styled-components'
+import { Object } from 'es6-shim'
 
 const hasProp = (v, p) => {
   if (p[v] || p[v] === 0) {
@@ -124,37 +125,26 @@ export const prMixin = css`
 `};
 `
 
+const paddings = ['p', 'px', 'py', 'pl', 'pr', 'pt', 'pb']
+
 export const hasPaddingProp = props => {
-  const hasVal = v => parseInt(v, 10)
   let hasPadding = false
-  console.log(hasVal(props.p))
-  if (hasVal(props.p)) {
-    hasPadding = true
-  }
-
-  if (props.px) {
-    hasPadding = true
-  }
-
-  if (props.py) {
-    hasPadding = true
-  }
-
-  if (props.pt) {
-    hasPadding = true
-  }
-
-  if (props.pb) {
-    hasPadding = true
-  }
-
-  if (props.pl) {
-    hasPadding = true
-  }
-
-  if (props.pr) {
-    hasPadding = true
-  }
-  console.log(hasPadding)
+  Object.keys(props).forEach(prop => {
+    if (paddings.indexOf(prop) > -1) {
+      hasPadding = true
+    }
+  })
   return hasPadding
+}
+
+const margins = ['m', 'mx', 'my', 'ml', 'mr', 'mt', 'mb']
+
+export const hasMarginProp = props => {
+  let hasMargin = false
+  Object.keys(props).forEach(prop => {
+    if (margins.indexOf(prop) > -1) {
+      hasMargin = true
+    }
+  })
+  return hasMargin
 }

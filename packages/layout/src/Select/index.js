@@ -22,6 +22,7 @@ const FormMessage = styled.small`
 
 export const StyledSelect = styled.select`
   ${normalFontMixin};
+  font-size: 0.8rem;
   margin: 0;
   ${inputColorMixin};
   outline: 0;
