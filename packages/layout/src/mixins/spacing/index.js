@@ -1,5 +1,4 @@
 import { css } from 'styled-components'
-import { Object } from 'es6-shim'
 
 const hasProp = (v, p) => {
   if (p[v] || p[v] === 0) {
