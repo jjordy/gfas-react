@@ -12,8 +12,8 @@
     "test": "lerna exec --ignore storybook --no-bail --concurrency 1 npm run test"
   },
   "dependencies": {
-    "lerna": "3.6.0",
-    "eslint": "^5.4.0"
+    "eslint": "^5.4.0",
+    "lerna": "3.6.0"
   },
   "workspaces": [
     "packages/*"
