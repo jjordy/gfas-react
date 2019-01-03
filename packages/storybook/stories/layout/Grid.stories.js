@@ -41,7 +41,6 @@ storiesOf('@jjordy/Layout/Grid', module)
             style={{
               backgroundColor: '#e7e7e7',
               height: 100,
-              gridColumn: i % 2 ? '1 / span 2' : null,
               color: 'gray',
               padding: '1rem',
               display: 'flex',

@@ -1,10 +1,24 @@
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import withTheme from '../withTheme'
+import withBrowserType from '../withBrowserType'
 import { sharedPropTypes } from '../sharedPropTypes'
 import Box from '../Box'
 
 const px = n => (typeof n === 'number' ? n + 'px' : n)
+
+const FallbackGrid = styled(Box)`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  & * {
+    width: ${props => props.width};
+  }
+  @media (max-width: 768px) {
+    display: block;
+  }
+`
 
 const Grid = styled(Box)`
   display: grid;
@@ -38,4 +52,12 @@ ThemedGrid.defaultProps = {
   gap: 8
 }
 
-export default ThemedGrid
+const GridWithFallback = props => {
+  const browser = withBrowserType()
+  if (browser && browser.isIE) {
+    return <FallbackGrid {...props} />
+  }
+  return <ThemedGrid {...props} />
+}
+
+export default GridWithFallback
