@@ -71,6 +71,20 @@ export function integer (value) {
   }
 }
 
+export function dateMMDDYYYY (date) {
+  var date_regex = /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/
+  if (!date_regex.test(date)) {
+    return 'Must be a valid date in MM/DD/YYYY format.'
+  }
+}
+
+export function zipcode (zipcode) {
+  var zipcode_regex = /(^\d{5}$)|(^\d{5}-\d{4}$)/
+  if (!zipcode_regex.test(zipcode)) {
+    return 'Must be a valid zip code.'
+  }
+}
+
 export function oneOf (enumeration) {
   return value => {
     if (!~enumeration.indexOf(value)) {
