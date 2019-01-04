@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import withBrowserType from '../withBrowserType'
 import {
   inputColorMixin,
   inputPaddingMixin,
@@ -78,7 +79,7 @@ const FormField = styled.div`
 const InputWrapper = styled.div`
   width: 100%;
   :after {
-    content: ${props => !props.error && '">"'};
+    content: ${props => !props.error && !props.hideCaret && '">"'};
     font: 1rem 'Consolas', monospace;
     font-weight: 700;
     color: ${props =>
@@ -121,6 +122,7 @@ const Select = ({
   hideLabel,
   ...rest
 }) => {
+  const browser = withBrowserType()
   return (
     <FormField inline={inline} theme={theme} {...rest}>
       <StyledLabel
@@ -131,7 +133,7 @@ const Select = ({
         {label} <Required {...rest} theme={theme} />
       </StyledLabel>
       <div style={{ width: '100%' }}>
-        <InputWrapper>
+        <InputWrapper hideCaret={browser && browser.isIE}>
           <StyledSelect
             id={id || `id_${name}`}
             name={name}
