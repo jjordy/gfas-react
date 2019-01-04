@@ -12,11 +12,16 @@ const FallbackGrid = styled(Box)`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  & * {
-    width: ${props => props.width};
-  }
   @media (max-width: 768px) {
     display: block;
+  }
+`
+
+const FallbackGridColumn = styled(Box)`
+  width: ${props => props.width};
+  padding: ${props => props.gap / 2}px;
+  @media (max-width: 768px) {
+    width: ${props => (props.dontBreakOnMobile ? props.width : '100%')};
   }
 `
 
@@ -54,8 +59,16 @@ ThemedGrid.defaultProps = {
 
 const GridWithFallback = props => {
   const browser = withBrowserType()
-  if (browser && browser.isIE) {
-    return <FallbackGrid {...props} />
+  if (props.legacy || (browser && browser.isIE)) {
+    return (
+      <FallbackGrid>
+        {React.Children.map(props.children, child => (
+          <FallbackGridColumn width={props.width} gap={props.gap}>
+            {child}
+          </FallbackGridColumn>
+        ))}
+      </FallbackGrid>
+    )
   }
   return <ThemedGrid {...props} />
 }

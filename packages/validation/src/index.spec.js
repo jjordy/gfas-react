@@ -15,7 +15,9 @@ import {
   match,
   oneNum,
   oneSpecialChar,
-  createValidator
+  createValidator,
+  zipcode,
+  dateMMDDYYYY
 } from '.'
 
 describe('Validation Methods', () => {
@@ -137,6 +139,22 @@ describe('Validation Methods', () => {
     expect.assertions(2)
     expect(oneSpecialChar('Test')).toEqual('Your password must contain 1 special character')
     expect(oneSpecialChar('test$')).toEqual(undefined)
+  })
+
+  it('Zipcode validation', () => {
+    expect.assertions(4)
+    expect(zipcode(39507)).toEqual(undefined)
+    expect(zipcode(395076)).toEqual('Must be a valid zip code.')
+    expect(zipcode('39507')).toEqual(undefined)
+    expect(zipcode('3')).toEqual('Must be a valid zip code.')
+  })
+
+  it('Date MM/DD/YYYY validation', () => {
+    expect.assertions(4)
+    expect(dateMMDDYYYY('01/12/2018')).toEqual(undefined)
+    expect(dateMMDDYYYY('01/12')).toEqual('Must be a valid date in MM/DD/YYYY format.')
+    expect(dateMMDDYYYY('12/12/2099')).toEqual(undefined)
+    expect(dateMMDDYYYY('12/12/2100')).toEqual('Must be a valid date in MM/DD/YYYY format.')
   })
 
   describe('createValidator Function', () => {

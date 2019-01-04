@@ -17,6 +17,7 @@ storiesOf('@jjordy/Layout/Grid', module)
     'Default',
     () => (
       <Grid
+        legacy
         width={text('Width', '33%')}
         gap={number('Gap', 8)}
         align={select(
