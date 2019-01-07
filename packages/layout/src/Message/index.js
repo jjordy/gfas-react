@@ -47,7 +47,6 @@ const StyledButton = styled.button`
 const ContentContainer = styled.div`
   display: flex;
   align-items: center;
-  ${createRule(1, 'margin-bottom')};
   ${spacing};
 `
 const ContentIcon = styled.div`
