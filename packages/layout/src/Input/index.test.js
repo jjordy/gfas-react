@@ -5,7 +5,11 @@ import renderer from 'react-test-renderer'
 import { ThemeProvider } from 'styled-components'
 
 describe('Input Component', () => {
-  const createWrapper = (props = {}, renderType = 'toJSON', Component = Input) => {
+  const createWrapper = (
+    props = {},
+    renderType = 'toJSON',
+    Component = Input
+  ) => {
     return renderer
       .create(
         <ThemeProvider theme={{ BASE_SIZE: 1, UNIT: 'rem' }}>
@@ -41,7 +45,11 @@ describe('Input Component', () => {
 
   describe('Required Prop', () => {
     it('Should render the required * is the required prop  is passed', () => {
-      const w = createWrapper({ name: 'test', label: 'Hey Label', required: true })
+      const w = createWrapper({
+        name: 'test',
+        label: 'Hey Label',
+        required: true
+      })
       global.walkJSONTree(w, 'span', required => {
         expect(required.children).toEqual(['*'])
       })
@@ -55,11 +63,24 @@ describe('Input Component', () => {
       })
       expect(w).toHaveStyleRule({ color: '#f30' })
     })
+
+    it('Should a red border if theres an error passed to the input', () => {
+      const w = createWrapper({
+        required: true,
+        error: true,
+        name: 'test',
+        Component: RequiredSpan
+      })
+      expect(w).toHaveStyleRule({ border: '2px solid #f30' })
+    })
   })
 
   describe('Input actions', () => {
     it('Should render an action render prop if one exists', () => {
-      const w = createWrapper({ name: 'test', action: () => <button id='test'>TEst</button> })
+      const w = createWrapper({
+        name: 'test',
+        action: () => <button id='test'>TEst</button>
+      })
       global.walkJSONTree(w, 'button', function (button) {
         expect(button.type).toEqual('button')
       })

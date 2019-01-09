@@ -12,7 +12,7 @@ import {
 } from '../mixins'
 import withTheme from '../withTheme'
 import Color from 'color'
-import { StyledLabel } from '../Input'
+import FormLabel from '../FormLabel'
 
 const FormMessage = styled.small`
   font-size: 0.8rem;
@@ -70,7 +70,7 @@ const FormField = styled.div`
   ${createRule(1, 'margin-bottom')};
   display: ${props => (props.inline ? 'flex' : 'block')};
   align-items: center;
-  & ${StyledLabel} {
+  & ${FormLabel} {
     ${props => props.inline && inlineLabelMixin};
   }
   ${spacing};
@@ -125,13 +125,13 @@ const Select = ({
   const browser = withBrowserType()
   return (
     <FormField inline={inline} theme={theme} {...rest}>
-      <StyledLabel
+      <FormLabel
         hideLabel={hideLabel}
         htmlFor={id || `id_${name}`}
         theme={theme}
       >
         {label} <Required {...rest} theme={theme} />
-      </StyledLabel>
+      </FormLabel>
       <div style={{ width: '100%' }}>
         <InputWrapper hideCaret={browser && browser.isIE}>
           <StyledSelect

@@ -6,18 +6,13 @@ import {
   spacing,
   inputPaddingMixin,
   normalFontMixin,
-  heavyFontMixin,
   inputColorMixin,
   createRule,
   borderRadiusMixin
 } from '../mixins'
 import Color from 'color'
 import { sharedPropTypes } from '../sharedPropTypes'
-
-export const labelColorMixin = css`
-  color: ${props =>
-    props.theme ? props.theme.colors.grey : 'rgba(0, 0, 0, 0.87)'};
-`
+import FormLabel from '../FormLabel'
 
 export const FormMessage = styled.small`
   font-size: 0.8rem;
@@ -80,30 +75,6 @@ export const StyledInput = styled.input`
   }
 `
 
-export const StyledLabel = styled.label`
-  display: block;
-  ${labelColorMixin}
-  ${heavyFontMixin}
-  ${props =>
-    props.hideLabel &&
-    `
-      border: 0;
-      clip: rect(0 0 0 0);
-      height: 1px;
-      margin: -1px;
-      overflow: hidden;
-      padding: 0;
-      position: absolute;
-      width: 1px;
-  `}
-  text-transform: none;
-  ${props =>
-    !props.inline &&
-    `
-    margin-left: .3rem;
-    margin-bottom: .3rem;
-  `}
-`
 export const inlineLabelMixin = css`
   ${createRule(1, 'margin-right')};
   width: 150px;
@@ -115,7 +86,7 @@ export const FormField = styled.div`
   display: ${props => (props.inline ? 'flex' : 'block')};
   flex: 1;
   align-items: center;
-  ${StyledLabel} {
+  ${FormLabel} {
     ${props => props.inline && inlineLabelMixin};
   }
   ${spacing};
@@ -149,13 +120,13 @@ const Input = ({
 }) => {
   return (
     <FormField inline={inline} theme={theme} {...rest}>
-      <StyledLabel
+      <FormLabel
         hideLabel={hideLabel}
         htmlFor={id || `id_${name}`}
         theme={theme}
       >
         {label || name} <Required {...rest} theme={theme} />
-      </StyledLabel>
+      </FormLabel>
       <div style={{ width: '100%' }}>
         {action ? (
           <ActionContainer>

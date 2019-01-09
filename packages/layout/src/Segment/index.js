@@ -6,7 +6,6 @@ import Loader from '../Loader'
 import withTheme from '../withTheme'
 import {
   borderRadiusMixin,
-  createRule,
   borderTopRadiusMixin,
   borderBottomRadiusMixin,
   findColor,
