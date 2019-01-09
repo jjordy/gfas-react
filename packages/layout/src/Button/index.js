@@ -64,6 +64,7 @@ export const buttonStyles = css`
 
 export const StyledButton = styled(Box).attrs(props => ({
   children: props.children || props.content || '',
+  // disabled: props.disabled === 'true' ? true : null,
   px: !props.p && !props.px && 1,
   py: !props.p && !props.py && 0.5
 }))`
