@@ -75,14 +75,14 @@ Loader.propTypes = {
     'oval',
     'three-dots'
   ]),
-  active: PropTypes.bool,
+  active: PropTypes.any,
   bg: PropTypes.string,
   theme: PropTypes.object
 }
 
 ThemedLoader.defaultProps = {
   bg: 'darkGrey',
-  active: PropTypes.bool
+  active: PropTypes.any
 }
 
 ThemedLoader.displayName = 'Loader'
