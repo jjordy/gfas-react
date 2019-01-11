@@ -92,7 +92,6 @@ const ThemedSegment = withTheme(Segment)
 
 const LoadingSegment = ({ loading, ...rest }) => (
   <React.Fragment>
-    {console.log(typeof loading)}
     <Dimmer active={loading}>
       <Loader active={loading} />
     </Dimmer>
