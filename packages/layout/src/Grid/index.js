@@ -57,11 +57,11 @@ ThemedGrid.defaultProps = {
   gap: 8
 }
 
-const GridWithFallback = props => {
+const GridWithFallback = React.forwardRef((props, ref) => {
   const browser = withBrowserType()
   if (props.legacy || (browser && browser.isIE)) {
     return (
-      <FallbackGrid>
+      <FallbackGrid ref={ref}>
         {React.Children.map(props.children, child => (
           <FallbackGridColumn width={props.width} gap={props.gap}>
             {child}
@@ -70,7 +70,7 @@ const GridWithFallback = props => {
       </FallbackGrid>
     )
   }
-  return <ThemedGrid {...props} />
-}
+  return <ThemedGrid ref={ref} {...props} />
+})
 
 export default GridWithFallback
