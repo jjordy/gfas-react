@@ -258,7 +258,9 @@ interface DefaultTheme {
   BASE_SIZE: number;
   rounded: boolean;
   UNIT: string;
-  [color: string]: string;
+  colors: {
+    [color: string]: string
+  };
 }
 
 declare const defaultTheme: DefaultTheme = {};
