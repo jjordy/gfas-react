@@ -162,7 +162,7 @@ export interface MenuProps {
 export interface MenuItemProps {}
 
 export interface MessageProps {
-  onClose: (a: any) => {};
+  onClose: (a: any) => any;
 }
 
 export interface ProgressProps {
@@ -190,7 +190,7 @@ export interface SelectProps extends InputProps {
 export interface TabsProps {
   name?: string;
   title?: string;
-  render?: (a: any) => {};
+  render?: (a: any) => any;
   component?: Component<any>;
 }
 
