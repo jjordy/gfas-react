@@ -236,6 +236,8 @@ declare const Message: React.SFC<SharedProps & MessageProps> & {
   Icon?: any
 };
 
+declare const findColor: (props: any, color: string) => any;
+
 declare class Progress extends Component<SharedProps & ProgressProps> {}
 declare class Responsive extends Component<SharedProps & ResponsiveProps> {}
 declare class Segment extends Component<SharedProps & SegmentProps> {}
