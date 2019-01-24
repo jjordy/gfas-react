@@ -223,6 +223,7 @@ declare class Header extends Component<SharedProps & HeaderProps> {}
 declare class Icon extends Component<SharedProps & IconProps> {}
 declare class Image extends Component<SharedProps & ImageProps> {}
 declare class Input extends Component<SharedProps & InputProps> {}
+declare class Textarea extends Component<SharedProps & InputProps> {}
 declare class Form extends Component<SharedProps & FormProps> {}
 declare class Label extends Component<SharedProps & LabelProps> {}
 declare class Loader extends Component<SharedProps & LoaderProps> {}
