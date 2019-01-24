@@ -104,6 +104,7 @@ export interface CheckboxProps {
 export interface DimmerProps {
   active?: boolean;
   dark?: boolean;
+  page?: boolean;
 }
 
 export interface DividerProps {
