@@ -254,11 +254,13 @@ declare class Button extends Component<SharedProps & ButtonProps> {}
 
 declare const findColor: (props: any, color: string) => any;
 
-declare interface defaultTheme {
-  BASE_SIZE?: number;
-  rounded?: boolean;
-  UNIT?: string;
-  colors: {
-    [color: string]: string
-  };
+interface DefaultThemeColors {
+  [color: string]: string;
 }
+
+declare const defaultTheme = {
+  BASE_SIZE: number,
+  rounded: boolean,
+  UNIT: string,
+  colors: DefaultThemeColors
+};
