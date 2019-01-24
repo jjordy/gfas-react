@@ -237,8 +237,6 @@ declare const Message: React.SFC<SharedProps & MessageProps> & {
   Icon?: any
 };
 
-declare const findColor: (props: any, color: string) => any;
-
 declare class Progress extends Component<SharedProps & ProgressProps> {}
 declare class Responsive extends Component<SharedProps & ResponsiveProps> {}
 declare class Segment extends Component<SharedProps & SegmentProps> {}
@@ -253,3 +251,14 @@ declare class Dimmer extends Component<DimmerProps> {}
 declare class Checkbox extends Component<SharedProps & CheckboxProps> {}
 declare class Container extends Component<SharedProps & ContainerProps> {}
 declare class Button extends Component<SharedProps & ButtonProps> {}
+
+declare const findColor: (props: any, color: string) => any;
+
+declare interface defaultTheme {
+  BASE_SIZE?: number;
+  rounded?: boolean;
+  UNIT?: string;
+  colors: {
+    [color: string]: string
+  };
+}
