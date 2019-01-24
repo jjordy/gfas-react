@@ -136,7 +136,7 @@ export interface InputProps {
 }
 
 export interface FormProps {
-  onSubmit?: (a: any) => {};
+  onSubmit?: (a: any) => any;
 }
 
 export interface LabelProps {
