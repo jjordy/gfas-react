@@ -258,9 +258,9 @@ interface DefaultThemeColors {
   [color: string]: string;
 }
 
-declare const defaultTheme = {
-  BASE_SIZE: number,
-  rounded: boolean,
-  UNIT: string,
+declare type defaultTheme = {
+  BASE_SIZE: number
+  rounded: boolean
+  UNIT: string
   colors: DefaultThemeColors
 };
