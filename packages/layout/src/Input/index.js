@@ -53,7 +53,7 @@ export const StyledInput = styled.input`
   ${inputColorMixin};
   ${borderRadiusMixin};
   box-shadow: 0 0 0 0 transparent inset;
-  transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  transition: color 300ms ease-in-out, border 300ms ease-in-out;
   width: 100%;
   vertical-align: top;
   :disabled {
