@@ -145,7 +145,7 @@ export interface LabelProps {
 }
 
 export interface LoaderProps {
-  active?: boolean;
+  active?: any;
   type?: string;
 }
 
