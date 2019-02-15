@@ -90,6 +90,13 @@ Segment.propTypes = {
 
 const ThemedSegment = withTheme(Segment)
 
-const LoadingSegment = ({ loading, ...rest }) => <ThemedSegment {...rest} />
+const LoadingSegment = ({ loading, ...rest }) => (
+  <React.Fragment>
+    <Dimmer active={loading}>
+      <Loader active={loading} />
+    </Dimmer>
+    <ThemedSegment {...rest} />
+  </React.Fragment>
+)
 
 export default LoadingSegment
