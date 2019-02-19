@@ -5,15 +5,15 @@ import withTheme from '../withTheme'
 import { spacing, createRule, borderRadiusMixin, findColor } from '../mixins'
 
 const ProgressContainer = styled.div`
-  position: relative;
   display: block;
   max-width: 100%;
   border: none;
   ${createRule(1, 'margin-top')};
   ${createRule(1, 'margin-bottom')};
   box-shadow: none;
-  background: rgba(0, 0, 0, 0.1);
-  ${borderRadiusMixin} ${spacing};
+  background: ${props => props.containerBg || 'rgba(0, 0, 0, 0.1)'};
+  ${borderRadiusMixin};
+  ${spacing};
 `
 const ProgressBar = styled.div`
   display: block;

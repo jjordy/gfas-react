@@ -66,7 +66,6 @@ const inlineLabelMixin = css`
 
 const FormField = styled.div`
   width: 100%;
-  position: relative;
   ${createRule(1, 'margin-bottom')};
   display: ${props => (props.inline ? 'flex' : 'block')};
   align-items: center;

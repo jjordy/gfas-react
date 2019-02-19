@@ -10,7 +10,6 @@ import { sharedPropTypes } from '../sharedPropTypes'
 export const StyledForm = styled.form`
   font-size: 1rem;
   max-width: 100%;
-  position: relative;
   ${spacing};
 `
 

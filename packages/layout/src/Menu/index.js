@@ -35,7 +35,6 @@ const calculateItemPadding = props => {
 }
 
 const MenuItem = styled.div`
-  position: relative;
   vertical-align: middle;
   ${createRule(1, 'padding-right')};
   ${createRule(1, 'padding-left')};

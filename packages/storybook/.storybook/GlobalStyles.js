@@ -145,6 +145,6 @@ const GlobalStyle = createGlobalStyle`
   [hidden] {
     display: none;
   }
-`;
+`
 
 export default GlobalStyle
