@@ -10,4 +10,4 @@ export interface FileUploadProps {
   multiple?: boolean
 }
 
-declare class FileUpload extends Component<FileUploadProps> {}
+export default class FileUpload extends Component<FileUploadProps> {}
