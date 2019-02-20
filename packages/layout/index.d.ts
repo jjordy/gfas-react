@@ -84,7 +84,7 @@ export interface SharedProps {
   onClick?: (v: any) => any;
   /* Box could be used as an svg */
   viewBox?: string;
-  [x: string]: any;
+  [prop: string]: any;
 }
 
 export interface ButtonProps {

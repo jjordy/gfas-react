@@ -4,6 +4,7 @@
   "description": "Composable Drag and drop file upload for react",
   "main": "./lib/index.js",
   "module": "./lib/es/index.js",
+  "typings": "index.d.ts",
   "sideEffects": false,
   "scripts": {
     "build": "node ./tools/build.js",

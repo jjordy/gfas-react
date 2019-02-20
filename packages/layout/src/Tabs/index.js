@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const StyledTab = styled.div`
-  border-top: ${props => (props.active ? '2px solid orange' : 'none')};
+  border-top: ${props =>
+    props.active ? props.tabColor || '2px solid orange' : 'none'};
   border-bottom: ${props => (props.active ? '1px solid #FFF' : 'none')};
   border-right: ${props => props.active && '1px solid #e7e7e7'};
   border-left: ${props => props.active && '1px solid #e7e7e7'};
@@ -17,6 +18,8 @@ const StyledTab = styled.div`
     width: 100%;
   `} color: #555;
   padding-top: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: bold;
   padding-bottom: 0.5rem;
   padding-right: 1rem;
   padding-left: 1rem;
@@ -112,6 +115,7 @@ export const Tab = ({
 
 Tab.propTypes = {
   name: PropTypes.string.isRequired,
+  activeTab: PropTypes.any,
   title: PropTypes.string.isRequired,
   render: PropTypes.func,
   component: PropTypes.node,
