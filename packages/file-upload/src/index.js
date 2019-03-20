@@ -31,12 +31,25 @@ export default class FileUpload extends Component {
     this.props.onClear()
   }
 
+  onRejected = files => {
+    this.props.onRejected(files)
+  }
+
   render () {
     const { files } = this.state
     return (
       <StyledContainer>
-        <UploadPanel {...this.state} {...this.props} onDrop={this.onDrop} />
-        <UploadStatusPanel {...this.props} files={files} clearList={this.handleClearStagedFiles} />
+        <UploadPanel
+          {...this.state}
+          {...this.props}
+          onDrop={this.onDrop}
+          onRejected={this.onRejected}
+        />
+        <UploadStatusPanel
+          {...this.props}
+          files={files}
+          clearList={this.handleClearStagedFiles}
+        />
       </StyledContainer>
     )
   }
@@ -46,7 +59,8 @@ FileUpload.displayName = 'FileUpload'
 
 FileUpload.defaultProps = {
   onClear: () => {},
-  onDrop: () => {}
+  onDrop: () => {},
+  onRejected: () => {}
 }
 
 FileUpload.propTypes = {
@@ -54,6 +68,7 @@ FileUpload.propTypes = {
   onClear: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
   onDrop: PropTypes.func,
+  onRejected: PropTypes.func,
   loading: PropTypes.bool,
   completed: PropTypes.bool,
   multiple: PropTypes.bool

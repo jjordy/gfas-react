@@ -1,6 +1,6 @@
-import React from 'react';
-import { Tabs, Text, Tab } from '@jjordy/layout';
-import { storiesOf } from '@storybook/react';
+import React from 'react'
+import { Tabs, Text, Tab } from '@jjordy/layout'
+import { storiesOf } from '@storybook/react'
 
 const content1 = (
   <Text>
@@ -79,6 +79,9 @@ storiesOf('@jjordy/Layout/Tabs', module).add(
         {content2}
       </Tab>
       <Tab title='Tab 3' name='3'>
+        {content3}
+      </Tab>
+      <Tab title={<span>Custom Title 😄 </span>} name='4'>
         {content3}
       </Tab>
     </Tabs>

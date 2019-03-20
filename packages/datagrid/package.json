@@ -83,8 +83,8 @@
     "mkdirp": "^0.5.1",
     "prettier": "^1.10.2",
     "pretty-quick": "^1.2.2",
-    "react": "next",
-    "react-dom": "next",
+    "react": "16.8.4",
+    "react-dom": "16.8.4",
     "rimraf": "^2.6.2"
   },
   "dependencies": {

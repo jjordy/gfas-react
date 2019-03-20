@@ -190,7 +190,7 @@ export interface SelectProps extends InputProps {
 
 export interface TabsProps {
   name?: string;
-  title?: string;
+  title?: string | React.ReactNode;
   render?: (a: any) => any;
   component?: Component<any>;
 }

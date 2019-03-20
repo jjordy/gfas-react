@@ -1,7 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
-import { withInfo } from '@storybook/addon-info'
 import { boolean } from '@storybook/addon-knobs'
 import FileUpload from '@jjordy/file-upload'
 
@@ -19,6 +18,7 @@ storiesOf('@jjordy/File-Upload', module)
     <FileUpload
       multiple={false}
       onSubmit={action('File Dropped')}
+      onRejected={files => alert(JSON.stringify(files, null, 2))}
       accept='image/png, image/gif, image/jpeg, image/jpg, application/pdf, image/tiff, image/tif'
     />
   ))

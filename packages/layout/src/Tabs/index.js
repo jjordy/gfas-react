@@ -116,7 +116,10 @@ export const Tab = ({
 Tab.propTypes = {
   name: PropTypes.string.isRequired,
   activeTab: PropTypes.any,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.node.isRequired
+  ]),
   render: PropTypes.func,
   component: PropTypes.node,
   children: PropTypes.node

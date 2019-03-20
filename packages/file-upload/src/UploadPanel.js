@@ -50,14 +50,24 @@ const UploadMessage = styled.div`
 
 export default class UploadPanel extends React.Component {
   render () {
-    const { accept, multiple, onDrop, completed, files, children } = this.props
+    const {
+      accept,
+      multiple,
+      onDrop,
+      completed,
+      files,
+      children,
+      onRejected,
+      error
+    } = this.props
     return (
       <UploadContainer>
         <Dropzone
           ref='dropzone'
           accept={accept}
           multiple={multiple}
-          onDrop={onDrop}
+          onDropAccepted={onDrop}
+          onDropRejected={onRejected}
         >
           {({ getRootProps, getInputProps, isDragActive }) => (
             <StyledDropzone {...getRootProps()}>
@@ -74,7 +84,8 @@ export default class UploadPanel extends React.Component {
                           </Header>
                         </div>
                       )}
-                      {completed && <strong>Upload Completed</strong>}
+                      {!error && completed && <strong>Upload Completed</strong>}
+                      {error && <strong>Upload Errored</strong>}
                     </div>
                   ) : (
                     <div style={{ textAlign: 'center', padding: '1em' }}>
@@ -97,10 +108,12 @@ export default class UploadPanel extends React.Component {
 }
 
 UploadPanel.propTypes = {
+  error: PropTypes.bool,
   accept: PropTypes.string,
   children: PropTypes.node,
   multiple: PropTypes.bool,
   onDrop: PropTypes.func.isRequired,
+  onRejected: PropTypes.func.isRequired,
   completed: PropTypes.bool,
   files: PropTypes.array
 }

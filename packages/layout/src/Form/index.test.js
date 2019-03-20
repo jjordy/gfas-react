@@ -24,7 +24,6 @@ describe('Form Component', () => {
   )
   it('Should give the form sensible defaults', () => {
     const w = createWrapper({ children: formChildren, onSubmit: jest.fn() }) //eslint-disable-line
-    expect(w).toHaveStyleRule('position', 'relative')
     expect(w.type).toEqual('form')
   })
 })
