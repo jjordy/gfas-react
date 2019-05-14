@@ -7,6 +7,7 @@ import {
   spacing,
   createRule,
   textBasedOnColorMixin,
+  textReverseBasedOnColorMixin,
   borderRadiusMixin,
   findColor,
   iconReverseColorMixin
@@ -38,8 +39,8 @@ const StyledButton = styled.button`
   align-self: flex-start;
   font-size: 1.2rem;
   cursor: pointer;
-  color: #fff;
   outline: none;
+  ${textReverseBasedOnColorMixin}
   border: 0;
   margin: 0;
 `
@@ -100,7 +101,7 @@ const Message = props => {
         {props.content || props.children}
       </ContentContainer>
       {props.onClose && (
-        <StyledButton onClick={props.onClose} ariaLabel='Close' type='button'>
+        <StyledButton onClick={props.onClose} ariaLabel='Close' type='button' {...props}>
           &#10006;
         </StyledButton>
       )}
@@ -130,6 +131,11 @@ ThemedContentIcon.propTypes = {
 }
 
 ThemedMessage.propTypes = {
+  children: PropTypes.node.isRequired,
+  onClose: PropTypes.func,
+  ...sharedPropTypes
+}
+Message.propTypes = {
   children: PropTypes.node.isRequired,
   onClose: PropTypes.func,
   ...sharedPropTypes

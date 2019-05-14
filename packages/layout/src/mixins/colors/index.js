@@ -120,6 +120,26 @@ export const textBasedOnColorMixin = css`
   `};
 `
 
+export const textReverseBasedOnColorMixin = css`
+  ${props =>
+    props.bg
+      ? `
+    color: ${
+  findColor(props).luminosity() < 0.6
+    ? handleDarkColor(props)
+    : handleLightColor(props)
+};
+  `
+      : props.color &&
+        `
+      color: ${
+  findColor(props).luminosity() < 0.6
+    ? handleDarkColor(props)
+    : handleLightColor(props)
+};
+  `};
+`
+
 export const iconBasedOnColorMixin = css`
   ${props =>
     props.bg

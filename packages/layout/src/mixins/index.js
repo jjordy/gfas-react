@@ -205,10 +205,13 @@ export {
   inputColorMixin,
   iconReverseColorMixin,
   iconColorMixin,
+  handleDarkColor,
+  handleLightColor,
   bgMixin,
   fgMixin,
   findColor,
-  invertedBgMixin
+  invertedBgMixin,
+  textReverseBasedOnColorMixin
 } from './colors'
 
 export {

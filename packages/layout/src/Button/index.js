@@ -10,8 +10,7 @@ import {
   heavyFontMixin,
   iconReverseColorMixin,
   createRule,
-  findColor,
-  invertedBgMixin
+  findColor
 } from '../mixins'
 
 const Icon = styled.span`
