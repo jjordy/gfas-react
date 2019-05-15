@@ -30,7 +30,7 @@
         {
           "suiteName": "@jjordy/datagrid - Tests",
           "outputDirectory": "../../test-results/jest/datagrid",
-          "outputName": "junit.xml"
+          "outputName": "results.xml"
         }
       ]
     ],

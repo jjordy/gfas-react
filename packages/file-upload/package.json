@@ -35,7 +35,7 @@
         {
           "suiteName": "@jjordy/file-upload - Tests",
           "outputDirectory": "../../test-results/jest/file-upload",
-          "outputName": "junit.xml"
+          "outputName": "results.xml"
         }
       ]
     ],

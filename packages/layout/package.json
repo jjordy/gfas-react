@@ -29,7 +29,7 @@
         {
           "suiteName": "@jjordy/layout - Tests",
           "outputDirectory": "../../test-results/jest/layout",
-          "outputName": "junit.xml"
+          "outputName": "results.xml"
         }
       ]
     ],

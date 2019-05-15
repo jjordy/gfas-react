@@ -31,7 +31,7 @@
         {
           "suiteName": "@jjordy/iam - Tests",
           "outputDirectory": "../../test-results/jest/iam",
-          "outputName": "junit.xml"
+          "outputName": "results.xml"
         }
       ]
     ],
