@@ -28,7 +28,7 @@
         "jest-junit",
         {
           "suiteName": "@jjordy/validation - Tests",
-          "outputDirectory": "../../test-results/validation",
+          "outputDirectory": "../../test-results/jest/validation",
           "outputName": "junit.xml"
         }
       ]

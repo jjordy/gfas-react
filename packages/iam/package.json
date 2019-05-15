@@ -30,7 +30,7 @@
         "jest-junit",
         {
           "suiteName": "@jjordy/iam - Tests",
-          "outputDirectory": "../../test-results/iam",
+          "outputDirectory": "../../test-results/jest/iam",
           "outputName": "junit.xml"
         }
       ]

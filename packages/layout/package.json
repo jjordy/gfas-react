@@ -28,7 +28,7 @@
         "jest-junit",
         {
           "suiteName": "@jjordy/layout - Tests",
-          "outputDirectory": "../../test-results/layout",
+          "outputDirectory": "../../test-results/jest/layout",
           "outputName": "junit.xml"
         }
       ]

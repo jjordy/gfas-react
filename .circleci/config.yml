@@ -33,7 +33,7 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - store_test_results:
-          path: test-results
+          path: ~/repo/test-results
       # run tests!
       - run: yarn test
 # # Javascript Node CircleCI 2.0 configuration file

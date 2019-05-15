@@ -29,7 +29,7 @@
         "jest-junit",
         {
           "suiteName": "@jjordy/datagrid - Tests",
-          "outputDirectory": "../../test-results/datagrid",
+          "outputDirectory": "../../test-results/jest/datagrid",
           "outputName": "junit.xml"
         }
       ]
