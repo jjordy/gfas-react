@@ -1,10 +1,10 @@
 import React from 'react'
-import { configure, addDecorator } from '@storybook/react'
+import { configure, addDecorator, addParameters } from '@storybook/react'
 import { setDefaults } from '@storybook/addon-info'
 import { withKnobs } from '@storybook/addon-knobs'
 import { withNotes } from '@storybook/addon-notes'
 import { withInfo } from '@storybook/addon-info'
-import { checkA11y } from '@storybook/addon-a11y'
+import { withA11y } from '@storybook/addon-a11y'
 import { Box } from '@jjordy/layout'
 import { withBackgrounds } from '@storybook/addon-backgrounds'
 import { ThemeProvider } from 'styled-components'
@@ -41,18 +41,17 @@ function loadStories() {
   req.keys().forEach(filename => req(filename))
 }
 
-addDecorator(withInfo())
 addDecorator(withKnobs)
 addDecorator(withNotes)
-addDecorator(checkA11y)
-addDecorator(
-  withBackgrounds([
+addDecorator(withA11y)
+addParameters({
+  backgrounds: [
     { name: 'White', value: '#FFF', default: true },
     { name: 'stripe', value: '#f6f9fc' },
     { name: 'twitter', value: '#00aced' },
     { name: 'facebook', value: '#3b5998' }
-  ])
-)
+  ]
+})
 
 addDecorator((s, { kind, story }) => (
   <ThemeProvider theme={defaultTheme}>
@@ -62,9 +61,5 @@ addDecorator((s, { kind, story }) => (
     </div>
   </ThemeProvider>
 ))
-
-setDefaults({
-  inline: false
-})
 
 configure(loadStories, module)

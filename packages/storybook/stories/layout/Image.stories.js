@@ -21,7 +21,7 @@ storiesOf('@jjordy/Layout/Image', module)
   })
   .add('Sizes', () => <Image src={src} alt='Sized Image' size={select('Size', sizes, 'small')} />)
   .add('Fluid', () => <Image src={src} alt='Fluid Image' fluid />)
-  .add('Thumbnail', () => <Image src={src} thumbnail />)
+  .add('Thumbnail', () => <Image src={src} thumbnail alt='Thumbnail' />)
   .add('Link', () => <Image src={src} alt='Link Image' href='#' target='_blank' />)
   .add('Overlay Image', () => (
     <Image src={src} alt='Overlay Image' overlay={() => <div style={{ color: 'white' }}>Overlay Text</div>} />
