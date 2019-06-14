@@ -131,6 +131,7 @@ const Icon = ({ icon, style, ...rest }) => (
 )
 
 Icon.propTypes = {
+  style: PropTypes.object,
   icon: PropTypes.string.isRequired,
   size: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 }

@@ -101,7 +101,12 @@ const Message = props => {
         {props.content || props.children}
       </ContentContainer>
       {props.onClose && (
-        <StyledButton onClick={props.onClose} ariaLabel='Close' type='button' {...props}>
+        <StyledButton
+          onClick={props.onClose}
+          ariaLabel='Close'
+          type='button'
+          {...props}
+        >
           &#10006;
         </StyledButton>
       )}

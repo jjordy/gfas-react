@@ -45,3 +45,8 @@ storiesOf('@jjordy/Layout/Button', module)
       Button
     </Button>
   ))
+  .add('Outline', () => (
+    <Button bg='success' outline>
+      Outline Button
+    </Button>
+  ))

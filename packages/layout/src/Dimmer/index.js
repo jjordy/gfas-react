@@ -25,11 +25,10 @@ const Dimmer = styled(Box)`
   transition: opacity 0.4s linear;
   pointer-events: ${props => (props.active ? 'auto' : 'none')};
   will-change: opacity;
-  z-index: ${props => props.active ? 1000 : -1};
+  z-index: ${props => (props.active ? 1000 : -1)};
   & ${StyledLoader} {
     opacity: 1;
   }
-  
 `
 
 Dimmer.displayName = 'Dimmer'

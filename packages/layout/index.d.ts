@@ -90,6 +90,7 @@ export interface SharedProps {
 export interface ButtonProps {
   content?: string | ReactElement<any>;
   icon?: string;
+  outline?: boolean;
 }
 
 export interface ContainerProps {
@@ -160,7 +161,7 @@ export interface MenuProps {
   secondary?: boolean;
 }
 
-export interface MenuItemProps {}
+export interface MenuItemProps { }
 
 export interface MessageProps {
   onClose?: (a: any) => any;
@@ -204,30 +205,30 @@ export interface FlexProps {
   direction?: "column" | "row" | "column-reverse" | "row-reverse";
   align?: "flex-start" | "flex-end" | "center" | "stretch" | "baseline";
   justify?:
-    | "flex-start"
-    | "flex-end"
-    | "center"
-    | "space-around"
-    | "space-between";
+  | "flex-start"
+  | "flex-end"
+  | "center"
+  | "space-around"
+  | "space-between";
   wrap?: "wrap" | "nowrap" | "wrap-reverse";
   content?:
-    | "flex-start"
-    | "flex-end"
-    | "center"
-    | "space-around"
-    | "space-between"
-    | "stretch";
+  | "flex-start"
+  | "flex-end"
+  | "center"
+  | "space-around"
+  | "space-between"
+  | "stretch";
 }
 
-declare class Header extends Component<SharedProps & HeaderProps> {}
-declare class Icon extends Component<SharedProps & IconProps> {}
-declare class Image extends Component<SharedProps & ImageProps> {}
-declare class Input extends Component<SharedProps & InputProps> {}
-declare class Textarea extends Component<SharedProps & InputProps> {}
-declare class Form extends Component<SharedProps & FormProps> {}
-declare class Label extends Component<SharedProps & LabelProps> {}
-declare class Loader extends Component<SharedProps & LoaderProps> {}
-declare class Grid extends Component<SharedProps & GridProps> {}
+declare class Header extends Component<SharedProps & HeaderProps> { }
+declare class Icon extends Component<SharedProps & IconProps> { }
+declare class Image extends Component<SharedProps & ImageProps> { }
+declare class Input extends Component<SharedProps & InputProps> { }
+declare class Textarea extends Component<SharedProps & InputProps> { }
+declare class Form extends Component<SharedProps & FormProps> { }
+declare class Label extends Component<SharedProps & LabelProps> { }
+declare class Loader extends Component<SharedProps & LoaderProps> { }
+declare class Grid extends Component<SharedProps & GridProps> { }
 declare class Menu extends Component<SharedProps & MenuProps> {
   static Item: Component<SharedProps & MenuItemProps>;
 }
@@ -238,20 +239,20 @@ declare const Message: React.SFC<SharedProps & MessageProps> & {
   Icon?: any
 };
 
-declare class Progress extends Component<SharedProps & ProgressProps> {}
-declare class Responsive extends Component<SharedProps & ResponsiveProps> {}
-declare class Segment extends Component<SharedProps & SegmentProps> {}
-declare class Select extends Component<SharedProps & SelectProps> {}
-declare class Tabs extends Component<SharedProps & TabsProps> {}
-declare class Tab extends Component<SharedProps & TabsProps> {}
-declare class Text extends Component<SharedProps & TextProps> {}
-declare class Flex extends Component<SharedProps & FlexProps> {}
-declare class Divider extends Component<SharedProps & DividerProps> {}
-declare class Box extends Component<SharedProps> {}
-declare class Dimmer extends Component<DimmerProps> {}
-declare class Checkbox extends Component<SharedProps & CheckboxProps> {}
-declare class Container extends Component<SharedProps & ContainerProps> {}
-declare class Button extends Component<SharedProps & ButtonProps> {}
+declare class Progress extends Component<SharedProps & ProgressProps> { }
+declare class Responsive extends Component<SharedProps & ResponsiveProps> { }
+declare class Segment extends Component<SharedProps & SegmentProps> { }
+declare class Select extends Component<SharedProps & SelectProps> { }
+declare class Tabs extends Component<SharedProps & TabsProps> { }
+declare class Tab extends Component<SharedProps & TabsProps> { }
+declare class Text extends Component<SharedProps & TextProps> { }
+declare class Flex extends Component<SharedProps & FlexProps> { }
+declare class Divider extends Component<SharedProps & DividerProps> { }
+declare class Box extends Component<SharedProps> { }
+declare class Dimmer extends Component<DimmerProps> { }
+declare class Checkbox extends Component<SharedProps & CheckboxProps> { }
+declare class Container extends Component<SharedProps & ContainerProps> { }
+declare class Button extends Component<SharedProps & ButtonProps> { }
 
 declare const findColor: (props: any, color: string) => any;
 

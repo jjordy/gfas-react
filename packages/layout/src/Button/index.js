@@ -21,6 +21,18 @@ const Content = styled.span`
   flex: 1 1 auto;
 `
 
+const outlineActiveCss = css`
+  color: ${props =>
+    findColor(props)
+      .darken(0.2)
+      .hex()};
+  border: 1px solid
+    ${props =>
+    findColor(props)
+      .darken(0.2)
+      .hex()};
+`
+
 export const buttonStyles = css`
   display: flex;
   align-self: center;
@@ -30,6 +42,8 @@ export const buttonStyles = css`
   outline: 0;
   ${heavyFontMixin};
   vertical-align: middle;
+  background-color: ${props => (props.outline ? 'transparent' : '')};
+  color: ${props => (props.outline ? findColor(props).hex() : '')};
   transition: background-color 0.2s ease;
   border: ${props =>
     props.border
@@ -47,10 +61,12 @@ export const buttonStyles = css`
     }
   }
   &:hover {
-    ${darkenBackgroundColorMixin};
+    ${props => !props.outline && darkenBackgroundColorMixin};
+    ${props => props.outline && outlineActiveCss}
   }
   &:focus {
-    ${darkenBackgroundColorMixin};
+    ${props => !props.outline && darkenBackgroundColorMixin};
+    ${props => props.outline && outlineActiveCss}
   }
   & ${Svg} {
     ${iconReverseColorMixin};
@@ -86,12 +102,11 @@ const Button = ({
   ...rest
 }) => (
   <ThemedButton {...rest} icon={icon}>
-    {icon &&
-      !labelPosition && <MyIcon icon={icon} mr={(children || content) && 1} />}
+    {icon && !labelPosition && (
+      <MyIcon icon={icon} mr={(children || content) && 1} />
+    )}
     {children || content}
-    {icon &&
-      labelPosition &&
-      labelPosition === 'right' && (
+    {icon && labelPosition && labelPosition === 'right' && (
       <MyIcon icon={icon} ml={(children || content) && 1} />
     )}
   </ThemedButton>
@@ -102,6 +117,7 @@ Button.Icon = withTheme(Icon)
 Button.Content = withTheme(Content)
 
 Button.propTypes = {
+  outline: PropTypes.bool,
   children: PropTypes.node,
   content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   float: PropTypes.oneOf(['right', 'left']),
