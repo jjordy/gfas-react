@@ -100,17 +100,85 @@ const Button = ({
   children,
   content,
   ...rest
-}) => (
-  <ThemedButton {...rest} icon={icon}>
-    {icon && !labelPosition && (
-      <MyIcon icon={icon} mr={(children || content) && 1} />
-    )}
-    {children || content}
-    {icon && labelPosition && labelPosition === 'right' && (
-      <MyIcon icon={icon} ml={(children || content) && 1} />
-    )}
-  </ThemedButton>
-)
+}) => {
+  if (icon && typeof icon === 'string') {
+    if (!labelPosition) {
+      return (
+        <ThemedButton {...rest} icon={icon}>
+          <MyIcon icon={icon} mr={(children || content) && 1} />
+          {children || content}
+        </ThemedButton>
+      )
+    }
+    if (labelPosition && labelPosition === 'right') {
+      return (
+        <ThemedButton {...rest} icon={icon}>
+          {children || content}
+          <MyIcon icon={icon} ml={(children || content) && 1} />
+        </ThemedButton>
+      )
+    }
+    if (labelPosition && labelPosition === 'left') {
+      return (
+        <ThemedButton {...rest} icon={icon}>
+          {children || content}
+          <MyIcon icon={icon} ml={(children || content) && 1} />
+        </ThemedButton>
+      )
+    }
+  } else if (icon && React.isValidElement(icon)) {
+    if (!labelPosition) {
+      return (
+        <ThemedButton {...rest} icon={icon}>
+          {icon}
+          {children || content}
+        </ThemedButton>
+      )
+    }
+    if (labelPosition && labelPosition === 'right') {
+      return (
+        <ThemedButton {...rest} icon={icon}>
+          {children || content}
+          {icon}
+        </ThemedButton>
+      )
+    }
+    if (labelPosition && labelPosition === 'left') {
+      return (
+        <ThemedButton {...rest} icon={icon}>
+          {children || content}
+          {icon}
+        </ThemedButton>
+      )
+    }
+  } else if (icon && typeof icon === 'function') {
+    if (!labelPosition) {
+      return (
+        <ThemedButton {...rest} icon={icon}>
+          {icon()}
+          {children || content}
+        </ThemedButton>
+      )
+    }
+    if (labelPosition && labelPosition === 'right') {
+      return (
+        <ThemedButton {...rest} icon={icon}>
+          {children || content}
+          {icon()}
+        </ThemedButton>
+      )
+    }
+    if (labelPosition && labelPosition === 'left') {
+      return (
+        <ThemedButton {...rest} icon={icon}>
+          {children || content}
+          {icon()}
+        </ThemedButton>
+      )
+    }
+  }
+  return <ThemedButton {...rest}>{children || content}</ThemedButton>
+}
 
 Button.Icon = withTheme(Icon)
 

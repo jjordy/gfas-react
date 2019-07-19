@@ -87,9 +87,11 @@ export interface SharedProps {
   [prop: string]: any;
 }
 
+type FunctionComponent = () => React.ReactNode | any
+
 export interface ButtonProps {
   content?: string | ReactElement<any>;
-  icon?: string;
+  icon?: string | React.ReactNode | FunctionComponent;
   outline?: boolean;
 }
 

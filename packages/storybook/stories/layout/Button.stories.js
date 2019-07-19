@@ -23,6 +23,8 @@ storiesOf('@jjordy/Layout/Button', module)
   .add('Colors', () => <ColoredButtons />)
   .add('Inverted', () => <Button inverted>INVERTED</Button>)
   .add('Icon', () => <Button icon='question' />)
+  .add('Icon Component', () => <Button icon={<span>ICON</span>} />)
+  .add('Icon Function Component', () => <Button icon={() => <span>TEST</span>} />)
   .add('Text w/ Icon', () => <Button icon='chevron_left'>GO BACK</Button>)
   .add('Floated', () => (
     <Segment clearing vertical>
