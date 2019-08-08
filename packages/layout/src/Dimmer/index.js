@@ -21,8 +21,8 @@ const Dimmer = styled(Box)`
   opacity: ${props => (props.active ? 1 : 0)};
   line-height: 1;
   animation-fill-mode: both;
-  animation-duration: 0.4s;
-  transition: opacity 0.4s linear;
+  animation-duration: 250ms;
+  transition: opacity 250ms linear;
   pointer-events: ${props => (props.active ? 'auto' : 'none')};
   will-change: opacity;
   z-index: ${props => (props.active ? 1000 : -1)};
