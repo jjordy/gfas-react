@@ -48,7 +48,7 @@ export function maxNumber (max) {
 }
 
 export function phone (value) {
-  if (!/(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/.test(value)) {
+  if (value && !/(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/.test(value)) {
     return 'Must be a valid Phone number.'
   }
 }

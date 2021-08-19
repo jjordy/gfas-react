@@ -24,7 +24,10 @@ const StyledTab = styled.div`
   padding-right: 1rem;
   padding-left: 1rem;
   outline: none;
-  &: hover {
+  & focus {
+    outline-color: blue;
+  }
+  & hover {
     cursor: pointer;
   }
 `
@@ -66,7 +69,6 @@ export default class Tabs extends React.Component {
         <TabContainer justify={justify}>
           {React.Children.map(children, (child, id) => (
             <StyledTab
-              tabIndex={id}
               role='button'
               justify={justify}
               active={activeTab === child.props.name}

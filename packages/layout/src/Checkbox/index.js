@@ -21,11 +21,11 @@ const FormMessage = styled.small`
   font-weight: 400;
 `
 
-export const Label = styled.span`
+export const Label = styled.label`
   margin-left: 8px;
   font-size: 1rem;
   color: ${({ color, theme, error }) => {
-    return error ? theme['red'] : theme['darkGray']
+    return error ? theme.red : theme.darkGray
   }};
 `
 
@@ -52,7 +52,7 @@ export const CheckIcon = styled(Icon)`
   height: 18px;
   fill: ${({ bg, theme, error }) => {
     if (error) {
-      return theme['red']
+      return theme.red
     } else {
       return findColor({ bg, theme }).hex()
     }
@@ -110,7 +110,7 @@ export class Checkbox extends PureComponent {
           tabIndex='-1'
           name={name}
           checked={checked}
-          aria-labelledby={id || `id_${name}`}
+          id={id || `id_${name}`}
           onChange={() => {}}
         />
         <Check>

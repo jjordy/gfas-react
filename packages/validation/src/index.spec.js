@@ -61,7 +61,8 @@ describe('Validation Methods', () => {
 
   it('Should fail validation if the pass phone number is invalid', () => {
     const validationMessage = 'Must be a valid Phone number.'
-    expect.assertions(7)
+    expect.assertions(8)
+    expect(phone(null)).toEqual(undefined)
     expect(phone(3)).toEqual(validationMessage)
     expect(phone('38328343_(dFASDFAD')).toEqual(validationMessage)
     expect(phone('2285470060+1')).toEqual(validationMessage)

@@ -122,6 +122,7 @@ const ThemedSvg = withTheme(Svg, 'black')
 
 const Icon = ({ icon, style, ...rest }) => (
   <ThemedSvg
+    aria-label={icon}
     viewBox={icons[icon] && icons[icon].viewBox}
     style={style}
     {...rest}
