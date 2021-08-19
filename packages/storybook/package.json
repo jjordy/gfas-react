@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "storybook",
-  "version": "0.0.140",
+  "version": "0.0.141",
   "description": "Dev env for components",
   "scripts": {
     "dev": "start-storybook -p 9001",
@@ -11,11 +11,11 @@
   "devDependencies": {
     "@babel/cli": "^7.6.0",
     "@babel/core": "^7.6.0",
-    "@jjordy/datagrid": "^1.1.4",
-    "@jjordy/file-upload": "^1.1.4",
-    "@jjordy/iam": "^2.0.1",
-    "@jjordy/layout": "^1.1.4",
-    "@jjordy/validation": "^1.0.0",
+    "@jjordy/datagrid": "^1.1.5",
+    "@jjordy/file-upload": "^1.1.5",
+    "@jjordy/iam": "^2.0.2",
+    "@jjordy/layout": "^1.1.7",
+    "@jjordy/validation": "^1.0.2",
     "@storybook/addon-a11y": "^5.1.11",
     "@storybook/addon-actions": "^5.1.11",
     "@storybook/addon-backgrounds": "^5.1.11",

@@ -1,6 +1,6 @@
 {
   "name": "@jjordy/validation",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Validation helpers",
   "main": "./lib/index.js",
   "module": "./lib/es/index.js",
